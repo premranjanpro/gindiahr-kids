@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIndia Kids | Kids E-Learning Platform India | Phonics, Alphabet & Interactive Learning for Children</title>
+    <meta name="description" content="GIndia Kids – India's best free kids e-learning platform! Learn A-Z Alphabet with phonics, Numbers 1-20, Animal Sounds, Colors & Shapes, Rhymes and a Kids Drawing Board. Fun interactive learning for children aged 2-8." />
+    <meta name="keywords" content="kids elearning platform India, phonics learning online free, alphabet learning for kids, nursery learning activities online, kids education website India, free learning for children, abc learning online, numbers for kids, animal sounds for children" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://kids.gindiahr.com/" />
+    <meta property="og:title" content="GIndia Kids | Free Kids E-Learning Platform India" />
+    <meta property="og:description" content="Learn A-Z Phonics, Numbers, Animal Sounds, Colors, Rhymes and Draw! Free interactive e-learning for kids aged 2-8 in India." />
+    <meta property="og:url" content="https://kids.gindiahr.com/" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pink: #FF6B9D;
+            --purple: #9B59B6;
+            --blue: #3498DB;
+            --sky: #00C5FF;
+            --green: #2ECC71;
+            --yellow: #F1C40F;
+            --orange: #FF8C00;
+            --red: #E74C3C;
+            --bg: #FFF8F0;
+            --card: #FFFFFF;
+            --text: #2C3E50;
+            --sub: #7F8C8D;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #FF6B9D, #9B59B6);
+            padding: 14px 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .logo {
+            font-family: 'Baloo 2', cursive;
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo .sub { font-size: 14px; font-weight: 600; opacity: 0.85; }
+        .header-nav { display: flex; gap: 8px; }
+        .header-nav a {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+        .header-nav a:hover { background: rgba(255,255,255,0.4); }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #FF6B9D 0%, #9B59B6 40%, #3498DB 100%);
+            padding: 60px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+        .star {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.6);
+            animation: twinkle 2s ease-in-out infinite;
+        }
+        @keyframes twinkle { 0%,100%{ opacity:0.3; transform: scale(1); } 50%{ opacity:1; transform: scale(1.4); } }
+
+        .hero-content { position: relative; z-index: 1; }
+        .hero-emoji-row { font-size: 48px; margin-bottom: 16px; animation: bounce 1.5s ease-in-out infinite; }
+        @keyframes bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-14px); } }
+        .hero h1 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 58px;
+            color: #fff;
+            margin-bottom: 14px;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        .hero p { font-size: 20px; color: rgba(255,255,255,0.9); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero-age-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.4);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 800;
+            padding: 10px 24px;
+            border-radius: 50px;
+            margin-bottom: 32px;
+        }
+        .hero-modules { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+        .hero-mod-btn {
+            background: #fff;
+            border: none;
+            border-radius: 16px;
+            padding: 14px 22px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .hero-mod-btn:hover { transform: scale(1.08) translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+
+        /* MODULES */
+        .modules-section { padding: 70px 24px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 52px; }
+        .section-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 44px;
+            font-weight: 800;
+            color: var(--purple);
+            margin-bottom: 8px;
+        }
+        .section-sub { font-size: 18px; color: var(--sub); }
+
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .mod-card {
+            background: var(--card);
+            border-radius: 28px;
+            padding: 36px 28px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+        .mod-card:hover { transform: translateY(-10px) scale(1.02); }
+        .mod-card.alpha { border-color: var(--blue); }
+        .mod-card.alpha:hover { box-shadow: 0 20px 50px rgba(52,152,219,0.3); }
+        .mod-card.numbers { border-color: var(--green); }
+        .mod-card.numbers:hover { box-shadow: 0 20px 50px rgba(46,204,113,0.3); }
+        .mod-card.animals { border-color: var(--orange); }
+        .mod-card.animals:hover { box-shadow: 0 20px 50px rgba(255,140,0,0.3); }
+        .mod-card.colors { border-color: var(--pink); }
+        .mod-card.colors:hover { box-shadow: 0 20px 50px rgba(255,107,157,0.3); }
+        .mod-card.rhymes { border-color: var(--purple); }
+        .mod-card.rhymes:hover { box-shadow: 0 20px 50px rgba(155,89,182,0.3); }
+        .mod-card.drawing { border-color: var(--yellow); }
+        .mod-card.drawing:hover { box-shadow: 0 20px 50px rgba(241,196,15,0.3); }
+
+        .mod-icon { font-size: 64px; margin-bottom: 16px; display: block; }
+        .mod-card h3 { font-family: 'Baloo 2', cursive; font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+        .mod-card.alpha h3 { color: var(--blue); }
+        .mod-card.numbers h3 { color: var(--green); }
+        .mod-card.animals h3 { color: var(--orange); }
+        .mod-card.colors h3 { color: var(--pink); }
+        .mod-card.rhymes h3 { color: var(--purple); }
+        .mod-card.drawing h3 { color: #B8860B; }
+        .mod-card p { font-size: 15px; color: var(--sub); line-height: 1.6; margin-bottom: 20px; }
+        .mod-btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 16px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            color: #fff;
+            transition: all 0.2s;
+        }
+        .mod-btn:hover { transform: scale(1.05); }
+        .alpha .mod-btn { background: var(--blue); }
+        .numbers .mod-btn { background: var(--green); }
+        .animals .mod-btn { background: var(--orange); }
+        .colors .mod-btn { background: var(--pink); }
+        .rhymes .mod-btn { background: var(--purple); }
+        .drawing .mod-btn { background: var(--yellow); color: #000; }
+
+        /* MODAL */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal {
+            background: #fff;
+            border-radius: 28px;
+            padding: 44px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 88vh;
+            overflow-y: auto;
+            position: relative;
+            animation: popUp 0.35s ease;
+        }
+        @keyframes popUp { from { opacity:0; transform: scale(0.8) translateY(40px); } to { opacity:1; transform: scale(1) translateY(0); } }
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            background: #f0f0f0;
+            border: none;
+            color: #666;
+            font-size: 20px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 700;
+        }
+        .modal-close:hover { background: #ddd; }
+        .modal-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .modal-sub { color: var(--sub); font-size: 15px; margin-bottom: 28px; }
+
+        /* ALPHABET MODULE */
+        .alpha-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+        .alpha-letter {
+            background: linear-gradient(135deg, #EBF5FB, #D6EAF8);
+            border: 2px solid var(--blue);
+            border-radius: 14px;
+            padding: 14px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .alpha-letter:hover { background: var(--blue); color: #fff; transform: scale(1.1); }
+        .alpha-letter .letter { font-family: 'Baloo 2', cursive; font-size: 28px; font-weight: 800; color: var(--blue); display: block; }
+        .alpha-letter:hover .letter { color: #fff; }
+        .alpha-letter .word { font-size: 11px; color: var(--sub); display: block; margin-top: 2px; }
+        .alpha-letter:hover .word { color: rgba(255,255,255,0.85); }
+        .letter-display {
+            background: linear-gradient(135deg, #EBF5FB, #AED6F1);
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .letter-big { font-family: 'Baloo 2', cursive; font-size: 96px; font-weight: 800; color: var(--blue); line-height: 1; }
+        .letter-word { font-size: 26px; font-weight: 700; color: var(--text); margin-top: 8px; }
+        .letter-emoji { font-size: 48px; margin-top: 4px; }
+        .speak-btn {
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.2s;
+        }
+        .speak-btn:hover { background: #2980B9; transform: scale(1.05); }
+
+        /* NUMBER MODULE */
+        .number-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+        .num-card {
+            background: linear-gradient(135deg, #EAFAF1, #D5F5E3);
+            border: 2px solid var(--green);
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .num-card:hover { background: var(--green); transform: scale(1.1); }
+        .num-card .num { font-family: 'Baloo 2', cursive; font-size: 36px; font-weight: 800; color: var(--green); }
+        .num-card:hover .num { color: #fff; }
+        .num-card .dots { font-size: 14px; margin-top: 4px; }
+        .num-display { background: linear-gradient(135deg, #EAFAF1, #A9DFBF); border-radius: 20px; padding: 24px; text-align: center; margin-bottom: 20px; }
+        .num-big { font-family: 'Baloo 2', cursive; font-size: 96px; font-weight: 800; color: var(--green); line-height: 1; }
+        .num-word { font-size: 24px; font-weight: 700; margin-top: 8px; }
+        .num-dots { font-size: 28px; margin-top: 8px; line-height: 1.4; word-break: break-all; }
+
+        /* ANIMAL MODULE */
+        .animal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+        .animal-card {
+            background: linear-gradient(135deg, #FEF9E7, #FDEBD0);
+            border: 2px solid var(--orange);
+            border-radius: 18px;
+            padding: 22px 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .animal-card:hover { background: var(--orange); transform: scale(1.05); }
+        .animal-card:hover .animal-name { color: #fff; }
+        .animal-emoji { font-size: 44px; }
+        .animal-name { font-family: 'Baloo 2', cursive; font-size: 16px; font-weight: 700; color: var(--text); margin-top: 8px; }
+        .animal-sound { font-size: 13px; color: var(--sub); margin-top: 4px; }
+        .animal-card:hover .animal-sound { color: rgba(255,255,255,0.8); }
+
+        /* COLORS MODULE */
+        .colors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        .color-card {
+            border-radius: 20px;
+            padding: 24px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 3px solid transparent;
+        }
+        .color-card:hover { transform: scale(1.1) rotate(3deg); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+        .color-emoji { font-size: 36px; margin-bottom: 8px; }
+        .color-name { font-family: 'Baloo 2', cursive; font-size: 16px; font-weight: 700; }
+
+        /* DRAWING BOARD */
+        .drawing-board-wrap { text-align: center; }
+        .canvas-container { border: 3px solid var(--yellow); border-radius: 20px; overflow: hidden; margin-bottom: 16px; }
+        canvas { display: block; cursor: crosshair; background: #fff; }
+        .color-palette { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .palette-color {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .palette-color.active, .palette-color:hover { border-color: var(--text); transform: scale(1.2); }
+        .brush-controls { display: flex; justify-content: center; gap: 10px; margin-bottom: 14px; align-items: center; }
+        .brush-ctrl {
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 8px 16px;
+            font-family: 'Baloo 2', cursive;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .brush-ctrl:hover { background: var(--yellow); border-color: var(--yellow); }
+        .board-btns { display: flex; justify-content: center; gap: 12px; }
+        .board-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: none;
+            font-family: 'Baloo 2', cursive;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .board-btn:hover { transform: scale(1.05); }
+
+        /* RHYMES */
+        .rhymes-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .rhyme-card {
+            background: linear-gradient(135deg, #F4ECF7, #E8DAEF);
+            border: 2px solid var(--purple);
+            border-radius: 18px;
+            padding: 22px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .rhyme-card:hover { background: var(--purple); color: #fff; transform: scale(1.04); }
+        .rhyme-card:hover .rhyme-title { color: #fff; }
+        .rhyme-icon { font-size: 36px; margin-bottom: 10px; }
+        .rhyme-title { font-family: 'Baloo 2', cursive; font-size: 18px; font-weight: 700; color: var(--purple); }
+        .rhyme-lines { font-size: 14px; color: var(--sub); margin-top: 8px; line-height: 1.6; }
+        .rhyme-card:hover .rhyme-lines { color: rgba(255,255,255,0.85); }
+
+        /* CONFETTI */
+        .confetti-container { position: fixed; top: 0; left: 0; width: 100%; pointer-events: none; z-index: 9999; }
+        .confetti-piece {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            top: -20px;
+            animation: confetti-fall linear forwards;
+        }
+        @keyframes confetti-fall {
+            to { transform: translateY(110vh) rotate(720deg); }
+        }
+
+        /* PARENT STRIP */
+        .parent-strip {
+            background: linear-gradient(135deg, var(--purple), var(--blue));
+            padding: 50px 24px;
+            text-align: center;
+            color: #fff;
+        }
+        .parent-strip h2 { font-family: 'Baloo 2', cursive; font-size: 36px; margin-bottom: 10px; }
+        .parent-strip p { font-size: 17px; opacity: 0.9; margin-bottom: 24px; }
+        .parent-strip-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+        .parent-link {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            border: 2px solid rgba(255,255,255,0.4);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.2s;
+        }
+        .parent-link:hover { background: rgba(255,255,255,0.35); transform: translateY(-2px); }
+
+        /* FOOTER */
+        footer { background: #2C3E50; padding: 24px; text-align: center; }
+        footer p { color: rgba(255,255,255,0.6); font-size: 13px; }
+        footer a { color: var(--yellow); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .modules-grid { grid-template-columns: 1fr 1fr; }
+            .hero h1 { font-size: 38px; }
+            .alpha-grid { grid-template-columns: repeat(4, 1fr); }
+            .rhymes-list { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) {
+            .modules-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 30px; }
+            .modal { padding: 28px 20px; }
+            .alpha-grid { grid-template-columns: repeat(3, 1fr); }
+            .number-grid { grid-template-columns: repeat(4, 1fr); }
+            .colors-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <header>
+        <div class="header-inner">
+            <a href="/" class="logo">🌈 GIndia <div><div>Kids</div><div class="sub">Fun E-Learning for Children</div></div></a>
+            <div class="header-nav">
+                <a href="https://game.gindiahr.com">🎮 Games</a>
+                <a href="https://gindiahr.com">GIndiaHR</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="stars" id="stars"></div>
+        <div class="hero-content">
+            <div class="hero-emoji-row">🌟✨🎈🌈🎠</div>
+            <h1>Learn & Play Together!</h1>
+            <p>A magical learning world for little ones. Phonics, Numbers, Animal Sounds, Drawing and more — all free!</p>
+            <div class="hero-age-badge">👧 For Kids aged 2–8 Years 👦</div>
+            <div class="hero-modules">
+                <button class="hero-mod-btn" onclick="openModule('alpha')">🔤 Alphabet</button>
+                <button class="hero-mod-btn" onclick="openModule('numbers')">🔢 Numbers</button>
+                <button class="hero-mod-btn" onclick="openModule('animals')">🦁 Animals</button>
+                <button class="hero-mod-btn" onclick="openModule('colors')">🎨 Colors</button>
+                <button class="hero-mod-btn" onclick="openModule('rhymes')">🎵 Rhymes</button>
+                <button class="hero-mod-btn" onclick="openModule('drawing')">✏️ Draw!</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="modules-section" id="modules">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🎓 Learning Modules</h2>
+                <p class="section-sub">Tap on any module to start learning! Interactive, colorful, and fun!</p>
+            </div>
+            <div class="modules-grid">
+                <div class="mod-card alpha" onclick="openModule('alpha')">
+                    <span class="mod-icon">🔤</span>
+                    <h3>A-Z Alphabet & Phonics</h3>
+                    <p>Learn all 26 letters with sounds, pictures & example words. Tap to hear the phonics sound!</p>
+                    <button class="mod-btn" id="open-alpha">▶ Start Learning</button>
+                </div>
+                <div class="mod-card numbers" onclick="openModule('numbers')">
+                    <span class="mod-icon">🔢</span>
+                    <h3>Numbers 1-20</h3>
+                    <p>Count from 1 to 20 with cute animated dots and number words. Fun counting for little ones!</p>
+                    <button class="mod-btn" id="open-numbers">▶ Start Counting</button>
+                </div>
+                <div class="mod-card animals" onclick="openModule('animals')">
+                    <span class="mod-icon">🦁</span>
+                    <h3>Animal World</h3>
+                    <p>Meet 12 amazing animals! Hear their names, see them, and listen to their sounds.</p>
+                    <button class="mod-btn" id="open-animals">▶ Meet Animals</button>
+                </div>
+                <div class="mod-card colors" onclick="openModule('colors')">
+                    <span class="mod-icon">🎨</span>
+                    <h3>Colors & Shapes</h3>
+                    <p>Learn beautiful colors and basic shapes. Tap to hear the color name in a cheerful voice!</p>
+                    <button class="mod-btn" id="open-colors">▶ Explore Colors</button>
+                </div>
+                <div class="mod-card rhymes" onclick="openModule('rhymes')">
+                    <span class="mod-icon">🎵</span>
+                    <h3>Nursery Rhymes</h3>
+                    <p>Read and enjoy classic nursery rhymes. Tap to display the full rhyme and sing along!</p>
+                    <button class="mod-btn" id="open-rhymes">▶ Read Rhymes</button>
+                </div>
+                <div class="mod-card drawing" onclick="openModule('drawing')">
+                    <span class="mod-icon">✏️</span>
+                    <h3>My Drawing Board</h3>
+                    <p>Creative canvas for little artists! Draw, paint, erase, and save your colorful masterpiece!</p>
+                    <button class="mod-btn" id="open-drawing">▶ Start Drawing</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALPHABET MODAL -->
+    <div class="modal-overlay" id="modal-alpha">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModule('alpha')">✕</button>
+            <div class="modal-title" style="color: var(--blue);">🔤 A-Z Alphabet & Phonics</div>
+            <div class="modal-sub">Tap any letter to see and hear it!</div>
+            <div class="letter-display" id="letter-display">
+                <div class="letter-big" id="letter-big">A</div>
+                <div class="letter-word" id="letter-word">Apple</div>
+                <div class="letter-emoji" id="letter-emoji">🍎</div>
+                <button class="speak-btn" onclick="speakLetter()">🔊 Hear Sound</button>
+            </div>
+            <div class="alpha-grid" id="alpha-grid"></div>
+        </div>
+    </div>
+
+    <!-- NUMBERS MODAL -->
+    <div class="modal-overlay" id="modal-numbers">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModule('numbers')">✕</button>
+            <div class="modal-title" style="color: var(--green);">🔢 Numbers 1-20</div>
+            <div class="modal-sub">Tap a number to count along!</div>
+            <div class="num-display" id="num-display">
+                <div class="num-big" id="num-big">1</div>
+                <div class="num-word" id="num-word">One</div>
+                <div class="num-dots" id="num-dots">⭐</div>
+                <button class="speak-btn" onclick="speakNumber()" style="background: var(--green);">🔊 Hear It</button>
+            </div>
+            <div class="number-grid" id="number-grid"></div>
+        </div>
+    </div>
+
+    <!-- ANIMALS MODAL -->
+    <div class="modal-overlay" id="modal-animals">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModule('animals')">✕</button>
+            <div class="modal-title" style="color: var(--orange);">🦁 Animal World</div>
+            <div class="modal-sub">Tap an animal to learn and hear its name!</div>
+            <div class="animal-grid" id="animal-grid"></div>
+        </div>
+    </div>
+
+    <!-- COLORS MODAL -->
+    <div class="modal-overlay" id="modal-colors">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModule('colors')">✕</button>
+            <div class="modal-title" style="color: var(--pink);">🎨 Colors & Shapes</div>
+            <div class="modal-sub">Tap a color to learn its name!</div>
+            <div class="colors-grid" id="colors-grid"></div>
+        </div>
+    </div>
+
+    <!-- RHYMES MODAL -->
+    <div class="modal-overlay" id="modal-rhymes">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModule('rhymes')">✕</button>
+            <div class="modal-title" style="color: var(--purple);">🎵 Nursery Rhymes</div>
+            <div class="modal-sub">Tap a rhyme to read it!</div>
+            <div class="rhymes-list" id="rhymes-list"></div>
+            <div id="rhyme-display" style="margin-top: 20px; background: #F4ECF7; border-radius: 18px; padding: 24px; display: none;">
+                <h4 id="rhyme-d-title" style="font-family: 'Baloo 2'; font-size: 22px; color: var(--purple); margin-bottom: 12px;"></h4>
+                <p id="rhyme-d-text" style="font-size: 17px; line-height: 2; white-space: pre-line; color: var(--text);"></p>
+                <button onclick="speakRhyme()" class="speak-btn" style="background: var(--purple); margin-top: 16px;">🔊 Read Aloud</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DRAWING MODAL -->
+    <div class="modal-overlay" id="modal-drawing">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModule('drawing')">✕</button>
+            <div class="modal-title" style="color: #B8860B;">✏️ My Drawing Board</div>
+            <div class="modal-sub">Draw anything you like! Use colors and brushes!</div>
+            <div class="drawing-board-wrap">
+                <div class="color-palette" id="canvas-palette"></div>
+                <div class="brush-controls">
+                    <label style="font-weight: 700; font-size: 14px;">Size:</label>
+                    <input type="range" id="brush-size" min="2" max="40" value="6" style="width: 120px; cursor: pointer;">
+                    <span id="size-label" style="font-weight: 700;">6px</span>
+                    <button class="brush-ctrl" onclick="setEraser()">🧹 Eraser</button>
+                    <button class="brush-ctrl" onclick="setBrush()">🖌️ Brush</button>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="drawing-canvas" width="580" height="360"></canvas>
+                </div>
+                <div class="board-btns">
+                    <button class="board-btn" onclick="clearCanvas()" style="background: var(--red); color: #fff;">🗑️ Clear</button>
+                    <button class="board-btn" onclick="downloadCanvas()" style="background: var(--green); color: #fff;">💾 Save</button>
+                    <button class="board-btn" onclick="addSticker()" style="background: var(--yellow); color: #000;">⭐ Add Star</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parent-strip">
+        <h2>🌟 A Learning World for Little Champions!</h2>
+        <p>GIndia Kids is designed for parents and teachers to engage children with interactive, phonics-based learning modules.</p>
+        <div class="parent-strip-links">
+            <a href="https://game.gindiahr.com" class="parent-link">🎮 Educational Games</a>
+            <a href="https://gptiindia.in" class="parent-link">🎓 School Courses</a>
+            <a href="https://gindiahr.com" class="parent-link">🤝 GIndiaHR</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>🌈 GIndia Kids | Kids E-Learning Platform India | <a href="https://gindiahr.com">GIndiaHR Group</a><br>
+        Free phonics learning | alphabet for kids | numbers for children | animal sounds online</p>
+    </footer>
+
+    <script>
+        // ===== DATA =====
+        const alphabetData = [
+            {l:'A',w:'Apple',e:'🍎'},{l:'B',w:'Ball',e:'⚽'},{l:'C',w:'Cat',e:'🐱'},{l:'D',w:'Dog',e:'🐶'},
+            {l:'E',w:'Elephant',e:'🐘'},{l:'F',w:'Fish',e:'🐟'},{l:'G',w:'Goat',e:'🐐'},{l:'H',w:'Horse',e:'🐴'},
+            {l:'I',w:'Ice Cream',e:'🍦'},{l:'J',w:'Jug',e:'🏺'},{l:'K',w:'Kite',e:'🪁'},{l:'L',w:'Lion',e:'🦁'},
+            {l:'M',w:'Mango',e:'🥭'},{l:'N',w:'Nest',e:'🪺'},{l:'O',w:'Orange',e:'🍊'},{l:'P',w:'Parrot',e:'🦜'},
+            {l:'Q',w:'Queen',e:'👸'},{l:'R',w:'Rainbow',e:'🌈'},{l:'S',w:'Sun',e:'☀️'},{l:'T',w:'Tiger',e:'🐯'},
+            {l:'U',w:'Umbrella',e:'☂️'},{l:'V',w:'Van',e:'🚐'},{l:'W',w:'Whale',e:'🐋'},{l:'X',w:'Xylophone',e:'🎶'},
+            {l:'Y',w:'Yak',e:'🐄'},{l:'Z',w:'Zebra',e:'🦓'}
+        ];
+        const numberWords = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen','Twenty'];
+        const animalData = [
+            {name:'Lion',emoji:'🦁',sound:'Roar!'},{name:'Elephant',emoji:'🐘',sound:'Trumpet!'},{name:'Tiger',emoji:'🐯',sound:'Growl!'},
+            {name:'Dog',emoji:'🐶',sound:'Woof!'},{name:'Cat',emoji:'🐱',sound:'Meow!'},{name:'Cow',emoji:'🐄',sound:'Moo!'},
+            {name:'Duck',emoji:'🦆',sound:'Quack!'},{name:'Frog',emoji:'🐸',sound:'Ribbit!'},{name:'Horse',emoji:'🐴',sound:'Neigh!'},
+            {name:'Monkey',emoji:'🐵',sound:'Ooh Ooh!'},{name:'Parrot',emoji:'🦜',sound:'Hello!'},{name:'Fish',emoji:'🐟',sound:'Bubble!'}
+        ];
+        const colorsData = [
+            {name:'Red',bg:'#FF6B6B',emoji:'🍎'},{name:'Blue',bg:'#4ECDC4',emoji:'🌊'},{name:'Green',bg:'#45B7D1',emoji:'🌿'},
+            {name:'Yellow',bg:'#FED766',emoji:'☀️'},{name:'Orange',bg:'#FF8C42',emoji:'🍊'},{name:'Purple',bg:'#C39BD3',emoji:'🌸'},
+            {name:'Pink',bg:'#FF6B9D',emoji:'🌷'},{name:'Brown',bg:'#A0714F',emoji:'🪵'},{name:'White',bg:'#ECF0F1',emoji:'⬜'},
+            {name:'Black',bg:'#2C3E50',emoji:'⬛'},{name:'Grey',bg:'#95A5A6',emoji:'🌫️'},{name:'Gold',bg:'#F1C40F',emoji:'⭐'}
+        ];
+        const rhymesData = [
+            {title:'Twinkle Twinkle Little Star',icon:'⭐',text:'Twinkle twinkle little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.\nTwinkle twinkle little star,\nHow I wonder what you are!'},
+            {title:'Baa Baa Black Sheep',icon:'🐑',text:'Baa baa black sheep,\nHave you any wool?\nYes sir, yes sir,\nThree bags full!\nOne for my master,\nAnd one for my dame,\nAnd one for the little boy\nWho lives down the lane.'},
+            {title:'Humpty Dumpty',icon:'🥚',text:'Humpty Dumpty sat on a wall,\nHumpty Dumpty had a great fall.\nAll the king\'s horses and all the king\'s men,\nCouldn\'t put Humpty together again!'},
+            {title:'Jack and Jill',icon:'🪣',text:'Jack and Jill went up the hill,\nTo fetch a pail of water.\nJack fell down and broke his crown,\nAnd Jill came tumbling after!'},
+            {title:'Wheels on the Bus',icon:'🚌',text:'The wheels on the bus go round and round,\nRound and round, round and round!\nThe wheels on the bus go round and round,\nAll through the town!'},
+            {title:'Old MacDonald',icon:'🐄',text:'Old MacDonald had a farm,\nE-I-E-I-O!\nAnd on his farm he had a cow,\nE-I-E-I-O!\nWith a moo-moo here,\nAnd a moo-moo there!'}
+        ];
+
+        // ===== MODAL OPEN/CLOSE =====
+        function openModule(name) {
+            document.getElementById('modal-' + name).classList.add('open');
+            if (name === 'alpha') buildAlpha();
+            if (name === 'numbers') buildNumbers();
+            if (name === 'animals') buildAnimals();
+            if (name === 'colors') buildColors();
+            if (name === 'rhymes') buildRhymes();
+            if (name === 'drawing') initCanvas();
+        }
+        function closeModule(name) { document.getElementById('modal-' + name).classList.remove('open'); }
+        document.querySelectorAll('.modal-overlay').forEach(m => {
+            m.addEventListener('click', function(e) { if (e.target === this) closeModule(this.id.replace('modal-', '')); });
+        });
+
+        // ===== SPEECH =====
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                const utt = new SpeechSynthesisUtterance(text);
+                utt.lang = 'en-US';
+                utt.rate = 0.85;
+                utt.pitch = 1.3;
+                speechSynthesis.cancel();
+                speechSynthesis.speak(utt);
+            }
+        }
+
+        // ===== ALPHABET =====
+        let currentLetter = alphabetData[0];
+        function buildAlpha() {
+            const grid = document.getElementById('alpha-grid');
+            grid.innerHTML = '';
+            alphabetData.forEach(d => {
+                const el = document.createElement('div');
+                el.className = 'alpha-letter';
+                el.innerHTML = `<span class="letter">${d.l}</span><span class="word">${d.w}</span>`;
+                el.onclick = () => showLetter(d);
+                grid.appendChild(el);
+            });
+        }
+        function showLetter(d) {
+            currentLetter = d;
+            document.getElementById('letter-big').textContent = d.l;
+            document.getElementById('letter-word').textContent = d.w;
+            document.getElementById('letter-emoji').textContent = d.e;
+            speak(`${d.l}. ${d.l} for ${d.w}.`);
+            launchConfetti();
+        }
+        function speakLetter() { speak(`${currentLetter.l}. ${currentLetter.l} for ${currentLetter.w}.`); }
+
+        // ===== NUMBERS =====
+        let currentNum = 1;
+        function buildNumbers() {
+            const grid = document.getElementById('number-grid');
+            grid.innerHTML = '';
+            for (let i = 1; i <= 20; i++) {
+                const el = document.createElement('div');
+                el.className = 'num-card';
+                el.innerHTML = `<span class="num">${i}</span><div class="dots">${'⭐'.repeat(Math.min(i,10))}</div>`;
+                el.onclick = () => showNumber(i);
+                grid.appendChild(el);
+            }
+        }
+        function showNumber(n) {
+            currentNum = n;
+            document.getElementById('num-big').textContent = n;
+            document.getElementById('num-word').textContent = numberWords[n];
+            document.getElementById('num-dots').textContent = '⭐'.repeat(Math.min(n, 20));
+            speak(`${n}. ${numberWords[n]}.`);
+            launchConfetti();
+        }
+        function speakNumber() { speak(`${currentNum}. ${numberWords[currentNum]}.`); }
+
+        // ===== ANIMALS =====
+        function buildAnimals() {
+            const grid = document.getElementById('animal-grid');
+            grid.innerHTML = '';
+            animalData.forEach(a => {
+                const el = document.createElement('div');
+                el.className = 'animal-card';
+                el.innerHTML = `<div class="animal-emoji">${a.emoji}</div><div class="animal-name">${a.name}</div><div class="animal-sound">${a.sound}</div>`;
+                el.onclick = () => { speak(`${a.name}. The ${a.name} says ${a.sound}`); launchConfetti(); };
+                grid.appendChild(el);
+            });
+        }
+
+        // ===== COLORS =====
+        function buildColors() {
+            const grid = document.getElementById('colors-grid');
+            grid.innerHTML = '';
+            colorsData.forEach(c => {
+                const el = document.createElement('div');
+                el.className = 'color-card';
+                el.style.background = c.bg;
+                const isLight = ['White','Yellow','Gold'].includes(c.name);
+                el.innerHTML = `<div class="color-emoji">${c.emoji}</div><div class="color-name" style="color: ${isLight ? '#333' : '#fff'}">${c.name}</div>`;
+                el.onclick = () => { speak(`${c.name}`); launchConfetti(); };
+                grid.appendChild(el);
+            });
+        }
+
+        // ===== RHYMES =====
+        function buildRhymes() {
+            const list = document.getElementById('rhymes-list');
+            list.innerHTML = '';
+            rhymesData.forEach((r, i) => {
+                const el = document.createElement('div');
+                el.className = 'rhyme-card';
+                el.innerHTML = `<div class="rhyme-icon">${r.icon}</div><div class="rhyme-title">${r.title}</div>`;
+                el.onclick = () => showRhyme(r);
+                list.appendChild(el);
+            });
+        }
+        let currentRhyme = null;
+        function showRhyme(r) {
+            currentRhyme = r;
+            document.getElementById('rhyme-d-title').textContent = r.icon + ' ' + r.title;
+            document.getElementById('rhyme-d-text').textContent = r.text;
+            document.getElementById('rhyme-display').style.display = 'block';
+            speak(r.text);
+        }
+        function speakRhyme() { if (currentRhyme) speak(currentRhyme.text); }
+
+        // ===== DRAWING BOARD =====
+        let isDrawing = false, drawCtx, drawColor = '#E74C3C', drawSize = 6, erasing = false;
+        const canvasColors = ['#E74C3C','#3498DB','#2ECC71','#F1C40F','#9B59B6','#FF8C00','#FF6B9D','#1ABC9C','#2C3E50','#ECF0F1'];
+        function initCanvas() {
+            const canvas = document.getElementById('drawing-canvas');
+            drawCtx = canvas.getContext('2d');
+            canvas.style.maxWidth = '100%';
+
+            const palette = document.getElementById('canvas-palette');
+            palette.innerHTML = '';
+            canvasColors.forEach((c, i) => {
+                const btn = document.createElement('div');
+                btn.className = 'palette-color' + (i === 0 ? ' active' : '');
+                btn.style.background = c;
+                btn.onclick = () => {
+                    drawColor = c; erasing = false;
+                    document.querySelectorAll('.palette-color').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                };
+                palette.appendChild(btn);
+            });
+
+            const sizeInput = document.getElementById('brush-size');
+            sizeInput.oninput = () => { drawSize = parseInt(sizeInput.value); document.getElementById('size-label').textContent = drawSize + 'px'; };
+
+            canvas.addEventListener('mousedown', e => { isDrawing = true; draw(e, canvas, true); });
+            canvas.addEventListener('mousemove', e => { if (isDrawing) draw(e, canvas, false); });
+            canvas.addEventListener('mouseup', () => { isDrawing = false; drawCtx.beginPath(); });
+            canvas.addEventListener('touchstart', e => { e.preventDefault(); isDrawing = true; drawTouch(e, canvas, true); }, { passive: false });
+            canvas.addEventListener('touchmove', e => { e.preventDefault(); if (isDrawing) drawTouch(e, canvas, false); }, { passive: false });
+            canvas.addEventListener('touchend', () => { isDrawing = false; drawCtx.beginPath(); });
+        }
+        function getPos(e, canvas) {
+            const r = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / r.width;
+            const scaleY = canvas.height / r.height;
+            return { x: (e.clientX - r.left) * scaleX, y: (e.clientY - r.top) * scaleY };
+        }
+        function draw(e, canvas, start) {
+            const pos = getPos(e, canvas);
+            drawCtx.lineWidth = erasing ? drawSize * 3 : drawSize;
+            drawCtx.lineCap = 'round';
+            drawCtx.lineJoin = 'round';
+            drawCtx.strokeStyle = erasing ? '#fff' : drawColor;
+            if (start) { drawCtx.beginPath(); drawCtx.moveTo(pos.x, pos.y); }
+            else { drawCtx.lineTo(pos.x, pos.y); drawCtx.stroke(); }
+        }
+        function drawTouch(e, canvas, start) {
+            const touch = e.touches[0];
+            const r = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / r.width;
+            const scaleY = canvas.height / r.height;
+            const pos = { x: (touch.clientX - r.left) * scaleX, y: (touch.clientY - r.top) * scaleY };
+            drawCtx.lineWidth = erasing ? drawSize * 3 : drawSize;
+            drawCtx.lineCap = 'round';
+            drawCtx.strokeStyle = erasing ? '#fff' : drawColor;
+            if (start) { drawCtx.beginPath(); drawCtx.moveTo(pos.x, pos.y); }
+            else { drawCtx.lineTo(pos.x, pos.y); drawCtx.stroke(); }
+        }
+        function clearCanvas() { const c = document.getElementById('drawing-canvas'); drawCtx.clearRect(0,0,c.width,c.height); }
+        function downloadCanvas() {
+            const a = document.createElement('a');
+            a.download = 'my-drawing.png';
+            a.href = document.getElementById('drawing-canvas').toDataURL();
+            a.click();
+            speak('Well done! Your drawing is saved!');
+            launchConfetti();
+        }
+        function setEraser() { erasing = true; }
+        function setBrush() { erasing = false; }
+        function addSticker() {
+            const stickers = ['⭐','🌟','❤️','🎈','🌸','🦋','🌈','🎉'];
+            const s = stickers[Math.floor(Math.random()*stickers.length)];
+            drawCtx.font = `${30 + drawSize * 2}px serif`;
+            drawCtx.fillText(s, 50 + Math.random()*400, 50 + Math.random()*280);
+            launchConfetti();
+        }
+
+        // ===== CONFETTI =====
+        function launchConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FF6B9D','#FFD93D','#6BCB77','#4D96FF','#FF6B35','#C77DFF'];
+            for (let i = 0; i < 20; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + 'vw';
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+                piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                container.appendChild(piece);
+                piece.addEventListener('animationend', () => piece.remove());
+            }
+        }
+
+        // ===== STARS BACKGROUND =====
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 30; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = 4 + Math.random() * 8;
+            star.style.width = star.style.height = size + 'px';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 3) + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
