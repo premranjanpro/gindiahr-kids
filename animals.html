@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Animals for Kids | Learn Animals A-Z | GIndia Kids</title>
+<meta name="description" content="Learn animals A to Z! Fun interactive animal learning for kids aged 3-8. GIndia Kids — free kids learning platform from Patna, India."/>
+<meta name="keywords" content="animals for kids, learn animals online, animal names kids, kids animal sounds, free kids learning india"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;background:#FFF8F0;min-height:100vh;}
+nav{background:#fff;border-bottom:3px solid #F26522;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nl{font-size:20px;font-weight:900;color:#F26522;}
+.nb{display:flex;gap:8px;}.nb a{font-size:13px;font-weight:700;color:#555;padding:5px 12px;border-radius:20px;background:#f5f5f5;text-decoration:none;}
+.hero{background:linear-gradient(135deg,#FFF3E0,#FFF8F0);padding:32px 20px 24px;text-align:center;}
+.hero h1{font-size:34px;font-weight:900;color:#0F1724;margin-bottom:8px;}
+.hero p{font-size:15px;color:#666;margin-bottom:20px;}
+.filter-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:8px;}
+.fbtn{background:#fff;border:2px solid #E2E8F0;color:#555;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;padding:6px 16px;border-radius:20px;cursor:pointer;transition:all .2s;}
+.fbtn.act,.fbtn:hover{background:#F26522;border-color:#F26522;color:#fff;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px;max-width:1100px;margin:24px auto;padding:0 16px;}
+.ac{background:#fff;border-radius:18px;padding:18px 12px;text-align:center;cursor:pointer;transition:all .25s;border:2px solid transparent;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.ac:hover{border-color:#F26522;transform:translateY(-4px);box-shadow:0 8px 24px rgba(242,101,34,.18);}
+.ac .em{font-size:44px;margin-bottom:8px;display:block;}
+.ac h3{font-size:15px;font-weight:900;color:#0F1724;margin-bottom:2px;}
+.ac .cat{font-size:10px;font-weight:700;text-transform:uppercase;color:#F26522;margin-top:3px;}
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.55);z-index:999;align-items:center;justify-content:center;padding:16px;}
+.modal.open{display:flex;}
+.mbox{background:#fff;border-radius:24px;padding:28px 24px;max-width:340px;width:100%;text-align:center;position:relative;animation:pop .3s ease;}
+@keyframes pop{from{transform:scale(.85);opacity:0;}to{transform:scale(1);opacity:1;}}
+.mcl{position:absolute;top:12px;right:16px;font-size:22px;cursor:pointer;color:#888;font-weight:900;background:none;border:none;line-height:1;}
+.mem{font-size:68px;margin-bottom:8px;}
+.mname{font-size:24px;font-weight:900;color:#0F1724;margin-bottom:4px;}
+.mcat{font-size:11px;font-weight:700;text-transform:uppercase;color:#F26522;margin-bottom:10px;}
+.mfact{font-size:13px;color:#555;line-height:1.65;margin-bottom:16px;}
+.msnd{background:#F26522;color:#fff;border:none;padding:10px 22px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;}
+footer{text-align:center;padding:20px;font-size:12px;color:#888;margin-top:16px;}
+footer a{color:#F26522;}
+@media(max-width:480px){.grid{grid-template-columns:repeat(3,1fr);}.ac .em{font-size:34px;}.ac h3{font-size:12px;}}
+</style>
+</head>
+<body>
+<nav>
+<span class="nl">🌸 GIndia Kids</span>
+<div class="nb">
+<a href="index.html">🏠 Home</a>
+<a href="phonics.html">ABC</a>
+<a href="numbers.html">123</a>
+<a href="colors.html">Colors</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>🐾 Learn Animals A–Z!</h1>
+<p>Tap any animal to learn fun facts and hear its name!</p>
+<div class="filter-row">
+<button class="fbtn act" id="btn-all" onclick="doFilter('all',this)">All 🌟</button>
+<button class="fbtn" onclick="doFilter('farm',this)">Farm 🐄</button>
+<button class="fbtn" onclick="doFilter('wild',this)">Wild 🦁</button>
+<button class="fbtn" onclick="doFilter('ocean',this)">Ocean 🐬</button>
+<button class="fbtn" onclick="doFilter('birds',this)">Birds 🦜</button>
+<button class="fbtn" onclick="doFilter('pet',this)">Pets 🐶</button>
+</div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()">
+<div class="mbox">
+<button class="mcl" onclick="closeM()">✕</button>
+<div class="mem" id="mem"></div>
+<div class="mname" id="mname"></div>
+<div class="mcat" id="mcat"></div>
+<div class="mfact" id="mfact"></div>
+<button class="msnd" onclick="speakAnimal()">🔊 Hear Name</button>
+</div>
+</div>
+
+<footer>© 2025 GIndia Kids — Free Kids Learning from Patna | <a href="https://gindiahr.com">gindiahr.com</a></footer>
+
+<script>
+var animals=[
+{em:"🐱",name:"Cat",cat:"pet",fact:"Cats sleep 12-16 hours a day and have over 100 different vocalizations!"},
+{em:"🐶",name:"Dog",cat:"pet",fact:"Dogs have a sense of smell 40x better than humans. They have 300 million smell receptors!"},
+{em:"🐄",name:"Cow",cat:"farm",fact:"Cows have 4 stomach chambers and can drink 50 gallons of water a day!"},
+{em:"🐷",name:"Pig",cat:"farm",fact:"Pigs are very smart and clean animals. They can learn their own names!"},
+{em:"🐍",name:"Snake",cat:"wild",fact:"Snakes have no eyelids. They flick their tongue to smell the air around them!"},
+{em:"🐘",name:"Elephant",cat:"wild",fact:"Elephants are the largest land animals. Their trunk has over 40,000 muscles!"},
+{em:"🦁",name:"Lion",cat:"wild",fact:"Lions live in groups called prides. A lion's roar can be heard 8 km away!"},
+{em:"🐯",name:"Tiger",cat:"wild",fact:"Tigers are the largest cats. No two tigers have the same stripe pattern!"},
+{em:"🦈",name:"Shark",cat:"ocean",fact:"Sharks have existed for 450 million years — older than trees! They have 3,000 teeth!"},
+{em:"🐬",name:"Dolphin",cat:"ocean",fact:"Dolphins call each other by name using unique whistles. They are super intelligent!"},
+{em:"🦜",name:"Parrot",cat:"birds",fact:"Parrots can mimic human speech and live up to 80 years. Very intelligent birds!"},
+{em:"🐦",name:"Pigeon",cat:"birds",fact:"Pigeons can find their way home from 1,000 miles away. Used as war messengers!"},
+{em:"🐔",name:"Hen",cat:"farm",fact:"A hen can lay up to 300 eggs per year and recognise over 100 different faces!"},
+{em:"🐸",name:"Frog",cat:"wild",fact:"Frogs can jump 20 times their body length and breathe through their skin!"},
+{em:"🐢",name:"Turtle",cat:"ocean",fact:"Sea turtles have existed for 110 million years and can live over 100 years!"},
+{em:"🐒",name:"Monkey",cat:"wild",fact:"Monkeys use tools like sticks to get food and can recognise themselves in mirrors!"},
+{em:"🐧",name:"Penguin",cat:"birds",fact:"Penguins swim at 25 mph but cannot fly. Father penguins keep eggs warm on their feet!"},
+{em:"🦆",name:"Duck",cat:"birds",fact:"Ducks have waterproof feathers and can sleep with one eye open to watch for danger!"},
+{em:"🐰",name:"Rabbit",cat:"pet",fact:"Rabbits can see almost 360 degrees around them. They purr like cats when happy!"},
+{em:"🐼",name:"Panda",cat:"wild",fact:"Pandas eat 12-38 kg of bamboo every day. They are excellent swimmers!"},
+{em:"🦉",name:"Owl",cat:"birds",fact:"Owls can rotate their heads 270 degrees and have asymmetric ears for precise hearing!"},
+{em:"🦍",name:"Gorilla",cat:"wild",fact:"Gorillas share 98.3% DNA with humans. They make tools and show complex emotions!"},
+{em:"🐟",name:"Fish",cat:"ocean",fact:"Fish have been on Earth for 500 million years. They sense water movements through lateral lines!"},
+{em:"🐴",name:"Horse",cat:"farm",fact:"Horses can sleep standing up and run at 55 mph. They have nearly 360-degree vision!"}
+];
+
+var curr=null;
+
+function doFilter(cat,btn){
+  document.querySelectorAll(".fbtn").forEach(function(b){b.classList.remove("act");});
+  btn.classList.add("act");
+  renderGrid(cat==="all"?animals:animals.filter(function(a){return a.cat===cat;}));
+}
+
+function renderGrid(list){
+  var g=document.getElementById("grid");
+  g.innerHTML="";
+  list.forEach(function(a){
+    var d=document.createElement("div");
+    d.className="ac";
+    d.innerHTML='<span class="em">'+a.em+'</span><h3>'+a.name+'</h3><div class="cat">'+a.cat+'</div>';
+    d.onclick=function(){openM(a);};
+    g.appendChild(d);
+  });
+}
+
+function openM(a){
+  curr=a;
+  document.getElementById("mem").textContent=a.em;
+  document.getElementById("mname").textContent=a.name;
+  document.getElementById("mcat").textContent=a.cat.toUpperCase();
+  document.getElementById("mfact").textContent=a.fact;
+  document.getElementById("modal").classList.add("open");
+}
+
+function closeM(){document.getElementById("modal").classList.remove("open");}
+
+function speakAnimal(){
+  if(curr&&window.speechSynthesis){
+    var u=new SpeechSynthesisUtterance(curr.name);
+    u.lang="en-IN";
+    window.speechSynthesis.speak(u);
+  }
+}
+
+renderGrid(animals);
+</script>
+</body>
+</html>

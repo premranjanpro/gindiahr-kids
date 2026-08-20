@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Colors for Kids | Learn Colors & Shapes | GIndia Kids</title>
+<meta name="description" content="Learn colors and shapes interactively! Fun games for kids aged 2-6. Tap to hear color names and see objects. GIndia Kids free learning platform."/>
+<meta name="keywords" content="colors for kids, learn colors online, shapes for kids, free kids learning, color names kids india"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:#F9FAFB;min-height:100vh;}
+nav{background:#fff;border-bottom:3px solid #F26522;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nl{font-size:20px;font-weight:900;color:#F26522;}
+.nb{display:flex;gap:8px;}.nb a{font-size:13px;font-weight:700;color:#555;padding:5px 12px;border-radius:20px;background:#f5f5f5;text-decoration:none;}
+.hero{padding:32px 20px 20px;text-align:center;background:#fff;border-bottom:1px solid #E2E8F0;}
+.hero h1{font-size:32px;font-weight:900;color:#0F1724;margin-bottom:6px;}
+.hero p{font-size:14px;color:#666;}
+.tabs{display:flex;gap:10px;justify-content:center;padding:18px;flex-wrap:wrap;}
+.tab{background:#fff;border:2px solid #E2E8F0;color:#555;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;padding:8px 20px;border-radius:24px;cursor:pointer;transition:all .2s;}
+.tab.act{background:#F26522;border-color:#F26522;color:#fff;}
+/* COLORS SECTION */
+.colors-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;max-width:1000px;margin:0 auto;padding:0 16px 32px;}
+.cc{border-radius:18px;padding:24px 12px;text-align:center;cursor:pointer;transition:all .25s;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.cc:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(0,0,0,0.15);}
+.cc .cname{font-size:16px;font-weight:900;margin-top:10px;}
+.cc .cobj{font-size:12px;margin-top:4px;opacity:.7;}
+.cc .cem{font-size:36px;margin-top:6px;}
+/* SHAPES SECTION */
+.shapes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;max-width:1000px;margin:0 auto;padding:0 16px 32px;}
+.sc{background:#fff;border:2px solid #E2E8F0;border-radius:18px;padding:24px 12px;text-align:center;cursor:pointer;transition:all .25s;}
+.sc:hover{border-color:#F26522;transform:translateY(-4px);box-shadow:0 8px 24px rgba(242,101,34,.15);}
+.sc .svg-wrap{width:80px;height:80px;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;}
+.sc h3{font-size:16px;font-weight:900;color:#0F1724;margin-bottom:4px;}
+.sc p{font-size:12px;color:#888;}
+.panel{display:none;}.panel.show{display:block;}
+footer{text-align:center;padding:20px;font-size:12px;color:#888;}footer a{color:#F26522;}
+@media(max-width:480px){.colors-grid{grid-template-columns:repeat(3,1fr);}.shapes-grid{grid-template-columns:repeat(2,1fr);}}
+</style>
+</head>
+<body>
+<nav>
+<span class="nl">🌈 GIndia Kids</span>
+<div class="nb">
+<a href="index.html">🏠 Home</a>
+<a href="phonics.html">ABC</a>
+<a href="numbers.html">123</a>
+<a href="animals.html">Animals</a>
+</div>
+</nav>
+<div class="hero">
+<h1>🎨 Colors & Shapes</h1>
+<p>Tap any color or shape to hear its name!</p>
+</div>
+<div class="tabs">
+<button class="tab act" onclick="showPanel('colors',this)">🎨 Colors</button>
+<button class="tab" onclick="showPanel('shapes',this)">🔷 Shapes</button>
+</div>
+
+<!-- COLORS -->
+<div class="panel show" id="colors-panel">
+<div class="colors-grid" id="colors-grid"></div>
+</div>
+
+<!-- SHAPES -->
+<div class="panel" id="shapes-panel">
+<div class="shapes-grid" id="shapes-grid"></div>
+</div>
+
+<footer>© 2025 GIndia Kids — Free Learning from Patna | <a href="https://gindiahr.com">gindiahr.com</a></footer>
+
+<script>
+var colors=[
+{name:"Red",hex:"#EF4444",textColor:"#fff",obj:"Apple",em:"🍎"},
+{name:"Blue",hex:"#3B82F6",textColor:"#fff",obj:"Sky",em:"🌤️"},
+{name:"Yellow",hex:"#F59E0B",textColor:"#fff",obj:"Sun",em:"☀️"},
+{name:"Green",hex:"#22C55E",textColor:"#fff",obj:"Leaf",em:"🌿"},
+{name:"Orange",hex:"#F97316",textColor:"#fff",obj:"Orange",em:"🍊"},
+{name:"Purple",hex:"#A855F7",textColor:"#fff",obj:"Grapes",em:"🍇"},
+{name:"Pink",hex:"#EC4899",textColor:"#fff",obj:"Flower",em:"🌸"},
+{name:"Brown",hex:"#A16207",textColor:"#fff",obj:"Bear",em:"🐻"},
+{name:"Black",hex:"#1F2937",textColor:"#fff",obj:"Night",em:"🌙"},
+{name:"White",hex:"#F9FAFB",textColor:"#374151",obj:"Cloud",em:"☁️",border:"1px solid #E2E8F0"},
+{name:"Grey",hex:"#9CA3AF",textColor:"#fff",obj:"Elephant",em:"🐘"},
+{name:"Gold",hex:"#D97706",textColor:"#fff",obj:"Star",em:"⭐"}
+];
+
+var shapes=[
+{name:"Circle",sides:"0 sides",fun:"Wheels, coins and the sun are circles!",svg:'<circle cx="40" cy="40" r="35" fill="#3B82F6"/>'},
+{name:"Square",sides:"4 equal sides",fun:"Your TV screen and picture frames are squares!",svg:'<rect x="5" y="5" width="70" height="70" rx="4" fill="#F26522"/>'},
+{name:"Triangle",sides:"3 sides",fun:"Pizza slices and mountains look like triangles!",svg:'<polygon points="40,5 75,75 5,75" fill="#22C55E"/>'},
+{name:"Rectangle",sides:"4 sides",fun:"Doors, books and your mobile phone are rectangles!",svg:'<rect x="5" y="15" width="70" height="50" rx="4" fill="#A855F7"/>'},
+{name:"Star",sides:"5 points",fun:"Stars in the sky! Draw a star by crossing two triangles!",svg:'<polygon points="40,5 48,28 72,28 53,43 61,66 40,52 19,66 27,43 8,28 32,28" fill="#F59E0B"/>'},
+{name:"Heart",sides:"Curved",fun:"Hearts mean love! Valentine cards and emoji use hearts!",svg:'<path d="M40 65 C20 50 5 35 5 22 C5 12 13 5 22 5 C29 5 36 9 40 15 C44 9 51 5 58 5 C67 5 75 12 75 22 C75 35 60 50 40 65Z" fill="#EC4899"/>'},
+{name:"Diamond",sides:"4 sides",fun:"Kite shape! Playing cards have diamond symbols!",svg:'<polygon points="40,5 75,40 40,75 5,40" fill="#14B8A6"/>'},
+{name:"Oval",sides:"0 sides",fun:"Eggs and rugby balls are oval shaped!",svg:'<ellipse cx="40" cy="40" rx="35" ry="22" fill="#F97316"/>'}
+];
+
+function showPanel(id,btn){
+  document.querySelectorAll(".panel").forEach(function(p){p.classList.remove("show");});
+  document.getElementById(id+"-panel").classList.add("show");
+  document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("act");});
+  btn.classList.add("act");
+}
+
+function speak(word){
+  if(window.speechSynthesis){
+    var u=new SpeechSynthesisUtterance(word);
+    u.lang="en-IN";window.speechSynthesis.speak(u);
+  }
+}
+
+// Render colors
+var cg=document.getElementById("colors-grid");
+colors.forEach(function(c){
+  var d=document.createElement("div");
+  d.className="cc";
+  d.style.background=c.hex;
+  if(c.border)d.style.border=c.border;
+  d.innerHTML='<div class="cem">'+c.em+'</div><div class="cname" style="color:'+c.textColor+'">'+c.name+'</div><div class="cobj" style="color:'+c.textColor+'">Like a '+c.obj+'</div>';
+  d.onclick=function(){speak(c.name);};
+  cg.appendChild(d);
+});
+
+// Render shapes
+var sg=document.getElementById("shapes-grid");
+shapes.forEach(function(s){
+  var d=document.createElement("div");
+  d.className="sc";
+  d.innerHTML='<div class="svg-wrap"><svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">'+s.svg+'</svg></div><h3>'+s.name+'</h3><p>'+s.sides+'</p><p style="font-size:11px;color:#F26522;margin-top:4px;">'+s.fun+'</p>';
+  d.onclick=function(){speak(s.name);};
+  sg.appendChild(d);
+});
+</script>
+</body>
+</html>

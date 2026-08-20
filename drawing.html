@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Drawing for Kids | Learn to Draw | GIndia Kids</title>
+<meta name="description" content="Learn to draw step by step! Free drawing canvas + tutorials for kids. Draw a sun, house, flower and more. GIndia Kids — free learning from Patna, India."/>
+<meta name="keywords" content="drawing for kids, learn to draw kids india, kids drawing online, step by step drawing kids, free drawing canvas kids"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:#FFF8F0;min-height:100vh;}
+nav{background:#fff;border-bottom:3px solid #F26522;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nl{font-size:20px;font-weight:900;color:#F26522;}
+.nb{display:flex;gap:8px;}.nb a{font-size:13px;font-weight:700;color:#555;padding:5px 12px;border-radius:20px;background:#f5f5f5;text-decoration:none;}
+.hero{background:linear-gradient(135deg,#FFF3E0,#FFF8F0);padding:24px 20px 16px;text-align:center;}
+.hero h1{font-size:28px;font-weight:900;color:#0F1724;margin-bottom:4px;}
+.hero p{font-size:13px;color:#666;}
+.tabs{display:flex;gap:8px;justify-content:center;padding:14px;flex-wrap:wrap;}
+.tab{background:#fff;border:2px solid #E2E8F0;color:#555;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;padding:7px 18px;border-radius:24px;cursor:pointer;transition:all .2s;}
+.tab.act{background:#F26522;border-color:#F26522;color:#fff;}
+/* DRAWING CANVAS */
+.canvas-section{padding:0 16px 20px;display:flex;flex-direction:column;align-items:center;}
+.tools{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:12px;}
+.tool-btn{background:#fff;border:2px solid #E2E8F0;padding:6px 14px;border-radius:16px;font-family:'Nunito',sans-serif;font-size:12px;font-weight:800;cursor:pointer;color:#555;transition:all .2s;}
+.tool-btn.act,.tool-btn:hover{border-color:#F26522;color:#F26522;}
+.colors-row{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:10px;}
+.col-dot{width:28px;height:28px;border-radius:50%;cursor:pointer;border:3px solid transparent;transition:all .15s;}
+.col-dot.sel{border-color:#0F1724;}
+.size-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;font-size:13px;font-weight:700;color:#555;}
+.size-row input{accent-color:#F26522;}
+canvas{background:#fff;border:2px solid #E2E8F0;border-radius:16px;touch-action:none;cursor:crosshair;width:100%;max-width:520px;}
+.canvas-btns{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap;justify-content:center;}
+.cbtn{background:#F26522;color:#fff;border:none;padding:9px 20px;border-radius:16px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:800;cursor:pointer;}
+.cbtn.out{background:#fff;color:#0F1724;border:2px solid #E2E8F0;}
+/* TUTORIALS */
+.tutorials-section{padding:0 16px 24px;display:none;}
+.tut-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;max-width:900px;margin:0 auto;}
+.tc{background:#fff;border:2px solid #E2E8F0;border-radius:18px;padding:20px;cursor:pointer;transition:all .25s;text-align:center;}
+.tc:hover{border-color:#F26522;transform:translateY(-3px);}
+.tc .tem{font-size:42px;margin-bottom:8px;}
+.tc h3{font-size:16px;font-weight:900;color:#0F1724;margin-bottom:4px;}
+.tc p{font-size:12px;color:#888;}
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:999;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;}
+.modal.open{display:flex;}
+.mbox{background:#fff;border-radius:22px;padding:24px 20px;max-width:420px;width:100%;margin:auto;position:relative;}
+.mcl{position:absolute;top:12px;right:16px;font-size:22px;cursor:pointer;color:#888;background:none;border:none;font-weight:900;}
+.msteps{list-style:none;}
+.mstep{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #F0F0F0;}
+.mstep:last-child{border-bottom:none;}
+.mstep-num{width:28px;height:28px;border-radius:50%;background:#F26522;color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.mstep p{font-size:13px;color:#444;line-height:1.5;}
+footer{text-align:center;padding:16px;font-size:12px;color:#888;}footer a{color:#F26522;}
+.panel.hide{display:none;}
+</style>
+</head>
+<body>
+<nav>
+<span class="nl">🎨 GIndia Kids</span>
+<div class="nb">
+<a href="index.html">🏠 Home</a>
+<a href="colors.html">Colors</a>
+<a href="stories.html">Stories</a>
+</div>
+</nav>
+<div class="hero">
+<h1>🖌️ Drawing Fun!</h1>
+<p>Draw anything on the canvas, or follow step-by-step tutorials!</p>
+</div>
+<div class="tabs">
+<button class="tab act" onclick="showPanel('canvas',this)">🎨 Free Draw</button>
+<button class="tab" onclick="showPanel('tutorials',this)">📋 Tutorials</button>
+</div>
+
+<!-- CANVAS -->
+<div class="panel" id="canvas-panel">
+<div class="canvas-section">
+<div class="tools">
+<button class="tool-btn act" id="tool-pen" onclick="setTool('pen',this)">✏️ Pen</button>
+<button class="tool-btn" id="tool-brush" onclick="setTool('brush',this)">🖌️ Brush</button>
+<button class="tool-btn" id="tool-eraser" onclick="setTool('eraser',this)">🧹 Eraser</button>
+<button class="tool-btn" id="tool-fill" onclick="fillCanvas()">🪣 Fill</button>
+</div>
+<div class="colors-row" id="colors-row"></div>
+<div class="size-row">
+Size: <input type="range" min="2" max="30" value="5" id="size-range" oninput="updateSize(this.value)"> <span id="size-val">5px</span>
+</div>
+<canvas id="draw-canvas" height="400"></canvas>
+<div class="canvas-btns">
+<button class="cbtn out" onclick="clearCanvas()">🗑️ Clear</button>
+<button class="cbtn out" onclick="undoLast()">↩️ Undo</button>
+<button class="cbtn" onclick="downloadCanvas()">⬇️ Save</button>
+</div>
+</div>
+</div>
+
+<!-- TUTORIALS -->
+<div class="panel hide" id="tutorials-panel">
+<div class="tutorials-section" style="display:block;">
+<div class="tut-grid" id="tut-grid"></div>
+</div>
+</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()">
+<div class="mbox">
+<button class="mcl" onclick="closeM()">✕</button>
+<div style="font-size:44px;text-align:center;margin-bottom:6px;" id="m-em"></div>
+<div style="font-size:20px;font-weight:900;text-align:center;margin-bottom:14px;" id="m-title"></div>
+<ol class="msteps" id="m-steps"></ol>
+</div>
+</div>
+<footer>© 2025 GIndia Kids — Drawing for Kids from Patna | <a href="https://gindiahr.com">gindiahr.com</a></footer>
+
+<script>
+// CANVAS
+var canvas=document.getElementById("draw-canvas");
+var ctx=canvas.getContext("2d");
+var drawing=false,tool="pen",color="#F26522",size=5,history=[];
+
+function resizeCanvas(){
+  var mw=Math.min(520,window.innerWidth-40);
+  canvas.width=mw;canvas.height=Math.round(mw*.75);
+  redraw();
+}
+
+var cols=["#F26522","#EF4444","#3B82F6","#22C55E","#F59E0B","#A855F7","#EC4899","#14B8A6","#1F2937","#FFFFFF","#78716C","#000000"];
+var cr=document.getElementById("colors-row");
+cols.forEach(function(c){
+  var d=document.createElement("div");d.className="col-dot"+(c=="#F26522"?" sel":"");
+  d.style.background=c;if(c==="#FFFFFF")d.style.border="3px solid #E2E8F0";
+  d.onclick=function(){document.querySelectorAll(".col-dot").forEach(function(x){x.classList.remove("sel");});d.classList.add("sel");color=c;};
+  cr.appendChild(d);
+});
+
+function setTool(t,btn){tool=t;document.querySelectorAll(".tool-btn").forEach(function(b){b.classList.remove("act");});btn.classList.add("act");}
+function updateSize(v){size=parseInt(v);document.getElementById("size-val").textContent=v+"px";}
+
+canvas.addEventListener("mousedown",startDraw);
+canvas.addEventListener("mousemove",doDraw);
+canvas.addEventListener("mouseup",endDraw);
+canvas.addEventListener("mouseleave",endDraw);
+canvas.addEventListener("touchstart",function(e){e.preventDefault();startDraw(e.touches[0]);},{passive:false});
+canvas.addEventListener("touchmove",function(e){e.preventDefault();doDraw(e.touches[0]);},{passive:false});
+canvas.addEventListener("touchend",endDraw);
+
+function getPos(e){var r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*(canvas.width/r.width),y:(e.clientY-r.top)*(canvas.height/r.height)};}
+
+function startDraw(e){drawing=true;var p=getPos(e);ctx.beginPath();ctx.moveTo(p.x,p.y);}
+function doDraw(e){
+  if(!drawing)return;var p=getPos(e);
+  ctx.lineWidth=tool==="eraser"?size*3:tool==="brush"?size*1.5:size;
+  ctx.lineCap="round";ctx.lineJoin="round";
+  ctx.strokeStyle=tool==="eraser"?"#fff":color;
+  ctx.lineTo(p.x,p.y);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(p.x,p.y);
+}
+function endDraw(){drawing=false;history.push(ctx.getImageData(0,0,canvas.width,canvas.height));}
+function clearCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);history=[];}
+function undoLast(){if(history.length>1){history.pop();ctx.putImageData(history[history.length-1],0,0);}else{clearCanvas();}}
+function fillCanvas(){ctx.fillStyle=color;ctx.fillRect(0,0,canvas.width,canvas.height);history.push(ctx.getImageData(0,0,canvas.width,canvas.height));}
+function downloadCanvas(){var a=document.createElement("a");a.download="my-drawing.png";a.href=canvas.toDataURL();a.click();}
+function redraw(){if(history.length>0)ctx.putImageData(history[history.length-1],0,0);}
+
+resizeCanvas();window.addEventListener("resize",resizeCanvas);
+
+// TUTORIALS
+var tutorials=[
+{em:"☀️",title:"Draw a Sun",steps:["Draw a big circle in the centre","Add 8 straight lines going out from the circle — these are rays!","Draw a smiley face inside the circle","Colour it yellow and orange!","Your sun is ready! ☀️"]},
+{em:"🏠",title:"Draw a House",steps:["Draw a big square for the walls","Draw a big triangle on top for the roof","Add a small rectangle for the door in the middle","Draw two small squares on the sides for windows","Add a chimney on the roof — colour it red!"]},
+{em:"🌸",title:"Draw a Flower",steps:["Draw a small circle in the middle","Around the circle, draw 6 oval petals","Draw a long straight line going down — the stem","Add two small leaf shapes on the stem","Colour the petals pink and center yellow!"]},
+{em:"🐱",title:"Draw a Cat",steps:["Draw a big circle for the cat head","Add two small triangles on top for ears","Draw two big circles inside for eyes, add dots","Draw a small triangle nose and whiskers with lines","Add a curved smile below the nose!"]},
+{em:"🐟",title:"Draw a Fish",steps:["Draw an oval shape for the fish body","Add a V-shape on the right side for the tail fin","Draw a small circle for the eye","Add curved lines on the body for scales","Draw a small fin on top — colour it orange!"]},
+{em:"🌈",title:"Draw a Rainbow",steps:["Draw a big arch (half circle) with curved lines","Add more arches inside, slightly smaller","You need 7 arches total","Colour from outside in: red, orange, yellow, green, blue, indigo, violet","Add clouds at both ends of the rainbow!"]},
+{em:"⭐",title:"Draw a Star",steps:["Draw a straight line going up-right","Continue to make a 5-pointed star by connecting 5 points","(Tip: draw two crossing triangles!)","Make the star pointy and symmetrical","Colour it golden yellow! ⭐"]},
+{em:"🐘",title:"Draw an Elephant",steps:["Draw a big oval for the elephant body","Add a smaller circle for the head on the left","Draw a long curved trunk going down","Add four rectangle legs at the bottom","Draw a small tail, two ears, and a small eye!"]}
+];
+
+var tg=document.getElementById("tut-grid");
+tutorials.forEach(function(t){
+  var d=document.createElement("div");d.className="tc";
+  d.innerHTML='<div class="tem">'+t.em+'</div><h3>'+t.title+'</h3><p>'+t.steps.length+' easy steps</p>';
+  d.onclick=function(){openM(t);};tg.appendChild(d);
+});
+
+function openM(t){
+  document.getElementById("m-em").textContent=t.em;
+  document.getElementById("m-title").textContent=t.title;
+  var sl=document.getElementById("m-steps");sl.innerHTML="";
+  t.steps.forEach(function(s,i){
+    var li=document.createElement("li");li.className="mstep";
+    li.innerHTML='<div class="mstep-num">'+(i+1)+'</div><p>'+s+'</p>';
+    sl.appendChild(li);
+  });
+  document.getElementById("modal").classList.add("open");
+}
+function closeM(){document.getElementById("modal").classList.remove("open");}
+
+function showPanel(id,btn){
+  document.querySelectorAll(".panel").forEach(function(p){p.classList.add("hide");});
+  document.getElementById(id+"-panel").classList.remove("hide");
+  document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("act");});
+  btn.classList.add("act");
+}
+</script>
+</body>
+</html>

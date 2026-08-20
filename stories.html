@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Short Stories for Kids | Moral Stories | GIndia Kids</title>
+<meta name="description" content="Short moral stories for kids aged 4-10. Fun, illustrated stories with life lessons. GIndia Kids — free kids learning platform from Patna, India."/>
+<meta name="keywords" content="short stories for kids, moral stories kids india, bedtime stories kids, kids story online india, free stories for children"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:#FFF8F0;min-height:100vh;}
+nav{background:#fff;border-bottom:3px solid #F26522;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nl{font-size:20px;font-weight:900;color:#F26522;}
+.nb{display:flex;gap:8px;}.nb a{font-size:13px;font-weight:700;color:#555;padding:5px 12px;border-radius:20px;background:#f5f5f5;text-decoration:none;}
+.hero{background:linear-gradient(135deg,#FFF3E0,#FFF8F0);padding:32px 20px 20px;text-align:center;border-bottom:1px solid #E2E8F0;}
+.hero h1{font-size:32px;font-weight:900;color:#0F1724;margin-bottom:6px;}
+.hero p{font-size:14px;color:#666;}
+.story-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;max-width:1100px;margin:24px auto;padding:0 16px;}
+.sc{background:#fff;border-radius:20px;padding:24px 20px;cursor:pointer;transition:all .25s;border:2px solid transparent;box-shadow:0 2px 10px rgba(0,0,0,0.06);}
+.sc:hover{border-color:#F26522;transform:translateY(-3px);box-shadow:0 8px 24px rgba(242,101,34,.18);}
+.sc .sem{font-size:42px;margin-bottom:12px;display:block;}
+.sc h3{font-size:18px;font-weight:900;color:#0F1724;margin-bottom:5px;}
+.sc .smoraltag{font-size:11px;font-weight:700;text-transform:uppercase;color:#F26522;margin-bottom:8px;}
+.sc .spreview{font-size:13px;color:#666;line-height:1.6;}
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:999;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;}
+.modal.open{display:flex;}
+.mbox{background:#fff;border-radius:24px;padding:28px 24px;max-width:480px;width:100%;margin:auto;position:relative;animation:pop .3s ease;}
+@keyframes pop{from{transform:scale(.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+.mcl{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;color:#888;font-weight:900;background:none;border:none;}
+.msem{font-size:56px;text-align:center;display:block;margin-bottom:10px;}
+.mstitle{font-size:22px;font-weight:900;color:#0F1724;text-align:center;margin-bottom:6px;}
+.msmoral{font-size:12px;font-weight:700;text-transform:uppercase;color:#F26522;text-align:center;margin-bottom:14px;}
+.msbody{font-size:14px;color:#444;line-height:1.8;margin-bottom:16px;}
+.msbox{background:#FFF3ED;border:2px solid #FFD9C5;border-radius:14px;padding:14px 16px;font-size:13px;font-weight:700;color:#C94E12;text-align:center;}
+footer{text-align:center;padding:20px;font-size:12px;color:#888;margin-top:16px;}footer a{color:#F26522;}
+</style>
+</head>
+<body>
+<nav>
+<span class="nl">📖 GIndia Kids</span>
+<div class="nb">
+<a href="index.html">🏠 Home</a>
+<a href="animals.html">Animals</a>
+<a href="phonics.html">ABC</a>
+</div>
+</nav>
+
+<div class="hero">
+<h1>📖 Stories & Morals</h1>
+<p>Tap any story card to read the full story!</p>
+</div>
+
+<div class="story-list" id="story-list"></div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()">
+<div class="mbox">
+<button class="mcl" onclick="closeM()">✕</button>
+<span class="msem" id="msem"></span>
+<div class="mstitle" id="mstitle"></div>
+<div class="msmoral" id="msmoral"></div>
+<div class="msbody" id="msbody"></div>
+<div class="msbox" id="msbox"></div>
+</div>
+</div>
+
+<footer>© 2025 GIndia Kids — Short Stories from Patna | <a href="https://gindiahr.com">gindiahr.com</a></footer>
+
+<script>
+var stories=[
+{em:"🐢",title:"The Tortoise and the Hare",moral:"Slow and Steady Wins the Race",preview:"A fast hare mocks the slow tortoise and challenges him to a race...",story:"Once a hare mocked a tortoise for being too slow. The tortoise smiled and challenged him to a race. The hare laughed and agreed, thinking it would be easy. When the race began, the hare ran far ahead and decided to take a nap under a tree, thinking the tortoise could never catch up. The tortoise kept walking steadily, never stopping, never resting. When the hare woke up, he saw the tortoise crossing the finish line! The tortoise had won the race.",lesson:"Moral: Never give up. Hard work and consistency beat talent if talent is lazy!"},
+{em:"🐦",title:"The Thirsty Crow",moral:"Where There is a Will, There is a Way",preview:"A thirsty crow finds a pot with very little water. Can he drink it?",story:"On a hot summer day, a crow was very thirsty. He searched everywhere for water but could not find any. Finally he spotted a pot with some water at the bottom, but his beak could not reach it. The crow saw some pebbles nearby. He picked them up one by one and dropped them into the pot. Slowly the water rose higher and higher. Finally the water reached the top and the crow drank it happily!",lesson:"Moral: Use your brain! Creative thinking can solve any problem."},
+{em:"🦁",title:"The Lion and the Mouse",moral:"Kindness Always Pays Back",preview:"A little mouse wakes up a sleeping lion. What happens next?",story:"One day, a little mouse accidentally ran across a sleeping lion's face. The lion woke up angry and caught the mouse. The mouse begged, 'Please let me go! One day I will help you!' The lion laughed and said 'You are too small to help a lion!' but he let the mouse go. Days later, the lion was trapped in a hunter's net. He roared loudly. The mouse heard and ran to help, chewing through the ropes with his sharp teeth. The lion was free!",lesson:"Moral: Never underestimate anyone. Even the smallest can help the greatest!"},
+{em:"🐝",title:"The Ant and the Grasshopper",moral:"Always Plan for the Future",preview:"All summer the ant worked while the grasshopper sang. Winter comes...",story:"All summer long, the ant worked hard collecting food for winter. The grasshopper danced and sang all day. 'Why work so hard?' laughed the grasshopper. 'Summer is here — enjoy!' The ant smiled and kept working. When winter came, the grasshopper had no food and was hungry and cold. He went to the ant's house and begged for food. The ant had plenty of food stored safely. The grasshopper learned his lesson.",lesson:"Moral: Work hard today so tomorrow will be better. Always plan ahead!"},
+{em:"🐺",title:"The Boy Who Cried Wolf",moral:"Never Lie — Nobody Trusts a Liar",preview:"A shepherd boy tricks villagers three times. Then a real wolf comes...",story:"A bored shepherd boy tended sheep on a hill. One day he shouted 'Wolf! Wolf!' The villagers ran to help but found no wolf. The boy laughed. He did it again the next day. On the third day, a real wolf came and started eating the sheep! The boy cried 'Wolf! Wolf!' but no villager came — they thought he was lying again. The wolf ate all the sheep and the boy lost everything.",lesson:"Moral: Honesty is the best policy. Once you lose trust, it is very hard to get it back!"},
+{em:"🌾",title:"The Golden Goose",moral:"Greed Destroys Everything",preview:"A farmer finds a magical goose that lays golden eggs every day...",story:"A farmer had a magical goose that laid one golden egg every day. The farmer became rich and happy. But one day he got greedy. He thought, 'If I cut open the goose, I can get all the golden eggs at once!' He did so — but inside there were no golden eggs. It was just an ordinary goose. The farmer lost his goose and got no more golden eggs ever again.",lesson:"Moral: Be content with what you have. Greed destroys what you already have!"},
+{em:"🌹",title:"The Rose and the Cactus",moral:"True Beauty is Inside",preview:"A beautiful rose makes fun of the rough cactus. Summer arrives...",story:"In a garden, a rose proudly showed off her beautiful red petals. She laughed at the cactus nearby. 'You are so ugly and rough! Nobody loves you!' The cactus stayed quiet. When summer came and there was no rain, the garden dried up. Birds and butterflies flew to the cactus, drinking water stored inside it. The rose, without water, began to wilt. The cactus shared water with those nearby, including the rose.",lesson:"Moral: True beauty is in kindness. Do not judge others by their looks."},
+{em:"🐘",title:"The Elephant and the Friends",moral:"True Friends Stand Together",preview:"A lonely elephant looks for friends in the jungle. Each animal says no...",story:"An elephant roamed the jungle looking for friends. He asked a monkey, who said 'You are too big to swing on trees!' He asked the rabbit, who said 'Too big for my burrow!' Then one day, the animals were scared of a tiger. They all hid except the elephant, who bravely chased the tiger away! After that, all the animals welcomed the elephant as their friend. The elephant had found true friends — those who needed him.",lesson:"Moral: Real friends accept you as you are. Strength used to help others earns true friendship."}
+];
+
+function renderStories(){
+  var list=document.getElementById("story-list");
+  stories.forEach(function(s,i){
+    var d=document.createElement("div");
+    d.className="sc";
+    d.innerHTML='<span class="sem">'+s.em+'</span><h3>'+s.title+'</h3><div class="smoraltag">'+s.moral+'</div><div class="spreview">'+s.preview+'</div>';
+    d.onclick=function(){openM(s);};
+    list.appendChild(d);
+  });
+}
+
+function openM(s){
+  document.getElementById("msem").textContent=s.em;
+  document.getElementById("mstitle").textContent=s.title;
+  document.getElementById("msmoral").textContent="Moral: "+s.moral;
+  document.getElementById("msbody").textContent=s.story;
+  document.getElementById("msbox").textContent="💡 "+s.lesson;
+  document.getElementById("modal").classList.add("open");
+}
+
+function closeM(){document.getElementById("modal").classList.remove("open");}
+
+renderStories();
+</script>
+</body>
+</html>

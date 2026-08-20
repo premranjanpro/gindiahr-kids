@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Nursery Rhymes for Kids | Baby Poems | GIndia Kids</title>
+<meta name="description" content="Listen to nursery rhymes! Classic baby poems with lyrics — Twinkle Twinkle, Baa Baa Black Sheep, Wheels on the Bus. GIndia Kids free platform from Patna."/>
+<meta name="keywords" content="nursery rhymes kids, nursery poems kids india, twinkle twinkle little star, baby rhymes online, kids songs india, free nursery rhymes"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:#FFF8F0;min-height:100vh;}
+nav{background:#fff;border-bottom:3px solid #F26522;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;}
+.nl{font-size:20px;font-weight:900;color:#F26522;}
+.nb{display:flex;gap:8px;}.nb a{font-size:13px;font-weight:700;color:#555;padding:5px 12px;border-radius:20px;background:#f5f5f5;text-decoration:none;}
+.hero{background:linear-gradient(135deg,#FFF0F8,#FFF8F0);padding:32px 20px 20px;text-align:center;border-bottom:1px solid #E2E8F0;}
+.hero h1{font-size:32px;font-weight:900;color:#0F1724;margin-bottom:6px;}
+.hero p{font-size:14px;color:#666;}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;max-width:1100px;margin:24px auto;padding:0 16px 32px;}
+.rc{background:#fff;border-radius:20px;padding:20px;cursor:pointer;transition:all .25s;border:2px solid transparent;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+.rc:hover{border-color:#F26522;transform:translateY(-3px);box-shadow:0 8px 24px rgba(242,101,34,.18);}
+.rc .em{font-size:40px;margin-bottom:10px;}
+.rc h3{font-size:17px;font-weight:900;color:#0F1724;margin-bottom:5px;}
+.rc .preview{font-size:13px;color:#888;line-height:1.5;font-style:italic;}
+.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:999;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;}
+.modal.open{display:flex;}
+.mbox{background:#fff;border-radius:24px;padding:28px 24px;max-width:440px;width:100%;margin:auto;position:relative;animation:pop .3s ease;}
+@keyframes pop{from{transform:scale(.9);opacity:0;}to{transform:scale(1);opacity:1;}}
+.mcl{position:absolute;top:12px;right:16px;font-size:22px;cursor:pointer;color:#888;font-weight:900;background:none;border:none;}
+.mem{font-size:56px;text-align:center;display:block;margin-bottom:8px;}
+.mtitle{font-size:22px;font-weight:900;color:#0F1724;text-align:center;margin-bottom:16px;}
+.lyrics{background:#FFF8F0;border-radius:14px;padding:16px;font-size:14px;color:#444;line-height:2;white-space:pre-line;text-align:center;font-weight:700;}
+.msnd{display:block;margin:14px auto 0;background:#F26522;color:#fff;border:none;padding:10px 28px;border-radius:20px;font-family:'Nunito',sans-serif;font-size:14px;font-weight:800;cursor:pointer;}
+footer{text-align:center;padding:20px;font-size:12px;color:#888;}footer a{color:#F26522;}
+</style>
+</head>
+<body>
+<nav>
+<span class="nl">🎵 GIndia Kids</span>
+<div class="nb">
+<a href="index.html">🏠 Home</a>
+<a href="phonics.html">ABC</a>
+<a href="animals.html">Animals</a>
+<a href="stories.html">Stories</a>
+</div>
+</nav>
+<div class="hero">
+<h1>🎵 Nursery Rhymes</h1>
+<p>Tap any rhyme to read the full lyrics and hear it sung!</p>
+</div>
+<div class="grid" id="grid"></div>
+<div class="modal" id="modal" onclick="if(event.target===this)closeM()">
+<div class="mbox">
+<button class="mcl" onclick="closeM()">✕</button>
+<span class="mem" id="mem"></span>
+<div class="mtitle" id="mtitle"></div>
+<div class="lyrics" id="lyrics"></div>
+<button class="msnd" onclick="readRhyme()">🔊 Read Aloud</button>
+</div>
+</div>
+<footer>© 2025 GIndia Kids — Nursery Rhymes from Patna | <a href="https://gindiahr.com">gindiahr.com</a></footer>
+
+<script>
+var rhymes=[
+{em:"⭐",title:"Twinkle Twinkle Little Star",preview:"Twinkle, twinkle, little star, how I wonder what you are...",lyrics:"Twinkle, twinkle, little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.\n\nWhen the blazing sun is gone,\nWhen he nothing shines upon,\nThen you show your little light,\nTwinkle, twinkle, through the night.\n\nTwinkle, twinkle, little star,\nHow I wonder what you are!"},
+{em:"🐑",title:"Baa Baa Black Sheep",preview:"Baa, baa, black sheep, have you any wool?",lyrics:"Baa, baa, black sheep,\nHave you any wool?\nYes, sir! Yes, sir!\nThree bags full!\n\nOne for my master,\nAnd one for my dame,\nAnd one for the little boy\nWho lives down the lane.\n\nBaa, baa, black sheep,\nHave you any wool?\nYes, sir! Yes, sir!\nThree bags full!"},
+{em:"🕵️",title:"Jack and Jill",preview:"Jack and Jill went up the hill to fetch a pail of water...",lyrics:"Jack and Jill went up the hill\nTo fetch a pail of water.\nJack fell down and broke his crown,\nAnd Jill came tumbling after!\n\nUp Jack got, and home did trot,\nAs fast as he could caper.\nHe went to bed to mend his head\nWith vinegar and brown paper."},
+{em:"🚌",title:"Wheels on the Bus",preview:"The wheels on the bus go round and round...",lyrics:"The wheels on the bus go round and round,\nRound and round, round and round!\nThe wheels on the bus go round and round,\nAll through the town!\n\nThe doors on the bus go open and shut,\nOpen and shut, open and shut!\nThe doors on the bus go open and shut,\nAll through the town!\n\nThe wipers on the bus go swish swish swish,\nSwish swish swish, swish swish swish!\nThe wipers on the bus go swish swish swish,\nAll through the town!"},
+{em:"🌧️",title:"Rain Rain Go Away",preview:"Rain, rain, go away, come again another day...",lyrics:"Rain, rain, go away,\nCome again another day!\nLittle children want to play,\nRain, rain, go away!\n\nRain, rain, go to Spain,\nNever show your face again!\nLittle children want to play,\nRain, rain, go away!"},
+{em:"🐛",title:"Incy Wincy Spider",preview:"Incy Wincy Spider climbed up the water spout...",lyrics:"Incy Wincy Spider\nClimbed up the water spout.\nDown came the rain\nAnd washed the spider out!\n\nOut came the sunshine\nAnd dried up all the rain,\nAnd Incy Wincy Spider\nClimbed up the spout again!"},
+{em:"🌟",title:"Star Light Star Bright",preview:"Star light, star bright, first star I see tonight...",lyrics:"Star light, star bright,\nFirst star I see tonight,\nI wish I may, I wish I might,\nHave this wish I wish tonight!\n\nStar light, star bright,\nFirst star I see tonight,\nI wish upon you with all my might!"},
+{em:"🐸",title:"Five Little Speckled Frogs",preview:"Five little speckled frogs sat on a speckled log...",lyrics:"Five little speckled frogs\nSat on a speckled log,\nEating some most delicious bugs — yum yum!\nOne jumped into the pool,\nWhere it was nice and cool,\nNow there are four green speckled frogs — glub glub!\n\nFour little speckled frogs...\nThree little speckled frogs...\nTwo little speckled frogs...\nOne little speckled frog...\nNo little speckled frogs!"}
+];
+
+var curr=null;
+
+function renderGrid(){
+  var g=document.getElementById("grid");
+  rhymes.forEach(function(r){
+    var d=document.createElement("div");d.className="rc";
+    d.innerHTML='<div class="em">'+r.em+'</div><h3>'+r.title+'</h3><div class="preview">'+r.preview+'</div>';
+    d.onclick=function(){openM(r);};
+    g.appendChild(d);
+  });
+}
+
+function openM(r){
+  curr=r;
+  document.getElementById("mem").textContent=r.em;
+  document.getElementById("mtitle").textContent=r.title;
+  document.getElementById("lyrics").textContent=r.lyrics;
+  document.getElementById("modal").classList.add("open");
+}
+
+function closeM(){document.getElementById("modal").classList.remove("open");window.speechSynthesis.cancel();}
+
+function readRhyme(){
+  if(curr&&window.speechSynthesis){
+    window.speechSynthesis.cancel();
+    var u=new SpeechSynthesisUtterance(curr.title+". "+curr.lyrics);
+    u.lang="en-IN";u.rate=0.85;
+    window.speechSynthesis.speak(u);
+  }
+}
+
+renderGrid();
+</script>
+</body>
+</html>
