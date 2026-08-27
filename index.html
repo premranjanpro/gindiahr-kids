@@ -2,36 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GIndia Kids | Kids E-Learning Platform India | Phonics, Alphabet & Interactive Learning for Children</title>
-    <meta name="description" content="GIndia Kids – India's best free kids e-learning platform! Learn A-Z Alphabet with phonics, Numbers 1-20, Animal Sounds, Colors & Shapes, Rhymes and a Kids Drawing Board. Fun interactive learning for children aged 2-8." />
-    <meta name="keywords" content="kids elearning platform India, phonics learning online free, alphabet learning for kids, nursery learning activities online, kids education website India, free learning for children, abc learning online, numbers for kids, animal sounds for children" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GIndia Kids | Best Free Kids E-Learning Platform India | Phonics, Alphabet, Numbers & Interactive Learning</title>
+    <meta name="description" content="GIndia Kids – India's #1 free kids e-learning platform! AI-powered learning with A-Z Alphabet Phonics, Numbers 1-20, Animal Sounds, Colors & Shapes, Nursery Rhymes, Drawing Board & AI Tutor. Fun interactive learning for children aged 2-8." />
+    <meta name="keywords" content="kids elearning platform India, phonics learning online free, alphabet learning for kids, nursery learning activities online, kids education website India, free learning for children, abc learning online, numbers for kids, animal sounds for children, AI tutor for kids, interactive kids learning, GIndia Kids" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://kids.gindiahr.com/" />
-    <meta property="og:title" content="GIndia Kids | Free Kids E-Learning Platform India" />
-    <meta property="og:description" content="Learn A-Z Phonics, Numbers, Animal Sounds, Colors, Rhymes and Draw! Free interactive e-learning for kids aged 2-8 in India." />
+    <meta property="og:title" content="GIndia Kids | Best Free Kids E-Learning Platform India" />
+    <meta property="og:description" content="AI-powered learning for kids aged 2-8. A-Z Phonics, Numbers, Animal Sounds, Colors, Rhymes, Drawing & AI Tutor. 100% Free!" />
     <meta property="og:url" content="https://kids.gindiahr.com/" />
+    <meta property="og:type" content="website" />
+    <meta name="author" content="GIndiaHR Group" />
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Organization","name":"GIndiaHR Group","alternateName":["GIndia","GIndia Group","Global India HR Solutions"],"url":"https://gindiahr.com","logo":"https://gindiahr.com/images/logo/logo.png","sameAs":["https://tech.gindiahr.com","https://hello24.gindiahr.com","https://kids.gindiahr.com","https://game.gindiahr.com","https://social.gindiahr.com"],"contactPoint":{"@type":"ContactPoint","telephone":"+91-6202254762","contactType":"sales"}}
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon-76x76.png">
+    <link rel="apple-touch-icon" href="favicon-76x76.png">
 
     <style>
         :root {
-            --pink: #E91E8C;
-            --purple: #7C3AED;
-            --blue: #1565C0;
-            --sky: #0284C7;
-            --green: #059669;
-            --yellow: #D97706;
-            --orange: #EA580C;
-            --red: #DC2626;
-            --bg: #FFFFFF;
-            --bg-soft: #F7F9FC;
+            --pink: #FF6B9D;
+            --purple: #A855F7;
+            --blue: #3B82F6;
+            --sky: #38BDF8;
+            --green: #22C55E;
+            --yellow: #FBBF24;
+            --orange: #FB923C;
+            --red: #F43F5E;
+            --bg: #FFF8F0;
+            --bg-soft: #FFF3E8;
             --card: #FFFFFF;
-            --text: #1A2030;
-            --sub: #5A6475;
-            --border: #E2E8F0;
+            --text: #1E293B;
+            --sub: #64748B;
+            --border: #FDE68A;
+            --rainbow: linear-gradient(135deg, #FF6B9D, #A855F7, #3B82F6, #22C55E, #FBBF24);
         }
-        * { margin:0; padding:0; box-sizing:border-box; }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior:smooth; }
         body {
             font-family: 'Nunito', sans-serif;
@@ -40,462 +49,661 @@
             overflow-x: hidden;
         }
 
+        /* FLOATING BUBBLES BACKGROUND */
+        .floating-bubbles {
+            position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.12;
+            animation: floatUp linear infinite;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.12; }
+            90% { opacity: 0.12; }
+            100% { transform: translateY(-100px) scale(1.2) rotate(360deg); opacity: 0; }
+        }
+
+        /* CONFETTI */
+        #confetti-container { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+        .confetti-piece {
+            position: absolute; top: -10px; width: 10px; height: 10px;
+            animation: confettiFall linear forwards;
+        }
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
         /* HEADER */
         header {
-            background: #ffffff;
-            border-bottom: 2px solid var(--border);
-            padding: 14px 24px;
+            background: #FFFFFF;
+            padding: 12px 20px;
+            position: sticky; top: 0; z-index: 100;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            border-bottom: 2px solid #F3E8FF;
         }
         .header-inner {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            max-width: 1200px; margin: 0 auto;
+            display: flex; justify-content: space-between; align-items: center;
         }
         .logo {
-            display: flex; align-items: center;
-            font-family: 'Baloo 2', cursive;
-            font-size: 28px;
-            font-weight: 800;
-            color: #fff;
+            display: flex; align-items: center; gap: 10px;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
-        .logo .sub { font-size: 14px; font-weight: 600; opacity: 0.85; }
-        .header-nav { display: flex; gap: 8px; }
+        .logo img { max-height: 46px; width: auto; border-radius: 6px; }
+        .logo-text {
+            font-family: 'Baloo 2', cursive; font-size: 22px; font-weight: 800;
+            background: linear-gradient(135deg, #A855F7, #3B82F6);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .header-nav { display: flex; gap: 6px; flex-wrap: wrap; }
         .header-nav a {
-            background: rgba(255,255,255,0.2);
-            color: #fff;
-            padding: 8px 16px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 700;
+            background: #F3E8FF;
+            color: #7C3AED; padding: 6px 14px; border-radius: 50px;
+            text-decoration: none; font-size: 13px; font-weight: 700;
             transition: all 0.2s;
         }
-        .header-nav a:hover { background: rgba(255,255,255,0.4); }
+        .header-nav a:hover { background: #7C3AED; color: #fff; transform: scale(1.05); }
 
         /* HERO */
         .hero {
-            background: linear-gradient(135deg, #FF6B9D 0%, #9B59B6 40%, #3498DB 100%);
-            padding: 60px 24px;
+            background: linear-gradient(135deg, #FFF1F3 0%, #F3E8FF 30%, #DBEAFE 60%, #ECFDF5 100%);
+            padding: 50px 20px 40px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
-        .stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
-        .star {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.6);
-            animation: twinkle 2s ease-in-out infinite;
+        .hero-clouds {
+            position: absolute; inset: 0; overflow: hidden; pointer-events: none;
         }
-        @keyframes twinkle { 0%,100%{ opacity:0.3; transform: scale(1); } 50%{ opacity:1; transform: scale(1.4); } }
+        .cloud {
+            position: absolute;
+            background: rgba(255,255,255,0.7);
+            border-radius: 50px;
+            filter: blur(2px);
+            animation: cloudFloat linear infinite;
+        }
+        @keyframes cloudFloat {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
 
         .hero-content { position: relative; z-index: 1; }
-        .hero-emoji-row { font-size: 48px; margin-bottom: 16px; animation: bounce 1.5s ease-in-out infinite; }
-        @keyframes bounce { 0%,100%{ transform: translateY(0); } 50%{ transform: translateY(-14px); } }
+        .hero-mascot {
+            font-size: 80px;
+            animation: mascotBounce 1.5s ease-in-out infinite;
+            display: inline-block; margin-bottom: 12px;
+        }
+        @keyframes mascotBounce {
+            0%,100% { transform: translateY(0) rotate(-5deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(0) rotate(-5deg); }
+            75% { transform: translateY(-10px) rotate(3deg); }
+        }
         .hero h1 {
             font-family: 'Baloo 2', cursive;
-            font-size: 58px;
-            color: #fff;
-            margin-bottom: 14px;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-        .hero p { font-size: 20px; color: rgba(255,255,255,0.9); margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .hero-age-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            border: 2px solid rgba(255,255,255,0.4);
-            color: #fff;
-            font-size: 16px;
+            font-size: clamp(32px, 7vw, 56px);
             font-weight: 800;
-            padding: 10px 24px;
-            border-radius: 50px;
-            margin-bottom: 32px;
+            background: var(--rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+            line-height: 1.15;
         }
-        .hero-modules { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-        .hero-mod-btn {
+        .hero p {
+            font-size: clamp(15px, 3vw, 19px);
+            color: var(--sub);
+            margin: 0 auto 20px;
+            max-width: 560px;
+            line-height: 1.6;
+        }
+        .hero-badges {
+            display: flex; justify-content: center; gap: 8px;
+            flex-wrap: wrap; margin-bottom: 28px;
+        }
+        .hero-badge {
             background: #fff;
-            border: none;
-            border-radius: 16px;
-            padding: 14px 22px;
-            font-family: 'Baloo 2', cursive;
-            font-size: 17px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            border: 2px solid var(--border);
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 13px; font-weight: 800;
             color: var(--text);
-            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(251,191,36,0.15);
         }
-        .hero-mod-btn:hover { transform: scale(1.08) translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .hero-btns {
+            display: flex; justify-content: center; gap: 10px;
+            flex-wrap: wrap;
+        }
+        .hero-btn {
+            background: #fff; border: 3px solid transparent;
+            border-radius: 20px; padding: 14px 20px;
+            font-family: 'Baloo 2', cursive; font-size: 16px; font-weight: 700;
+            cursor: pointer; transition: all 0.25s;
+            display: flex; align-items: center; gap: 8px;
+            color: var(--text); text-decoration: none;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            min-width: 140px; justify-content: center;
+        }
+        .hero-btn:hover {
+            transform: scale(1.08) translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+        .hero-btn .emoji { font-size: 24px; }
+        .hero-btn.alpha { border-color: var(--blue); }
+        .hero-btn.num { border-color: var(--green); }
+        .hero-btn.ani { border-color: var(--orange); }
+        .hero-btn.col { border-color: var(--pink); }
+        .hero-btn.rhy { border-color: var(--purple); }
+        .hero-btn.drw { border-color: var(--yellow); }
+        .hero-btn.ai { border-color: var(--sky); background: linear-gradient(135deg, #DBEAFE, #E0F2FE); }
 
-        /* MODULES */
-        .modules-section { padding: 70px 24px; }
-        .container { max-width: 1100px; margin: 0 auto; }
-        .section-header { text-align: center; margin-bottom: 52px; }
+        /* MODULES SECTION */
+        .modules-section { padding: 60px 20px; position: relative; z-index: 1; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 44px; }
         .section-title {
             font-family: 'Baloo 2', cursive;
-            font-size: 44px;
-            font-weight: 800;
-            color: var(--purple);
+            font-size: clamp(28px, 5vw, 42px); font-weight: 800;
             margin-bottom: 8px;
         }
-        .section-sub { font-size: 18px; color: var(--sub); }
+        .section-title.rainbow {
+            background: var(--rainbow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-sub { font-size: 16px; color: var(--sub); }
 
         .modules-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
         }
         .mod-card {
             background: var(--card);
-            border-radius: 28px;
-            padding: 36px 28px;
+            border-radius: 24px; padding: 32px 24px;
             text-align: center;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            cursor: pointer; transition: all 0.3s;
+            position: relative; overflow: hidden;
             border: 3px solid transparent;
         }
-        .mod-card:hover { transform: translateY(-10px) scale(1.02); }
-        .mod-card.alpha { border-color: var(--blue); }
-        .mod-card.alpha:hover { box-shadow: 0 20px 50px rgba(52,152,219,0.3); }
-        .mod-card.numbers { border-color: var(--green); }
-        .mod-card.numbers:hover { box-shadow: 0 20px 50px rgba(46,204,113,0.3); }
-        .mod-card.animals { border-color: var(--orange); }
-        .mod-card.animals:hover { box-shadow: 0 20px 50px rgba(255,140,0,0.3); }
-        .mod-card.colors { border-color: var(--pink); }
-        .mod-card.colors:hover { box-shadow: 0 20px 50px rgba(255,107,157,0.3); }
-        .mod-card.rhymes { border-color: var(--purple); }
-        .mod-card.rhymes:hover { box-shadow: 0 20px 50px rgba(155,89,182,0.3); }
-        .mod-card.drawing { border-color: var(--yellow); }
-        .mod-card.drawing:hover { box-shadow: 0 20px 50px rgba(241,196,15,0.3); }
+        .mod-card::before {
+            content: ''; position: absolute; top: -60px; right: -60px;
+            width: 120px; height: 120px; border-radius: 50%;
+            opacity: 0.15; transition: all 0.3s;
+        }
+        .mod-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.12);
+        }
+        .mod-card:active { transform: scale(0.98); }
 
-        .mod-icon { font-size: 64px; margin-bottom: 16px; display: block; }
-        .mod-card h3 { font-family: 'Baloo 2', cursive; font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+        .mod-card.alpha { border-color: #93C5FD; }
+        .mod-card.alpha::before { background: var(--blue); }
+        .mod-card.alpha:hover { box-shadow: 0 20px 48px rgba(59,130,246,0.2); }
+
+        .mod-card.numbers { border-color: #86EFAC; }
+        .mod-card.numbers::before { background: var(--green); }
+        .mod-card.numbers:hover { box-shadow: 0 20px 48px rgba(34,197,94,0.2); }
+
+        .mod-card.animals { border-color: #FDBA74; }
+        .mod-card.animals::before { background: var(--orange); }
+        .mod-card.animals:hover { box-shadow: 0 20px 48px rgba(251,146,60,0.2); }
+
+        .mod-card.colors { border-color: #FCA5C0; }
+        .mod-card.colors::before { background: var(--pink); }
+        .mod-card.colors:hover { box-shadow: 0 20px 48px rgba(255,107,157,0.2); }
+
+        .mod-card.rhymes { border-color: #C4B5FD; }
+        .mod-card.rhymes::before { background: var(--purple); }
+        .mod-card.rhymes:hover { box-shadow: 0 20px 48px rgba(168,85,247,0.2); }
+
+        .mod-card.drawing { border-color: #FDE68A; }
+        .mod-card.drawing::before { background: var(--yellow); }
+        .mod-card.drawing:hover { box-shadow: 0 20px 48px rgba(251,191,36,0.2); }
+
+        .mod-card.ai-tutor { border-color: #7DD3FC; background: linear-gradient(135deg, #F0F9FF, #E0F2FE); }
+        .mod-card.ai-tutor::before { background: var(--sky); }
+        .mod-card.ai-tutor:hover { box-shadow: 0 20px 48px rgba(56,189,248,0.25); }
+
+        .mod-icon { font-size: 56px; margin-bottom: 12px; display: block; animation: iconWiggle 3s ease-in-out infinite; }
+        .mod-card:nth-child(2) .mod-icon { animation-delay: 0.5s; }
+        .mod-card:nth-child(3) .mod-icon { animation-delay: 1s; }
+        .mod-card:nth-child(4) .mod-icon { animation-delay: 1.5s; }
+        .mod-card:nth-child(5) .mod-icon { animation-delay: 2s; }
+        .mod-card:nth-child(6) .mod-icon { animation-delay: 2.5s; }
+        .mod-card:nth-child(7) .mod-icon { animation-delay: 3s; }
+        @keyframes iconWiggle {
+            0%,100% { transform: rotate(-5deg) scale(1); }
+            50% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        .mod-card h3 { font-family: 'Baloo 2', cursive; font-size: 22px; font-weight: 700; margin-bottom: 8px; }
         .mod-card.alpha h3 { color: var(--blue); }
         .mod-card.numbers h3 { color: var(--green); }
         .mod-card.animals h3 { color: var(--orange); }
         .mod-card.colors h3 { color: var(--pink); }
         .mod-card.rhymes h3 { color: var(--purple); }
         .mod-card.drawing h3 { color: #B8860B; }
-        .mod-card p { font-size: 15px; color: var(--sub); line-height: 1.6; margin-bottom: 20px; }
+        .mod-card.ai-tutor h3 { color: var(--sky); }
+        .mod-card p { font-size: 14px; color: var(--sub); line-height: 1.6; margin-bottom: 16px; }
+        .mod-badge {
+            display: inline-block; padding: 4px 12px; border-radius: 50px;
+            font-size: 11px; font-weight: 800; text-transform: uppercase;
+            letter-spacing: 0.5px; margin-bottom: 12px;
+        }
+        .mod-badge.new { background: #DCFCE7; color: #16A34A; }
+        .mod-badge.ai { background: #E0F2FE; color: #0284C7; }
+        .mod-badge.popular { background: #FEF3C7; color: #D97706; }
+
         .mod-btn {
-            display: inline-block;
-            padding: 10px 24px;
-            border-radius: 50px;
-            font-family: 'Baloo 2', cursive;
-            font-size: 16px;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            color: #fff;
+            display: inline-block; padding: 10px 24px;
+            border-radius: 50px; font-family: 'Baloo 2', cursive;
+            font-size: 15px; font-weight: 700;
+            cursor: pointer; border: none; color: #fff;
             transition: all 0.2s;
         }
-        .mod-btn:hover { transform: scale(1.05); }
-        .alpha .mod-btn { background: var(--blue); }
-        .numbers .mod-btn { background: var(--green); }
-        .animals .mod-btn { background: var(--orange); }
-        .colors .mod-btn { background: var(--pink); }
-        .rhymes .mod-btn { background: var(--purple); }
-        .drawing .mod-btn { background: var(--yellow); color: #000; }
+        .mod-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+        .mod-card.alpha .mod-btn { background: var(--blue); }
+        .mod-card.numbers .mod-btn { background: var(--green); }
+        .mod-card.animals .mod-btn { background: var(--orange); }
+        .mod-card.colors .mod-btn { background: var(--pink); }
+        .mod-card.rhymes .mod-btn { background: var(--purple); }
+        .mod-card.drawing .mod-btn { background: #D97706; }
+        .mod-card.ai-tutor .mod-btn { background: linear-gradient(135deg, #0EA5E9, #38BDF8); }
 
         /* MODAL */
         .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.7);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            display: none; position: fixed; inset: 0;
+            background: rgba(30,41,59,0.7); backdrop-filter: blur(6px);
+            z-index: 1000; align-items: center; justify-content: center;
+            padding: 16px;
         }
         .modal-overlay.open { display: flex; }
         .modal {
             background: #fff;
-            border-radius: 28px;
-            padding: 44px;
-            max-width: 680px;
-            width: 100%;
-            max-height: 88vh;
-            overflow-y: auto;
+            border-radius: 28px; padding: 32px;
+            max-width: 640px; width: 100%;
+            max-height: 90vh; overflow-y: auto;
             position: relative;
-            animation: popUp 0.35s ease;
+            animation: modalPop 0.35s cubic-bezier(0.34,1.56,0.64,1);
+            box-shadow: 0 24px 64px rgba(0,0,0,0.2);
         }
-        @keyframes popUp { from { opacity:0; transform: scale(0.8) translateY(40px); } to { opacity:1; transform: scale(1) translateY(0); } }
+        @keyframes modalPop { from { opacity:0; transform: scale(0.8) translateY(20px); } to { opacity:1; transform: scale(1) translateY(0); } }
         .modal-close {
-            position: absolute;
-            top: 16px;
-            right: 20px;
-            background: #f0f0f0;
-            border: none;
-            color: #666;
-            font-size: 20px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-weight: 700;
-        }
-        .modal-close:hover { background: #ddd; }
-        .modal-title {
-            font-family: 'Baloo 2', cursive;
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-        .modal-sub { color: var(--sub); font-size: 15px; margin-bottom: 28px; }
-
-        /* ALPHABET MODULE */
-        .alpha-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
-        .alpha-letter {
-            background: linear-gradient(135deg, #EBF5FB, #D6EAF8);
-            border: 2px solid var(--blue);
-            border-radius: 14px;
-            padding: 14px 8px;
-            text-align: center;
-            cursor: pointer;
+            position: absolute; top: 14px; right: 18px;
+            background: #F1F5F9; border: none; color: var(--sub);
+            font-size: 20px; cursor: pointer;
+            width: 36px; height: 36px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
             transition: all 0.2s;
         }
-        .alpha-letter:hover { background: var(--blue); color: #fff; transform: scale(1.1); }
-        .alpha-letter .letter { font-family: 'Baloo 2', cursive; font-size: 28px; font-weight: 800; color: var(--blue); display: block; }
-        .alpha-letter:hover .letter { color: #fff; }
-        .alpha-letter .word { font-size: 11px; color: var(--sub); display: block; margin-top: 2px; }
-        .alpha-letter:hover .word { color: rgba(255,255,255,0.85); }
+        .modal-close:hover { background: #FEE2E2; color: var(--red); }
+        .modal-title {
+            font-family: 'Baloo 2', cursive; font-size: clamp(22px, 4vw, 30px);
+            font-weight: 800; margin-bottom: 4px;
+        }
+        .modal-sub { font-size: 14px; color: var(--sub); margin-bottom: 20px; }
+
+        /* LETTER DISPLAY */
         .letter-display {
-            background: linear-gradient(135deg, #EBF5FB, #AED6F1);
-            border-radius: 20px;
-            padding: 28px;
-            text-align: center;
+            background: linear-gradient(135deg, #EFF6FF, #DBEAFE);
+            border-radius: 20px; padding: 24px; text-align: center;
             margin-bottom: 20px;
         }
-        .letter-big { font-family: 'Baloo 2', cursive; font-size: 96px; font-weight: 800; color: var(--blue); line-height: 1; }
-        .letter-word { font-size: 26px; font-weight: 700; color: var(--text); margin-top: 8px; }
-        .letter-emoji { font-size: 48px; margin-top: 4px; }
+        .letter-big {
+            font-family: 'Baloo 2', cursive; font-size: 96px;
+            color: var(--blue); line-height: 1;
+            animation: letterPulse 0.5s ease;
+        }
+        @keyframes letterPulse { 0% { transform: scale(0.5); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+        .letter-word { font-family: 'Baloo 2', cursive; font-size: 28px; color: var(--text); }
+        .letter-emoji { font-size: 48px; margin: 8px 0; }
         .speak-btn {
-            background: var(--blue);
-            color: #fff;
-            border: none;
-            padding: 12px 28px;
-            border-radius: 50px;
-            font-family: 'Baloo 2', cursive;
-            font-size: 18px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 12px;
+            background: var(--blue); color: #fff; border: none;
+            border-radius: 50px; padding: 10px 24px;
+            font-family: 'Baloo 2', cursive; font-size: 16px; font-weight: 700;
+            cursor: pointer; transition: all 0.2s;
+            margin-top: 8px;
+        }
+        .speak-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        .alpha-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+            gap: 8px;
+        }
+        .alpha-letter {
+            background: #fff; border: 2px solid #E2E8F0;
+            border-radius: 14px; padding: 10px 6px;
+            text-align: center; cursor: pointer;
             transition: all 0.2s;
         }
-        .speak-btn:hover { background: #2980B9; transform: scale(1.05); }
+        .alpha-letter:hover { border-color: var(--blue); transform: scale(1.08); box-shadow: 0 4px 16px rgba(59,130,246,0.2); }
+        .alpha-letter:active { transform: scale(0.95); }
+        .alpha-letter .letter { font-family: 'Baloo 2', cursive; font-size: 24px; font-weight: 800; color: var(--blue); display: block; }
+        .alpha-letter .word { font-size: 10px; color: var(--sub); display: block; }
 
-        /* NUMBER MODULE */
-        .number-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+        /* NUMBER DISPLAY */
+        .num-display {
+            background: linear-gradient(135deg, #ECFDF5, #DCFCE7);
+            border-radius: 20px; padding: 24px; text-align: center;
+            margin-bottom: 20px;
+        }
+        .num-big { font-family: 'Baloo 2', cursive; font-size: 80px; color: var(--green); line-height: 1; }
+        .num-word { font-family: 'Baloo 2', cursive; font-size: 26px; color: var(--text); }
+        .num-dots { font-size: 24px; margin: 8px 0; letter-spacing: 4px; }
+        .number-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
+            gap: 8px;
+        }
         .num-card {
-            background: linear-gradient(135deg, #EAFAF1, #D5F5E3);
-            border: 2px solid var(--green);
-            border-radius: 16px;
-            padding: 16px 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
+            background: #fff; border: 2px solid #E2E8F0;
+            border-radius: 14px; padding: 10px 6px;
+            text-align: center; cursor: pointer; transition: all 0.2s;
         }
-        .num-card:hover { background: var(--green); transform: scale(1.1); }
-        .num-card .num { font-family: 'Baloo 2', cursive; font-size: 36px; font-weight: 800; color: var(--green); }
-        .num-card:hover .num { color: #fff; }
-        .num-card .dots { font-size: 14px; margin-top: 4px; }
-        .num-display { background: linear-gradient(135deg, #EAFAF1, #A9DFBF); border-radius: 20px; padding: 24px; text-align: center; margin-bottom: 20px; }
-        .num-big { font-family: 'Baloo 2', cursive; font-size: 96px; font-weight: 800; color: var(--green); line-height: 1; }
-        .num-word { font-size: 24px; font-weight: 700; margin-top: 8px; }
-        .num-dots { font-size: 28px; margin-top: 8px; line-height: 1.4; word-break: break-all; }
+        .num-card:hover { border-color: var(--green); transform: scale(1.08); box-shadow: 0 4px 16px rgba(34,197,94,0.2); }
+        .num-card .num { font-family: 'Baloo 2', cursive; font-size: 24px; font-weight: 800; color: var(--green); display: block; }
+        .num-card .dots { font-size: 8px; display: block; }
 
-        /* ANIMAL MODULE */
-        .animal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+        /* ANIMAL GRID */
+        .animal-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 12px;
+        }
         .animal-card {
-            background: linear-gradient(135deg, #FEF9E7, #FDEBD0);
-            border: 2px solid var(--orange);
-            border-radius: 18px;
-            padding: 22px 14px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.25s;
+            background: linear-gradient(135deg, #FFF7ED, #FFEDD5);
+            border: 2px solid #FDBA74; border-radius: 18px;
+            padding: 16px 10px; text-align: center;
+            cursor: pointer; transition: all 0.25s;
         }
-        .animal-card:hover { background: var(--orange); transform: scale(1.05); }
-        .animal-card:hover .animal-name { color: #fff; }
-        .animal-emoji { font-size: 44px; }
-        .animal-name { font-family: 'Baloo 2', cursive; font-size: 16px; font-weight: 700; color: var(--text); margin-top: 8px; }
-        .animal-sound { font-size: 13px; color: var(--sub); margin-top: 4px; }
-        .animal-card:hover .animal-sound { color: rgba(255,255,255,0.8); }
+        .animal-card:hover { transform: scale(1.06) translateY(-4px); box-shadow: 0 8px 24px rgba(251,146,60,0.25); }
+        .animal-card:active { transform: scale(0.96); }
+        .animal-emoji { font-size: 48px; }
+        .animal-name { font-family: 'Baloo 2', cursive; font-size: 16px; font-weight: 700; color: var(--text); margin-top: 4px; }
+        .animal-sound { font-size: 13px; color: var(--orange); font-weight: 700; }
 
-        /* COLORS MODULE */
-        .colors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        /* COLORS GRID */
+        .colors-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 12px;
+        }
         .color-card {
-            border-radius: 20px;
-            padding: 24px 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            border: 3px solid transparent;
+            border-radius: 18px; padding: 20px 10px;
+            text-align: center; cursor: pointer;
+            transition: all 0.25s;
+            border: 3px solid rgba(255,255,255,0.3);
         }
-        .color-card:hover { transform: scale(1.1) rotate(3deg); box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
-        .color-emoji { font-size: 36px; margin-bottom: 8px; }
-        .color-name { font-family: 'Baloo 2', cursive; font-size: 16px; font-weight: 700; }
+        .color-card:hover { transform: scale(1.08) translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+        .color-emoji { font-size: 36px; }
+        .color-name { font-size: 15px; font-weight: 800; margin-top: 6px; }
 
-        /* DRAWING BOARD */
+        /* RHYMES */
+        .rhymes-list {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 12px;
+        }
+        .rhyme-card {
+            background: linear-gradient(135deg, #F5F3FF, #EDE9FE);
+            border: 2px solid #C4B5FD; border-radius: 16px;
+            padding: 16px; display: flex; align-items: center;
+            gap: 12px; cursor: pointer; transition: all 0.25s;
+        }
+        .rhyme-card:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(168,85,247,0.2); border-color: var(--purple); }
+        .rhyme-icon { font-size: 32px; flex-shrink: 0; }
+        .rhyme-title { font-family: 'Baloo 2', cursive; font-size: 16px; font-weight: 700; color: var(--purple); }
+
+        /* DRAWING */
         .drawing-board-wrap { text-align: center; }
-        .canvas-container { border: 3px solid var(--yellow); border-radius: 20px; overflow: hidden; margin-bottom: 16px; }
-        canvas { display: block; cursor: crosshair; background: #fff; }
-        .color-palette { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+        .color-palette {
+            display: flex; flex-wrap: wrap; gap: 8px;
+            justify-content: center; margin-bottom: 12px;
+        }
         .palette-color {
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            border: 3px solid transparent;
+            width: 32px; height: 32px; border-radius: 50%;
+            cursor: pointer; border: 3px solid transparent;
             transition: all 0.2s;
         }
-        .palette-color.active, .palette-color:hover { border-color: var(--text); transform: scale(1.2); }
-        .brush-controls { display: flex; justify-content: center; gap: 10px; margin-bottom: 14px; align-items: center; }
+        .palette-color.active { border-color: var(--text); transform: scale(1.2); }
+        .palette-color:hover { transform: scale(1.15); }
+        .brush-controls {
+            display: flex; align-items: center; gap: 10px;
+            justify-content: center; margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
         .brush-ctrl {
-            background: #f0f0f0;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            padding: 8px 16px;
-            font-family: 'Baloo 2', cursive;
-            font-size: 14px;
-            cursor: pointer;
+            background: #F1F5F9; border: 1px solid var(--border);
+            border-radius: 10px; padding: 6px 14px;
+            font-size: 13px; font-weight: 700; cursor: pointer;
             transition: all 0.2s;
         }
-        .brush-ctrl:hover { background: var(--yellow); border-color: var(--yellow); }
-        .board-btns { display: flex; justify-content: center; gap: 12px; }
+        .brush-ctrl:hover { background: #E2E8F0; }
+        .canvas-container {
+            background: #fff; border-radius: 16px;
+            border: 3px solid #FDE68A;
+            overflow: hidden; margin-bottom: 12px;
+        }
+        .canvas-container canvas { display: block; width: 100%; touch-action: none; }
+        .board-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
         .board-btn {
-            padding: 10px 24px;
-            border-radius: 50px;
-            border: none;
-            font-family: 'Baloo 2', cursive;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
+            padding: 10px 20px; border-radius: 50px;
+            font-family: 'Baloo 2', cursive; font-size: 14px;
+            font-weight: 700; cursor: pointer; border: none;
             transition: all 0.2s;
         }
         .board-btn:hover { transform: scale(1.05); }
 
-        /* RHYMES */
-        .rhymes-list { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        .rhyme-card {
-            background: linear-gradient(135deg, #F4ECF7, #E8DAEF);
-            border: 2px solid var(--purple);
-            border-radius: 18px;
-            padding: 22px;
-            cursor: pointer;
-            transition: all 0.2s;
-            text-align: center;
+        /* AI TUTOR */
+        .ai-chat-container {
+            background: linear-gradient(135deg, #F0F9FF, #E0F2FE);
+            border-radius: 20px; padding: 20px;
+            max-height: 400px; overflow-y: auto;
         }
-        .rhyme-card:hover { background: var(--purple); color: #fff; transform: scale(1.04); }
-        .rhyme-card:hover .rhyme-title { color: #fff; }
-        .rhyme-icon { font-size: 36px; margin-bottom: 10px; }
-        .rhyme-title { font-family: 'Baloo 2', cursive; font-size: 18px; font-weight: 700; color: var(--purple); }
-        .rhyme-lines { font-size: 14px; color: var(--sub); margin-top: 8px; line-height: 1.6; }
-        .rhyme-card:hover .rhyme-lines { color: rgba(255,255,255,0.85); }
+        .ai-messages { margin-bottom: 16px; }
+        .ai-msg {
+            margin-bottom: 12px; padding: 12px 16px;
+            border-radius: 16px; font-size: 15px; line-height: 1.6;
+            animation: msgSlide 0.3s ease;
+            max-width: 90%;
+        }
+        @keyframes msgSlide { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+        .ai-msg.bot {
+            background: #fff; color: var(--text);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .ai-msg.user {
+            background: linear-gradient(135deg, #0EA5E9, #38BDF8);
+            color: #fff; margin-left: auto;
+            border-bottom-right-radius: 4px;
+        }
+        .ai-quick-btns {
+            display: flex; gap: 8px; flex-wrap: wrap;
+            margin-bottom: 12px;
+        }
+        .ai-quick-btn {
+            background: #fff; border: 2px solid #7DD3FC;
+            border-radius: 50px; padding: 8px 16px;
+            font-size: 13px; font-weight: 700; cursor: pointer;
+            transition: all 0.2s; color: #0284C7;
+        }
+        .ai-quick-btn:hover { background: #0284C7; color: #fff; transform: scale(1.05); }
+        .ai-input-row {
+            display: flex; gap: 8px;
+        }
+        .ai-input {
+            flex: 1; border: 2px solid #BAE6FD;
+            border-radius: 14px; padding: 10px 16px;
+            font-size: 15px; font-family: 'Nunito', sans-serif;
+            outline: none; background: #fff;
+        }
+        .ai-input:focus { border-color: var(--sky); }
+        .ai-send-btn {
+            background: linear-gradient(135deg, #0EA5E9, #38BDF8);
+            color: #fff; border: none; border-radius: 14px;
+            padding: 10px 20px; font-weight: 800; cursor: pointer;
+            font-size: 15px; transition: all 0.2s;
+        }
+        .ai-send-btn:hover { transform: scale(1.05); }
 
-        /* CONFETTI */
-        .confetti-container { position: fixed; top: 0; left: 0; width: 100%; pointer-events: none; z-index: 9999; }
-        .confetti-piece {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 2px;
-            top: -20px;
-            animation: confetti-fall linear forwards;
+        /* SMART QUIZ SECTION */
+        .quiz-section {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #FFF7ED, #FEF3C7);
+            position: relative; z-index: 1;
         }
-        @keyframes confetti-fall {
-            to { transform: translateY(110vh) rotate(720deg); }
+        .quiz-card {
+            background: #fff; border-radius: 24px;
+            padding: 32px; text-align: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+            max-width: 600px; margin: 0 auto;
         }
+        .quiz-question {
+            font-family: 'Baloo 2', cursive; font-size: 24px;
+            color: var(--text); margin-bottom: 20px;
+        }
+        .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
+        .quiz-opt {
+            background: #F8FAFC; border: 2px solid #E2E8F0;
+            border-radius: 14px; padding: 14px;
+            font-family: 'Baloo 2', cursive; font-size: 18px;
+            cursor: pointer; transition: all 0.2s;
+            color: var(--text);
+        }
+        .quiz-opt:hover { border-color: var(--yellow); background: #FFFBEB; transform: scale(1.03); }
+        .quiz-opt.correct { border-color: var(--green); background: #DCFCE7; }
+        .quiz-opt.wrong { border-color: var(--red); background: #FEE2E2; }
+        .quiz-score-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; font-weight: 700; font-size: 15px;
+        }
+        .quiz-stars { font-size: 24px; }
+        .quiz-next-btn {
+            background: linear-gradient(135deg, var(--yellow), var(--orange));
+            color: #fff; border: none; border-radius: 50px;
+            padding: 12px 32px; font-family: 'Baloo 2', cursive;
+            font-size: 18px; font-weight: 700; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quiz-next-btn:hover { transform: scale(1.05); }
 
         /* PARENT STRIP */
         .parent-strip {
-            background: linear-gradient(135deg, var(--purple), var(--blue));
-            padding: 50px 24px;
-            text-align: center;
-            color: #fff;
+            background: linear-gradient(135deg, #F3E8FF, #DBEAFE);
+            padding: 48px 20px; text-align: center;
+            position: relative; z-index: 1;
         }
-        .parent-strip h2 { font-family: 'Baloo 2', cursive; font-size: 36px; margin-bottom: 10px; }
-        .parent-strip p { font-size: 17px; opacity: 0.9; margin-bottom: 24px; }
-        .parent-strip-links { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+        .parent-strip h2 {
+            font-family: 'Baloo 2', cursive;
+            font-size: clamp(22px, 4vw, 32px);
+            color: var(--purple); margin-bottom: 12px;
+        }
+        .parent-strip p { color: var(--sub); font-size: 16px; margin-bottom: 24px; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .parent-links { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
         .parent-link {
-            background: rgba(255,255,255,0.2);
-            color: #fff;
-            border: 2px solid rgba(255,255,255,0.4);
-            padding: 12px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 15px;
+            background: #fff; border: 2px solid #C4B5FD;
+            border-radius: 50px; padding: 10px 24px;
+            text-decoration: none; color: var(--purple);
+            font-weight: 700; font-size: 14px;
             transition: all 0.2s;
         }
-        .parent-link:hover { background: rgba(255,255,255,0.35); transform: translateY(-2px); }
+        .parent-link:hover { background: var(--purple); color: #fff; transform: scale(1.05); }
 
         /* FOOTER */
-        footer { background: #2C3E50; padding: 24px; text-align: center; }
-        footer p { color: rgba(255,255,255,0.6); font-size: 13px; }
-        footer a { color: var(--yellow); text-decoration: none; }
+        footer {
+            background: #fff; border-top: 3px solid var(--border);
+            padding: 28px 20px; text-align: center;
+            position: relative; z-index: 1;
+        }
+        footer p { color: var(--sub); font-size: 13px; line-height: 1.6; }
+        footer a { color: var(--purple); text-decoration: none; font-weight: 700; }
 
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            .modules-grid { grid-template-columns: 1fr 1fr; }
-            .hero h1 { font-size: 38px; }
-            .alpha-grid { grid-template-columns: repeat(4, 1fr); }
-            .rhymes-list { grid-template-columns: 1fr; }
+            .header-nav { display: none; }
+            .hero { padding: 36px 16px 28px; }
+            .modules-section { padding: 40px 16px; }
+            .hero-btn { padding: 10px 14px; font-size: 14px; min-width: 120px; }
+            .modal { padding: 24px 16px; border-radius: 20px; }
+            .quiz-options { grid-template-columns: 1fr; }
         }
         @media (max-width: 480px) {
-            .modules-grid { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 30px; }
-            .modal { padding: 28px 20px; }
-            .alpha-grid { grid-template-columns: repeat(3, 1fr); }
-            .number-grid { grid-template-columns: repeat(4, 1fr); }
-            .colors-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-mascot { font-size: 56px; }
+            .hero-btns { gap: 8px; }
+            .hero-btn { padding: 8px 12px; font-size: 13px; min-width: 100px; }
+            .hero-btn .emoji { font-size: 20px; }
+            .alpha-grid { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); }
+            .animal-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+        }
+
+        /* MOBILE MENU TOGGLE */
+        .mobile-menu-btn {
+            display: none; background: #F3E8FF;
+            border: none; color: #7C3AED; font-size: 24px;
+            padding: 6px 12px; border-radius: 8px; cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-btn { display: block; }
+            .header-nav.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: #FFFFFF;
+                padding: 16px; gap: 8px;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+                border-bottom: 2px solid #F3E8FF;
+            }
         }
     </style>
 </head>
 <body>
-
-    <div class="confetti-container" id="confetti-container"></div>
+    <!-- FLOATING BUBBLES -->
+    <div class="floating-bubbles" id="floating-bubbles"></div>
+    <!-- CONFETTI -->
+    <div id="confetti-container"></div>
 
     <header>
         <div class="header-inner">
             <a href="/" class="logo">
-                <img src="images/logo/logo.jpg" alt="GINDiA Kids Solutions" style="height:54px; width:auto; max-width:220px; object-fit:contain; filter: brightness(0) invert(1);">
+                <img src="images/logo/logo.png" alt="GIndia Kids Logo">
+                <span class="logo-text">GIndia Kids</span>
             </a>
-            <div class="header-nav">
+            <button class="mobile-menu-btn" onclick="document.querySelector('.header-nav').classList.toggle('open')">☰</button>
+            <div class="header-nav" id="header-nav">
+                <a href="#modules">📚 Modules</a>
+                <a href="#ai-tutor-section">🤖 AI Tutor</a>
+                <a href="#quiz-section">🧠 Quiz</a>
                 <a href="https://game.gindiahr.com">🎮 Games</a>
-                <a href="https://gindiahr.com">GIndiaHR</a>
+                <a href="https://gindiahr.com">🏠 GIndiaHR</a>
             </div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="stars" id="stars"></div>
+        <div class="hero-clouds" id="hero-clouds"></div>
         <div class="hero-content">
-            <div class="hero-emoji-row">🌟✨🎈🌈🎠</div>
-            <h1>Learn & Play Together!</h1>
-            <p>A magical learning world for little ones. Phonics, Numbers, Animal Sounds, Drawing and more — all free!</p>
-            <div class="hero-age-badge">👧 For Kids aged 2–8 Years 👦</div>
-            <div class="hero-modules">
-                <button class="hero-mod-btn" onclick="openModule('alpha')">🔤 Alphabet</button>
-                <button class="hero-mod-btn" onclick="openModule('numbers')">🔢 Numbers</button>
-                <button class="hero-mod-btn" onclick="openModule('animals')">🦁 Animals</button>
-                <button class="hero-mod-btn" onclick="openModule('colors')">🎨 Colors</button>
-                <button class="hero-mod-btn" onclick="openModule('rhymes')">🎵 Rhymes</button>
-                <button class="hero-mod-btn" onclick="openModule('drawing')">✏️ Draw!</button>
+            <div class="hero-mascot">🦄</div>
+            <h1>Magic Learning World!</h1>
+            <p>India's favourite free learning playground for little ones! Phonics, Numbers, Animals, Drawing, AI Tutor & more — all fun, all free!</p>
+            <div class="hero-badges">
+                <span class="hero-badge">🆓 100% Free</span>
+                <span class="hero-badge">👧 Ages 2-8</span>
+                <span class="hero-badge">🤖 AI Powered</span>
+                <span class="hero-badge">📱 Mobile Ready</span>
+                <span class="hero-badge">🔊 Voice Learning</span>
+            </div>
+            <div class="hero-btns">
+                <button class="hero-btn alpha" onclick="openModule('alpha')"><span class="emoji">🔤</span> Alphabet</button>
+                <button class="hero-btn num" onclick="openModule('numbers')"><span class="emoji">🔢</span> Numbers</button>
+                <button class="hero-btn ani" onclick="openModule('animals')"><span class="emoji">🦁</span> Animals</button>
+                <button class="hero-btn col" onclick="openModule('colors')"><span class="emoji">🎨</span> Colors</button>
+                <button class="hero-btn rhy" onclick="openModule('rhymes')"><span class="emoji">🎵</span> Rhymes</button>
+                <button class="hero-btn drw" onclick="openModule('drawing')"><span class="emoji">✏️</span> Draw!</button>
+                <button class="hero-btn ai" onclick="openModule('ai')"><span class="emoji">🤖</span> AI Tutor</button>
             </div>
         </div>
     </section>
@@ -503,18 +711,20 @@
     <section class="modules-section" id="modules">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">🎓 Learning Modules</h2>
-                <p class="section-sub">Tap on any module to start learning! Interactive, colorful, and fun!</p>
+                <h2 class="section-title rainbow">🎓 Learning Modules</h2>
+                <p class="section-sub">Tap on any module to start your magical learning journey!</p>
             </div>
             <div class="modules-grid">
                 <div class="mod-card alpha" onclick="openModule('alpha')">
                     <span class="mod-icon">🔤</span>
+                    <div class="mod-badge popular">⭐ Popular</div>
                     <h3>A-Z Alphabet & Phonics</h3>
                     <p>Learn all 26 letters with sounds, pictures & example words. Tap to hear the phonics sound!</p>
                     <button class="mod-btn" id="open-alpha">▶ Start Learning</button>
                 </div>
                 <div class="mod-card numbers" onclick="openModule('numbers')">
                     <span class="mod-icon">🔢</span>
+                    <div class="mod-badge popular">⭐ Popular</div>
                     <h3>Numbers 1-20</h3>
                     <p>Count from 1 to 20 with cute animated dots and number words. Fun counting for little ones!</p>
                     <button class="mod-btn" id="open-numbers">▶ Start Counting</button>
@@ -543,7 +753,46 @@
                     <p>Creative canvas for little artists! Draw, paint, erase, and save your colorful masterpiece!</p>
                     <button class="mod-btn" id="open-drawing">▶ Start Drawing</button>
                 </div>
+                <div class="mod-card ai-tutor" onclick="openModule('ai')">
+                    <span class="mod-icon">🤖</span>
+                    <div class="mod-badge ai">✨ AI Powered</div>
+                    <h3>AI Learning Buddy</h3>
+                    <p>Ask me anything! I can teach letters, numbers, tell stories, explain science & answer curious questions!</p>
+                    <button class="mod-btn" id="open-ai">🧠 Ask AI Tutor</button>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- SMART QUIZ SECTION -->
+    <section class="quiz-section" id="quiz-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: var(--orange);">🧠 Smart Quiz Challenge</h2>
+                <p class="section-sub">Test your knowledge with fun questions! Earn stars for correct answers!</p>
+            </div>
+            <div class="quiz-card" id="quiz-card">
+                <div class="quiz-score-bar">
+                    <span>Score: <strong id="quiz-score">0</strong></span>
+                    <div class="quiz-stars" id="quiz-stars">⭐⭐⭐</div>
+                    <span>Q: <strong id="quiz-qnum">1</strong>/10</span>
+                </div>
+                <div class="quiz-question" id="quiz-question">🎉 Ready for a fun quiz?</div>
+                <div class="quiz-options" id="quiz-options"></div>
+                <div id="quiz-feedback" style="font-family: 'Baloo 2', cursive; font-size: 20px; min-height: 30px; margin-bottom: 12px;"></div>
+                <button class="quiz-next-btn" id="quiz-start-btn" onclick="startQuiz()">🚀 Start Quiz!</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI TUTOR SECTION -->
+    <section class="parent-strip" id="ai-tutor-section">
+        <h2>🤖 AI Learning Buddy — Ask Anything!</h2>
+        <p>Our AI Tutor answers questions about alphabets, numbers, animals, science, space, and more! Perfect for curious little minds.</p>
+        <div class="parent-links">
+            <a href="javascript:openModule('ai')" class="parent-link">🧠 Open AI Tutor</a>
+            <a href="https://game.gindiahr.com" class="parent-link">🎮 Play Games</a>
+            <a href="https://gindiahr.com" class="parent-link">🤝 GIndiaHR</a>
         </div>
     </section>
 
@@ -604,9 +853,9 @@
         <div class="modal">
             <button class="modal-close" onclick="closeModule('rhymes')">✕</button>
             <div class="modal-title" style="color: var(--purple);">🎵 Nursery Rhymes</div>
-            <div class="modal-sub">Tap a rhyme to read it!</div>
+            <div class="modal-sub">Tap a rhyme to read and sing!</div>
             <div class="rhymes-list" id="rhymes-list"></div>
-            <div id="rhyme-display" style="margin-top: 20px; background: #F4ECF7; border-radius: 18px; padding: 24px; display: none;">
+            <div id="rhyme-display" style="margin-top: 20px; background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-radius: 18px; padding: 24px; display: none;">
                 <h4 id="rhyme-d-title" style="font-family: 'Baloo 2'; font-size: 22px; color: var(--purple); margin-bottom: 12px;"></h4>
                 <p id="rhyme-d-text" style="font-size: 17px; line-height: 2; white-space: pre-line; color: var(--text);"></p>
                 <button onclick="speakRhyme()" class="speak-btn" style="background: var(--purple); margin-top: 16px;">🔊 Read Aloud</button>
@@ -635,25 +884,41 @@
                 <div class="board-btns">
                     <button class="board-btn" onclick="clearCanvas()" style="background: var(--red); color: #fff;">🗑️ Clear</button>
                     <button class="board-btn" onclick="downloadCanvas()" style="background: var(--green); color: #fff;">💾 Save</button>
-                    <button class="board-btn" onclick="addSticker()" style="background: var(--yellow); color: #000;">⭐ Add Star</button>
+                    <button class="board-btn" onclick="addSticker()" style="background: var(--yellow); color: #000;">⭐ Sticker</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="parent-strip">
-        <h2>🌟 A Learning World for Little Champions!</h2>
-        <p>GIndia Kids is designed for parents and teachers to engage children with interactive, phonics-based learning modules.</p>
-        <div class="parent-strip-links">
-            <a href="https://game.gindiahr.com" class="parent-link">🎮 Educational Games</a>
-            <a href="https://gptiindia.in" class="parent-link">🎓 School Courses</a>
-            <a href="https://gindiahr.com" class="parent-link">🤝 GIndiaHR</a>
+    <!-- AI TUTOR MODAL -->
+    <div class="modal-overlay" id="modal-ai">
+        <div class="modal">
+            <button class="modal-close" onclick="closeModule('ai')">✕</button>
+            <div class="modal-title" style="color: var(--sky);">🤖 AI Learning Buddy</div>
+            <div class="modal-sub">Ask me anything! I love helping kids learn!</div>
+            <div class="ai-chat-container">
+                <div class="ai-messages" id="ai-messages">
+                    <div class="ai-msg bot">👋 Hi there, little learner! I'm your AI Buddy! Ask me about letters, numbers, animals, space, science, or anything you're curious about! 🌟</div>
+                </div>
+                <div class="ai-quick-btns" id="ai-quick-btns">
+                    <button class="ai-quick-btn" onclick="askAI('Tell me about the solar system')">🌍 Solar System</button>
+                    <button class="ai-quick-btn" onclick="askAI('What sound does a dog make?')">🐶 Animal Sounds</button>
+                    <button class="ai-quick-btn" onclick="askAI('Tell me a fun fact')">🤯 Fun Fact</button>
+                    <button class="ai-quick-btn" onclick="askAI('Teach me a new word')">📖 New Word</button>
+                    <button class="ai-quick-btn" onclick="askAI('How does rain happen?')">🌧️ Rain?</button>
+                    <button class="ai-quick-btn" onclick="askAI('Tell me a short story')">📚 Story</button>
+                </div>
+                <div class="ai-input-row">
+                    <input type="text" class="ai-input" id="ai-input" placeholder="Ask me anything..." onkeypress="if(event.key==='Enter')sendAIMessage()">
+                    <button class="ai-send-btn" onclick="sendAIMessage()">Send 🚀</button>
+                </div>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>🌈 GIndia Kids | Kids E-Learning Platform India | <a href="https://gindiahr.com">GIndiaHR Group</a><br>
-        Free phonics learning | alphabet for kids | numbers for children | animal sounds online</p>
+        <p>🌈 GIndia Kids | India's Best Free Kids E-Learning Platform | <a href="https://gindiahr.com">GIndiaHR Group</a><br>
+        Free phonics learning • Alphabet for kids • Numbers for children • Animal sounds • AI Tutor for kids • Interactive learning India</p>
     </footer>
 
     <script>
@@ -675,10 +940,10 @@
             {name:'Monkey',emoji:'🐵',sound:'Ooh Ooh!'},{name:'Parrot',emoji:'🦜',sound:'Hello!'},{name:'Fish',emoji:'🐟',sound:'Bubble!'}
         ];
         const colorsData = [
-            {name:'Red',bg:'#FF6B6B',emoji:'🍎'},{name:'Blue',bg:'#4ECDC4',emoji:'🌊'},{name:'Green',bg:'#45B7D1',emoji:'🌿'},
-            {name:'Yellow',bg:'#FED766',emoji:'☀️'},{name:'Orange',bg:'#FF8C42',emoji:'🍊'},{name:'Purple',bg:'#C39BD3',emoji:'🌸'},
-            {name:'Pink',bg:'#FF6B9D',emoji:'🌷'},{name:'Brown',bg:'#A0714F',emoji:'🪵'},{name:'White',bg:'#ECF0F1',emoji:'⬜'},
-            {name:'Black',bg:'#2C3E50',emoji:'⬛'},{name:'Grey',bg:'#95A5A6',emoji:'🌫️'},{name:'Gold',bg:'#F1C40F',emoji:'⭐'}
+            {name:'Red',bg:'#FF6B6B',emoji:'🍎'},{name:'Blue',bg:'#60A5FA',emoji:'🌊'},{name:'Green',bg:'#4ADE80',emoji:'🌿'},
+            {name:'Yellow',bg:'#FBBF24',emoji:'☀️'},{name:'Orange',bg:'#FB923C',emoji:'🍊'},{name:'Purple',bg:'#A78BFA',emoji:'🌸'},
+            {name:'Pink',bg:'#F472B6',emoji:'🌷'},{name:'Brown',bg:'#A0714F',emoji:'🪵'},{name:'White',bg:'#F1F5F9',emoji:'⬜'},
+            {name:'Black',bg:'#374151',emoji:'⬛'},{name:'Grey',bg:'#9CA3AF',emoji:'🌫️'},{name:'Gold',bg:'#F59E0B',emoji:'⭐'}
         ];
         const rhymesData = [
             {title:'Twinkle Twinkle Little Star',icon:'⭐',text:'Twinkle twinkle little star,\nHow I wonder what you are!\nUp above the world so high,\nLike a diamond in the sky.\nTwinkle twinkle little star,\nHow I wonder what you are!'},
@@ -686,8 +951,35 @@
             {title:'Humpty Dumpty',icon:'🥚',text:'Humpty Dumpty sat on a wall,\nHumpty Dumpty had a great fall.\nAll the king\'s horses and all the king\'s men,\nCouldn\'t put Humpty together again!'},
             {title:'Jack and Jill',icon:'🪣',text:'Jack and Jill went up the hill,\nTo fetch a pail of water.\nJack fell down and broke his crown,\nAnd Jill came tumbling after!'},
             {title:'Wheels on the Bus',icon:'🚌',text:'The wheels on the bus go round and round,\nRound and round, round and round!\nThe wheels on the bus go round and round,\nAll through the town!'},
-            {title:'Old MacDonald',icon:'🐄',text:'Old MacDonald had a farm,\nE-I-E-I-O!\nAnd on his farm he had a cow,\nE-I-E-I-O!\nWith a moo-moo here,\nAnd a moo-moo there!'}
+            {title:'Old MacDonald',icon:'🐄',text:'Old MacDonald had a farm,\nE-I-E-I-O!\nAnd on his farm he had a cow,\nE-I-E-I-O!\nWith a moo-moo here,\nAnd a moo-moo there!'},
+            {title:'Itsy Bitsy Spider',icon:'🕷️',text:'The itsy bitsy spider\nClimbed up the water spout.\nDown came the rain\nAnd washed the spider out.\nOut came the sun\nAnd dried up all the rain,\nAnd the itsy bitsy spider\nClimbed up the spout again.'},
+            {title:'Row Row Row Your Boat',icon:'🚣',text:'Row, row, row your boat,\nGently down the stream.\nMerrily, merrily, merrily, merrily,\nLife is but a dream!'}
         ];
+
+        // ===== SMART QUIZ DATA =====
+        const quizData = [
+            { q: "What letter comes after C?", opts: ["B", "D", "E", "A"], ans: 1, emoji: "🔤" },
+            { q: "How many legs does a cat have?", opts: ["2", "6", "4", "8"], ans: 2, emoji: "🐱" },
+            { q: "What color is a banana?", opts: ["Red", "Blue", "Green", "Yellow"], ans: 3, emoji: "🍌" },
+            { q: "What sound does a cow make?", opts: ["Woof", "Moo", "Meow", "Quack"], ans: 1, emoji: "🐄" },
+            { q: "How many fingers do you have?", opts: ["8", "5", "10", "12"], ans: 2, emoji: "✋" },
+            { q: "What is 2 + 3?", opts: ["4", "6", "5", "7"], ans: 2, emoji: "🔢" },
+            { q: "Which fruit is red?", opts: ["Banana", "Orange", "Apple", "Grapes"], ans: 2, emoji: "🍎" },
+            { q: "What shape is a ball?", opts: ["Square", "Triangle", "Circle", "Star"], ans: 2, emoji: "⚽" },
+            { q: "Which animal lives in water?", opts: ["Dog", "Fish", "Cat", "Bird"], ans: 1, emoji: "🐟" },
+            { q: "What comes after number 7?", opts: ["6", "9", "8", "5"], ans: 2, emoji: "🔢" }
+        ];
+
+        // ===== AI TUTOR RESPONSES =====
+        const aiResponses = {
+            'solar system': "🌍 Our Solar System has 8 planets! They are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. Earth is the only planet where we live! The Sun is a big, bright star in the center. Jupiter is the biggest planet — it's SO huge that 1,300 Earths could fit inside it! 🪐",
+            'animal sounds': "🐶 Dogs say 'Woof Woof!'\n🐱 Cats say 'Meow!'\n🐄 Cows say 'Moo!'\n🐸 Frogs say 'Ribbit!'\n🦁 Lions say 'ROAR!'\n🐔 Chickens say 'Cluck Cluck!'\n🐴 Horses say 'Neigh!'\n\nWhich animal sound do you like the most? 🎵",
+            'fun fact': "🤯 Here's a super fun fact: Did you know that honey never goes bad? Archaeologists found 3,000-year-old honey in Egyptian tombs, and it was still perfectly good to eat! 🍯\n\nAlso, a group of flamingos is called a 'flamboyance'! 🦩 Isn't that a fun word?",
+            'new word': "📖 Today's new word is: **CURIOSITY** (kyoor-ee-OS-ih-tee)\n\n🤔 It means the feeling of wanting to know or learn about something!\n\nExample: \"Her curiosity about butterflies led her to read many books about them.\" 🦋\n\nYou are showing curiosity right now by learning! Keep it up! ⭐",
+            'rain': "🌧️ Here's how rain happens:\n\n1. ☀️ The Sun heats water in rivers, lakes, and oceans\n2. 💨 The warm water turns into tiny water droplets (called vapor) and goes UP into the sky\n3. ☁️ These droplets come together to form clouds\n4. 🌧️ When the clouds get too heavy, the water falls back down as RAIN!\n\nThis is called the Water Cycle! It happens again and again. Cool, right? 🌈",
+            'story': "📚 Once upon a time, there was a little caterpillar named Charlie 🐛\n\nCharlie was very hungry! He ate ONE apple 🍎, TWO oranges 🍊🍊, and THREE strawberries 🍓🍓🍓.\n\nAfter eating so much, Charlie felt sleepy. He wrapped himself in a cozy blanket called a cocoon.\n\nWhen he woke up... surprise! Charlie was now a beautiful BUTTERFLY! 🦋✨\n\nMoral: Good things take time! Keep learning and growing! 🌟",
+            'default': "That's a great question! 🌟 Let me think...\n\nHere's what I know: Learning is like going on a big adventure! Every question you ask makes you smarter! 🧠\n\nTry asking me about:\n🌍 Solar System\n🐶 Animal Sounds  \n🤯 Fun Facts\n📖 New Words\n🌧️ How rain works\n📚 A short story\n\nWhat would you like to learn about? 😊"
+        };
 
         // ===== MODAL OPEN/CLOSE =====
         function openModule(name) {
@@ -698,6 +990,8 @@
             if (name === 'colors') buildColors();
             if (name === 'rhymes') buildRhymes();
             if (name === 'drawing') initCanvas();
+            // Close mobile menu
+            document.querySelector('.header-nav').classList.remove('open');
         }
         function closeModule(name) { document.getElementById('modal-' + name).classList.remove('open'); }
         document.querySelectorAll('.modal-overlay').forEach(m => {
@@ -731,7 +1025,9 @@
         }
         function showLetter(d) {
             currentLetter = d;
-            document.getElementById('letter-big').textContent = d.l;
+            const big = document.getElementById('letter-big');
+            big.textContent = d.l;
+            big.style.animation = 'none'; big.offsetHeight; big.style.animation = 'letterPulse 0.5s ease';
             document.getElementById('letter-word').textContent = d.w;
             document.getElementById('letter-emoji').textContent = d.e;
             speak(`${d.l}. ${d.l} for ${d.w}.`);
@@ -883,42 +1179,181 @@
         function setEraser() { erasing = true; }
         function setBrush() { erasing = false; }
         function addSticker() {
-            const stickers = ['⭐','🌟','❤️','🎈','🌸','🦋','🌈','🎉'];
+            const stickers = ['⭐','🌟','❤️','🎈','🌸','🦋','🌈','🎉','🦄','🐶','🐱','🌺'];
             const s = stickers[Math.floor(Math.random()*stickers.length)];
             drawCtx.font = `${30 + drawSize * 2}px serif`;
             drawCtx.fillText(s, 50 + Math.random()*400, 50 + Math.random()*280);
             launchConfetti();
         }
 
+        // ===== SMART QUIZ =====
+        let quizIdx = 0, quizScore = 0, quizAnswered = false;
+        function startQuiz() {
+            quizIdx = 0; quizScore = 0;
+            document.getElementById('quiz-start-btn').style.display = 'none';
+            showQuizQ();
+        }
+        function showQuizQ() {
+            if (quizIdx >= quizData.length) {
+                document.getElementById('quiz-question').textContent = `🏆 Quiz Complete! You scored ${quizScore}/${quizData.length}!`;
+                document.getElementById('quiz-options').innerHTML = '';
+                document.getElementById('quiz-feedback').textContent = quizScore >= 8 ? '🌟 GENIUS! You are AMAZING!' : quizScore >= 5 ? '👍 Great job! Keep learning!' : '💪 You can do better! Try again!';
+                document.getElementById('quiz-start-btn').style.display = 'block';
+                document.getElementById('quiz-start-btn').textContent = '🔄 Play Again';
+                if (quizScore >= 8) launchConfetti();
+                return;
+            }
+            quizAnswered = false;
+            const q = quizData[quizIdx];
+            document.getElementById('quiz-qnum').textContent = quizIdx + 1;
+            document.getElementById('quiz-score').textContent = quizScore;
+            document.getElementById('quiz-question').textContent = q.emoji + ' ' + q.q;
+            document.getElementById('quiz-feedback').textContent = '';
+            // Update stars
+            const stars = Math.min(3, Math.floor(quizScore / 3) + 1);
+            document.getElementById('quiz-stars').textContent = '⭐'.repeat(stars) + '☆'.repeat(3 - stars);
+
+            const oDiv = document.getElementById('quiz-options');
+            oDiv.innerHTML = '';
+            q.opts.forEach((o, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'quiz-opt';
+                btn.textContent = o;
+                btn.onclick = () => checkQuiz(btn, i, q.ans);
+                oDiv.appendChild(btn);
+            });
+        }
+        function checkQuiz(btn, chosen, ans) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+            if (chosen === ans) {
+                quizScore++;
+                btn.classList.add('correct');
+                document.getElementById('quiz-feedback').textContent = '✅ Correct! Well done! 🎉';
+                speak('Correct! Well done!');
+                launchConfetti();
+            } else {
+                btn.classList.add('wrong');
+                document.querySelectorAll('.quiz-opt')[ans].classList.add('correct');
+                document.getElementById('quiz-feedback').textContent = `❌ Oops! The answer is: ${quizData[quizIdx].opts[ans]}`;
+                speak(`Oops! The correct answer is ${quizData[quizIdx].opts[ans]}`);
+            }
+            document.getElementById('quiz-score').textContent = quizScore;
+            quizIdx++;
+            setTimeout(showQuizQ, 1800);
+        }
+
+        // ===== AI TUTOR =====
+        function sendAIMessage() {
+            const input = document.getElementById('ai-input');
+            const text = input.value.trim();
+            if (!text) return;
+            input.value = '';
+            askAI(text);
+        }
+        function askAI(question) {
+            const msgDiv = document.getElementById('ai-messages');
+            // Add user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'ai-msg user';
+            userMsg.textContent = question;
+            msgDiv.appendChild(userMsg);
+
+            // Find best response
+            const qLower = question.toLowerCase();
+            let response = aiResponses['default'];
+            if (qLower.includes('solar') || qLower.includes('planet') || qLower.includes('space') || qLower.includes('sun')) response = aiResponses['solar system'];
+            else if (qLower.includes('animal') || qLower.includes('dog') || qLower.includes('cat') || qLower.includes('sound')) response = aiResponses['animal sounds'];
+            else if (qLower.includes('fun fact') || qLower.includes('fact') || qLower.includes('interesting')) response = aiResponses['fun fact'];
+            else if (qLower.includes('word') || qLower.includes('vocabulary') || qLower.includes('teach')) response = aiResponses['new word'];
+            else if (qLower.includes('rain') || qLower.includes('weather') || qLower.includes('cloud') || qLower.includes('water')) response = aiResponses['rain'];
+            else if (qLower.includes('story') || qLower.includes('tale') || qLower.includes('once upon')) response = aiResponses['story'];
+            else if (qLower.includes('letter') || qLower.includes('alphabet') || qLower.includes('abc')) response = "🔤 The English alphabet has 26 letters! A B C D E F G H I J K L M N O P Q R S T U V W X Y Z\n\nVowels: A E I O U — these are special letters! Every word needs at least one vowel.\n\nTry opening the Alphabet module to practice each letter with sounds! 📚";
+            else if (qLower.includes('number') || qLower.includes('count') || qLower.includes('math')) response = "🔢 Numbers are everywhere! Let's count:\n1 One ☝️, 2 Two ✌️, 3 Three 🤟\n\nFun fact: The number ZERO was invented in India! 🇮🇳\n\nWant to practice counting? Open the Numbers module! 🎯";
+            else if (qLower.includes('color') || qLower.includes('colour') || qLower.includes('rainbow')) response = "🌈 A rainbow has 7 colors: Red, Orange, Yellow, Green, Blue, Indigo, and Violet! Remember them with: VIBGYOR!\n\n🔴 Red is for Fire\n🟠 Orange is for Oranges\n🟡 Yellow is for Sun\n🟢 Green is for Trees\n🔵 Blue is for Sky\n🟣 Violet is for Flowers\n\nOpen the Colors module to learn more! 🎨";
+            else if (qLower.includes('dinosaur') || qLower.includes('dino')) response = "🦕 Dinosaurs lived millions of years ago! The T-Rex was one of the biggest and scariest dinosaurs — it was as tall as a building! 🏢\n\nThe word 'Dinosaur' means 'Terrible Lizard'! 🦎\n\nThe longest dinosaur was Argentinosaurus — it was about 30 meters long! That's longer than 2 school buses! 🚌🚌";
+            else if (qLower.includes('body') || qLower.includes('heart') || qLower.includes('bone')) response = "🫀 Your body is amazing!\n\n🧠 Your brain is the boss — it controls everything!\n❤️ Your heart beats about 100,000 times a day!\n🦴 You have 206 bones in your body!\n👁️ Your eyes can see about 10 million different colors!\n\nTake care of your body — eat healthy food, exercise, and sleep well! 💪";
+            else if (qLower.includes('hello') || qLower.includes('hi') || qLower.includes('hey')) response = "👋 Hello there, little superstar! 🌟\n\nI'm your AI Learning Buddy! I'm here to help you learn cool new things!\n\nWhat would you like to know about today? You can ask me about animals, space, colors, numbers, or anything else! 😊";
+
+            // Add bot response with typing effect
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'ai-msg bot';
+                botMsg.style.whiteSpace = 'pre-line';
+                botMsg.textContent = response;
+                msgDiv.appendChild(botMsg);
+                msgDiv.scrollTop = msgDiv.scrollHeight;
+                // Speak a short version
+                const shortResponse = response.split('\n')[0].replace(/[*#]/g, '');
+                speak(shortResponse);
+            }, 600);
+
+            msgDiv.scrollTop = msgDiv.scrollHeight;
+        }
+
         // ===== CONFETTI =====
         function launchConfetti() {
             const container = document.getElementById('confetti-container');
-            const colors = ['#FF6B9D','#FFD93D','#6BCB77','#4D96FF','#FF6B35','#C77DFF'];
-            for (let i = 0; i < 20; i++) {
+            const colors = ['#FF6B9D','#FBBF24','#22C55E','#3B82F6','#A855F7','#FB923C','#F43F5E','#38BDF8'];
+            for (let i = 0; i < 25; i++) {
                 const piece = document.createElement('div');
                 piece.className = 'confetti-piece';
                 piece.style.left = Math.random() * 100 + 'vw';
                 piece.style.background = colors[Math.floor(Math.random() * colors.length)];
                 piece.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+                piece.style.animationDelay = Math.random() * 0.3 + 's';
                 piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                piece.style.width = (6 + Math.random() * 8) + 'px';
+                piece.style.height = (6 + Math.random() * 8) + 'px';
                 container.appendChild(piece);
                 piece.addEventListener('animationend', () => piece.remove());
             }
         }
 
-        // ===== STARS BACKGROUND =====
-        const starsContainer = document.getElementById('stars');
-        for (let i = 0; i < 30; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            const size = 4 + Math.random() * 8;
-            star.style.width = star.style.height = size + 'px';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            star.style.animationDuration = (2 + Math.random() * 3) + 's';
-            starsContainer.appendChild(star);
+        // ===== FLOATING BUBBLES =====
+        const bubblesContainer = document.getElementById('floating-bubbles');
+        const bubbleColors = ['#FF6B9D', '#A855F7', '#3B82F6', '#22C55E', '#FBBF24', '#FB923C', '#F43F5E'];
+        for (let i = 0; i < 15; i++) {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = 30 + Math.random() * 80;
+            bubble.style.width = bubble.style.height = size + 'px';
+            bubble.style.left = Math.random() * 100 + '%';
+            bubble.style.background = bubbleColors[Math.floor(Math.random() * bubbleColors.length)];
+            bubble.style.animationDuration = (8 + Math.random() * 15) + 's';
+            bubble.style.animationDelay = Math.random() * 10 + 's';
+            bubblesContainer.appendChild(bubble);
+        }
+
+        // ===== HERO CLOUDS =====
+        const cloudsContainer = document.getElementById('hero-clouds');
+        for (let i = 0; i < 5; i++) {
+            const cloud = document.createElement('div');
+            cloud.className = 'cloud';
+            cloud.style.width = (80 + Math.random() * 120) + 'px';
+            cloud.style.height = (20 + Math.random() * 30) + 'px';
+            cloud.style.top = (10 + Math.random() * 60) + '%';
+            cloud.style.animationDuration = (20 + Math.random() * 30) + 's';
+            cloud.style.animationDelay = Math.random() * 15 + 's';
+            cloudsContainer.appendChild(cloud);
         }
     </script>
+
+    <!-- GROUP FOOTER -->
+    <div style="background:#fff; border-top:3px solid #F3E8FF; padding:32px 20px; text-align:center; position:relative; z-index:1;">
+        <div style="max-width:900px; margin:0 auto;">
+            <div style="font-family:'Baloo 2',cursive; font-size:20px; margin-bottom:12px; color:#1E293B;">🧒 GIndia Kids — Part of <a href="https://gindiahr.com" style="color:#A855F7; text-decoration:none;">GIndiaHR Group</a></div>
+            <div style="display:flex; justify-content:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+                <a href="https://gindiahr.com" style="background:#FFF7ED; color:#EA580C; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">🏢 GIndiaHR</a>
+                <a href="https://tech.gindiahr.com" style="background:#EFF6FF; color:#2563EB; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">💻 GIndia Tech</a>
+                <a href="https://hello24.gindiahr.com" style="background:#F5F3FF; color:#7C3AED; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">📞 Hello24</a>
+                <a href="https://game.gindiahr.com" style="background:#FEF3C7; color:#D97706; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">🎮 GIndia Game</a>
+                <a href="https://social.gindiahr.com" style="background:#ECFDF5; color:#059669; padding:6px 16px; border-radius:50px; font-size:13px; font-weight:700; text-decoration:none;">📱 GIndia Social</a>
+            </div>
+            <p style="color:#64748B; font-size:12px; line-height:1.6;">© 2025 GIndia Kids | <a href="https://gindiahr.com" style="color:#A855F7; text-decoration:none;">GIndiaHR Group</a> — Patna, Bihar | Malviya Nagar, Delhi | Bhopani, Faridabad<br>
+            Free kids learning platform India • Phonics learning • Alphabet for kids • AI tutor for children • Educational games</p>
+        </div>
+    </div>
+
 </body>
 </html>

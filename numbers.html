@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -48,54 +48,56 @@ footer{background:var(--text);color:rgba(255,255,255,.5);padding:20px;text-align
 @media(max-width:700px){.nums-grid{grid-template-columns:repeat(4,1fr);}.num-digit{font-size:36px;}}
 @media(max-width:450px){.nums-grid{grid-template-columns:repeat(3,1fr);}}
 </style>
+    <link rel="icon" type="image/png" href="favicon-76x76.png">
+    <link rel="apple-touch-icon" href="favicon-76x76.png">
 </head>
 <body>
-<header><div class="hi"><a href="/" class="brand">GIndia<span>Kids</span></a><a href="/" class="back-btn">← Back to Hub</a></div></header>
+<header><div class="hi"><a href="index.html" class="brand"><img src="images/logo/logo.png" alt="GIndia Kids" style="max-height:44px; width:auto; vertical-align:middle;"></a><a href="/" class="back-btn">? Back to Hub</a></div></header>
 <div class="page-hero">
-<div class="ph-badge">🔢 Numbers Learning</div>
+<div class="ph-badge">?? Numbers Learning</div>
 <h1>Count 1 to 20! <span class="h1s">Let's Go!</span></h1>
 <p class="ph-sub">Tap any number to learn its name, count the dots, and hear it spoken aloud. Math made fun!</p>
 </div>
 <section class="sec">
 <div class="con">
-<h2>🔢 Tap a Number!</h2>
+<h2>?? Tap a Number!</h2>
 <p class="sec-sub">Click on any number to see dots, hear the name, and learn a fun sentence!</p>
 <div class="nums-grid" id="nums-grid"></div>
 </div>
 </section>
 <div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
 <div class="modal">
-<button class="modal-close" onclick="closeModal()">✕</button>
+<button class="modal-close" onclick="closeModal()">?</button>
 <div class="m-num" id="m-num">1</div>
 <div class="m-word" id="m-word">One</div>
-<div class="m-dots" id="m-dots">⭐</div>
+<div class="m-dots" id="m-dots">?</div>
 <p class="m-sentence" id="m-sentence">One little star shining bright in the sky!</p>
-<button class="m-btn" onclick="speakNum()">🔊 Hear the Number</button>
+<button class="m-btn" onclick="speakNum()">?? Hear the Number</button>
 </div>
 </div>
-<footer><p>© 2025 GIndia Kids — Kids Learning Platform | <a href="/">kids.gindiahr.com</a></p></footer>
+<footer><p>� 2025 GIndia Kids � Kids Learning Platform | <a href="/">kids.gindiahr.com</a></p></footer>
 <script>
 const nums=[
-{n:1,w:'One',e:'⭐',s:'One little star shining bright in the sky!'},
-{n:2,w:'Two',e:'⭐⭐',s:'Two eyes to see the beautiful world!'},
-{n:3,w:'Three',e:'⭐⭐⭐',s:'Three little birds singing on a tree!'},
-{n:4,w:'Four',e:'⭐⭐⭐⭐',s:'Four wheels on my favourite toy car!'},
-{n:5,w:'Five',e:'⭐⭐⭐⭐⭐',s:'Five fingers on my right hand!'},
-{n:6,w:'Six',e:'🌟🌟🌟🌟🌟🌟',s:'Six red flowers in the garden!'},
-{n:7,w:'Seven',e:'🌸🌸🌸🌸🌸🌸🌸',s:'Seven days in every week!'},
-{n:8,w:'Eight',e:'🍎🍎🍎🍎🍎🍎🍎🍎',s:'Eight apples in the basket!'},
-{n:9,w:'Nine',e:'🐾🐾🐾🐾🐾🐾🐾🐾🐾',s:'Nine little kittens playing!'},
-{n:10,w:'Ten',e:'🎈🎈🎈🎈🎈🎈🎈🎈🎈🎈',s:'Ten colourful balloons at the party!'},
-{n:11,w:'Eleven',e:'🌺🌺🌺🌺🌺🌺🌺🌺🌺🌺🌺',s:'Eleven beautiful flowers in a vase!'},
-{n:12,w:'Twelve',e:'🦋🦋🦋🦋🦋🦋🦋🦋🦋🦋🦋🦋',s:'Twelve butterflies in the garden!'},
-{n:13,w:'Thirteen',e:'⚽⚽⚽⚽⚽⚽⚽⚽⚽⚽⚽⚽⚽',s:'Thirteen balls in my toy box!'},
-{n:14,w:'Fourteen',e:'🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟🐟',s:'Fourteen fish swimming in the pond!'},
-{n:15,w:'Fifteen',e:'🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙🌙',s:'Fifteen moons counted in the sky!'},
-{n:16,w:'Sixteen',e:'🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭🍭',s:'Sixteen lollipops at the candy shop!'},
-{n:17,w:'Seventeen',e:'🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝🐝',s:'Seventeen bees in the honeycomb!'},
-{n:18,w:'Eighteen',e:'🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻',s:'Eighteen sunflowers in the field!'},
-{n:19,w:'Nineteen',e:'🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵🎵',s:'Nineteen musical notes in the song!'},
-{n:20,w:'Twenty',e:'🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟',s:'Twenty stars in the night sky!'}
+{n:1,w:'One',e:'?',s:'One little star shining bright in the sky!'},
+{n:2,w:'Two',e:'??',s:'Two eyes to see the beautiful world!'},
+{n:3,w:'Three',e:'???',s:'Three little birds singing on a tree!'},
+{n:4,w:'Four',e:'????',s:'Four wheels on my favourite toy car!'},
+{n:5,w:'Five',e:'?????',s:'Five fingers on my right hand!'},
+{n:6,w:'Six',e:'????????????',s:'Six red flowers in the garden!'},
+{n:7,w:'Seven',e:'??????????????',s:'Seven days in every week!'},
+{n:8,w:'Eight',e:'????????????????',s:'Eight apples in the basket!'},
+{n:9,w:'Nine',e:'??????????????????',s:'Nine little kittens playing!'},
+{n:10,w:'Ten',e:'????????????????????',s:'Ten colourful balloons at the party!'},
+{n:11,w:'Eleven',e:'??????????????????????',s:'Eleven beautiful flowers in a vase!'},
+{n:12,w:'Twelve',e:'????????????????????????',s:'Twelve butterflies in the garden!'},
+{n:13,w:'Thirteen',e:'?????????????',s:'Thirteen balls in my toy box!'},
+{n:14,w:'Fourteen',e:'????????????????????????????',s:'Fourteen fish swimming in the pond!'},
+{n:15,w:'Fifteen',e:'??????????????????????????????',s:'Fifteen moons counted in the sky!'},
+{n:16,w:'Sixteen',e:'????????????????????????????????',s:'Sixteen lollipops at the candy shop!'},
+{n:17,w:'Seventeen',e:'??????????????????????????????????',s:'Seventeen bees in the honeycomb!'},
+{n:18,w:'Eighteen',e:'????????????????????????????????????',s:'Eighteen sunflowers in the field!'},
+{n:19,w:'Nineteen',e:'??????????????????????????????????????',s:'Nineteen musical notes in the song!'},
+{n:20,w:'Twenty',e:'????????????????????????????????????????',s:'Twenty stars in the night sky!'}
 ];
 const colors=['c0','c1','c2','c3','c4'];
 const grid=document.getElementById('nums-grid');
