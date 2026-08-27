@@ -268,17 +268,32 @@
         .mod-card.drawing::before { background: var(--yellow); }
         .mod-card.drawing:hover { box-shadow: 0 20px 48px rgba(251,191,36,0.2); }
 
+        .mod-card.voicephonics { border-color: #FDA4AF; background: linear-gradient(135deg, #FFF1F2, #FFE4E6); }
+        .mod-card.voicephonics::before { background: #E11D48; }
+        .mod-card.voicephonics:hover { box-shadow: 0 20px 48px rgba(225,29,72,0.25); }
+
+        .mod-card.certificate { border-color: #FCD34D; background: linear-gradient(135deg, #FFFBEB, #FEF3C7); }
+        .mod-card.certificate::before { background: #D97706; }
+        .mod-card.certificate:hover { box-shadow: 0 20px 48px rgba(217,119,6,0.25); }
+
+        .mod-card.worksheets { border-color: #6EE7B7; background: linear-gradient(135deg, #ECFDF5, #D1FAE5); }
+        .mod-card.worksheets::before { background: #059669; }
+        .mod-card.worksheets:hover { box-shadow: 0 20px 48px rgba(5,150,105,0.25); }
+
         .mod-card.ai-tutor { border-color: #7DD3FC; background: linear-gradient(135deg, #F0F9FF, #E0F2FE); }
         .mod-card.ai-tutor::before { background: var(--sky); }
         .mod-card.ai-tutor:hover { box-shadow: 0 20px 48px rgba(56,189,248,0.25); }
 
         .mod-icon { font-size: 56px; margin-bottom: 12px; display: block; animation: iconWiggle 3s ease-in-out infinite; }
-        .mod-card:nth-child(2) .mod-icon { animation-delay: 0.5s; }
-        .mod-card:nth-child(3) .mod-icon { animation-delay: 1s; }
-        .mod-card:nth-child(4) .mod-icon { animation-delay: 1.5s; }
-        .mod-card:nth-child(5) .mod-icon { animation-delay: 2s; }
-        .mod-card:nth-child(6) .mod-icon { animation-delay: 2.5s; }
-        .mod-card:nth-child(7) .mod-icon { animation-delay: 3s; }
+        .mod-card:nth-child(2) .mod-icon { animation-delay: 0.3s; }
+        .mod-card:nth-child(3) .mod-icon { animation-delay: 0.6s; }
+        .mod-card:nth-child(4) .mod-icon { animation-delay: 0.9s; }
+        .mod-card:nth-child(5) .mod-icon { animation-delay: 1.2s; }
+        .mod-card:nth-child(6) .mod-icon { animation-delay: 1.5s; }
+        .mod-card:nth-child(7) .mod-icon { animation-delay: 1.8s; }
+        .mod-card:nth-child(8) .mod-icon { animation-delay: 2.1s; }
+        .mod-card:nth-child(9) .mod-icon { animation-delay: 2.4s; }
+        .mod-card:nth-child(10) .mod-icon { animation-delay: 2.7s; }
         @keyframes iconWiggle {
             0%,100% { transform: rotate(-5deg) scale(1); }
             50% { transform: rotate(5deg) scale(1.1); }
@@ -291,6 +306,9 @@
         .mod-card.colors h3 { color: var(--pink); }
         .mod-card.rhymes h3 { color: var(--purple); }
         .mod-card.drawing h3 { color: #B8860B; }
+        .mod-card.voicephonics h3 { color: #E11D48; }
+        .mod-card.certificate h3 { color: #D97706; }
+        .mod-card.worksheets h3 { color: #059669; }
         .mod-card.ai-tutor h3 { color: var(--sky); }
         .mod-card p { font-size: 14px; color: var(--sub); line-height: 1.6; margin-bottom: 16px; }
         .mod-badge {
@@ -301,6 +319,8 @@
         .mod-badge.new { background: #DCFCE7; color: #16A34A; }
         .mod-badge.ai { background: #E0F2FE; color: #0284C7; }
         .mod-badge.popular { background: #FEF3C7; color: #D97706; }
+        .mod-badge.voice { background: #FFE4E6; color: #E11D48; }
+        .mod-badge.cert { background: #FEF3C7; color: #B45309; }
 
         .mod-btn {
             display: inline-block; padding: 10px 24px;
@@ -316,7 +336,40 @@
         .mod-card.colors .mod-btn { background: var(--pink); }
         .mod-card.rhymes .mod-btn { background: var(--purple); }
         .mod-card.drawing .mod-btn { background: #D97706; }
+        .mod-card.voicephonics .mod-btn { background: #E11D48; }
+        .mod-card.certificate .mod-btn { background: linear-gradient(135deg, #F59E0B, #D97706); }
+        .mod-card.worksheets .mod-btn { background: #059669; }
         .mod-card.ai-tutor .mod-btn { background: linear-gradient(135deg, #0EA5E9, #38BDF8); }
+
+        /* VOICE MIC PULSE */
+        .mic-btn-large {
+            width: 90px; height: 90px; border-radius: 50%;
+            background: linear-gradient(135deg, #E11D48, #FB7185);
+            color: #fff; font-size: 38px; border: none;
+            display: flex; align-items: center; justify-content: center;
+            margin: 20px auto; cursor: pointer;
+            box-shadow: 0 8px 24px rgba(225,29,72,0.4);
+            transition: all 0.2s; position: relative;
+        }
+        .mic-btn-large:hover { transform: scale(1.08); }
+        .mic-btn-large.listening {
+            animation: micPulse 1.2s infinite;
+            background: linear-gradient(135deg, #10B981, #34D399);
+            box-shadow: 0 0 30px rgba(16,185,129,0.6);
+        }
+        @keyframes micPulse {
+            0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+            70% { box-shadow: 0 0 0 24px rgba(16,185,129,0); }
+            100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+        }
+
+        /* PRINT STYLES FOR WORKSHEETS */
+        @media print {
+            body * { visibility: hidden; }
+            #printable-worksheet-area, #printable-worksheet-area * { visibility: visible; }
+            #printable-worksheet-area { position: absolute; left: 0; top: 0; width: 100%; }
+            .modal-close, .no-print { display: none !important; }
+        }
 
         /* MODAL */
         .modal-overlay {
@@ -752,6 +805,27 @@
                     <p>Creative canvas for little artists! Draw, paint, erase, and save your colorful masterpiece!</p>
                     <button class="mod-btn" id="open-drawing">▶ Start Drawing</button>
                 </div>
+                <div class="mod-card voicephonics" onclick="openModule('voicephonics')">
+                    <span class="mod-icon">🎤</span>
+                    <div class="mod-badge voice">✨ Voice AI</div>
+                    <h3>AI Voice Phonics & Mic</h3>
+                    <p>Speak into the mic! Our AI listens, checks your pronunciation, and gives you stars and cheer!</p>
+                    <button class="mod-btn" id="open-voicephonics">🎙️ Practice Speaking</button>
+                </div>
+                <div class="mod-card certificate" onclick="openModule('certificate')">
+                    <span class="mod-icon">📜</span>
+                    <div class="mod-badge cert">🏆 Award</div>
+                    <h3>Kid's Certificate Generator</h3>
+                    <p>Create a personalized Little Genius certificate with your name and badge to print or share!</p>
+                    <button class="mod-btn" id="open-certificate">⭐ Get My Certificate</button>
+                </div>
+                <div class="mod-card worksheets" onclick="openModule('worksheets')">
+                    <span class="mod-icon">🖨️</span>
+                    <div class="mod-badge new">📄 Free PDF</div>
+                    <h3>Printable Worksheets</h3>
+                    <p>Free printable coloring sheets, math tracing, alphabet practice & Hindi Varnamala!</p>
+                    <button class="mod-btn" id="open-worksheets">🖨️ Print Worksheets</button>
+                </div>
                 <div class="mod-card ai-tutor" onclick="openModule('ai')">
                     <span class="mod-icon">🤖</span>
                     <div class="mod-badge ai">✨ AI Powered</div>
@@ -915,6 +989,108 @@
         </div>
     </div>
 
+    <!-- VOICE PHONICS MODAL -->
+    <div class="modal-overlay" id="modal-voicephonics">
+        <div class="modal" style="max-width:540px;">
+            <button class="modal-close" onclick="closeModule('voicephonics')">✕</button>
+            <div class="modal-title" style="color:#E11D48;">🎤 AI Voice Phonics & Mic</div>
+            <div class="modal-sub">Hear the word, then tap the mic and speak! AI checks your voice!</div>
+
+            <!-- WORD CATEGORIES -->
+            <div style="display:flex; justify-content:center; gap:6px; margin-bottom:14px; flex-wrap:wrap;">
+                <button class="level-pill active" onclick="setVoiceCategory('fruits', this)">🍎 Fruits</button>
+                <button class="level-pill" onclick="setVoiceCategory('animals', this)">🦁 Animals</button>
+                <button class="level-pill" onclick="setVoiceCategory('colors', this)">🌈 Colors</button>
+                <button class="level-pill" onclick="setVoiceCategory('numbers', this)">🔢 Numbers</button>
+            </div>
+
+            <!-- ACTIVE WORD CARD -->
+            <div style="background:linear-gradient(135deg, #FFF1F2, #FFE4E6); border:3px solid #FDA4AF; border-radius:24px; padding:24px; text-align:center; margin-bottom:16px;">
+                <div id="voice-target-emoji" style="font-size:64px; margin-bottom:6px; animation:iconWiggle 2s infinite;">🍎</div>
+                <div id="voice-target-word" style="font-family:'Baloo 2',cursive; font-size:36px; font-weight:800; color:#E11D48;">Apple</div>
+                <div id="voice-target-phonics" style="font-size:16px; color:var(--sub); margin-bottom:12px;">Sound: /æ-pəl/</div>
+                <button onclick="speakCurrentVoiceWord()" class="speak-btn" style="background:#E11D48; display:inline-flex; align-items:center; gap:6px; margin:0 auto;">🔊 Hear Pronunciation</button>
+            </div>
+
+            <!-- MIC INTERACTIVE BUTTON -->
+            <div style="text-align:center;">
+                <button class="mic-btn-large" id="voice-mic-btn" onclick="toggleVoiceRecording()" title="Tap to Speak">
+                    🎙️
+                </button>
+                <div id="voice-status-text" style="font-family:'Baloo 2',cursive; font-size:18px; font-weight:700; color:#E11D48; min-height:26px;">Tap mic and say "Apple" 🗣️</div>
+                <div id="voice-heard-text" style="font-size:14px; color:var(--sub); min-height:22px; margin-top:4px;"></div>
+                <div id="voice-stars-display" style="font-size:28px; margin:8px 0; min-height:36px;"></div>
+            </div>
+
+            <div style="display:flex; gap:10px; margin-top:16px;">
+                <button class="board-btn" onclick="prevVoiceWord()" style="background:#E2E8F0; color:var(--text); flex:1;">← Previous</button>
+                <button class="board-btn" onclick="nextVoiceWord()" style="background:#E11D48; color:#fff; flex:1;">Next Word →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CERTIFICATE GENERATOR MODAL -->
+    <div class="modal-overlay" id="modal-certificate">
+        <div class="modal" style="max-width:680px;">
+            <button class="modal-close" onclick="closeModule('certificate')">✕</button>
+            <div class="modal-title" style="color:#D97706;">📜 Kid's Little Genius Certificate</div>
+            <div class="modal-sub">Enter your name and pick your title to generate your official award!</div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px;">
+                <div>
+                    <label style="font-weight:700; font-size:13px; color:var(--text);">Kid's Full Name:</label>
+                    <input type="text" id="cert-name-input" value="Aarav Kumar" oninput="renderCertificate()" style="width:100%; padding:10px 14px; border-radius:12px; border:2px solid #FCD34D; font-family:'Baloo 2',cursive; font-size:16px; margin-top:4px; outline:none;">
+                </div>
+                <div>
+                    <label style="font-weight:700; font-size:13px; color:var(--text);">Achievement Title:</label>
+                    <select id="cert-title-select" onchange="renderCertificate()" style="width:100%; padding:10px 14px; border-radius:12px; border:2px solid #FCD34D; font-family:'Baloo 2',cursive; font-size:15px; margin-top:4px; outline:none; background:#fff;">
+                        <option value="Little Genius Super Star">🌟 Little Genius Super Star</option>
+                        <option value="Math & Counting Master">🔢 Math & Counting Master</option>
+                        <option value="A-Z Phonics Champion">🔤 A-Z Phonics Champion</option>
+                        <option value="Creative Master Artist">🎨 Creative Master Artist</option>
+                        <option value="Smart Quiz Wonder Kid">🧠 Smart Quiz Wonder Kid</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- CERTIFICATE CANVAS -->
+            <div style="border-radius:16px; overflow:hidden; border:3px solid #F59E0B; box-shadow:0 8px 24px rgba(217,119,6,0.2); margin-bottom:16px;">
+                <canvas id="cert-canvas" width="640" height="440" style="display:block; width:100%; height:auto; background:#FFFDF9;"></canvas>
+            </div>
+
+            <div style="display:flex; gap:10px;">
+                <button class="board-btn" onclick="downloadCertificate()" style="background:#D97706; color:#fff; flex:1; padding:12px; font-size:16px;">💾 Download Certificate (PNG)</button>
+                <button class="board-btn" onclick="printCertificate()" style="background:#10B981; color:#fff; flex:1; padding:12px; font-size:16px;">🖨️ Print Certificate</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRINTABLE WORKSHEETS MODAL -->
+    <div class="modal-overlay" id="modal-worksheets">
+        <div class="modal" style="max-width:680px;">
+            <button class="modal-close" onclick="closeModule('worksheets')">✕</button>
+            <div class="modal-title" style="color:#059669;">🖨️ Free Printable PDF Worksheets</div>
+            <div class="modal-sub">Practice tracing, counting, coloring, and Hindi varnamala at home!</div>
+
+            <!-- WORKSHEET TABS -->
+            <div style="display:flex; justify-content:center; gap:8px; margin-bottom:16px; flex-wrap:wrap;">
+                <button class="level-pill active" onclick="showWorksheet('alphabet', this)">🔤 A-Z Tracing</button>
+                <button class="level-pill" onclick="showWorksheet('numbers', this)">🔢 1-20 Math Count</button>
+                <button class="level-pill" onclick="showWorksheet('coloring', this)">🎨 Coloring Animals</button>
+                <button class="level-pill" onclick="showWorksheet('hindi', this)">🕉️ Hindi Varnamala</button>
+            </div>
+
+            <!-- PRINTABLE AREA -->
+            <div id="printable-worksheet-area" style="background:#fff; border:3px dashed #10B981; border-radius:18px; padding:24px; min-height:360px; margin-bottom:16px;">
+                <!-- DYNAMIC CONTENT LOADED VIA JS -->
+            </div>
+
+            <div style="display:flex; gap:10px;" class="no-print">
+                <button class="board-btn" onclick="window.print()" style="background:#059669; color:#fff; flex:1; padding:12px; font-size:16px;">🖨️ Print / Save as PDF</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <p>🌈 GIndia Kids | India's Best Free Kids E-Learning Platform | <a href="https://gindiahr.com">GIndiaHR Group</a><br>
         Free phonics learning • Alphabet for kids • Numbers for children • Animal sounds • AI Tutor for kids • Interactive learning India</p>
@@ -982,20 +1158,445 @@
 
         // ===== MODAL OPEN/CLOSE =====
         function openModule(name) {
-            document.getElementById('modal-' + name).classList.add('open');
+            const m = document.getElementById('modal-' + name);
+            if (m) m.classList.add('open');
             if (name === 'alpha') buildAlpha();
             if (name === 'numbers') buildNumbers();
             if (name === 'animals') buildAnimals();
             if (name === 'colors') buildColors();
             if (name === 'rhymes') buildRhymes();
             if (name === 'drawing') initCanvas();
+            if (name === 'voicephonics') initVoicePhonics();
+            if (name === 'certificate') initCertificate();
+            if (name === 'worksheets') initWorksheets();
             // Close mobile menu
             document.querySelector('.header-nav').classList.remove('open');
         }
-        function closeModule(name) { document.getElementById('modal-' + name).classList.remove('open'); }
+        function closeModule(name) {
+            const m = document.getElementById('modal-' + name);
+            if (m) m.classList.remove('open');
+            if (name === 'voicephonics' && isRecordingVoice) stopVoiceRecording();
+        }
         document.querySelectorAll('.modal-overlay').forEach(m => {
             m.addEventListener('click', function(e) { if (e.target === this) closeModule(this.id.replace('modal-', '')); });
         });
+
+        // ===== 🎤 AI VOICE PHONICS & PRONUNCIATION ENGINE =====
+        const voiceData = {
+            fruits: [
+                { word: 'Apple', emoji: '🍎', phonics: '/æ-pəl/', soundWord: 'Apple' },
+                { word: 'Banana', emoji: '🍌', phonics: '/bə-næ-nə/', soundWord: 'Banana' },
+                { word: 'Mango', emoji: '🥭', phonics: '/mæŋ-ɡoʊ/', soundWord: 'Mango' },
+                { word: 'Orange', emoji: '🍊', phonics: '/ɔ-rəndʒ/', soundWord: 'Orange' },
+                { word: 'Grapes', emoji: '🍇', phonics: '/ɡreɪps/', soundWord: 'Grapes' },
+                { word: 'Watermelon', emoji: '🍉', phonics: '/wɔ-tər-mɛ-lən/', soundWord: 'Watermelon' }
+            ],
+            animals: [
+                { word: 'Lion', emoji: '🦁', phonics: '/laɪ-ən/', soundWord: 'Lion' },
+                { word: 'Elephant', emoji: '🐘', phonics: '/ɛ-lə-fənt/', soundWord: 'Elephant' },
+                { word: 'Tiger', emoji: '🐯', phonics: '/taɪ-ɡər/', soundWord: 'Tiger' },
+                { word: 'Puppy', emoji: '🐶', phonics: '/pʌ-pi/', soundWord: 'Puppy' },
+                { word: 'Rabbit', emoji: '🐰', phonics: '/ræ-bɪt/', soundWord: 'Rabbit' },
+                { word: 'Peacock', emoji: '🦚', phonics: '/pi-kɒk/', soundWord: 'Peacock' }
+            ],
+            colors: [
+                { word: 'Rainbow', emoji: '🌈', phonics: '/reɪn-boʊ/', soundWord: 'Rainbow' },
+                { word: 'Golden Sun', emoji: '☀️', phonics: '/ɡoʊl-dən sʌn/', soundWord: 'Sun' },
+                { word: 'Blue Sky', emoji: '🌊', phonics: '/bluː skaɪ/', soundWord: 'Blue' },
+                { word: 'Green Leaf', emoji: '🌿', phonics: '/ɡriːn liːf/', soundWord: 'Green' }
+            ],
+            numbers: [
+                { word: 'One', emoji: '1️⃣', phonics: '/wʌn/', soundWord: 'One' },
+                { word: 'Two', emoji: '2️⃣', phonics: '/tuː/', soundWord: 'Two' },
+                { word: 'Five', emoji: '5️⃣', phonics: '/faɪv/', soundWord: 'Five' },
+                { word: 'Seven', emoji: '7️⃣', phonics: '/sɛ-vən/', soundWord: 'Seven' },
+                { word: 'Ten', emoji: '🔟', phonics: '/tɛn/', soundWord: 'Ten' }
+            ]
+        };
+
+        let currentVoiceCategory = 'fruits';
+        let currentVoiceIndex = 0;
+        let voiceRecognition = null;
+        let isRecordingVoice = false;
+
+        function initVoicePhonics() {
+            updateVoiceCard();
+            setupVoiceRecognition();
+        }
+
+        function setVoiceCategory(cat, btn) {
+            currentVoiceCategory = cat;
+            currentVoiceIndex = 0;
+            if (btn) {
+                btn.parentElement.querySelectorAll('.level-pill').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+            }
+            updateVoiceCard();
+        }
+
+        function updateVoiceCard() {
+            const list = voiceData[currentVoiceCategory] || voiceData['fruits'];
+            const item = list[currentVoiceIndex];
+            document.getElementById('voice-target-emoji').textContent = item.emoji;
+            document.getElementById('voice-target-word').textContent = item.word;
+            document.getElementById('voice-target-phonics').textContent = 'Phonics: ' + item.phonics;
+            document.getElementById('voice-status-text').textContent = `Tap mic and say "${item.word}" 🗣️`;
+            document.getElementById('voice-heard-text').textContent = '';
+            document.getElementById('voice-stars-display').textContent = '';
+        }
+
+        function nextVoiceWord() {
+            const list = voiceData[currentVoiceCategory];
+            currentVoiceIndex = (currentVoiceIndex + 1) % list.length;
+            updateVoiceCard();
+        }
+
+        function prevVoiceWord() {
+            const list = voiceData[currentVoiceCategory];
+            currentVoiceIndex = (currentVoiceIndex - 1 + list.length) % list.length;
+            updateVoiceCard();
+        }
+
+        function speakCurrentVoiceWord() {
+            const item = voiceData[currentVoiceCategory][currentVoiceIndex];
+            speak(item.soundWord || item.word);
+        }
+
+        function setupVoiceRecognition() {
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRec) return;
+            voiceRecognition = new SpeechRec();
+            voiceRecognition.continuous = false;
+            voiceRecognition.interimResults = false;
+            voiceRecognition.lang = 'en-IN'; // Indian English accent friendly
+
+            voiceRecognition.onstart = () => {
+                isRecordingVoice = true;
+                const micBtn = document.getElementById('voice-mic-btn');
+                if (micBtn) micBtn.classList.add('listening');
+                document.getElementById('voice-status-text').textContent = 'Listening... Speak now! 🎙️';
+            };
+
+            voiceRecognition.onresult = (event) => {
+                const transcript = event.results[0][0].transcript.trim().toLowerCase();
+                const item = voiceData[currentVoiceCategory][currentVoiceIndex];
+                const target = item.word.toLowerCase();
+                const soundTarget = (item.soundWord || item.word).toLowerCase();
+
+                document.getElementById('voice-heard-text').innerHTML = `You said: "<strong>${transcript}</strong>"`;
+
+                // Smart fuzzy match check
+                const isMatch = transcript.includes(target) || transcript.includes(soundTarget) || 
+                                (target === 'apple' && (transcript.includes('appl') || transcript.includes('epple'))) ||
+                                (target === 'lion' && transcript.includes('line')) ||
+                                (target === 'banana' && transcript.includes('nana'));
+
+                if (isMatch) {
+                    document.getElementById('voice-status-text').innerHTML = '🎉 <span style="color:#10B981;">PERFECT! Shabash! ⭐⭐⭐⭐⭐</span>';
+                    document.getElementById('voice-stars-display').textContent = '⭐⭐⭐⭐⭐';
+                    speak('Shabash! Perfect pronunciation!');
+                    launchConfetti();
+                } else {
+                    document.getElementById('voice-status-text').innerHTML = '🔄 <span style="color:#D97706;">Good try! Try speaking clearly again!</span>';
+                    document.getElementById('voice-stars-display').textContent = '⭐⭐⭐';
+                    speak('Good try! Let us try one more time!');
+                }
+            };
+
+            voiceRecognition.onerror = (e) => {
+                document.getElementById('voice-status-text').textContent = 'Could not catch voice. Please try again!';
+                stopVoiceRecording();
+            };
+
+            voiceRecognition.onend = () => {
+                stopVoiceRecording();
+            };
+        }
+
+        function toggleVoiceRecording() {
+            const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+            if (!SpeechRec) {
+                alert('Voice recognition works best on Google Chrome or Edge browser!');
+                return;
+            }
+            if (!voiceRecognition) setupVoiceRecognition();
+
+            if (isRecordingVoice) {
+                voiceRecognition.stop();
+                stopVoiceRecording();
+            } else {
+                try {
+                    voiceRecognition.start();
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+        }
+
+        function stopVoiceRecording() {
+            isRecordingVoice = false;
+            const micBtn = document.getElementById('voice-mic-btn');
+            if (micBtn) micBtn.classList.remove('listening');
+        }
+
+        // ===== 📜 KID'S CERTIFICATE GENERATOR ENGINE =====
+        function initCertificate() {
+            renderCertificate();
+        }
+
+        function renderCertificate() {
+            const canvas = document.getElementById('cert-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const w = canvas.width, h = canvas.height;
+
+            // Background
+            ctx.fillStyle = '#FFFCF5';
+            ctx.fillRect(0, 0, w, h);
+
+            // Double Ornamental Gold Borders
+            ctx.strokeStyle = '#D97706';
+            ctx.lineWidth = 10;
+            ctx.strokeRect(10, 10, w - 20, h - 20);
+
+            ctx.strokeStyle = '#FCD34D';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(18, 18, w - 36, h - 36);
+
+            // Corner Accents
+            const corners = [[26, 26], [w - 26, 26], [26, h - 26], [w - 26, h - 26]];
+            ctx.fillStyle = '#F59E0B';
+            corners.forEach(([cx, cy]) => {
+                ctx.beginPath();
+                ctx.arc(cx, cy, 8, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Header Banner
+            ctx.font = 'bold 18px "Baloo 2", cursive, sans-serif';
+            ctx.fillStyle = '#92400E';
+            ctx.textAlign = 'center';
+            ctx.fillText('⭐ GINDIA KIDS LEARNING ACADEMY ⭐', w / 2, 52);
+
+            ctx.font = 'bold 28px "Baloo 2", cursive, sans-serif';
+            ctx.fillStyle = '#B45309';
+            ctx.fillText('CERTIFICATE OF ACHIEVEMENT', w / 2, 90);
+
+            ctx.font = '14px sans-serif';
+            ctx.fillStyle = '#64748B';
+            ctx.fillText('This is proudly awarded to', w / 2, 126);
+
+            // Kid's Name
+            const name = document.getElementById('cert-name-input').value.trim() || 'Super Star Learner';
+            ctx.font = 'bold 34px "Baloo 2", cursive, sans-serif';
+            ctx.fillStyle = '#1E1B4B';
+            ctx.fillText(name, w / 2, 175);
+
+            // Underline under Name
+            ctx.strokeStyle = '#F59E0B';
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.moveTo(w / 2 - 160, 188);
+            ctx.lineTo(w / 2 + 160, 188);
+            ctx.stroke();
+
+            // Achievement Title
+            const title = document.getElementById('cert-title-select').value;
+            ctx.font = '15px sans-serif';
+            ctx.fillStyle = '#475569';
+            ctx.fillText('for outstanding enthusiasm, curiosity and excellence as', w / 2, 222);
+
+            ctx.font = 'bold 22px "Baloo 2", cursive, sans-serif';
+            ctx.fillStyle = '#DC2626';
+            ctx.fillText(`🏆 ${title} 🏆`, w / 2, 258);
+
+            // Star Rating
+            ctx.font = '24px sans-serif';
+            ctx.fillStyle = '#F59E0B';
+            ctx.fillText('⭐⭐⭐⭐⭐', w / 2, 298);
+
+            // Footer Details (Date & Signature)
+            const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+            ctx.font = '13px sans-serif';
+            ctx.fillStyle = '#64748B';
+            ctx.textAlign = 'left';
+            ctx.fillText(`📅 Date: ${today}`, 50, 390);
+
+            // Golden Seal Stamp (Right)
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(w - 100, 370, 36, 0, Math.PI * 2);
+            ctx.fillStyle = '#F59E0B';
+            ctx.fill();
+            ctx.strokeStyle = '#D97706';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+            ctx.fillStyle = '#FFF';
+            ctx.textAlign = 'center';
+            ctx.font = 'bold 11px sans-serif';
+            ctx.fillText('GINDIA', w - 100, 365);
+            ctx.fillText('VERIFIED', w - 100, 380);
+            ctx.restore();
+
+            // Signature (Left of seal)
+            ctx.textAlign = 'center';
+            ctx.font = 'italic 16px cursive, sans-serif';
+            ctx.fillStyle = '#1E293B';
+            ctx.fillText('Usha Singh', w / 2, 375);
+            ctx.strokeStyle = '#CBD5E1';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(w / 2 - 70, 382);
+            ctx.lineTo(w / 2 + 70, 382);
+            ctx.stroke();
+            ctx.font = '12px sans-serif';
+            ctx.fillStyle = '#64748B';
+            ctx.fillText('Director, GIndia Kids Academy', w / 2, 398);
+        }
+
+        function downloadCertificate() {
+            const canvas = document.getElementById('cert-canvas');
+            const name = document.getElementById('cert-name-input').value.trim() || 'Little-Genius';
+            const a = document.createElement('a');
+            a.download = `GIndia-Certificate-${name.replace(/\s+/g, '-')}.png`;
+            a.href = canvas.toDataURL('image/png');
+            a.click();
+            speak(`Congratulations! Your certificate is downloaded!`);
+            launchConfetti();
+        }
+
+        function printCertificate() {
+            const canvas = document.getElementById('cert-canvas');
+            const dataUrl = canvas.toDataURL('image/png');
+            const win = window.open('', '_blank');
+            win.document.write(`
+                <html>
+                <head><title>Print Certificate - GIndia Kids</title></head>
+                <body style="margin:0; display:flex; justify-content:center; align-items:center; min-height:100vh;">
+                    <img src="${dataUrl}" style="max-width:95vw; height:auto;" onload="window.print();">
+                </body>
+                </html>
+            `);
+            win.document.close();
+        }
+
+        // ===== 🖨️ PRINTABLE WORKSHEETS ENGINE =====
+        const worksheetData = {
+            alphabet: `
+                <div style="text-align:center; margin-bottom:14px;">
+                    <h3 style="font-family:'Baloo 2'; font-size:24px; color:#1E293B; margin-bottom:2px;">🔤 Alphabet Tracing & Phonics Worksheet</h3>
+                    <p style="font-size:13px; color:#64748B;">Trace the uppercase letters and say the phonics sound out loud!</p>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; font-family:'Baloo 2';">
+                    <div style="border:2px dashed #94A3B8; border-radius:12px; padding:12px; text-align:center; font-size:36px; color:#1E293B;">A a 🍎</div>
+                    <div style="border:2px dashed #94A3B8; border-radius:12px; padding:12px; text-align:center; font-size:36px; color:#1E293B;">B b ⚽</div>
+                    <div style="border:2px dashed #94A3B8; border-radius:12px; padding:12px; text-align:center; font-size:36px; color:#1E293B;">C c 🐱</div>
+                    <div style="border:2px dashed #94A3B8; border-radius:12px; padding:12px; text-align:center; font-size:36px; color:#1E293B;">D d 🐶</div>
+                    <div style="border:2px dashed #94A3B8; border-radius:12px; padding:12px; text-align:center; font-size:36px; color:#1E293B;">E e 🐘</div>
+                    <div style="border:2px dashed #94A3B8; border-radius:12px; padding:12px; text-align:center; font-size:36px; color:#1E293B;">F f 🐟</div>
+                    <div style="border:2px dashed #94A3B8; border-radius:12px; padding:12px; text-align:center; font-size:36px; color:#1E293B;">G g 🐐</div>
+                    <div style="border:2px dashed #94A3B8; border-radius:12px; padding:12px; text-align:center; font-size:36px; color:#1E293B;">H h 🐴</div>
+                </div>
+                <div style="margin-top:16px; border-top:1px solid #CBD5E1; padding-top:8px; display:flex; justify-content:space-between; font-size:12px; color:#64748B;">
+                    <span>Student Name: ______________</span>
+                    <span>Date: ____________</span>
+                    <span>© GIndia Kids Learning (kids.gindiahr.com)</span>
+                </div>
+            `,
+            numbers: `
+                <div style="text-align:center; margin-bottom:14px;">
+                    <h3 style="font-family:'Baloo 2'; font-size:24px; color:#1E293B; margin-bottom:2px;">🔢 Count & Connect Math Worksheet (1-10)</h3>
+                    <p style="font-size:13px; color:#64748B;">Count the cute objects and write the correct number in the box!</p>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; font-family:'Baloo 2';">
+                    <div style="border:2px solid #E2E8F0; border-radius:12px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:26px;">🍎 🍎 🍎</span>
+                        <span style="border:2px dashed #3B82F6; width:45px; height:45px; border-radius:8px; display:inline-block;"></span>
+                    </div>
+                    <div style="border:2px solid #E2E8F0; border-radius:12px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:26px;">⭐ ⭐ ⭐ ⭐ ⭐</span>
+                        <span style="border:2px dashed #3B82F6; width:45px; height:45px; border-radius:8px; display:inline-block;"></span>
+                    </div>
+                    <div style="border:2px solid #E2E8F0; border-radius:12px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:26px;">🦁 🦁</span>
+                        <span style="border:2px dashed #3B82F6; width:45px; height:45px; border-radius:8px; display:inline-block;"></span>
+                    </div>
+                    <div style="border:2px solid #E2E8F0; border-radius:12px; padding:12px; display:flex; justify-content:space-between; align-items:center;">
+                        <span style="font-size:26px;">🎈 🎈 🎈 🎈</span>
+                        <span style="border:2px dashed #3B82F6; width:45px; height:45px; border-radius:8px; display:inline-block;"></span>
+                    </div>
+                </div>
+                <div style="margin-top:16px; border-top:1px solid #CBD5E1; padding-top:8px; display:flex; justify-content:space-between; font-size:12px; color:#64748B;">
+                    <span>Student Name: ______________</span>
+                    <span>Date: ____________</span>
+                    <span>© GIndia Kids Learning (kids.gindiahr.com)</span>
+                </div>
+            `,
+            coloring: `
+                <div style="text-align:center; margin-bottom:14px;">
+                    <h3 style="font-family:'Baloo 2'; font-size:24px; color:#1E293B; margin-bottom:2px;">🎨 Animal Kingdom Coloring Sheet</h3>
+                    <p style="font-size:13px; color:#64748B;">Color these friendly animals with your favourite bright crayons!</p>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; text-align:center; font-family:'Baloo 2';">
+                    <div style="border:2px dashed #F59E0B; border-radius:14px; padding:20px 10px;">
+                        <div style="font-size:52px; filter:grayscale(100%);">🦁</div>
+                        <div style="font-size:18px; font-weight:700; color:#1E293B; margin-top:8px;">LION</div>
+                        <div style="font-size:12px; color:#94A3B8;">Color: Yellow & Brown</div>
+                    </div>
+                    <div style="border:2px dashed #10B981; border-radius:14px; padding:20px 10px;">
+                        <div style="font-size:52px; filter:grayscale(100%);">🐘</div>
+                        <div style="font-size:18px; font-weight:700; color:#1E293B; margin-top:8px;">ELEPHANT</div>
+                        <div style="font-size:12px; color:#94A3B8;">Color: Grey & Blue</div>
+                    </div>
+                    <div style="border:2px dashed #EC4899; border-radius:14px; padding:20px 10px;">
+                        <div style="font-size:52px; filter:grayscale(100%);">🦜</div>
+                        <div style="font-size:18px; font-weight:700; color:#1E293B; margin-top:8px;">PARROT</div>
+                        <div style="font-size:12px; color:#94A3B8;">Color: Green & Red</div>
+                    </div>
+                </div>
+                <div style="margin-top:16px; border-top:1px solid #CBD5E1; padding-top:8px; display:flex; justify-content:space-between; font-size:12px; color:#64748B;">
+                    <span>Student Name: ______________</span>
+                    <span>Date: ____________</span>
+                    <span>© GIndia Kids Learning (kids.gindiahr.com)</span>
+                </div>
+            `,
+            hindi: `
+                <div style="text-align:center; margin-bottom:14px;">
+                    <h3 style="font-family:'Baloo 2'; font-size:24px; color:#1E293B; margin-bottom:2px;">🕉️ हिंदी वर्णमाला ट्रेसिंग (Hindi Varnamala)</h3>
+                    <p style="font-size:13px; color:#64748B;">अक्षरों को बोलकर दोहराएं और सुंदर अक्षरों में लिखें!</p>
+                </div>
+                <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:12px; font-family:'Baloo 2';">
+                    <div style="border:2px dashed #EF4444; border-radius:12px; padding:12px; text-align:center; font-size:32px; color:#1E293B;">अ (अनार 🍎)</div>
+                    <div style="border:2px dashed #F59E0B; border-radius:12px; padding:12px; text-align:center; font-size:32px; color:#1E293B;">आ (आम 🥭)</div>
+                    <div style="border:2px dashed #10B981; border-radius:12px; padding:12px; text-align:center; font-size:32px; color:#1E293B;">इ (इमली 🍃)</div>
+                    <div style="border:2px dashed #3B82F6; border-radius:12px; padding:12px; text-align:center; font-size:32px; color:#1E293B;">ई (ईख 🎋)</div>
+                    <div style="border:2px dashed #8B5CF6; border-radius:12px; padding:12px; text-align:center; font-size:32px; color:#1E293B;">क (कमल 🪷)</div>
+                    <div style="border:2px dashed #EC4899; border-radius:12px; padding:12px; text-align:center; font-size:32px; color:#1E293B;">ख (खरगोश 🐰)</div>
+                    <div style="border:2px dashed #06B6D4; border-radius:12px; padding:12px; text-align:center; font-size:32px; color:#1E293B;">ग (गमला 🪴)</div>
+                    <div style="border:2px dashed #F97316; border-radius:12px; padding:12px; text-align:center; font-size:32px; color:#1E293B;">घ (घर 🏡)</div>
+                </div>
+                <div style="margin-top:16px; border-top:1px solid #CBD5E1; padding-top:8px; display:flex; justify-content:space-between; font-size:12px; color:#64748B;">
+                    <span>विद्यार्थी का नाम: ______________</span>
+                    <span>तारीख: ____________</span>
+                    <span>© GIndia Kids Learning (kids.gindiahr.com)</span>
+                </div>
+            `
+        };
+
+        function initWorksheets() {
+            showWorksheet('alphabet');
+        }
+
+        function showWorksheet(tab, btn) {
+            const area = document.getElementById('printable-worksheet-area');
+            if (area && worksheetData[tab]) {
+                area.innerHTML = worksheetData[tab];
+            }
+            if (btn) {
+                btn.parentElement.querySelectorAll('.level-pill').forEach(p => p.classList.remove('active'));
+                btn.classList.add('active');
+            }
+        }
 
         // ===== SPEECH =====
         function speak(text) {
