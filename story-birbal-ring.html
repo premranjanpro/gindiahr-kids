@@ -3,47 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>बीरबल और चोर की जादुई दाढ़ी | GINDiA Audio Story | GIndia Kids</title>
-    <meta name="description" content="Listen to Birbal and the Stolen Diamond Ring wit audio story with real Indian voice narration and live word-by-word karaoke highlight on GINDiA Kids."/>
-    <link rel="icon" type="image/png" href="favicon-76x76.png">
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>बीरबल और चोर की दाढ़ी में तिनका | GINDiA Kids</title>
+    <meta name="description" content="Listen to Birbal and the Stolen Ring with live word-by-word karaoke and smooth auto-scroll on GINDiA Kids."/>
+    <link rel="icon" type="image/png" href="https://gindiahr.com/images/logo/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800;900&family=Baloo+2:wght@600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #EC4899; --secondary: #8B5CF6; --dark: #0B0F19; --surface: #161F36; --accent: #FDE047; --highlight-word: #FF2E93; --highlight-bg: rgba(255, 46, 147, 0.28); --text-sub: #94A3B8; }
+        :root {
+            --primary: #FF6B35;
+            --primary-grad: linear-gradient(135deg, #FF6B35 0%, #E83E8C 50%, #7928CA 100%);
+            --accent: #E83E8C;
+            --bg-page: #F8FAFC;
+            --bg-card: #FFFFFF;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --text-dim: #94A3B8;
+            --border: #E2E8F0;
+            --highlight-word: #FF6B35;
+            --highlight-bg: #FFE8DF;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Nunito', sans-serif; background: var(--dark); color: #FFF; height: 100vh; height: 100dvh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+        body {
+            font-family: 'Fredoka', cursive, sans-serif;
+            background: var(--bg-page);
+            color: var(--text-main);
+            height: 100vh;
+            height: 100dvh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+        }
         a { text-decoration: none; color: inherit; }
-        .player-appbar { height: 54px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.08); flex-shrink: 0; }
-        .player-back-btn { background: rgba(255, 255, 255, 0.1); border: none; color: #FFF; padding: 6px 12px; border-radius: 50px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; }
-        .player-header-title { text-align: center; font-family: 'Baloo 2', cursive; font-size: 14px; font-weight: 800; }
-        .player-header-badge { font-size: 10px; color: var(--primary); display: block; text-transform: uppercase; letter-spacing: 0.5px; }
-        .player-body { flex: 1; display: flex; flex-direction: column; padding: 10px 16px; overflow: hidden; justify-content: space-evenly; align-items: center; text-align: center; max-width: 640px; margin: 0 auto; width: 100%; }
-        .player-art-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
-        .player-art-glow { position: absolute; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, transparent 70%); animation: pulseGlow 3s ease-in-out infinite alternate; }
-        @keyframes pulseGlow { 0% { transform: scale(0.9); opacity: 0.5; } 100% { transform: scale(1.3); opacity: 0.9; } }
-        .player-art-circle { width: 76px; height: 76px; border-radius: 22px; background: linear-gradient(135deg, #EC4899, #8B5CF6); display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45); position: relative; z-index: 1; animation: artBob 3s ease-in-out infinite; }
-        @keyframes artBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
-        .wave-visualizer { display: flex; align-items: center; gap: 4px; height: 18px; margin: 4px 0; }
-        .wave-bar { width: 3px; height: 6px; background: var(--primary); border-radius: 2px; transition: height 0.15s ease; }
+
+        .player-appbar {
+            height: 60px;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 2px solid;
+            border-image: var(--primary-grad) 1;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            flex-shrink: 0;
+            z-index: 100;
+            gap: 8px;
+        }
+        .player-back-btn {
+            background: #F1F5F9;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            padding: 7px 12px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .player-back-btn:hover { background: #E2E8F0; }
+
+        .player-title-box { text-align: center; flex: 1; min-width: 0; }
+        .badge-brand {
+            font-size: 10px;
+            font-weight: 900;
+            background: var(--primary-grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+        }
+        .story-header-name {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .voice-dropdown-wrap { position: relative; flex-shrink: 0; }
+        .voice-select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: var(--primary-grad);
+            color: #FFFFFF;
+            font-family: 'Fredoka', cursive, sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 7px 28px 7px 12px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+            outline: none;
+        }
+        .voice-select option { background: #FFFFFF; color: #0F172A; font-weight: 600; }
+        .dropdown-chevron {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            font-size: 9px;
+            color: #FFFFFF;
+        }
+
+        .story-meta-bar {
+            background: #FFFFFF;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+            flex-shrink: 0;
+        }
+        .story-badge-cat {
+            font-size: 11px;
+            font-weight: 800;
+            color: #FF6B35;
+            background: #FFE8DF;
+            padding: 3px 10px;
+            border-radius: 50px;
+        }
+        .wave-visualizer { display: flex; align-items: center; gap: 3px; height: 16px; }
+        .wave-bar { width: 3px; height: 5px; background: #CBD5E1; border-radius: 2px; transition: height 0.15s ease; }
         .wave-bar.playing { animation: waveBounce 0.8s ease-in-out infinite alternate; }
-        .wave-bar:nth-child(2) { animation-delay: 0.1s; height: 12px; background: #F472B6; }
-        .wave-bar:nth-child(3) { animation-delay: 0.25s; height: 18px; background: #FDE047; }
-        .wave-bar:nth-child(4) { animation-delay: 0.15s; height: 10px; background: #A78BFA; }
-        .wave-bar:nth-child(5) { animation-delay: 0.3s; height: 14px; background: var(--primary); }
-        @keyframes waveBounce { 0% { height: 4px; } 100% { height: 18px; } }
-        .player-story-name { font-family: 'Baloo 2', cursive; font-size: 20px; font-weight: 800; color: #FDE047; line-height: 1.2; }
-        .player-story-theme { font-size: 12px; color: #CBD5E1; }
-        .karaoke-word-box { background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(236, 72, 153, 0.35); border-radius: 16px; padding: 12px 14px; width: 100%; min-height: 90px; max-height: 130px; overflow-y: auto; font-size: 16px; line-height: 1.7; color: #94A3B8; text-align: left; box-shadow: inset 0 2px 10px rgba(0,0,0,0.4); }
-        .karaoke-word { display: inline-block; padding: 1px 3px; border-radius: 4px; transition: all 0.12s ease; }
-        .karaoke-word.word-active { color: #FFFFFF !important; background: var(--highlight-bg) !important; border-bottom: 2px solid var(--highlight-word) !important; font-weight: 800 !important; transform: scale(1.06); text-shadow: 0 0 10px rgba(255, 46, 147, 0.7); }
-        .player-voice-row { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; width: 100%; margin-top: 4px; }
-        .voice-pill { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); color: #E2E8F0; padding: 5px 10px; border-radius: 50px; font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-        .voice-pill.active { background: #7C3AED; color: #FFF; border-color: #A78BFA; box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4); }
-        .player-bottom-sheet { background: #111827; border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 16px 14px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
-        .player-main-controls { display: flex; align-items: center; justify-content: space-around; max-width: 480px; margin: 0 auto; width: 100%; }
-        .btn-ctrl-sec { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); color: #E2E8F0; width: 40px; height: 40px; border-radius: 50%; font-size: 16px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-        .btn-ctrl-play { background: linear-gradient(135deg, #EC4899, #8B5CF6); border: none; color: #FFF; width: 54px; height: 54px; border-radius: 50%; font-size: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5); }
-        .player-sub-controls { display: flex; justify-content: space-between; align-items: center; max-width: 480px; margin: 0 auto; width: 100%; }
-        .btn-pill-sub { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #CBD5E1; padding: 5px 12px; border-radius: 50px; font-size: 11px; font-weight: 700; cursor: pointer; }
+        .wave-bar:nth-child(1) { background: #FF6B35; }
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; height: 10px; background: #E83E8C; }
+        .wave-bar:nth-child(3) { animation-delay: 0.25s; height: 16px; background: #06D6A0; }
+        .wave-bar:nth-child(4) { animation-delay: 0.15s; height: 8px; background: #118AB2; }
+        .wave-bar:nth-child(5) { animation-delay: 0.3s; height: 12px; background: #FF6B35; }
+        @keyframes waveBounce { 0% { height: 4px; } 100% { height: 16px; } }
+
+        .story-reader-container {
+            flex: 1;
+            padding: 16px 20px;
+            overflow-y: auto;
+            scroll-behavior: smooth;
+            background: #FFFFFF;
+            margin: 10px 14px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .story-reader-container::-webkit-scrollbar { width: 4px; }
+        .story-reader-container::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 4px; }
+
+        .story-title-card { text-align: center; padding-bottom: 12px; border-bottom: 1px dashed var(--border); margin-bottom: 8px; }
+        .story-hero-emoji { font-size: 40px; margin-bottom: 4px; }
+        .story-hero-title { font-family: 'Baloo 2', cursive; font-size: 22px; font-weight: 900; color: var(--text-main); line-height: 1.25; }
+        .story-hero-subtitle { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+        .story-sentence-block {
+            font-family: 'Baloo 2', cursive;
+            font-size: 19px;
+            line-height: 1.75;
+            color: var(--text-dim);
+            padding: 10px 14px;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+        .story-sentence-block:hover { background: #F8FAFC; color: var(--text-muted); }
+        .story-sentence-block.sentence-active {
+            color: var(--text-main);
+            background: #FFF7ED;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 16px rgba(255, 107, 53, 0.08);
+            font-size: 20px;
+            font-weight: 700;
+            transform: scale(1.01);
+        }
+
+        .karaoke-word { display: inline-block; padding: 1px 3px; border-radius: 5px; transition: all 0.12s ease; }
+        .karaoke-word.word-active {
+            color: var(--highlight-word) !important;
+            background: var(--highlight-bg) !important;
+            font-weight: 900 !important;
+            transform: scale(1.08);
+            box-shadow: 0 2px 8px rgba(255, 107, 53, 0.25);
+        }
+
+        .player-bottom-sheet {
+            background: #FFFFFF;
+            border-top: 1px solid var(--border);
+            padding: 10px 16px 14px;
+            box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .player-main-controls { display: flex; align-items: center; justify-content: space-around; max-width: 440px; margin: 0 auto; width: 100%; }
+        .btn-ctrl-sec {
+            background: #F1F5F9;
+            border: 1px solid var(--border);
+            color: var(--text-main);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-ctrl-sec:hover { background: #E2E8F0; transform: scale(1.06); }
+        .btn-ctrl-play {
+            background: var(--primary-grad);
+            border: none;
+            color: #FFFFFF;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+            transition: all 0.2s;
+        }
+        .btn-ctrl-play:hover { transform: scale(1.08); }
+
+        .player-sub-controls { display: flex; justify-content: space-between; align-items: center; max-width: 440px; margin: 0 auto; width: 100%; }
+        .btn-pill-sub {
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-pill-sub:hover { background: #F1F5F9; color: var(--text-main); }
+
         #confetti-box { position: fixed; inset: 0; pointer-events: none; z-index: 100000; }
         .confetti-dot { position: absolute; top: -10px; animation: confettiDrop ease-in forwards; }
         @keyframes confettiDrop { to { transform: translateY(105vh) rotate(720deg); opacity: 0; } }
@@ -54,44 +261,45 @@
     <div id="confetti-box"></div>
 
     <header class="player-appbar">
-        <a href="category-akbar-birbal.html" class="player-back-btn">← Akbar Birbal</a>
-        <div class="player-header-title">
-            <span class="player-header-badge">GINDiA AUDIO STORY</span>
-            <span>बीरबल की जादुई दाढ़ी</span>
+        <a href="category-akbar-birbal.html" class="player-back-btn">← Back</a>
+        
+        <div class="player-title-box">
+            <span class="badge-brand">✨ GINDiA Kids</span>
+            <div class="story-header-name">बीरबल और चोरी की अंगूठी</div>
         </div>
-        <a href="stories.html" class="player-back-btn">📚 Stories</a>
+
+        <div class="voice-dropdown-wrap">
+            <select class="voice-select" id="voice-select" onchange="onVoiceDropdownChange(this.value)">
+                <option value="female" selected>👩 Female (महिला)</option>
+                <option value="male">👨 Male (पुरुष)</option>
+                <option value="child">🧒 Child (बच्चा)</option>
+            </select>
+            <span class="dropdown-chevron">▼</span>
+        </div>
     </header>
 
-    <main class="player-body">
-        <div class="player-art-wrap">
-            <div class="player-art-glow"></div>
-            <div class="player-art-circle">👑</div>
-        </div>
-
-        <div class="wave-visualizer" id="wave-visualizer">
+    <div class="story-meta-bar">
+        <span class="story-badge-cat">👑 अकबर-बीरबल • Wit</span>
+        <div class="wave-visualizer">
             <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
         </div>
+    </div>
 
-        <div>
-            <div class="player-story-name" id="player-title">बीरबल और चोर की जादुई दाढ़ी</div>
-            <div class="player-story-theme" id="player-sub">Birbal and the Stolen Diamond Ring</div>
+    <main class="story-reader-container" id="story-reader">
+        <div class="story-title-card">
+            <div class="story-hero-emoji">👑</div>
+            <h1 class="story-hero-title" id="player-title">बीरबल और चोर की दाढ़ी में तिनका</h1>
+            <p class="story-hero-subtitle" id="player-sub">Birbal and the Stolen Ring</p>
         </div>
 
-        <div class="karaoke-word-box" id="karaoke-word-container"></div>
-
-        <div class="player-voice-row">
-            <span style="font-size:11px; color:#CBD5E1; font-weight:700;">आवाज़ (Voice):</span>
-            <button class="voice-pill active" id="voice-btn-female" onclick="setVoiceGender('female')">👩 Female (महिला)</button>
-            <button class="voice-pill" id="voice-btn-male" onclick="setVoiceGender('male')">👨 Male (पुरुष)</button>
-            <button class="voice-pill" id="voice-btn-child" onclick="setVoiceGender('child')">🧒 Child (बच्चा)</button>
-        </div>
+        <div id="sentences-list" style="display:flex; flex-direction:column; gap:12px;"></div>
     </main>
 
     <div class="player-bottom-sheet">
         <div class="player-main-controls">
-            <button class="btn-ctrl-sec" onclick="prevSentence()">⏮️</button>
-            <button class="btn-ctrl-play" id="btn-play-pause" onclick="togglePlayPause()">⏸</button>
-            <button class="btn-ctrl-sec" onclick="nextSentence()">⏭️</button>
+            <button class="btn-ctrl-sec" onclick="prevSentence()" title="पिछला वाक्य">⏮️</button>
+            <button class="btn-ctrl-play" id="btn-play-pause" onclick="togglePlayPause()" title="Play / Pause">⏸</button>
+            <button class="btn-ctrl-sec" onclick="nextSentence()" title="अगला वाक्य">⏭️</button>
         </div>
         <div class="player-sub-controls">
             <button class="btn-pill-sub" id="btn-lang" onclick="toggleLanguage()">🌐 🇮🇳 Hindi</button>
@@ -102,36 +310,32 @@
 
     <script>
         const storyData = {
-            titleHi: 'बीरबल और चोर की जादुई दाढ़ी',
-            titleEn: 'Birbal and the Stolen Diamond Ring',
-            subHi: 'चोर की दाढ़ी में तिनका, सच कभी छिपता नहीं',
-            subEn: 'A guilty conscience needs no accuser',
-            theme: 'inspirational',
+            titleHi: 'बीरबल और चोर की दाढ़ी में तिनका',
+            titleEn: 'Birbal and the Stolen Ring',
+            subHi: 'अपराधी का खुद का डर ही उसे पकड़वा देता है',
+            subEn: 'A guilty mind always gives itself away under clever psychological wit',
+            theme: 'wit',
             sentencesHi: [
-                'शहंशाह अकबर के महल में एक दिन अचानक उनकी सबसे कीमती नौलखा हीरे की अंगूठी गायब हो गई।',
-                'बादशाह अकबर बहुत परेशान हुए क्योंकि उस कमरे में केवल उनके आठ सबसे खास दरबारी सेवक ही जा सकते थे।',
-                'अकबर ने न्याय के चतुर उस्ताद बीरबल को शाही दरबार में बुलाया और चोर का पता लगाने को कहा।',
-                'बीरबल ने मुस्कुराते हुए सभी आठों सेवकों को दरबार में हाजिर किया।',
-                'बीरबल ने सबको बराबर लंबाई की एक-एक लकड़ी की छड़ी दी और कहा, "ये जादुई छड़ियां हैं!"',
-                'बीरबल बोले, "जिसने भी अंगूठी चुराई होगी, कल सुबह तक उसकी जादुई छड़ी दो इंच अपने आप लंबी हो जाएगी!"',
-                'सभी सेवक अपने घर लौट गए। लेकिन असली चोर रात भर डर से कांपने लगा।',
-                'उसने सोचा कि क्यों न वह अपनी छड़ी को दो इंच काट दे, ताकि सुबह वह बाकी छड़ियों के बराबर हो जाए!',
-                'अगली सुबह बीरबल ने सबकी छड़ियां नापीं। एक सेवक की छड़ी ठीक दो इंच छोटी निकली!',
-                'बीरबल ने तुरंत उस चोर को पकड़ लिया और अंगूठी बरामद कर ली।',
-                'सीख: अपराध करने वाले का अपना डर ही उसे सबसे पहले बेनकाब कर देता है।'
+                'बादशाह अकबर की बेशकीमती हीरों से जड़ी पसंदीदा अंगूठी महल से अचानक चोरी हो गई।',
+                'अकबर ने परेशान होकर बीरबल से कहा, "महल के आठ खास सेवकों में से ही किसी ने यह अंगूठी चुराई है!"',
+                'बीरबल ने सभी आठ सेवकों को दरबार में हाजिर होने का आदेश दिया।',
+                'बीरबल ने सभी को एक-एक जादुई छड़ी दी जो बिल्कुल बराबर नाप की थीं।',
+                'बीरबल ने मुस्कुराते हुए ऐलान किया, "यह चमत्कारी छड़ियां हैं! जिसने भी चोरी की होगी, उसकी छड़ी कल सुबह तक 2 इंच लंबी हो जाएगी!"',
+                'असली चोर डर गया और उसने सोचा कि रात में ही अपनी छड़ी को दो इंच काट देता हूं, ताकि सुबह बराबर हो जाए!',
+                'अगली सुबह बीरबल ने सबकी छड़ियां नापीं, तो चोर की छड़ी दो इंच छोटी निकली।',
+                'बीरबल ने तुरंत चोर को पकड़ लिया और बादशाह अकबर की कीमती अंगूठी बरामद करवा दी।',
+                'सीख: सच को कभी छिपाया नहीं जा सकता और गलत काम करने वाला हमेशा अपने ही डर से पकड़ा जाता है।'
             ],
             sentencesEn: [
-                'One morning in the grand Agra Palace, Emperor Akbar discovered his most precious emerald ring was missing.',
-                'The emperor was deeply troubled because only his eight trusted personal servants had access to the royal chamber.',
-                'Akbar summoned his legendary witty minister, Birbal, to solve the royal mystery.',
-                'Birbal calmly lined up all eight servants and handed each one a wooden stick of identical length.',
-                'Birbal declared, "These are enchanted royal sticks from the Himalayan sages!"',
-                '"Whosoever stole the ring, his magical stick will miraculously grow two inches longer by tomorrow morning!"',
-                'The innocent servants slept peacefully, but the real thief stayed awake trembling with guilt.',
-                'He secretly took a knife and cut exactly two inches off his stick, thinking it would grow back to normal by sunrise!',
-                'The next morning, Birbal measured all eight sticks. One servant\'s stick was precisely two inches shorter!',
-                'Birbal smiled and pointed, "Your Majesty, here is your thief! His own guilty mind gave him away!"',
-                'Moral: Truth never hides. A guilty conscience always betrays itself.'
+                'Emperor Akbar was devastated when his favorite precious diamond ring vanished from the royal bedchamber.',
+                'Akbar whispered to Birbal, "Only one of my eight trusted personal attendants could have stolen it!"',
+                'Birbal summoned all eight servants to the royal court.',
+                'He handed each of them a magical wooden stick of identical length.',
+                'Birbal announced with a smile, "These are enchanted sticks! The thief\'s stick will miraculously grow two inches longer by tomorrow morning!"',
+                'Panic-stricken, the guilty servant cut two inches off his stick during the night so it would appear normal.',
+                'The next morning, Birbal measured all sticks; the thief\'s stick was two inches shorter!',
+                'Birbal caught the culprit red-handed and restored the Emperor\'s beloved diamond ring.',
+                'Moral: A guilty conscience needs no accuser; clever wit easily exposes the truth.'
             ]
         };
 
@@ -156,10 +360,10 @@
                 if (gainNode) return;
 
                 gainNode = audioCtx.createGain();
-                gainNode.gain.setValueAtTime(0.032, audioCtx.currentTime);
+                gainNode.gain.setValueAtTime(0.025, audioCtx.currentTime);
                 gainNode.connect(audioCtx.destination);
 
-                const freqs = [174.61, 220.00, 261.63, 349.23];
+                const freqs = [130.81, 164.81, 196.00, 261.63];
                 freqs.forEach(f => {
                     const osc = audioCtx.createOscillator();
                     osc.type = 'sine';
@@ -220,12 +424,8 @@
             return voices.find(v => v.lang.startsWith('en')) || voices[0];
         }
 
-        function setVoiceGender(g) {
-            currentVoiceGender = g;
-            ['female', 'male', 'child'].forEach(id => {
-                const btn = document.getElementById(`voice-btn-${id}`);
-                if (btn) btn.classList.toggle('active', id === g);
-            });
+        function onVoiceDropdownChange(val) {
+            currentVoiceGender = val;
             if (isPlaying) speakCurrentSentence();
         }
 
@@ -252,23 +452,47 @@
             stopThemeMusic();
         }
 
-        function renderSentenceWords(text) {
-            const container = document.getElementById('karaoke-word-container');
-            container.innerHTML = '';
-            const words = text.trim().split(/\s+/);
-            words.forEach((w, idx) => {
-                const span = document.createElement('span');
-                span.className = 'karaoke-word';
-                span.id = `w-${idx}`;
-                span.textContent = w + ' ';
-                container.appendChild(span);
+        function renderAllSentences() {
+            const list = document.getElementById('sentences-list');
+            list.innerHTML = '';
+            const sentences = currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn;
+            
+            sentences.forEach((text, sIdx) => {
+                const block = document.createElement('div');
+                block.className = `story-sentence-block ${sIdx === currentSentenceIndex ? 'sentence-active' : ''}`;
+                block.id = `sentence-block-${sIdx}`;
+                block.onclick = () => {
+                    currentSentenceIndex = sIdx;
+                    startPlayback();
+                };
+
+                const words = text.trim().split(/\s+/);
+                words.forEach((w, wIdx) => {
+                    const span = document.createElement('span');
+                    span.className = 'karaoke-word';
+                    span.id = `w-${sIdx}-${wIdx}`;
+                    span.textContent = w + ' ';
+                    block.appendChild(span);
+                });
+
+                list.appendChild(block);
             });
         }
 
-        function highlightWord(idx) {
+        function highlightWordInSentence(sIdx, wIdx) {
             document.querySelectorAll('.karaoke-word').forEach(s => s.classList.remove('word-active'));
-            const active = document.getElementById(`w-${idx}`);
+            const active = document.getElementById(`w-${sIdx}-${wIdx}`);
             if (active) active.classList.add('word-active');
+        }
+
+        function scrollSentenceIntoView(sIdx) {
+            document.querySelectorAll('.story-sentence-block').forEach((b, idx) => {
+                b.classList.toggle('sentence-active', idx === sIdx);
+            });
+            const el = document.getElementById(`sentence-block-${sIdx}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         }
 
         function speakCurrentSentence() {
@@ -278,12 +502,13 @@
                 stopPlayback();
                 launchConfetti();
                 currentSentenceIndex = 0;
+                scrollSentenceIntoView(0);
                 return;
             }
 
-            const rawText = sentences[currentSentenceIndex];
-            renderSentenceWords(rawText);
+            scrollSentenceIntoView(currentSentenceIndex);
 
+            const rawText = sentences[currentSentenceIndex];
             if (!('speechSynthesis' in window)) return;
             window.speechSynthesis.cancel();
             if (wordTimer) clearInterval(wordTimer);
@@ -309,7 +534,7 @@
                     for (let i = 0; i < words.length; i++) {
                         count += words[i].length + 1;
                         if (e.charIndex < count) {
-                            highlightWord(i);
+                            highlightWordInSentence(currentSentenceIndex, i);
                             break;
                         }
                     }
@@ -320,14 +545,14 @@
             const wordDur = Math.max(160, Math.floor(60000 / (135 * playbackSpeed)));
             wordTimer = setInterval(() => {
                 if (!boundaryFired && isPlaying && wIdx < words.length) {
-                    highlightWord(wIdx);
+                    highlightWordInSentence(currentSentenceIndex, wIdx);
                     wIdx++;
                 }
             }, wordDur);
 
             utt.onend = () => {
                 if (wordTimer) clearInterval(wordTimer);
-                highlightWord(words.length - 1);
+                highlightWordInSentence(currentSentenceIndex, words.length - 1);
                 if (!isPlaying) return;
                 speechTimer = setTimeout(() => {
                     currentSentenceIndex++;
@@ -349,7 +574,7 @@
             if (currentSentenceIndex > 0) {
                 currentSentenceIndex--;
                 if (isPlaying) speakCurrentSentence();
-                else renderSentenceWords((currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn)[currentSentenceIndex]);
+                else scrollSentenceIntoView(currentSentenceIndex);
             }
         }
 
@@ -358,7 +583,7 @@
             if (currentSentenceIndex < total - 1) {
                 currentSentenceIndex++;
                 if (isPlaying) speakCurrentSentence();
-                else renderSentenceWords((currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn)[currentSentenceIndex]);
+                else scrollSentenceIntoView(currentSentenceIndex);
             }
         }
 
@@ -367,8 +592,8 @@
             document.getElementById('btn-lang').textContent = currentLang === 'hi' ? '🌐 🇮🇳 Hindi' : '🌐 🇬🇧 English';
             document.getElementById('player-title').textContent = currentLang === 'hi' ? storyData.titleHi : storyData.titleEn;
             document.getElementById('player-sub').textContent = currentLang === 'hi' ? storyData.subHi : storyData.subEn;
+            renderAllSentences();
             if (isPlaying) speakCurrentSentence();
-            else renderSentenceWords((currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn)[currentSentenceIndex]);
         }
 
         function cycleSpeed() {
@@ -381,7 +606,7 @@
 
         function launchConfetti() {
             const box = document.getElementById('confetti-box');
-            const colors = ['#EC4899', '#8B5CF6', '#FDE047', '#10B981', '#3B82F6', '#F97316'];
+            const colors = ['#FF6B35', '#E83E8C', '#06D6A0', '#FFD166', '#7928CA'];
             for (let i = 0; i < 35; i++) {
                 const el = document.createElement('div');
                 el.className = 'confetti-dot';
@@ -396,7 +621,7 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            renderSentenceWords(storyData.sentencesHi[0]);
+            renderAllSentences();
             setTimeout(() => { startPlayback(); }, 300);
         });
         document.body.addEventListener('click', () => {
