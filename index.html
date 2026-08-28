@@ -676,22 +676,259 @@
         footer p { color: var(--sub); font-size: 13px; line-height: 1.6; }
         footer a { color: var(--purple); text-decoration: none; font-weight: 700; }
 
+        /* KUKU FM STORY PLAYER STYLES */
+        .kuku-player-box {
+            background: linear-gradient(135deg, #1E1B4B, #312E81);
+            color: #fff;
+            border-radius: 24px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(49, 46, 129, 0.4);
+            border: 2px solid #6366F1;
+            margin-bottom: 16px;
+        }
+        .kuku-bg-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 60%);
+            animation: kukuGlowPulse 6s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        @keyframes kukuGlowPulse {
+            0% { transform: scale(0.9) rotate(0deg); opacity: 0.5; }
+            100% { transform: scale(1.1) rotate(180deg); opacity: 0.9; }
+        }
+        .kuku-cover-wrap {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 14px;
+            position: relative;
+            z-index: 1;
+        }
+        .kuku-cover-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+            flex-shrink: 0;
+            animation: kukuIconBob 3s ease-in-out infinite;
+        }
+        @keyframes kukuIconBob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px) scale(1.04); }
+        }
+        .kuku-story-header { flex: 1; }
+        .kuku-tag {
+            display: inline-block;
+            background: rgba(236, 72, 153, 0.25);
+            color: #F472B6;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .kuku-story-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #FDE047;
+        }
+        .kuku-story-sub { font-size: 13px; color: #C7D2FE; }
+        .kuku-karaoke-area {
+            background: rgba(15, 23, 42, 0.75);
+            border-radius: 16px;
+            padding: 16px;
+            min-height: 110px;
+            max-height: 170px;
+            overflow-y: auto;
+            margin-bottom: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            position: relative;
+            z-index: 1;
+        }
+        .kuku-karaoke-sentence {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #94A3B8;
+            transition: all 0.25s ease;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            padding: 4px 8px;
+        }
+        .kuku-karaoke-sentence.active {
+            color: #FFFFFF;
+            background: rgba(99, 102, 241, 0.35);
+            border-left: 3px solid #F43F5E;
+            font-weight: 700;
+            transform: scale(1.01);
+            text-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
+        }
+        .kuku-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+        }
+        .kuku-play-btn {
+            background: linear-gradient(135deg, #F43F5E, #EC4899);
+            color: #fff;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(244, 63, 94, 0.5);
+            transition: all 0.2s;
+        }
+        .kuku-play-btn:hover { transform: scale(1.08); }
+        .kuku-sec-btn {
+            background: rgba(255, 255, 255, 0.12);
+            color: #E0E7FF;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 14px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .kuku-sec-btn:hover { background: rgba(255, 255, 255, 0.25); color: #fff; }
+        .kuku-story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+            max-height: 220px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+        .kuku-card-item {
+            background: #F8FAFC;
+            border: 2px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .kuku-card-item:hover, .kuku-card-item.active {
+            border-color: #8B5CF6;
+            background: #F5F3FF;
+            transform: translateY(-2px);
+        }
+        .kuku-card-emoji { font-size: 26px; flex-shrink: 0; }
+        .kuku-card-info h4 { font-family: 'Baloo 2', cursive; font-size: 14px; color: #1E293B; margin-bottom: 2px; }
+        .kuku-card-info p { font-size: 11px; color: #64748B; line-height: 1.3; }
+
+        /* TUTORIALS STYLES */
+        .tutorial-tab-btn {
+            background: #F1F5F9; border: 2px solid #E2E8F0;
+            border-radius: 50px; padding: 8px 16px;
+            font-family: 'Baloo 2', cursive; font-size: 14px; font-weight: 700;
+            cursor: pointer; transition: all 0.2s; color: #475569;
+        }
+        .tutorial-tab-btn.active { background: #7C3AED; color: #fff; border-color: #7C3AED; }
+        .tutorial-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 8px; max-height: 320px; overflow-y: auto; padding: 4px;
+        }
+        .tutorial-item-card {
+            background: #FFF; border: 2px solid #E2E8F0; border-radius: 14px;
+            padding: 10px 6px; text-align: center; cursor: pointer; transition: all 0.2s;
+        }
+        .tutorial-item-card:hover { border-color: #7C3AED; transform: scale(1.06); box-shadow: 0 4px 16px rgba(124,58,237,0.2); }
+        .tutorial-item-char { font-family: 'Baloo 2', cursive; font-size: 26px; font-weight: 800; color: #7C3AED; }
+        .tutorial-item-label { font-size: 11px; color: #64748B; margin-top: 2px; }
+
         /* RESPONSIVE */
         @media (max-width: 768px) {
             .header-nav { display: none; }
-            .hero { padding: 36px 16px 28px; }
-            .modules-section { padding: 40px 16px; }
-            .hero-btn { padding: 10px 14px; font-size: 14px; min-width: 120px; }
-            .modal { padding: 24px 16px; border-radius: 20px; }
+            .hero { padding: 32px 14px 24px; }
+            .modules-section { padding: 36px 14px; }
+            .hero-btn { padding: 8px 12px; font-size: 13px; min-width: 100px; }
             .quiz-options { grid-template-columns: 1fr; }
+
+            /* MOBILE FULLSCREEN ZERO-SCROLL MODALS */
+            .modal-overlay {
+                padding: 0 !important;
+                inset: 0 !important;
+                position: fixed !important;
+                z-index: 9999 !important;
+                align-items: stretch !important;
+                justify-content: stretch !important;
+                background: #0F172A !important;
+            }
+            .modal {
+                width: 100vw !important;
+                height: 100vh !important;
+                height: 100dvh !important;
+                max-width: 100vw !important;
+                max-height: 100vh !important;
+                max-height: 100dvh !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 12px 14px 14px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+                box-sizing: border-box !important;
+            }
+            .modal-title {
+                font-size: 20px !important;
+                padding-right: 36px !important;
+                margin-bottom: 2px !important;
+            }
+            .modal-sub {
+                font-size: 12px !important;
+                margin-bottom: 8px !important;
+                line-height: 1.3 !important;
+            }
+            .modal-close {
+                top: 8px !important;
+                right: 10px !important;
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 16px !important;
+                background: #F1F5F9 !important;
+                z-index: 10 !important;
+            }
+            .letter-big { font-size: 64px !important; }
+            .num-big { font-size: 56px !important; }
+            .letter-display, .num-display { padding: 14px !important; margin-bottom: 10px !important; }
+            .canvas-container canvas { width: 100% !important; height: auto !important; max-height: 38vh !important; }
+            .kuku-karaoke-area { min-height: 90px !important; max-height: 130px !important; font-size: 14px !important; }
+            .kuku-story-grid { max-height: 180px !important; }
         }
         @media (max-width: 480px) {
-            .hero-mascot { font-size: 56px; }
-            .hero-btns { gap: 8px; }
-            .hero-btn { padding: 8px 12px; font-size: 13px; min-width: 100px; }
-            .hero-btn .emoji { font-size: 20px; }
-            .alpha-grid { grid-template-columns: repeat(auto-fill, minmax(50px, 1fr)); }
-            .animal-grid { grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)); }
+            .hero-mascot { font-size: 50px; }
+            .hero-btns { gap: 6px; }
+            .hero-btn { padding: 6px 10px; font-size: 12px; min-width: 90px; }
+            .alpha-grid { grid-template-columns: repeat(auto-fill, minmax(46px, 1fr)); }
+            .animal-grid { grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); }
         }
 
         /* MOBILE MENU TOGGLE */
@@ -749,6 +986,8 @@
                 <span class="hero-badge">🔊 Voice Learning</span>
             </div>
             <div class="hero-btns">
+                <button class="hero-btn kuku" onclick="openModule('kukustories')" style="background: linear-gradient(135deg, #EC4899, #8B5CF6); color:#fff;"><span class="emoji">🎧</span> Audio Stories</button>
+                <button class="hero-btn tut" onclick="openModule('tutorials')" style="background: linear-gradient(135deg, #7C3AED, #2563EB); color:#fff;"><span class="emoji">🎓</span> Voice Tutorials</button>
                 <button class="hero-btn alpha" onclick="openModule('alpha')"><span class="emoji">🔤</span> Alphabet</button>
                 <button class="hero-btn num" onclick="openModule('numbers')"><span class="emoji">🔢</span> Numbers</button>
                 <button class="hero-btn ani" onclick="openModule('animals')"><span class="emoji">🦁</span> Animals</button>
@@ -767,6 +1006,20 @@
                 <p class="section-sub">Tap on any module to start your magical learning journey!</p>
             </div>
             <div class="modules-grid">
+                <div class="mod-card kukustories" onclick="openModule('kukustories')" style="background: linear-gradient(135deg, #FFF1F8, #FCE7F3); border-color: #F472B6;">
+                    <span class="mod-icon">🎧</span>
+                    <div class="mod-badge" style="background: linear-gradient(135deg,#EC4899,#8B5CF6); color:#fff;">✨ Kuku FM Style</div>
+                    <h3>Audio Stories (कहानियाँ)</h3>
+                    <p>Listen to suspenseful & moral bedtime tales in human Hindi & English with live subtitles & ambient music!</p>
+                    <button class="mod-btn" id="open-kukustories" style="background: linear-gradient(135deg,#EC4899,#8B5CF6);">▶ Listen Stories</button>
+                </div>
+                <div class="mod-card tutorials" onclick="openModule('tutorials')" style="background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-color: #A78BFA;">
+                    <span class="mod-icon">🎓</span>
+                    <div class="mod-badge voice">🕉️ Real Voice</div>
+                    <h3>Hindi & English Tutorials</h3>
+                    <p>Hindi Varnamala (स्वर & व्यंजन), English Phonics & counting taught in clear, human storytelling voice!</p>
+                    <button class="mod-btn" id="open-tutorials" style="background: #7C3AED;">▶ Open Tutorials</button>
+                </div>
                 <div class="mod-card alpha" onclick="openModule('alpha')">
                     <span class="mod-icon">🔤</span>
                     <div class="mod-badge popular">⭐ Popular</div>
@@ -868,6 +1121,84 @@
             <a href="https://gindiahr.com" class="parent-link">🤝 GIndiaHR</a>
         </div>
     </section>
+
+    <!-- KUKU FM AUDIO STORIES MODAL -->
+    <div class="modal-overlay" id="modal-kukustories">
+        <div class="modal" style="max-width: 660px;">
+            <button class="modal-close" onclick="closeModule('kukustories')">✕</button>
+            <div class="modal-title" style="color: #EC4899;">🎧 Kuku FM Audio Stories (कहानियाँ)</div>
+            <div class="modal-sub">Realistic voice storytelling in Hindi & English with live subtitles & ambient music!</div>
+
+            <!-- KUKU FM LIVE PLAYER CARD -->
+            <div class="kuku-player-box">
+                <div class="kuku-bg-glow"></div>
+                <div class="kuku-cover-wrap">
+                    <div class="kuku-cover-icon" id="kuku-active-icon">🐰</div>
+                    <div class="kuku-story-header">
+                        <span class="kuku-tag" id="kuku-active-tag">पंचतंत्र सस्पेंस • Moral</span>
+                        <div class="kuku-story-title" id="kuku-active-title">चालाक खरगोश और शेर</div>
+                        <div class="kuku-story-sub" id="kuku-active-sub">The Clever Rabbit & The Lion</div>
+                    </div>
+                </div>
+
+                <!-- LIVE KARAOKE SUBTITLES -->
+                <div class="kuku-karaoke-area" id="kuku-karaoke-area">
+                    <!-- Sentences rendered dynamically -->
+                </div>
+
+                <!-- AUDIO CONTROLS -->
+                <div class="kuku-controls">
+                    <button class="kuku-sec-btn" onclick="toggleStoryLang()" id="kuku-lang-btn">🌐 🇮🇳 Hindi (हिन्दी)</button>
+                    <div style="display:flex; align-items:center; gap:8px;">
+                        <button class="kuku-sec-btn" onclick="prevStorySentence()" title="Previous Sentence">⏮️</button>
+                        <button class="kuku-play-btn" id="kuku-play-toggle" onclick="toggleStoryPlayback()">▶</button>
+                        <button class="kuku-sec-btn" onclick="nextStorySentence()" title="Next Sentence">⏭️</button>
+                    </div>
+                    <button class="kuku-sec-btn" onclick="cycleStorySpeed()" id="kuku-speed-btn">⚡ 0.9x</button>
+                    <button class="kuku-sec-btn" onclick="toggleAmbientMusic()" id="kuku-music-btn">🎵 Music: ON</button>
+                </div>
+            </div>
+
+            <div style="font-family:'Baloo 2',cursive; font-size:16px; font-weight:800; color:#1E293B; margin-bottom:8px;">
+                📚 Pick a Story to Listen & Read:
+            </div>
+            <!-- STORY LIST GRID -->
+            <div class="kuku-story-grid" id="kuku-story-grid">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- VOICE TUTORIALS MODAL -->
+    <div class="modal-overlay" id="modal-tutorials">
+        <div class="modal" style="max-width: 640px;">
+            <button class="modal-close" onclick="closeModule('tutorials')">✕</button>
+            <div class="modal-title" style="color: #7C3AED;">🎓 Hindi & English Voice Tutorials</div>
+            <div class="modal-sub">Learn Varnamala, Phonics, Numbers & Animals with clear human-like pronunciation!</div>
+
+            <!-- TUTORIAL CATEGORY TABS -->
+            <div style="display:flex; justify-content:center; gap:8px; margin-bottom:14px; flex-wrap:wrap;">
+                <button class="tutorial-tab-btn active" onclick="switchTutorialTab('hindi_swar', this)">🕉️ हिंदी स्वर (Vowels)</button>
+                <button class="tutorial-tab-btn" onclick="switchTutorialTab('hindi_vyanjan', this)">🇮🇳 हिंदी व्यंजन (Consonants)</button>
+                <button class="tutorial-tab-btn" onclick="switchTutorialTab('english_phonics', this)">🔤 English Phonics</button>
+                <button class="tutorial-tab-btn" onclick="switchTutorialTab('hindi_numbers', this)">🔢 गिनती (Counting)</button>
+            </div>
+
+            <!-- ACTIVE TUTORIAL DISPLAY CARD -->
+            <div style="background:linear-gradient(135deg, #F5F3FF, #EDE9FE); border:2px solid #C4B5FD; border-radius:20px; padding:18px; text-align:center; margin-bottom:14px;">
+                <div id="tut-active-emoji" style="font-size:52px; margin-bottom:4px;">🍎</div>
+                <div id="tut-active-char" style="font-family:'Baloo 2',cursive; font-size:42px; font-weight:800; color:#7C3AED; line-height:1;">अ</div>
+                <div id="tut-active-word" style="font-family:'Baloo 2',cursive; font-size:22px; font-weight:700; color:#1E293B; margin-top:4px;">अनार (Anar - Pomegranate)</div>
+                <div id="tut-active-desc" style="font-size:14px; color:#6D28D9; margin-top:2px;">अ से अनार, लाल-लाल दानेदार!</div>
+                <button onclick="speakActiveTutorial()" class="speak-btn" style="background:#7C3AED; margin-top:10px; display:inline-flex; align-items:center; gap:6px;">🔊 Listen Real Voice</button>
+            </div>
+
+            <!-- TUTORIAL ITEM GRID -->
+            <div class="tutorial-grid" id="tutorial-items-grid">
+                <!-- Populated via JS -->
+            </div>
+        </div>
+    </div>
 
     <!-- ALPHABET MODAL -->
     <div class="modal-overlay" id="modal-alpha">
@@ -1097,6 +1428,614 @@
     </footer>
 
     <script>
+        // ===== MODULE OPENER / CLOSER =====
+        function openModule(name) {
+            const m = document.getElementById('modal-' + name);
+            if (m) {
+                m.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+            if (name === 'kukustories') initKukuStoriesModal();
+            if (name === 'tutorials') initTutorialsModal();
+            if (name === 'alpha') buildAlpha();
+            if (name === 'numbers') buildNumbers();
+            if (name === 'animals') buildAnimals();
+            if (name === 'colors') buildColors();
+            if (name === 'rhymes') buildRhymes();
+            if (name === 'drawing') initCanvas();
+            if (name === 'voicephonics') initVoicePhonics();
+            if (name === 'certificate') renderCertificate();
+            if (name === 'worksheets') initWorksheets();
+            const nav = document.getElementById('header-nav');
+            if (nav) nav.classList.remove('open');
+        }
+
+        function closeModule(name) {
+            const m = document.getElementById('modal-' + name);
+            if (m) m.classList.remove('open');
+            if (name === 'kukustories') stopStoryPlayback();
+            if (name === 'tutorials') stopTutorialPlayback();
+            if (name === 'voicephonics' && isRecordingVoice) stopVoiceRecording();
+            
+            const openModals = document.querySelectorAll('.modal-overlay.open');
+            if (openModals.length === 0) {
+                document.body.style.overflow = '';
+            }
+        }
+        document.querySelectorAll('.modal-overlay').forEach(m => {
+            m.addEventListener('click', function(e) {
+                if (e.target === this) closeModule(this.id.replace('modal-', ''));
+            });
+        });
+
+        // ===== NATURAL TTS & AMBIENT AUDIO SYNTHESIZER =====
+        let ambientAudioCtx = null;
+        let ambientGain = null;
+        let isAmbientMusicOn = true;
+
+        function startAmbientMusic() {
+            try {
+                if (!isAmbientMusicOn) return;
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                if (!ambientAudioCtx) ambientAudioCtx = new AudioContext();
+                if (ambientAudioCtx.state === 'suspended') ambientAudioCtx.resume();
+                if (ambientGain) return;
+                
+                ambientGain = ambientAudioCtx.createGain();
+                ambientGain.gain.setValueAtTime(0.035, ambientAudioCtx.currentTime);
+                ambientGain.connect(ambientAudioCtx.destination);
+
+                const freqs = [130.81, 164.81, 196.00, 261.63]; // C chord soothing pad
+                freqs.forEach(freq => {
+                    const osc = ambientAudioCtx.createOscillator();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(freq, ambientAudioCtx.currentTime);
+                    
+                    const filter = ambientAudioCtx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(450, ambientAudioCtx.currentTime);
+
+                    osc.connect(filter);
+                    filter.connect(ambientGain);
+                    osc.start();
+                });
+            } catch(e) {}
+        }
+
+        function stopAmbientMusic() {
+            try {
+                if (ambientGain && ambientAudioCtx) {
+                    ambientGain.gain.linearRampToValueAtTime(0.0001, ambientAudioCtx.currentTime + 0.4);
+                    setTimeout(() => { ambientGain = null; }, 450);
+                }
+            } catch(e) {}
+        }
+
+        function toggleAmbientMusic() {
+            isAmbientMusicOn = !isAmbientMusicOn;
+            const btn = document.getElementById('kuku-music-btn');
+            if (btn) btn.textContent = isAmbientMusicOn ? '🎵 Music: ON' : '🔇 Music: OFF';
+            if (isAmbientMusicOn && isStoryPlaying) {
+                startAmbientMusic();
+            } else {
+                stopAmbientMusic();
+            }
+        }
+
+        function getBestVoice(lang) {
+            const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+            if (!voices || voices.length === 0) return null;
+
+            if (lang === 'hi' || lang === 'hi-IN') {
+                const hindiVoice = voices.find(v => v.lang.startsWith('hi') || v.name.includes('Hindi') || v.name.includes('हिन्दी') || v.name.includes('Kalpana') || v.name.includes('Hemant') || v.name.includes('Google हिन्दी'));
+                if (hindiVoice) return hindiVoice;
+            }
+            
+            const enVoice = voices.find(v => v.lang === 'en-IN' || v.name.includes('India') || v.name.includes('Zira') || v.name.includes('Natural') || v.name.includes('Google UK English Female') || v.lang.startsWith('en'));
+            return enVoice || voices[0];
+        }
+
+        // ===== KUKU FM AUDIO STORIES DATA & ENGINE =====
+        const kukuStoriesData = [
+            {
+                id: 'rabbit_lion',
+                emoji: '🐰',
+                tag: 'पंचतंत्र सस्पेंस • Moral',
+                titleHi: 'चालाक खरगोश और खूंखार शेर',
+                titleEn: 'The Clever Rabbit & The Fierce Lion',
+                subHi: 'बुद्धि और सूझबूझ से बड़े से बड़ा संकट भी टल जाता है',
+                subEn: 'Wit and intelligence can conquer sheer brute force',
+                sentencesHi: [
+                    'सुंदरवन के घने जंगल में भासुरक नाम का एक बहुत ही खूंखार और घमंडी शेर रहता था।',
+                    'वह हर दिन अपनी भूख मिटाने के लिए कई बेकसूर मासूम जानवरों का शिकार कर देता था।',
+                    'सभी जानवरों ने एक दिन मिलकर शेर से प्रार्थना की कि वह रोज एक ही जानवर को अपनी गुफा में बुलाए।',
+                    'एक दिन नन्हे चालाक खरगोश चिंटू की बारी आई। वह जंगल में धीरे-धीरे जानबूझकर देर से पहुंचा।',
+                    'शेर भूख से तड़पकर गुस्से में दहाड़ने लगा, "तुम इतनी देर से क्यों आए?"',
+                    'चिंटू ने हाथ जोड़कर कहा, "महाराज, रास्ते में मुझे एक दूसरा महाबली शेर मिल गया था, जो आपको ललकार रहा था!"',
+                    'घमंडी शेर गुस्से में आगबबूला हो गया और बोला, "मुझे तुरंत उस दूसरे शेर के पास ले चलो!"',
+                    'चालाक चिंटू शेर को एक बहुत गहरे और पुराने कुएं के पास ले गया और बोला, "महाराज, वह इसी पाताल महल में छिपा है!"',
+                    'शेर ने जब कुएं में झांका, तो उसे पानी में अपनी ही परछाई दिखाई दी और गूंजती हुई दहाड़ सुनाई दी।',
+                    'उसने उसे दूसरा शेर समझकर कुएं में जोरदार छलांग लगा दी और पानी में डूबकर मारा गया!',
+                    'इस तरह नन्हे खरगोश की तेज अक्ल ने पूरे जंगल के जानवरों की जान बचा ली।',
+                    'सीख: शारीरिक बल से बुद्धि का बल हमेशा लाख गुना बड़ा होता है।'
+                ],
+                sentencesEn: [
+                    'In the dense jungle of Sunderban, there lived a fierce and arrogant lion named Bhasuraka.',
+                    'Every single day, he hunted down many innocent jungle creatures without any mercy.',
+                    'The terrified animals held a secret meeting and agreed to send him one animal each day.',
+                    'One fateful afternoon, it was the turn of Chintu, a tiny but extremely clever rabbit.',
+                    'Chintu walked very slowly on purpose, creating suspense as the sun began to set.',
+                    'The hungry lion roared in furious anger, "Why are you so late, little creature?"',
+                    'Chintu bowed politely and whispered, "My King, another mighty lion stopped me on the way and challenged your throne!"',
+                    'Furious with pride, the lion demanded, "Take me to this impostor immediately!"',
+                    'Clever Chintu led the roaring beast to an ancient, deep brick well in the ruined palace.',
+                    'When the lion looked inside, he saw his own fierce reflection in the calm water.',
+                    'He roared, and the deep echo roared right back! Thinking it was his enemy, he leaped into the deep well and was gone forever!',
+                    'Moral: Intelligence and wit are far greater than physical strength!'
+                ]
+            },
+            {
+                id: 'magic_pot',
+                emoji: '🏺',
+                tag: 'जादुई रहस्य • Moral',
+                titleHi: 'जादुई मटका और लालची जमींदार',
+                titleEn: 'The Magical Pot & The Greedy Landlord',
+                subHi: 'लालच का फल हमेशा विनाशकारी होता है',
+                subEn: 'Greed blinds the heart and leads to total ruin',
+                sentencesHi: [
+                    'गंगा किनारे बसे एक छोटे से गांव में सुखिया नाम का एक बहुत ही ईमानदार किसान रहता था।',
+                    'एक दिन अपने खेत की जुताई करते समय उसका हल एक भारी तांबे के पुराने मटके से टकराया।',
+                    'सुखिया ने थककर अपनी कुदाल उस मटके में रख दी और शाम को जब उसने देखा, तो मटके में दो कुदालें थीं!',
+                    'उसने मटके में एक चांदी का सिक्का डाला, तो अगले ही पल उसमें से दो चमकदार सिक्के बाहर निकले!',
+                    'सुखिया समझ गया कि यह कोई चमत्कारी जादुई मटका है जो हर चीज को दोगुना कर देता है।',
+                    'उसने इस मटके की मदद से गांव के सभी गरीब भूखे लोगों को अनाज और कंबल बांटे।',
+                    'यह रहस्य गांव के लालची जमींदार को पता चल गया। उसने धोखे से सुखिया से वह जादुई मटका छीन लिया।',
+                    'जमींदार ने सोचा, "अगर मैं इसमें सोना डालूं तो मैं दुनिया का सबसे अमीर आदमी बन जाऊंगा!"',
+                    'वह मटके के अंदर देखने के लिए बहुत ज्यादा झुक गया और अचानक उसका पैर फिसल गया और वह मटके में गिर पड़ा!',
+                    'अगले ही क्षण, मटके से दो हूबहू एक जैसे झगड़ालू जमींदार बाहर निकल आए और अपनी-अपनी हवेली के लिए आपस में ही लड़ने लगे!',
+                    'सीख: जो दूसरों का हक छीनकर लालच करता है, वह सब कुछ गंवा बैठता है।'
+                ],
+                sentencesEn: [
+                    'In a peaceful village near the sacred Ganges, lived an honest farmer named Sukhiya.',
+                    'One morning while tilling his rocky field, his plough struck a heavy, ancient copper pot.',
+                    'Exhausted, Sukhiya placed his wooden spade inside the pot and rested under a banyan tree.',
+                    'To his utter amazement, when he looked back, there were two identical spades inside!',
+                    'He placed a silver coin inside, and instantly, two gleaming coins appeared!',
+                    'Realizing it was a magical pot, kind Sukhiya used it to feed hungry villagers and help the needy.',
+                    'Word of the magical pot soon reached the greedy village landlord, who stole it in the dead of night.',
+                    'The greedy landlord thought, "I will double all my diamonds and become king of the entire country!"',
+                    'In his eager excitement, he leaned too far into the pot, lost his footing, and fell right inside!',
+                    'Pop! Out climbed two identical, screaming landlords who started fighting over the palace wealth!',
+                    'Moral: Greed is a bottomless pit that exhausts the person and destroys happiness.'
+                ]
+            },
+            {
+                id: 'whispering_tree',
+                emoji: '🌳',
+                tag: 'साहस और सस्पेंस • Adventure',
+                titleHi: 'भूतिया पेड़ का अनसुलझा रहस्य',
+                titleEn: 'The Mystery of the Whispering Tree',
+                subHi: 'डर के आगे जीत है, अफवाहों पर यकीन न करें',
+                subEn: 'Bravery and truth dissolve superstition and fear',
+                sentencesHi: [
+                    'गांव के पुराने टीले पर एक बहुत पुराना और विशाल बरगद का पेड़ खड़ा था।',
+                    'गांव के लोग कहते थे कि रात के अंधेरे में उस पेड़ से अजीब फुसफुसाहट और डरावनी आवाजें आती हैं।',
+                    'इसी डर की वजह से सूरज ढलते ही कोई भी उस रास्ते से नहीं गुजरता था।',
+                    'लेकिन सातवीं कक्षा में पढ़ने वाले दो होशियार बच्चे, आरव और उसकी बहन मीरा, इस रहस्य को सुलझाना चाहते थे।',
+                    'एक पूर्णिमा की रात, वे दोनों हाथ में तेज टॉर्च और नोटबुक लेकर चुपके से बरगद के पेड़ के पास पहुंचे।',
+                    'हवा चली और अचानक वही रहस्यमयी सीटी जैसी आवाज गूंज उठी — "शू... वू...!"',
+                    'आरव ने अपनी टॉर्च की तेज रोशनी पेड़ के ऊंचे तने पर डाली।',
+                    'वहां कोई भूत नहीं था, बल्कि पेड़ के खोखले तने में बांसुरी की तरह हवा गुजरने से सुरीली सीटी बज रही थी!',
+                    'और खोखले तने के अंदर एक नन्हीं घायल उल्लू की बच्ची बैठी थी, जो मदद के लिए रो रही थी।',
+                    'आरव और मीरा ने उस नन्हीं चिड़िया को सुरक्षित निकाला, उसकी मरहम-पट्टी की और पूरे गांव का अंधविश्वास हमेशा के लिए दूर कर दिया!',
+                    'सीख: बिना जांचे किसी भी अफवाह या डर पर विश्वास नहीं करना चाहिए। साहस से हर रहस्य सुलझ जाता है।'
+                ],
+                sentencesEn: [
+                    'At the edge of the quiet village stood a colossal banyan tree with hanging vines.',
+                    'The villagers whispered spooky tales that the ancient tree whispered eerie words in the midnight breeze.',
+                    'Out of sheer superstition, nobody dared to walk past the banyan hill after twilight.',
+                    'However, two fearless young detectives, Aarav and Meera, decided to uncover the truth.',
+                    'Armed with powerful LED flashlights and curiosity, they quietly walked up the hill under the starry sky.',
+                    'Suddenly, the wind howled and a chilling whistle echoed from the branches — "Whooo... Shuuu...!"',
+                    'Meera bravely aimed her bright beam high up into the massive hollow trunk.',
+                    'There was no ghost at all! Natural hollow wind tunnels in the bark were creating a flute-like sound!',
+                    'Inside the cozy hollow nestled a tiny injured baby owl, crying softly for gentle help.',
+                    'Aarav and Meera rescued the baby bird, proving that fear is just lack of understanding!',
+                    'Moral: Never let fear and superstition cloud your reason. Courage always reveals the truth.'
+                ]
+            },
+            {
+                id: 'birbal_ring',
+                emoji: '👑',
+                tag: 'अकबर-बीरबल • Wit & Mystery',
+                titleHi: 'बीरबल और चोर की जादुई दाढ़ी',
+                titleEn: 'Birbal and the Stolen Diamond Ring',
+                subHi: 'चोर की दाढ़ी में तिनका, सच कभी छिपता नहीं',
+                subEn: 'A guilty conscience needs no accuser',
+                sentencesHi: [
+                    'शहंशाह अकबर के महल में एक दिन अचानक उनकी सबसे कीमती नौलखा हीरे की अंगूठी गायब हो गई।',
+                    'बादशाह अकबर बहुत परेशान हुए क्योंकि उस कमरे में केवल उनके आठ सबसे खास दरबारी सेवक ही जा सकते थे।',
+                    'अकबर ने न्याय के चतुर उस्ताद बीरबल को शाही दरबार में बुलाया और चोर का पता लगाने को कहा।',
+                    'बीरबल ने मुस्कुराते हुए सभी आठों सेवकों को दरबार में हाजिर किया।',
+                    'बीरबल ने सबको बराबर लंबाई की एक-एक लकड़ी की छड़ी दी और कहा, "ये जादुई छड़ियां हैं!"',
+                    'बीरबल बोले, "जिसने भी अंगूठी चुराई होगी, कल सुबह तक उसकी जादुई छड़ी दो इंच अपने आप लंबी हो जाएगी!"',
+                    'सभी सेवक अपने घर लौट गए। लेकिन असली चोर रात भर डर से कांपने लगा।',
+                    'उसने सोचा कि क्यों न वह अपनी छड़ी को दो इंच काट दे, ताकि सुबह वह बाकी छड़ियों के बराबर हो जाए!',
+                    'अगली सुबह बीरबल ने सबकी छड़ियां नापीं। एक सेवक की छड़ी ठीक दो इंच छोटी निकली!',
+                    'बीरबल ने तुरंत उस चोर को पकड़ लिया और अंगूठी बरामद कर ली।',
+                    'सीख: अपराध करने वाले का अपना डर ही उसे सबसे पहले बेनकाब कर देता है।'
+                ],
+                sentencesEn: [
+                    'One morning in the grand Agra Palace, Emperor Akbar discovered his most precious emerald ring was missing.',
+                    'The emperor was deeply troubled because only his eight trusted personal servants had access to the royal chamber.',
+                    'Akbar summoned his legendary witty minister, Birbal, to solve the royal mystery.',
+                    'Birbal calmly lined up all eight servants and handed each one a wooden stick of identical length.',
+                    'Birbal declared, "These are enchanted royal sticks from the Himalayan sages!"',
+                    '"Whosoever stole the ring, his magical stick will miraculously grow two inches longer by tomorrow morning!"',
+                    'The innocent servants slept peacefully, but the real thief stayed awake trembling with guilt.',
+                    'He secretly took a knife and cut exactly two inches off his stick, thinking it would grow back to normal by sunrise!',
+                    'The next morning, Birbal measured all eight sticks. One servant\'s stick was precisely two inches shorter!',
+                    'Birbal smiled and pointed, "Your Majesty, here is your thief! His own guilty mind gave him away!"',
+                    'Moral: Truth never hides. A guilty conscience always betrays itself.'
+                ]
+            },
+            {
+                id: 'firefly_cave',
+                emoji: '✨',
+                tag: 'प्यारी कहानी • Kindness',
+                titleHi: 'नन्ही जुगनू और अंधेरी गुफा',
+                titleEn: 'The Brave Little Firefly & The Dark Cavern',
+                subHi: 'आप कितने भी छोटे क्यों न हों, आपकी रोशनी दुनिया बदल सकती है',
+                subEn: 'No act of kindness or light is ever too small to make a difference',
+                sentencesHi: [
+                    'पहाड़ों की गोद में बसे एक खूबसूरत जंगल में जुगनू नाम की एक नन्ही जुगनू रहती थी।',
+                    'वह अक्सर सोचती थी कि सूरज और चांद कितने बड़े हैं, जबकि उसकी अपनी रोशनी तो बहुत छोटी सी है।',
+                    'एक शाम जंगल में बहुत भयंकर तूफान आया और मूसलाधार बारिश होने लगी।',
+                    'बंदर, खरगोश, हिरण और नन्हे पक्षी जान बचाने के लिए एक बहुत बड़ी अंधेरी गुफा में घुस गए।',
+                    'तूफान के कारण गुफा के मुंह पर एक भारी चट्टान खिसक गई और अंदर बिल्कुल घुप्प अंधेरा छा गया।',
+                    'सभी जानवर डर से कांपने लगे और बाहर निकलने का रास्ता नहीं ढूंढ पा रहे थे।',
+                    'तभी नन्ही जुगनू ने अपने नन्हे पंख फड़फड़ाए और अपनी हरी-पीली चमकती रोशनी जलाई।',
+                    'उसकी टिमटिमाती रोशनी अंधेरे में एक चमकदार सितारे की तरह चमक उठी।',
+                    'जुगनू आगे-आगे उड़ी और सभी जानवरों को गुफा के गुप्त सुरक्षित रास्ते से बाहर ले आई।',
+                    'सभी जानवरों ने जुगनू को अपने कंधों पर बिठाया और कहा, "तुम हमारे जंगल की सबसे चमकती हीरो हो!"',
+                    'सीख: अपनी काबिलियत को कभी कम मत समझो। संकट के समय छोटी सी उम्मीद भी सबसे बड़ा सहारा बनती है।'
+                ],
+                sentencesEn: [
+                    'In a lush green valley beneath the misty mountains lived a sweet little firefly named Jugnu.',
+                    'Jugnu often felt shy because her tiny green glow seemed invisible next to the grand golden sun and silvery moon.',
+                    'One stormy evening, a sudden tempest blew across the valley with thunder and heavy rain.',
+                    'A family of rabbits, baby deer, and little birds rushed into a deep cavern for shelter.',
+                    'A sudden landslide blocked the entrance, plunging the deep cave into pitch-black darkness!',
+                    'The animals were frightened, unable to find the winding path back out.',
+                    'Little Jugnu fluttered her translucent wings and lit up her glowing beacon with all her heart.',
+                    'Her warm, steady spark illuminated the slippery rocks like a beacon of hope in the dark.',
+                    'Flying ahead step by step, Jugnu guided every single creature safely through the hidden mountain exit.',
+                    'The grateful animals cheered, "You proved that true greatness comes from the courage within your heart!"',
+                    'Moral: Never underestimate yourself. Even the smallest light can shatter the deepest darkness.'
+                ]
+            }
+        ];
+
+        let currentStoryIndex = 0;
+        let currentStorySentenceIdx = 0;
+        let currentStoryLang = 'hi'; // 'hi' or 'en'
+        let storySpeed = 0.92;
+        let isStoryPlaying = false;
+        let storySpeechTimeout = null;
+
+        function initKukuStoriesModal() {
+            renderKukuStoryList();
+            loadKukuStory(currentStoryIndex);
+        }
+
+        function renderKukuStoryList() {
+            const grid = document.getElementById('kuku-story-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            kukuStoriesData.forEach((s, idx) => {
+                const card = document.createElement('div');
+                card.className = 'kuku-card-item' + (idx === currentStoryIndex ? ' active' : '');
+                card.innerHTML = `
+                    <div class="kuku-card-emoji">${s.emoji}</div>
+                    <div class="kuku-card-info">
+                        <h4>${currentStoryLang === 'hi' ? s.titleHi : s.titleEn}</h4>
+                        <p>${s.tag}</p>
+                    </div>
+                `;
+                card.onclick = () => {
+                    selectStory(idx);
+                };
+                grid.appendChild(card);
+            });
+        }
+
+        function loadKukuStory(idx) {
+            currentStoryIndex = idx;
+            currentStorySentenceIdx = 0;
+            const story = kukuStoriesData[idx];
+            document.getElementById('kuku-active-icon').textContent = story.emoji;
+            document.getElementById('kuku-active-tag').textContent = story.tag;
+            document.getElementById('kuku-active-title').textContent = currentStoryLang === 'hi' ? story.titleHi : story.titleEn;
+            document.getElementById('kuku-active-sub').textContent = currentStoryLang === 'hi' ? story.subHi : story.subEn;
+            renderStoryKaraoke();
+            renderKukuStoryList();
+        }
+
+        function selectStory(idx) {
+            stopStoryPlayback();
+            loadKukuStory(idx);
+            toggleStoryPlayback();
+        }
+
+        function renderStoryKaraoke() {
+            const area = document.getElementById('kuku-karaoke-area');
+            if (!area) return;
+            const story = kukuStoriesData[currentStoryIndex];
+            const sentences = currentStoryLang === 'hi' ? story.sentencesHi : story.sentencesEn;
+            area.innerHTML = '';
+
+            sentences.forEach((sent, idx) => {
+                const div = document.createElement('div');
+                div.className = 'kuku-karaoke-sentence' + (idx === currentStorySentenceIdx ? ' active' : '');
+                div.id = `kuku-sent-${idx}`;
+                div.textContent = sent;
+                div.onclick = () => {
+                    currentStorySentenceIdx = idx;
+                    renderStoryKaraoke();
+                    if (isStoryPlaying) {
+                        playActiveSentence();
+                    }
+                };
+                area.appendChild(div);
+            });
+
+            // Auto scroll to active sentence
+            const activeEl = document.getElementById(`kuku-sent-${currentStorySentenceIdx}`);
+            if (activeEl) {
+                activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function toggleStoryPlayback() {
+            if (isStoryPlaying) {
+                stopStoryPlayback();
+            } else {
+                startStoryPlayback();
+            }
+        }
+
+        function startStoryPlayback() {
+            isStoryPlaying = true;
+            document.getElementById('kuku-play-toggle').textContent = '⏸';
+            startAmbientMusic();
+            playActiveSentence();
+        }
+
+        function stopStoryPlayback() {
+            isStoryPlaying = false;
+            const btn = document.getElementById('kuku-play-toggle');
+            if (btn) btn.textContent = '▶';
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            if (storySpeechTimeout) clearTimeout(storySpeechTimeout);
+            stopAmbientMusic();
+        }
+
+        function playActiveSentence() {
+            if (!isStoryPlaying) return;
+            const story = kukuStoriesData[currentStoryIndex];
+            const sentences = currentStoryLang === 'hi' ? story.sentencesHi : story.sentencesEn;
+
+            if (currentStorySentenceIdx >= sentences.length) {
+                // Story completed
+                stopStoryPlayback();
+                launchConfetti();
+                currentStorySentenceIdx = 0;
+                renderStoryKaraoke();
+                return;
+            }
+
+            renderStoryKaraoke();
+            const textToSpeak = sentences[currentStorySentenceIdx];
+
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utt = new SpeechSynthesisUtterance(textToSpeak);
+                utt.lang = currentStoryLang === 'hi' ? 'hi-IN' : 'en-IN';
+                utt.rate = storySpeed;
+                utt.pitch = currentStoryLang === 'hi' ? 1.02 : 1.05;
+
+                const voice = getBestVoice(currentStoryLang);
+                if (voice) utt.voice = voice;
+
+                utt.onend = () => {
+                    if (!isStoryPlaying) return;
+                    storySpeechTimeout = setTimeout(() => {
+                        currentStorySentenceIdx++;
+                        playActiveSentence();
+                    }, 220); // Natural pause between sentences
+                };
+
+                utt.onerror = () => {
+                    if (!isStoryPlaying) return;
+                    currentStorySentenceIdx++;
+                    playActiveSentence();
+                };
+
+                window.speechSynthesis.speak(utt);
+            }
+        }
+
+        function prevStorySentence() {
+            if (currentStorySentenceIdx > 0) {
+                currentStorySentenceIdx--;
+                renderStoryKaraoke();
+                if (isStoryPlaying) playActiveSentence();
+            }
+        }
+
+        function nextStorySentence() {
+            const story = kukuStoriesData[currentStoryIndex];
+            const sentences = currentStoryLang === 'hi' ? story.sentencesHi : story.sentencesEn;
+            if (currentStorySentenceIdx < sentences.length - 1) {
+                currentStorySentenceIdx++;
+                renderStoryKaraoke();
+                if (isStoryPlaying) playActiveSentence();
+            }
+        }
+
+        function toggleStoryLang() {
+            currentStoryLang = currentStoryLang === 'hi' ? 'en' : 'hi';
+            document.getElementById('kuku-lang-btn').textContent = currentStoryLang === 'hi' ? '🌐 🇮🇳 Hindi (हिन्दी)' : '🌐 🇬🇧 English';
+            const wasPlaying = isStoryPlaying;
+            stopStoryPlayback();
+            loadKukuStory(currentStoryIndex);
+            if (wasPlaying) startStoryPlayback();
+        }
+
+        function cycleStorySpeed() {
+            if (storySpeed === 0.92) storySpeed = 1.1;
+            else if (storySpeed === 1.1) storySpeed = 0.8;
+            else storySpeed = 0.92;
+            document.getElementById('kuku-speed-btn').textContent = `⚡ ${storySpeed}x`;
+            if (isStoryPlaying) playActiveSentence();
+        }
+
+        // ===== VOICE TUTORIALS DATA & ENGINE =====
+        const tutorialsData = {
+            hindi_swar: [
+                { char: 'अ', word: 'अनार (Anar)', emoji: '🍎', desc: 'अ से अनार, लाल-लाल दानेदार!' },
+                { char: 'आ', word: 'आम (Aam)', emoji: '🥭', desc: 'आ से आम, फलों का राजा मीठा आम!' },
+                { char: 'इ', word: 'इमली (Imli)', emoji: '🍃', desc: 'इ से इमली, खट्टी-मीठी प्यारी इमली!' },
+                { char: 'ई', word: 'ईख (Eekh)', emoji: '🎋', desc: 'ई से ईख, मीठा रस चूसो सीख!' },
+                { char: 'उ', word: 'उल्लू (Ullu)', emoji: '🦉', desc: 'उ से उल्लू, रात को जागे उल्लू!' },
+                { char: 'ऊ', word: 'ऊन (Oon)', emoji: '🧶', desc: 'ऊ से ऊन, सर्दी में स्वेटर बुने ऊन!' },
+                { char: 'ए', word: 'एड़ी (Aedi)', emoji: '🦶', desc: 'ए से एड़ी, कदम बढ़ाओ लेगी फेड़ी!' },
+                { char: 'ऐ', word: 'ऐनक (Ainak)', emoji: '👓', desc: 'ऐ से ऐनक, साफ दिखाए चश्मा ऐनक!' },
+                { char: 'ओ', word: 'ओखली (Okhli)', emoji: '🥣', desc: 'ओ से ओखली, कुटो मसाले ओखली!' },
+                { char: 'औ', word: 'औरत (Aurat)', emoji: '👩', desc: 'औ से औरत, ममता की मूरत औरत!' },
+                { char: 'अं', word: 'अंगूर (Angoor)', emoji: '🍇', desc: 'अं से अंगूर, मीठे-मीठे रसीले अंगूर!' }
+            ],
+            hindi_vyanjan: [
+                { char: 'क', word: 'कमल (Kamal)', emoji: '🪷', desc: 'क से कमल, पानी में खिले सुंदर कमल!' },
+                { char: 'ख', word: 'खरगोश (Khargosh)', emoji: '🐰', desc: 'ख से खरगोश, गाजर खाए फुर्तीला खरगोश!' },
+                { char: 'ग', word: 'गमला (Gamla)', emoji: '🪴', desc: 'ग से गमला, फूल उगाओ प्यारा गमला!' },
+                { char: 'घ', word: 'घर (Ghar)', emoji: '🏡', desc: 'घ से घर, प्यारा-प्यारा हमारा घर!' },
+                { char: 'च', word: 'चम्मच (Chammach)', emoji: '🥄', desc: 'च से चम्मच, खीर खाओ चम्मच!' },
+                { char: 'छ', word: 'छाता (Chhata)', emoji: '☂️', desc: 'छ से छाता, बारिश में काम आता छाता!' },
+                { char: 'ज', word: 'जहाज (Jahaj)', emoji: '🚢', desc: 'ज से जहाज, सागर में तैरे पानी का जहाज!' },
+                { char: 'झ', word: 'झंडा (Jhanda)', emoji: '🇮🇳', desc: 'झ से झंडा, तिरंगा हमारा शान झंडा!' },
+                { char: 'ट', word: 'टमाटर (Tamatar)', emoji: '🍅', desc: 'ट से टमाटर, लाल-लाल गोल टमाटर!' },
+                { char: 'ड', word: 'डमरू (Damru)', emoji: '🪘', desc: 'ड से डमरू, डम-डम बाजे डमरू!' },
+                { char: 'त', word: 'तितली (Titli)', emoji: '🦋', desc: 'त से तितली, फूलों पर नाचे तितली!' },
+                { char: 'न', word: 'नल (Nal)', emoji: '🚰', desc: 'न से नल, जल ही जीवन दे नल!' },
+                { char: 'प', word: 'पतंग (Patang)', emoji: '🪁', desc: 'प से पतंग, हवा में उड़े पतंग!' },
+                { char: 'म', word: 'मछली (Machhli)', emoji: '🐟', desc: 'म से मछली, जल की रानी मछली!' }
+            ],
+            english_phonics: [
+                { char: 'A', word: 'Apple /æ/', emoji: '🍎', desc: 'A is for Apple. Short sound: /æ/ as in Ant, Axe.' },
+                { char: 'B', word: 'Ball /b/', emoji: '⚽', desc: 'B is for Ball. Bounce sound: /b/ as in Bat, Boy.' },
+                { char: 'C', word: 'Cat /k/', emoji: '🐱', desc: 'C is for Cat. Crisp sound: /k/ as in Cup, Car.' },
+                { char: 'D', word: 'Dog /d/', emoji: '🐶', desc: 'D is for Dog. Drum sound: /d/ as in Duck, Door.' },
+                { char: 'E', word: 'Elephant /e/', emoji: '🐘', desc: 'E is for Elephant. Short sound: /e/ as in Egg, Elf.' },
+                { char: 'F', word: 'Fish /f/', emoji: '🐟', desc: 'F is for Fish. Gentle sound: /f/ as in Fan, Frog.' },
+                { char: 'G', word: 'Giraffe /g/', emoji: '🦒', desc: 'G is for Goat & Giraffe. Sound: /g/ as in Gift, Garden.' },
+                { char: 'H', word: 'Horse /h/', emoji: '🐴', desc: 'H is for Horse. Breath sound: /h/ as in Hat, House.' },
+                { char: 'S', word: 'Sun /s/', emoji: '☀️', desc: 'S is for Sun. Hiss sound: /s/ as in Star, Ship.' },
+                { char: 'T', word: 'Tiger /t/', emoji: '🐯', desc: 'T is for Tiger. Tap sound: /t/ as in Train, Tree.' }
+            ],
+            hindi_numbers: [
+                { char: '१ (1)', word: 'एक (One)', emoji: '☝️', desc: 'एक सूरज, एक चंदा!' },
+                { char: '२ (2)', word: 'दो (Two)', emoji: '✌️', desc: 'दो आंखें, दो हाथ!' },
+                { char: '३ (3)', word: 'तीन (Three)', emoji: '🤟', desc: 'तीन पहिए ऑटो रिक्शा के!' },
+                { char: '४ (4)', word: 'चार (Four)', emoji: '🚗', desc: 'चार पैर गाय के!' },
+                { char: '५ (5)', word: 'पांच (Five)', emoji: '🖐️', desc: 'पांच उंगलियां एक हाथ में!' },
+                { char: '६ (6)', word: 'छह (Six)', emoji: '🎲', desc: 'छह फलक लूडो पासे के!' },
+                { char: '७ (7)', word: 'सात (Seven)', emoji: '🌈', desc: 'सात रंग इंद्रधनुष में!' },
+                { char: '८ (8)', word: 'आठ (Eight)', emoji: '🐙', desc: 'आठ भुजाएं ऑक्टोपस की!' },
+                { char: '९ (9)', word: 'नौ (Nine)', emoji: '🪐', desc: 'नौ ग्रह आकाशगंगा के!' },
+                { char: '१० (10)', word: 'दस (Ten)', emoji: '👐', desc: 'दस उंगलियां दोनों हाथों में!' }
+            ]
+        };
+
+        let currentTutTab = 'hindi_swar';
+        let currentTutItem = tutorialsData.hindi_swar[0];
+
+        function initTutorialsModal() {
+            switchTutorialTab('hindi_swar');
+        }
+
+        function switchTutorialTab(tab, btn) {
+            currentTutTab = tab;
+            const items = tutorialsData[tab];
+            currentTutItem = items[0];
+
+            if (btn) {
+                btn.parentElement.querySelectorAll('.tutorial-tab-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+
+            renderTutorialGrid();
+            updateActiveTutorialCard();
+        }
+
+        function renderTutorialGrid() {
+            const grid = document.getElementById('tutorial-items-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            const items = tutorialsData[currentTutTab];
+
+            items.forEach((it, idx) => {
+                const card = document.createElement('div');
+                card.className = 'tutorial-item-card';
+                card.innerHTML = `
+                    <div class="tutorial-item-char">${it.char}</div>
+                    <div class="tutorial-item-label">${it.word.split(' ')[0]}</div>
+                `;
+                card.onclick = () => {
+                    currentTutItem = it;
+                    updateActiveTutorialCard();
+                    speakActiveTutorial();
+                };
+                grid.appendChild(card);
+            });
+        }
+
+        function updateActiveTutorialCard() {
+            if (!currentTutItem) return;
+            document.getElementById('tut-active-emoji').textContent = currentTutItem.emoji;
+            document.getElementById('tut-active-char').textContent = currentTutItem.char;
+            document.getElementById('tut-active-word').textContent = currentTutItem.word;
+            document.getElementById('tut-active-desc').textContent = currentTutItem.desc;
+        }
+
+        function speakActiveTutorial() {
+            if (!currentTutItem) return;
+            const isHindi = currentTutTab.startsWith('hindi');
+            const lang = isHindi ? 'hi' : 'en';
+            const textToSpeak = isHindi ? `${currentTutItem.char}. ${currentTutItem.desc}` : `${currentTutItem.char}. ${currentTutItem.desc}`;
+            
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utt = new SpeechSynthesisUtterance(textToSpeak);
+                utt.lang = isHindi ? 'hi-IN' : 'en-IN';
+                utt.rate = 0.9;
+                utt.pitch = 1.05;
+                const voice = getBestVoice(lang);
+                if (voice) utt.voice = voice;
+                window.speechSynthesis.speak(utt);
+            }
+            launchConfetti();
+        }
+
+        function stopTutorialPlayback() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        }
+
         // ===== DATA =====
         const alphabetData = [
             {l:'A',w:'Apple',e:'🍎'},{l:'B',w:'Ball',e:'⚽'},{l:'C',w:'Cat',e:'🐱'},{l:'D',w:'Dog',e:'🐶'},

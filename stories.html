@@ -1,108 +1,967 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="hi">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Short Stories for Kids | Moral Stories | GIndia Kids</title>
-<meta name="description" content="Short moral stories for kids aged 4-10. Fun, illustrated stories with life lessons. GIndia Kids — free kids learning platform from Patna, India."/>
-<meta name="keywords" content="short stories for kids, moral stories kids india, bedtime stories kids, kids story online india, free stories for children"/>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Nunito',sans-serif;background:#FFF8F0;min-height:100vh;}
-nav{background:#fff;border-bottom:3px solid #F26522;padding:0 20px;height:60px;display:flex;align-items:center;justify-content:space-between;}
-.nl{font-size:20px;font-weight:900;color:#F26522;}
-.nb{display:flex;gap:8px;}.nb a{font-size:13px;font-weight:700;color:#555;padding:5px 12px;border-radius:20px;background:#f5f5f5;text-decoration:none;}
-.hero{background:linear-gradient(135deg,#FFF3E0,#FFF8F0);padding:32px 20px 20px;text-align:center;border-bottom:1px solid #E2E8F0;}
-.hero h1{font-size:32px;font-weight:900;color:#0F1724;margin-bottom:6px;}
-.hero p{font-size:14px;color:#666;}
-.story-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;max-width:1100px;margin:24px auto;padding:0 16px;}
-.sc{background:#fff;border-radius:20px;padding:24px 20px;cursor:pointer;transition:all .25s;border:2px solid transparent;box-shadow:0 2px 10px rgba(0,0,0,0.06);}
-.sc:hover{border-color:#F26522;transform:translateY(-3px);box-shadow:0 8px 24px rgba(242,101,34,.18);}
-.sc .sem{font-size:42px;margin-bottom:12px;display:block;}
-.sc h3{font-size:18px;font-weight:900;color:#0F1724;margin-bottom:5px;}
-.sc .smoraltag{font-size:11px;font-weight:700;text-transform:uppercase;color:#F26522;margin-bottom:8px;}
-.sc .spreview{font-size:13px;color:#666;line-height:1.6;}
-.modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:999;align-items:flex-start;justify-content:center;padding:16px;overflow-y:auto;}
-.modal.open{display:flex;}
-.mbox{background:#fff;border-radius:24px;padding:28px 24px;max-width:480px;width:100%;margin:auto;position:relative;animation:pop .3s ease;}
-@keyframes pop{from{transform:scale(.9);opacity:0;}to{transform:scale(1);opacity:1;}}
-.mcl{position:absolute;top:14px;right:18px;font-size:22px;cursor:pointer;color:#888;font-weight:900;background:none;border:none;}
-.msem{font-size:56px;text-align:center;display:block;margin-bottom:10px;}
-.mstitle{font-size:22px;font-weight:900;color:#0F1724;text-align:center;margin-bottom:6px;}
-.msmoral{font-size:12px;font-weight:700;text-transform:uppercase;color:#F26522;text-align:center;margin-bottom:14px;}
-.msbody{font-size:14px;color:#444;line-height:1.8;margin-bottom:16px;}
-.msbox{background:#FFF3ED;border:2px solid #FFD9C5;border-radius:14px;padding:14px 16px;font-size:13px;font-weight:700;color:#C94E12;text-align:center;}
-footer{text-align:center;padding:20px;font-size:12px;color:#888;margin-top:16px;}footer a{color:#F26522;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Kuku FM Style Audio Stories for Kids | नैतिक व सस्पेंस कहानियाँ | GIndia Kids</title>
+    <meta name="description" content="Listen to Kuku FM style audio bedtime stories for kids in Hindi and English. Panchatantra, suspense, morals, Akbar Birbal, with live karaoke subtitles and real voice narration."/>
+    <meta name="keywords" content="kids audio stories hindi, kuku fm style kids stories, moral bedtime stories hindi english, panchatantra audio stories patna"/>
     <link rel="icon" type="image/png" href="favicon-76x76.png">
     <link rel="apple-touch-icon" href="favicon-76x76.png">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #EC4899;
+            --purple: #8B5CF6;
+            --dark: #0F172A;
+            --card-bg: #FFFFFF;
+            --accent: #FDE047;
+            --gold: #F59E0B;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(180deg, #0F172A 0%, #1E1B4B 50%, #0F172A 100%);
+            color: #F8FAFC;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* HEADER NAV */
+        nav {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 2px solid rgba(236, 72, 153, 0.3);
+            padding: 0 24px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #FFF;
+            font-family: 'Baloo 2', cursive;
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .nav-logo span { color: #F472B6; }
+        .nav-links { display: flex; gap: 10px; }
+        .nav-link {
+            font-size: 13px;
+            font-weight: 700;
+            color: #E2E8F0;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            text-decoration: none;
+            transition: all 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .nav-link:hover { background: rgba(236, 72, 153, 0.25); color: #FFF; border-color: #EC4899; }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 36px 20px 24px;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(236, 72, 153, 0.2);
+            color: #F472B6;
+            border: 1px solid rgba(236, 72, 153, 0.4);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .hero h1 {
+            font-family: 'Baloo 2', cursive;
+            font-size: 36px;
+            font-weight: 900;
+            color: #FFF;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #FFF 30%, #FDE047 70%, #F472B6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 15px;
+            color: #94A3B8;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.5;
+        }
+
+        /* CATEGORY FILTER PILLS */
+        .category-bar {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+            padding: 0 16px;
+        }
+        .cat-btn {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #CBD5E1;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cat-btn:hover, .cat-btn.active {
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            color: #FFF;
+            border-color: #EC4899;
+            box-shadow: 0 4px 16px rgba(236, 72, 153, 0.35);
+        }
+
+        /* STORY GRID */
+        .story-container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+        .story-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 22px 20px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .story-card:hover {
+            transform: translateY(-5px);
+            border-color: #F472B6;
+            background: rgba(49, 46, 129, 0.6);
+            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.25);
+        }
+        .story-card-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .story-card-icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            flex-shrink: 0;
+            box-shadow: 0 6px 16px rgba(236, 72, 153, 0.3);
+        }
+        .story-card-tag {
+            font-size: 11px;
+            font-weight: 800;
+            color: #FDE047;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+        .story-card-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 19px;
+            font-weight: 800;
+            color: #FFF;
+            line-height: 1.25;
+        }
+        .story-card-sub {
+            font-size: 12px;
+            color: #CBD5E1;
+            margin-top: 2px;
+        }
+        .story-card-preview {
+            font-size: 13px;
+            color: #94A3B8;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .story-card-btn {
+            background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(139,92,246,0.2));
+            border: 1px solid rgba(236,72,153,0.4);
+            color: #F472B6;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 10px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        .story-card:hover .story-card-btn {
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            color: #FFF;
+            border-color: transparent;
+        }
+
+        /* MODAL / KUKU FM AUDIO PLAYER */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.open { display: flex; }
+        .modal-content {
+            background: linear-gradient(135deg, #1E1B4B, #0F172A);
+            border: 2px solid #8B5CF6;
+            border-radius: 28px;
+            padding: 28px 24px;
+            max-width: 650px;
+            width: 100%;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            animation: modalPop 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        @keyframes modalPop {
+            from { transform: scale(0.92); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #CBD5E1;
+            font-size: 18px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .modal-close:hover { background: #EF4444; color: #FFF; }
+
+        /* KUKU PLAYER INSIDE MODAL */
+        .kuku-live-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .kuku-live-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
+            flex-shrink: 0;
+            animation: bobIcon 3s ease-in-out infinite;
+        }
+        @keyframes bobIcon {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        .kuku-live-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 24px;
+            font-weight: 800;
+            color: #FDE047;
+            line-height: 1.2;
+        }
+        .kuku-live-tag {
+            font-size: 12px;
+            font-weight: 800;
+            color: #F472B6;
+            text-transform: uppercase;
+        }
+        .kuku-live-sub {
+            font-size: 13px;
+            color: #CBD5E1;
+        }
+
+        /* KARAOKE TEXT BOX */
+        .kuku-karaoke-box {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            padding: 16px;
+            min-height: 140px;
+            max-height: 220px;
+            overflow-y: auto;
+            margin-bottom: 18px;
+        }
+        .kuku-karaoke-item {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #94A3B8;
+            padding: 6px 10px;
+            border-radius: 8px;
+            margin-bottom: 6px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .kuku-karaoke-item:hover { color: #CBD5E1; background: rgba(255, 255, 255, 0.05); }
+        .kuku-karaoke-item.active {
+            color: #FFF;
+            background: rgba(139, 92, 246, 0.35);
+            border-left: 3px solid #EC4899;
+            font-weight: 700;
+            text-shadow: 0 0 12px rgba(236, 72, 153, 0.5);
+        }
+
+        /* CONTROLS */
+        .kuku-actions-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .kuku-main-play {
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            color: #FFF;
+            border: none;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45);
+            transition: all 0.2s;
+        }
+        .kuku-main-play:hover { transform: scale(1.08); }
+        .kuku-ctrl-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #E2E8F0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .kuku-ctrl-btn:hover { background: rgba(255, 255, 255, 0.2); color: #FFF; }
+
+        /* CONFETTI */
+        #confetti-box { position: fixed; inset: 0; pointer-events: none; z-index: 10000; }
+        .confetti-dot { position: absolute; top: -10px; animation: confettiDrop ease-in forwards; }
+        @keyframes confettiDrop { to { transform: translateY(105vh) rotate(720deg); opacity: 0; } }
+
+        /* FOOTER */
+        footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 24px 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #64748B;
+            background: #0B1120;
+        }
+        footer a { color: #F472B6; text-decoration: none; font-weight: 700; }
+
+        /* MOBILE RESPONSIVE ZERO-SCROLL MODAL */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 13px; }
+            .story-container { grid-template-columns: 1fr; padding: 0 16px 28px; }
+
+            .modal-overlay {
+                padding: 0 !important;
+                inset: 0 !important;
+                background: #0F172A !important;
+            }
+            .modal-content {
+                width: 100vw !important;
+                height: 100vh !important;
+                height: 100dvh !important;
+                max-width: 100vw !important;
+                max-height: 100vh !important;
+                max-height: 100dvh !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 16px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                box-sizing: border-box !important;
+            }
+            .kuku-live-icon { width: 56px !important; height: 56px !important; font-size: 28px !important; }
+            .kuku-live-title { font-size: 20px !important; }
+            .kuku-karaoke-box { min-height: 110px !important; max-height: 160px !important; font-size: 14px !important; }
+            .modal-close { top: 12px !important; right: 12px !important; }
+        }
+    </style>
 </head>
 <body>
-<nav>
-<a href="index.html" class="nl"><img src="images/logo/logo.png" alt="GIndia Kids" style="max-height: 60px; width:auto; vertical-align:middle;"></a>
-<div class="nb">
-<a href="index.html">🏠 Home</a>
-<a href="animals.html">Animals</a>
-<a href="phonics.html">ABC</a>
-</div>
-</nav>
 
-<div class="hero">
-<h1>📖 Stories & Morals</h1>
-<p>Tap any story card to read the full story!</p>
-</div>
+    <div id="confetti-box"></div>
 
-<div class="story-list" id="story-list"></div>
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <span>🧒</span> GIndia Kids Stories
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">🏠 Learning Hub</a>
+            <a href="https://game.gindiahr.com" class="nav-link">🎮 Games</a>
+            <a href="https://social.gindiahr.com/stories.html" class="nav-link">📱 Social Stories</a>
+        </div>
+    </nav>
 
-<div class="modal" id="modal" onclick="if(event.target===this)closeM()">
-<div class="mbox">
-<button class="mcl" onclick="closeM()">✕</button>
-<span class="msem" id="msem"></span>
-<div class="mstitle" id="mstitle"></div>
-<div class="msmoral" id="msmoral"></div>
-<div class="msbody" id="msbody"></div>
-<div class="msbox" id="msbox"></div>
-</div>
-</div>
+    <div class="hero">
+        <div class="hero-badge">🎧 Kuku FM Style Bedtime Stories</div>
+        <h1>जादुई, सस्पेंस और शिक्षाप्रद कहानियाँ</h1>
+        <p>Listen to suspenseful, witty, and moral audio stories with real human voice narration in Hindi & English, live karaoke subtitles & soothing ambient music!</p>
+        
+        <div class="category-bar">
+            <button class="cat-btn active" onclick="filterStories('all', this)">✨ All Stories (सभी)</button>
+            <button class="cat-btn" onclick="filterStories('panchatantra', this)">🦁 Panchatantra (पंचतंत्र)</button>
+            <button class="cat-btn" onclick="filterStories('suspense', this)">🕵️ Suspense & Mystery (रहस्य)</button>
+            <button class="cat-btn" onclick="filterStories('akbar_birbal', this)">👑 Akbar Birbal (बीरबल)</button>
+            <button class="cat-btn" onclick="filterStories('moral', this)">⭐ Moral & Life (सीख)</button>
+        </div>
+    </div>
 
-<footer>© 2025 GIndia Kids — Short Stories from Patna | <a href="https://gindiahr.com">gindiahr.com</a></footer>
+    <div class="story-container" id="story-grid">
+        <!-- Rendered via JS -->
+    </div>
 
-<script>
-var stories=[
-{em:"🐢",title:"The Tortoise and the Hare",moral:"Slow and Steady Wins the Race",preview:"A fast hare mocks the slow tortoise and challenges him to a race...",story:"Once a hare mocked a tortoise for being too slow. The tortoise smiled and challenged him to a race. The hare laughed and agreed, thinking it would be easy. When the race began, the hare ran far ahead and decided to take a nap under a tree, thinking the tortoise could never catch up. The tortoise kept walking steadily, never stopping, never resting. When the hare woke up, he saw the tortoise crossing the finish line! The tortoise had won the race.",lesson:"Moral: Never give up. Hard work and consistency beat talent if talent is lazy!"},
-{em:"🐦",title:"The Thirsty Crow",moral:"Where There is a Will, There is a Way",preview:"A thirsty crow finds a pot with very little water. Can he drink it?",story:"On a hot summer day, a crow was very thirsty. He searched everywhere for water but could not find any. Finally he spotted a pot with some water at the bottom, but his beak could not reach it. The crow saw some pebbles nearby. He picked them up one by one and dropped them into the pot. Slowly the water rose higher and higher. Finally the water reached the top and the crow drank it happily!",lesson:"Moral: Use your brain! Creative thinking can solve any problem."},
-{em:"🦁",title:"The Lion and the Mouse",moral:"Kindness Always Pays Back",preview:"A little mouse wakes up a sleeping lion. What happens next?",story:"One day, a little mouse accidentally ran across a sleeping lion's face. The lion woke up angry and caught the mouse. The mouse begged, 'Please let me go! One day I will help you!' The lion laughed and said 'You are too small to help a lion!' but he let the mouse go. Days later, the lion was trapped in a hunter's net. He roared loudly. The mouse heard and ran to help, chewing through the ropes with his sharp teeth. The lion was free!",lesson:"Moral: Never underestimate anyone. Even the smallest can help the greatest!"},
-{em:"🐝",title:"The Ant and the Grasshopper",moral:"Always Plan for the Future",preview:"All summer the ant worked while the grasshopper sang. Winter comes...",story:"All summer long, the ant worked hard collecting food for winter. The grasshopper danced and sang all day. 'Why work so hard?' laughed the grasshopper. 'Summer is here — enjoy!' The ant smiled and kept working. When winter came, the grasshopper had no food and was hungry and cold. He went to the ant's house and begged for food. The ant had plenty of food stored safely. The grasshopper learned his lesson.",lesson:"Moral: Work hard today so tomorrow will be better. Always plan ahead!"},
-{em:"🐺",title:"The Boy Who Cried Wolf",moral:"Never Lie — Nobody Trusts a Liar",preview:"A shepherd boy tricks villagers three times. Then a real wolf comes...",story:"A bored shepherd boy tended sheep on a hill. One day he shouted 'Wolf! Wolf!' The villagers ran to help but found no wolf. The boy laughed. He did it again the next day. On the third day, a real wolf came and started eating the sheep! The boy cried 'Wolf! Wolf!' but no villager came — they thought he was lying again. The wolf ate all the sheep and the boy lost everything.",lesson:"Moral: Honesty is the best policy. Once you lose trust, it is very hard to get it back!"},
-{em:"🌾",title:"The Golden Goose",moral:"Greed Destroys Everything",preview:"A farmer finds a magical goose that lays golden eggs every day...",story:"A farmer had a magical goose that laid one golden egg every day. The farmer became rich and happy. But one day he got greedy. He thought, 'If I cut open the goose, I can get all the golden eggs at once!' He did so — but inside there were no golden eggs. It was just an ordinary goose. The farmer lost his goose and got no more golden eggs ever again.",lesson:"Moral: Be content with what you have. Greed destroys what you already have!"},
-{em:"🌹",title:"The Rose and the Cactus",moral:"True Beauty is Inside",preview:"A beautiful rose makes fun of the rough cactus. Summer arrives...",story:"In a garden, a rose proudly showed off her beautiful red petals. She laughed at the cactus nearby. 'You are so ugly and rough! Nobody loves you!' The cactus stayed quiet. When summer came and there was no rain, the garden dried up. Birds and butterflies flew to the cactus, drinking water stored inside it. The rose, without water, began to wilt. The cactus shared water with those nearby, including the rose.",lesson:"Moral: True beauty is in kindness. Do not judge others by their looks."},
-{em:"🐘",title:"The Elephant and the Friends",moral:"True Friends Stand Together",preview:"A lonely elephant looks for friends in the jungle. Each animal says no...",story:"An elephant roamed the jungle looking for friends. He asked a monkey, who said 'You are too big to swing on trees!' He asked the rabbit, who said 'Too big for my burrow!' Then one day, the animals were scared of a tiger. They all hid except the elephant, who bravely chased the tiger away! After that, all the animals welcomed the elephant as their friend. The elephant had found true friends — those who needed him.",lesson:"Moral: Real friends accept you as you are. Strength used to help others earns true friendship."}
-];
+    <!-- KUKU FM AUDIO STORY MODAL -->
+    <div class="modal-overlay" id="story-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeStoryModal()">✕</button>
 
-function renderStories(){
-  var list=document.getElementById("story-list");
-  stories.forEach(function(s,i){
-    var d=document.createElement("div");
-    d.className="sc";
-    d.innerHTML='<span class="sem">'+s.em+'</span><h3>'+s.title+'</h3><div class="smoraltag">'+s.moral+'</div><div class="spreview">'+s.preview+'</div>';
-    d.onclick=function(){openM(s);};
-    list.appendChild(d);
-  });
-}
+            <div>
+                <div class="kuku-live-header">
+                    <div class="kuku-live-icon" id="modal-story-icon">🐰</div>
+                    <div>
+                        <div class="kuku-live-tag" id="modal-story-tag">पंचतंत्र सस्पेंस • Moral</div>
+                        <div class="kuku-live-title" id="modal-story-title">चालाक खरगोश और खूंखार शेर</div>
+                        <div class="kuku-live-sub" id="modal-story-sub">The Clever Rabbit & The Lion</div>
+                    </div>
+                </div>
 
-function openM(s){
-  document.getElementById("msem").textContent=s.em;
-  document.getElementById("mstitle").textContent=s.title;
-  document.getElementById("msmoral").textContent="Moral: "+s.moral;
-  document.getElementById("msbody").textContent=s.story;
-  document.getElementById("msbox").textContent="💡 "+s.lesson;
-  document.getElementById("modal").classList.add("open");
-}
+                <!-- LIVE KARAOKE AREA -->
+                <div class="kuku-karaoke-box" id="modal-karaoke-area"></div>
+            </div>
 
-function closeM(){document.getElementById("modal").classList.remove("open");}
+            <!-- CONTROLS BAR -->
+            <div class="kuku-actions-bar">
+                <button class="kuku-ctrl-btn" onclick="toggleLang()" id="btn-lang-toggle">🌐 🇮🇳 Hindi (हिन्दी)</button>
+                <div style="display:flex; align-items:center; gap:10px;">
+                    <button class="kuku-ctrl-btn" onclick="prevSentence()" title="Previous Sentence">⏮️</button>
+                    <button class="kuku-main-play" id="btn-play-toggle" onclick="togglePlay()">▶</button>
+                    <button class="kuku-ctrl-btn" onclick="nextSentence()" title="Next Sentence">⏭️</button>
+                </div>
+                <button class="kuku-ctrl-btn" onclick="cycleSpeed()" id="btn-speed-toggle">⚡ 0.9x</button>
+                <button class="kuku-ctrl-btn" onclick="toggleMusic()" id="btn-music-toggle">🎵 Music: ON</button>
+            </div>
+        </div>
+    </div>
 
-renderStories();
-</script>
+    <footer>
+        <p>🌟 GIndia Kids Stories | Audio Storytelling Experience | <a href="index.html">GIndia Kids Hub</a> • <a href="https://gindiahr.com">GIndiaHR Group</a><br>
+        Bedtime stories for kids in Hindi • English bedtime tales • Panchatantra moral audio stories • Free learning Patna, India</p>
+    </footer>
+
+    <script>
+        const stories = [
+            {
+                id: 'rabbit_lion',
+                cat: 'panchatantra',
+                emoji: '🐰',
+                tag: 'पंचतंत्र सस्पेंस • Moral',
+                titleHi: 'चालाक खरगोश और खूंखार शेर',
+                titleEn: 'The Clever Rabbit & The Fierce Lion',
+                subHi: 'बुद्धि और सूझबूझ से बड़े से बड़ा संकट भी टल जाता है',
+                subEn: 'Wit and intelligence can conquer sheer brute force',
+                preview: 'जब जंगल के राजा शेर ने रोज एक जानवर खाने की जिद की, तो नन्हे चालाक खरगोश ने एक गहरे कुएं की मदद से रची सस्पेंस भरी योजना...',
+                sentencesHi: [
+                    'सुंदरवन के घने जंगल में भासुरक नाम का एक बहुत ही खूंखार और घमंडी शेर रहता था।',
+                    'वह हर दिन अपनी भूख मिटाने के लिए कई बेकसूर मासूम जानवरों का शिकार कर देता था।',
+                    'सभी जानवरों ने एक दिन मिलकर शेर से प्रार्थना की कि वह रोज एक ही जानवर को अपनी गुफा में बुलाए।',
+                    'एक दिन नन्हे चालाक खरगोश चिंटू की बारी आई। वह जंगल में धीरे-धीरे जानबूझकर देर से पहुंचा।',
+                    'शेर भूख से तड़पकर गुस्से में दहाड़ने लगा, "तुम इतनी देर से क्यों आए?"',
+                    'चिंटू ने हाथ जोड़कर कहा, "महाराज, रास्ते में मुझे एक दूसरा महाबली शेर मिल गया था, जो आपको ललकार रहा था!"',
+                    'घमंडी शेर गुस्से में आगबबूला हो गया और बोला, "मुझे तुरंत उस दूसरे शेर के पास ले चलो!"',
+                    'चालाक चिंटू शेर को एक बहुत गहरे और पुराने कुएं के पास ले गया और बोला, "महाराज, वह इसी पाताल महल में छिपा है!"',
+                    'शेर ने जब कुएं में झांका, तो उसे पानी में अपनी ही परछाई दिखाई दी और गूंजती हुई दहाड़ सुनाई दी।',
+                    'उसने उसे दूसरा शेर समझकर कुएं में जोरदार छलांग लगा दी और पानी में डूबकर मारा गया!',
+                    'इस तरह नन्हे खरगोश की तेज अक्ल ने पूरे जंगल के जानवरों की जान बचा ली।',
+                    'सीख: शारीरिक बल से बुद्धि का बल हमेशा लाख गुना बड़ा होता है।'
+                ],
+                sentencesEn: [
+                    'In the dense jungle of Sunderban, there lived a fierce and arrogant lion named Bhasuraka.',
+                    'Every single day, he hunted down many innocent jungle creatures without any mercy.',
+                    'The terrified animals held a secret meeting and agreed to send him one animal each day.',
+                    'One fateful afternoon, it was the turn of Chintu, a tiny but extremely clever rabbit.',
+                    'Chintu walked very slowly on purpose, creating suspense as the sun began to set.',
+                    'The hungry lion roared in furious anger, "Why are you so late, little creature?"',
+                    'Chintu bowed politely and whispered, "My King, another mighty lion stopped me on the way and challenged your throne!"',
+                    'Furious with pride, the lion demanded, "Take me to this impostor immediately!"',
+                    'Clever Chintu led the roaring beast to an ancient, deep brick well in the ruined palace.',
+                    'When the lion looked inside, he saw his own fierce reflection in the calm water.',
+                    'He roared, and the deep echo roared right back! Thinking it was his enemy, he leaped into the deep well and was gone forever!',
+                    'Moral: Intelligence and wit are far greater than physical strength!'
+                ]
+            },
+            {
+                id: 'magic_pot',
+                cat: 'moral',
+                emoji: '🏺',
+                tag: 'जादुई रहस्य • Moral',
+                titleHi: 'जादुई मटका और लालची जमींदार',
+                titleEn: 'The Magical Pot & The Greedy Landlord',
+                subHi: 'लालच का फल हमेशा विनाशकारी होता है',
+                subEn: 'Greed blinds the heart and leads to total ruin',
+                preview: 'एक गरीब ईमानदार किसान को खेत में मिला एक तांबे का जादुई मटका, जो हर चीज को दोगुना कर देता था...',
+                sentencesHi: [
+                    'गंगा किनारे बसे एक छोटे से गांव में सुखिया नाम का एक बहुत ही ईमानदार किसान रहता था।',
+                    'एक दिन अपने खेत की जुताई करते समय उसका हल एक भारी तांबे के पुराने मटके से टकराया।',
+                    'सुखिया ने थककर अपनी कुदाल उस मटके में रख दी और शाम को जब उसने देखा, तो मटके में दो कुदालें थीं!',
+                    'उसने मटके में एक चांदी का सिक्का डाला, तो अगले ही पल उसमें से दो चमकदार सिक्के बाहर निकले!',
+                    'सुखिया समझ गया कि यह कोई चमत्कारी जादुई मटका है जो हर चीज को दोगुना कर देता है।',
+                    'उसने इस मटके की मदद से गांव के सभी गरीब भूखे लोगों को अनाज और कंबल बांटे।',
+                    'यह रहस्य गांव के लालची जमींदार को पता चल गया। उसने धोखे से सुखिया से वह जादुई मटका छीन लिया।',
+                    'जमींदार ने सोचा, "अगर मैं इसमें सोना डालूं तो मैं दुनिया का सबसे अमीर आदमी बन जाऊंगा!"',
+                    'वह मटके के अंदर देखने के लिए बहुत ज्यादा झुक गया और अचानक उसका पैर फिसल गया और वह मटके में गिर पड़ा!',
+                    'अगले ही क्षण, मटके से दो हूबहू एक जैसे झगड़ालू जमींदार बाहर निकल आए और अपनी-अपनी हवेली के लिए आपस में ही लड़ने लगे!',
+                    'सीख: जो दूसरों का हक छीनकर लालच करता है, वह सब कुछ गंवा बैठता है।'
+                ],
+                sentencesEn: [
+                    'In a peaceful village near the sacred Ganges, lived an honest farmer named Sukhiya.',
+                    'One morning while tilling his rocky field, his plough struck a heavy, ancient copper pot.',
+                    'Exhausted, Sukhiya placed his wooden spade inside the pot and rested under a banyan tree.',
+                    'To his utter amazement, when he looked back, there were two identical spades inside!',
+                    'He placed a silver coin inside, and instantly, two gleaming coins appeared!',
+                    'Realizing it was a magical pot, kind Sukhiya used it to feed hungry villagers and help the needy.',
+                    'Word of the magical pot soon reached the greedy village landlord, who stole it in the dead of night.',
+                    'The greedy landlord thought, "I will double all my diamonds and become king of the entire country!"',
+                    'In his eager excitement, he leaned too far into the pot, lost his footing, and fell right inside!',
+                    'Pop! Out climbed two identical, screaming landlords who started fighting over the palace wealth!',
+                    'Moral: Greed is a bottomless pit that exhausts the person and destroys happiness.'
+                ]
+            },
+            {
+                id: 'whispering_tree',
+                cat: 'suspense',
+                emoji: '🌳',
+                tag: 'साहस और सस्पेंस • Adventure',
+                titleHi: 'भूतिया पेड़ का अनसुलझा रहस्य',
+                titleEn: 'The Mystery of the Whispering Tree',
+                subHi: 'डर के आगे जीत है, अफवाहों पर यकीन न करें',
+                subEn: 'Bravery and truth dissolve superstition and fear',
+                preview: 'गांव के पुराने बरगद से आधी रात को आने वाली रहस्यमयी आवाजों का सच तलाशने निकले दो बहादुर बच्चे...',
+                sentencesHi: [
+                    'गांव के पुराने टीले पर एक बहुत पुराना और विशाल बरगद का पेड़ खड़ा था।',
+                    'गांव के लोग कहते थे कि रात के अंधेरे में उस पेड़ से अजीब फुसफुसाहट और डरावनी आवाजें आती हैं।',
+                    'इसी डर की वजह से सूरज ढलते ही कोई भी उस रास्ते से नहीं गुजरता था।',
+                    'लेकिन सातवीं कक्षा में पढ़ने वाले दो होशियार बच्चे, आरव और उसकी बहन मीरा, इस रहस्य को सुलझाना चाहते थे।',
+                    'एक पूर्णिमा की रात, वे दोनों हाथ में तेज टॉर्च और नोटबुक लेकर चुपके से बरगद के पेड़ के पास पहुंचे।',
+                    'हवा चली और अचानक वही रहस्यमयी सीटी जैसी आवाज गूंज उठी — "शू... वू...!"',
+                    'आरव ने अपनी टॉर्च की तेज रोशनी पेड़ के ऊंचे तने पर डाली।',
+                    'वहां कोई भूत नहीं था, बल्कि पेड़ के खोखले तने में बांसुरी की तरह हवा गुजरने से सुरीली सीटी बज रही थी!',
+                    'और खोखले तने के अंदर एक नन्हीं घायल उल्लू की बच्ची बैठी थी, जो मदद के लिए रो रही थी।',
+                    'आरव और मीरा ने उस नन्हीं चिड़िया को सुरक्षित निकाला, उसकी मरहम-पट्टी की और पूरे गांव का अंधविश्वास हमेशा के लिए दूर कर दिया!',
+                    'सीख: बिना जांचे किसी भी अफवाह या डर पर विश्वास नहीं करना चाहिए। साहस से हर रहस्य सुलझ जाता है।'
+                ],
+                sentencesEn: [
+                    'At the edge of the quiet village stood a colossal banyan tree with hanging vines.',
+                    'The villagers whispered spooky tales that the ancient tree whispered eerie words in the midnight breeze.',
+                    'Out of sheer superstition, nobody dared to walk past the banyan hill after twilight.',
+                    'However, two fearless young detectives, Aarav and Meera, decided to uncover the truth.',
+                    'Armed with powerful LED flashlights and curiosity, they quietly walked up the hill under the starry sky.',
+                    'Suddenly, the wind howled and a chilling whistle echoed from the branches — "Whooo... Shuuu...!"',
+                    'Meera bravely aimed her bright beam high up into the massive hollow trunk.',
+                    'There was no ghost at all! Natural hollow wind tunnels in the bark were creating a flute-like sound!',
+                    'Inside the cozy hollow nestled a tiny injured baby owl, crying softly for gentle help.',
+                    'Aarav and Meera rescued the baby bird, proving that fear is just lack of understanding!',
+                    'Moral: Never let fear and superstition cloud your reason. Courage always reveals the truth.'
+                ]
+            },
+            {
+                id: 'birbal_ring',
+                cat: 'akbar_birbal',
+                emoji: '👑',
+                tag: 'अकबर-बीरबल • Wit & Mystery',
+                titleHi: 'बीरबल और चोर की जादुई दाढ़ी',
+                titleEn: 'Birbal and the Stolen Diamond Ring',
+                subHi: 'चोर की दाढ़ी में तिनका, सच कभी छिपता नहीं',
+                subEn: 'A guilty conscience needs no accuser',
+                preview: 'शहंशाह अकबर की अनमोल हीरे की अंगूठी गायब हो गई! बीरबल ने जादुई छड़ियों से कैसे पकड़ा असली चोर?',
+                sentencesHi: [
+                    'शहंशाह अकबर के महल में एक दिन अचानक उनकी सबसे कीमती नौलखा हीरे की अंगूठी गायब हो गई।',
+                    'बादशाह अकबर बहुत परेशान हुए क्योंकि उस कमरे में केवल उनके आठ सबसे खास दरबारी सेवक ही जा सकते थे।',
+                    'अकबर ने न्याय के चतुर उस्ताद बीरबल को शाही दरबार में बुलाया और चोर का पता लगाने को कहा।',
+                    'बीरबल ने मुस्कुराते हुए सभी आठों सेवकों को दरबार में हाजिर किया।',
+                    'बीरबल ने सबको बराबर लंबाई की एक-एक लकड़ी की छड़ी दी और कहा, "ये जादुई छड़ियां हैं!"',
+                    'बीरबल बोले, "जिसने भी अंगूठी चुराई होगी, कल सुबह तक उसकी जादुई छड़ी दो इंच अपने आप लंबी हो जाएगी!"',
+                    'सभी सेवक अपने घर लौट गए। लेकिन असली चोर रात भर डर से कांपने लगा।',
+                    'उसने सोचा कि क्यों न वह अपनी छड़ी को दो इंच काट दे, ताकि सुबह वह बाकी छड़ियों के बराबर हो जाए!',
+                    'अगली सुबह बीरबल ने सबकी छड़ियां नापीं। एक सेवक की छड़ी ठीक दो इंच छोटी निकली!',
+                    'बीरबल ने तुरंत उस चोर को पकड़ लिया और अंगूठी बरामद कर ली।',
+                    'सीख: अपराध करने वाले का अपना डर ही उसे सबसे पहले बेनकाब कर देता है।'
+                ],
+                sentencesEn: [
+                    'One morning in the grand Agra Palace, Emperor Akbar discovered his most precious emerald ring was missing.',
+                    'The emperor was deeply troubled because only his eight trusted personal servants had access to the royal chamber.',
+                    'Akbar summoned his legendary witty minister, Birbal, to solve the royal mystery.',
+                    'Birbal calmly lined up all eight servants and handed each one a wooden stick of identical length.',
+                    'Birbal declared, "These are enchanted royal sticks from the Himalayan sages!"',
+                    '"Whosoever stole the ring, his magical stick will miraculously grow two inches longer by tomorrow morning!"',
+                    'The innocent servants slept peacefully, but the real thief stayed awake trembling with guilt.',
+                    'He secretly took a knife and cut exactly two inches off his stick, thinking it would grow back to normal by sunrise!',
+                    'The next morning, Birbal measured all eight sticks. One servant\'s stick was precisely two inches shorter!',
+                    'Birbal smiled and pointed, "Your Majesty, here is your thief! His own guilty mind gave him away!"',
+                    'Moral: Truth never hides. A guilty conscience always betrays itself.'
+                ]
+            },
+            {
+                id: 'firefly_cave',
+                cat: 'moral',
+                emoji: '✨',
+                tag: 'प्यारी कहानी • Kindness',
+                titleHi: 'नन्ही जुगनू और अंधेरी गुफा',
+                titleEn: 'The Brave Little Firefly & The Dark Cavern',
+                subHi: 'आप कितने भी छोटे क्यों न हों, आपकी रोशनी दुनिया बदल सकती है',
+                subEn: 'No act of kindness or light is ever too small to make a difference',
+                preview: 'तूफान के बीच अंधेरी गुफा में फंसे जानवरों को नन्ही जुगनू ने अपनी चमक से कैसे सुरक्षित बाहर निकाला...',
+                sentencesHi: [
+                    'पहाड़ों की गोद में बसे एक खूबसूरत जंगल में जुगनू नाम की एक नन्ही जुगनू रहती थी।',
+                    'वह अक्सर सोचती थी कि सूरज और चांद कितने बड़े हैं, जबकि उसकी अपनी रोशनी तो बहुत छोटी सी है।',
+                    'एक शाम जंगल में बहुत भयंकर तूफान आया और मूसलाधार बारिश होने लगी।',
+                    'बंदर, खरगोश, हिरण और नन्हे पक्षी जान बचाने के लिए एक बहुत बड़ी अंधेरी गुफा में घुस गए।',
+                    'तूफान के कारण गुफा के मुंह पर एक भारी चट्टान खिसक गई और अंदर बिल्कुल घुप्प अंधेरा छा गया।',
+                    'सभी जानवर डर से कांपने लगे और बाहर निकलने का रास्ता नहीं ढूंढ पा रहे थे।',
+                    'तभी नन्ही जुगनू ने अपने नन्हे पंख फड़फड़ाए और अपनी हरी-पीली चमकती रोशनी जलाई।',
+                    'उसकी टिमटिमाती रोशनी अंधेरे में एक चमकदार सितारे की तरह चमक उठी।',
+                    'जुगनू आगे-आगे उड़ी और सभी जानवरों को गुफा के गुप्त सुरक्षित रास्ते से बाहर ले आई।',
+                    'सभी जानवरों ने जुगनू को अपने कंधों पर बिठाया और कहा, "तुम हमारे जंगल की सबसे चमकती हीरो हो!"',
+                    'सीख: अपनी काबिलियत को कभी कम मत समझो। संकट के समय छोटी सी उम्मीद भी सबसे बड़ा सहारा बनती है।'
+                ],
+                sentencesEn: [
+                    'In a lush green valley beneath the misty mountains lived a sweet little firefly named Jugnu.',
+                    'Jugnu often felt shy because her tiny green glow seemed invisible next to the grand golden sun and silvery moon.',
+                    'One stormy evening, a sudden tempest blew across the valley with thunder and heavy rain.',
+                    'A family of rabbits, baby deer, and little birds rushed into a deep cavern for shelter.',
+                    'A sudden landslide blocked the entrance, plunging the deep cave into pitch-black darkness!',
+                    'The animals were frightened, unable to find the winding path back out.',
+                    'Little Jugnu fluttered her translucent wings and lit up her glowing beacon with all her heart.',
+                    'Her warm, steady spark illuminated the slippery rocks like a beacon of hope in the dark.',
+                    'Flying ahead step by step, Jugnu guided every single creature safely through the hidden mountain exit.',
+                    'The grateful animals cheered, "You proved that true greatness comes from the courage within your heart!"',
+                    'Moral: Never underestimate yourself. Even the smallest light can shatter the deepest darkness.'
+                ]
+            }
+        ];
+
+        let activeStoryIndex = 0;
+        let activeSentenceIndex = 0;
+        let activeLang = 'hi';
+        let playbackSpeed = 0.92;
+        let isPlaying = false;
+        let speechTimer = null;
+
+        // Ambient Audio
+        let audioCtx = null;
+        let gainNode = null;
+        let isMusicEnabled = true;
+
+        function startMusic() {
+            try {
+                if (!isMusicEnabled) return;
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                if (!audioCtx) audioCtx = new AudioContext();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                if (gainNode) return;
+
+                gainNode = audioCtx.createGain();
+                gainNode.gain.setValueAtTime(0.035, audioCtx.currentTime);
+                gainNode.connect(audioCtx.destination);
+
+                [130.81, 164.81, 196.00, 261.63].forEach(f => {
+                    const osc = audioCtx.createOscillator();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(450, audioCtx.currentTime);
+                    osc.connect(filter);
+                    filter.connect(gainNode);
+                    osc.start();
+                });
+            } catch(e) {}
+        }
+
+        function stopMusic() {
+            try {
+                if (gainNode && audioCtx) {
+                    gainNode.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.4);
+                    setTimeout(() => { gainNode = null; }, 450);
+                }
+            } catch(e) {}
+        }
+
+        function toggleMusic() {
+            isMusicEnabled = !isMusicEnabled;
+            document.getElementById('btn-music-toggle').textContent = isMusicEnabled ? '🎵 Music: ON' : '🔇 Music: OFF';
+            if (isMusicEnabled && isPlaying) startMusic();
+            else stopMusic();
+        }
+
+        function getVoice(lang) {
+            const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+            if (!voices || voices.length === 0) return null;
+            if (lang === 'hi') {
+                return voices.find(v => v.lang.startsWith('hi') || v.name.includes('Hindi') || v.name.includes('हिन्दी') || v.name.includes('Kalpana') || v.name.includes('Hemant') || v.name.includes('Google हिन्दी')) || voices[0];
+            }
+            return voices.find(v => v.lang === 'en-IN' || v.name.includes('India') || v.name.includes('Zira') || v.name.includes('Natural') || v.name.includes('Google UK English Female') || v.lang.startsWith('en')) || voices[0];
+        }
+
+        function renderStories(filter = 'all') {
+            const grid = document.getElementById('story-grid');
+            grid.innerHTML = '';
+            const list = filter === 'all' ? stories : stories.filter(s => s.cat === filter || filter === 'all');
+
+            list.forEach((s, idx) => {
+                const originalIdx = stories.indexOf(s);
+                const card = document.createElement('div');
+                card.className = 'story-card';
+                card.innerHTML = `
+                    <div>
+                        <div class="story-card-top">
+                            <div class="story-card-icon">${s.emoji}</div>
+                            <div>
+                                <div class="story-card-tag">${s.tag}</div>
+                                <div class="story-card-title">${activeLang === 'hi' ? s.titleHi : s.titleEn}</div>
+                                <div class="story-card-sub">${activeLang === 'hi' ? s.subHi : s.subEn}</div>
+                            </div>
+                        </div>
+                        <div class="story-card-preview">${s.preview}</div>
+                    </div>
+                    <div class="story-card-btn">🎧 Listen Story (सुनें) ▶</div>
+                `;
+                card.onclick = () => openStory(originalIdx);
+                grid.appendChild(card);
+            });
+        }
+
+        function filterStories(cat, btn) {
+            if (btn) {
+                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+            renderStories(cat);
+        }
+
+        function openStory(idx) {
+            activeStoryIndex = idx;
+            activeSentenceIndex = 0;
+            const story = stories[idx];
+            document.getElementById('modal-story-icon').textContent = story.emoji;
+            document.getElementById('modal-story-tag').textContent = story.tag;
+            document.getElementById('modal-story-title').textContent = activeLang === 'hi' ? story.titleHi : story.titleEn;
+            document.getElementById('modal-story-sub').textContent = activeLang === 'hi' ? story.subHi : story.subEn;
+
+            renderKaraoke();
+            document.getElementById('story-modal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            startPlay();
+        }
+
+        function closeStoryModal() {
+            stopPlay();
+            document.getElementById('story-modal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function renderKaraoke() {
+            const area = document.getElementById('modal-karaoke-area');
+            const story = stories[activeStoryIndex];
+            const list = activeLang === 'hi' ? story.sentencesHi : story.sentencesEn;
+            area.innerHTML = '';
+
+            list.forEach((st, idx) => {
+                const p = document.createElement('div');
+                p.className = 'kuku-karaoke-item' + (idx === activeSentenceIndex ? ' active' : '');
+                p.id = `karaoke-line-${idx}`;
+                p.textContent = st;
+                p.onclick = () => {
+                    activeSentenceIndex = idx;
+                    renderKaraoke();
+                    if (isPlaying) speakSentence();
+                };
+                area.appendChild(p);
+            });
+
+            const activeLine = document.getElementById(`karaoke-line-${activeSentenceIndex}`);
+            if (activeLine) activeLine.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function togglePlay() {
+            if (isPlaying) stopPlay();
+            else startPlay();
+        }
+
+        function startPlay() {
+            isPlaying = true;
+            document.getElementById('btn-play-toggle').textContent = '⏸';
+            startMusic();
+            speakSentence();
+        }
+
+        function stopPlay() {
+            isPlaying = false;
+            document.getElementById('btn-play-toggle').textContent = '▶';
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            if (speechTimer) clearTimeout(speechTimer);
+            stopMusic();
+        }
+
+        function speakSentence() {
+            if (!isPlaying) return;
+            const story = stories[activeStoryIndex];
+            const list = activeLang === 'hi' ? story.sentencesHi : story.sentencesEn;
+
+            if (activeSentenceIndex >= list.length) {
+                stopPlay();
+                launchConfetti();
+                activeSentenceIndex = 0;
+                renderKaraoke();
+                return;
+            }
+
+            renderKaraoke();
+            const text = list[activeSentenceIndex];
+
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const utt = new SpeechSynthesisUtterance(text);
+                utt.lang = activeLang === 'hi' ? 'hi-IN' : 'en-IN';
+                utt.rate = playbackSpeed;
+                utt.pitch = activeLang === 'hi' ? 1.02 : 1.05;
+                const voice = getVoice(activeLang);
+                if (voice) utt.voice = voice;
+
+                utt.onend = () => {
+                    if (!isPlaying) return;
+                    speechTimer = setTimeout(() => {
+                        activeSentenceIndex++;
+                        speakSentence();
+                    }, 220);
+                };
+                utt.onerror = () => {
+                    if (!isPlaying) return;
+                    activeSentenceIndex++;
+                    speakSentence();
+                };
+                window.speechSynthesis.speak(utt);
+            }
+        }
+
+        function prevSentence() {
+            if (activeSentenceIndex > 0) {
+                activeSentenceIndex--;
+                renderKaraoke();
+                if (isPlaying) speakSentence();
+            }
+        }
+
+        function nextSentence() {
+            const story = stories[activeStoryIndex];
+            const list = activeLang === 'hi' ? story.sentencesHi : story.sentencesEn;
+            if (activeSentenceIndex < list.length - 1) {
+                activeSentenceIndex++;
+                renderKaraoke();
+                if (isPlaying) speakSentence();
+            }
+        }
+
+        function toggleLang() {
+            activeLang = activeLang === 'hi' ? 'en' : 'hi';
+            document.getElementById('btn-lang-toggle').textContent = activeLang === 'hi' ? '🌐 🇮🇳 Hindi (हिन्दी)' : '🌐 🇬🇧 English';
+            const wasPlaying = isPlaying;
+            stopPlay();
+            openStory(activeStoryIndex);
+            if (!wasPlaying) stopPlay();
+        }
+
+        function cycleSpeed() {
+            if (playbackSpeed === 0.92) playbackSpeed = 1.1;
+            else if (playbackSpeed === 1.1) playbackSpeed = 0.8;
+            else playbackSpeed = 0.92;
+            document.getElementById('btn-speed-toggle').textContent = `⚡ ${playbackSpeed}x`;
+            if (isPlaying) speakSentence();
+        }
+
+        function launchConfetti() {
+            const box = document.getElementById('confetti-box');
+            const colors = ['#EC4899', '#8B5CF6', '#FDE047', '#10B981', '#3B82F6', '#F97316'];
+            for (let i = 0; i < 30; i++) {
+                const el = document.createElement('div');
+                el.className = 'confetti-dot';
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.background = colors[Math.floor(Math.random() * colors.length)];
+                el.style.width = el.style.height = (6 + Math.random() * 8) + 'px';
+                el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                el.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+                box.appendChild(el);
+                setTimeout(() => el.remove(), 3500);
+            }
+        }
+
+        // Close on background click
+        document.getElementById('story-modal').addEventListener('click', function(e) {
+            if (e.target === this) closeStoryModal();
+        });
+
+        // Initialize
+        renderStories('all');
+    </script>
 </body>
 </html>
-
