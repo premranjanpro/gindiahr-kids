@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>GINDiA Audio Stories | बाल कहानियों का संसार | GIndia Kids</title>
-    <meta name="description" content="Listen to GINDiA Audio Stories for kids in Hindi and English with dedicated pages for categories and every story with live word-by-word karaoke highlight."/>
-    <link rel="icon" type="image/png" href="favicon-76x76.png">
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <title>GINDiA Audio Stories Hub | कहानियों का खजाना | GINDiA Kids</title>
+    <meta name="description" content="Listen to kids audio stories with word-by-word karaoke highlight on GINDiA Kids."/>
+    <link rel="canonical" href="https://kids.gindiahr.com/stories.html" />
+    <link rel="icon" type="image/png" href="https://gindiahr.com/images/logo/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700;800;900&family=Baloo+2:wght@600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #EC4899;
-            --primary-dark: #BE185D;
-            --secondary: #8B5CF6;
-            --bg-dark: #0B0F19;
-            --surface: #161F36;
-            --surface-card: #1E294B;
-            --accent: #FDE047;
-            --text-main: #FFFFFF;
-            --text-sub: #94A3B8;
+            --primary: #FF6B35;
+            --primary-gradient: linear-gradient(135deg, #FF6B35, #E83E8C);
+            --dark: #0B0F19;
+            --surface: #141B2D;
+            --surface-card: #1D263B;
+            --accent: #FFD166;
+            --sub: #94A3B8;
+            --border: rgba(255, 255, 255, 0.12);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
-            font-family: 'Nunito', sans-serif;
-            background: #0B0F19;
-            color: var(--text-main);
+            font-family: 'Fredoka', cursive, sans-serif;
+            background: var(--dark);
+            color: #F8FAFC;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -31,57 +31,40 @@
         }
         a { text-decoration: none; color: inherit; }
 
-        /* ANDROID APPBAR */
-        .app-header {
+        nav {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: sticky;
             top: 0;
             z-index: 100;
-            height: 58px;
         }
-        .app-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #FFF;
-            font-family: 'Baloo 2', cursive;
-            font-size: 20px;
-            font-weight: 800;
-        }
-        .app-brand-badge {
-            background: linear-gradient(135deg, #EC4899, #8B5CF6);
-            color: #FFF;
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            font-weight: 900;
-        }
-        .header-actions { display: flex; gap: 8px; }
-        .header-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #E2E8F0;
-            padding: 6px 12px;
-            border-radius: 50px;
-            font-size: 12px;
+        .nav-logo { font-size: 20px; font-weight: 900; color: #FFF; }
+        .nav-logo span { color: var(--primary); }
+        .nav-links { display: flex; gap: 8px; }
+        .nav-btn {
+            font-size: 13px;
             font-weight: 700;
+            color: #E2E8F0;
+            padding: 6px 14px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid var(--border);
             transition: all 0.2s;
         }
-        .header-btn:hover { background: rgba(236, 72, 153, 0.3); border-color: var(--primary); }
+        .nav-btn:hover { background: var(--primary-gradient); color: #FFF; border-color: transparent; }
 
-        /* CATEGORIES HORIZONTAL SCROLL */
         .category-scroll-wrap {
             padding: 12px 16px 8px;
             background: #0F172A;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             position: sticky;
-            top: 58px;
+            top: 60px;
             z-index: 90;
         }
         .category-scroll {
@@ -104,15 +87,14 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            transition: all 0.2s;
+            transition: all 0.25s;
         }
         .cat-chip:hover {
-            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            background: var(--primary-gradient);
             color: #FFF;
             transform: scale(1.03);
         }
 
-        /* MAIN CONTENT */
         .content-wrap {
             max-width: 1080px;
             margin: 0 auto;
@@ -127,16 +109,16 @@
             margin-bottom: 14px;
         }
         .section-title {
-            font-family: 'Baloo 2', cursive;
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 800;
             color: #FFF;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-family: 'Baloo 2', cursive;
         }
 
-        /* BIG CATEGORY CARDS GRID */
+        /* BIG CATEGORY CARDS */
         .cat-cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -144,32 +126,32 @@
             margin-bottom: 24px;
         }
         .cat-card-item {
-            background: linear-gradient(135deg, #1E1B4B, #161F36);
-            border: 1px solid rgba(236, 72, 153, 0.3);
+            background: linear-gradient(135deg, #1E1B4B, #141B2D);
+            border: 1px solid rgba(255, 107, 53, 0.3);
             border-radius: 16px;
-            padding: 14px;
+            padding: 16px;
             text-align: center;
             transition: all 0.25s;
             cursor: pointer;
         }
         .cat-card-item:hover {
             transform: translateY(-3px);
-            border-color: #EC4899;
-            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+            border-color: var(--primary);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.3);
         }
-        .cat-card-item .emoji { font-size: 32px; margin-bottom: 4px; }
-        .cat-card-item .title { font-family: 'Baloo 2', cursive; font-size: 15px; font-weight: 800; color: #FDE047; }
-        .cat-card-item .sub { font-size: 11px; color: var(--text-sub); }
+        .cat-card-item .emoji { font-size: 34px; margin-bottom: 6px; }
+        .cat-card-item .title { font-size: 15px; font-weight: 800; color: #FFD166; font-family: 'Baloo 2', cursive; }
+        .cat-card-item .sub { font-size: 11px; color: var(--sub); }
 
         /* STORY CARDS GRID */
         .story-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
             gap: 14px;
         }
         .story-card-native {
             background: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border);
             border-radius: 18px;
             padding: 16px;
             display: flex;
@@ -182,40 +164,64 @@
         .story-card-native:hover {
             transform: translateY(-3px);
             background: var(--surface-card);
-            border-color: #F472B6;
-            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
+            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
         .story-thumb {
-            width: 68px;
-            height: 68px;
+            width: 70px;
+            height: 70px;
             border-radius: 16px;
-            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            background: var(--primary-gradient);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 34px;
             flex-shrink: 0;
-            box-shadow: 0 6px 16px rgba(236, 72, 153, 0.35);
+            box-shadow: 0 6px 16px rgba(232, 62, 140, 0.35);
         }
         .story-info { flex: 1; min-width: 0; }
-        .story-tag-pill { font-size: 10px; font-weight: 800; color: #FDE047; text-transform: uppercase; margin-bottom: 2px; }
-        .story-name { font-family: 'Baloo 2', cursive; font-size: 17px; font-weight: 800; color: #FFF; line-height: 1.2; }
-        .story-subtitle { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
+        .story-tag-pill {
+            font-size: 10px;
+            font-weight: 800;
+            color: #FFD166;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 2px;
+        }
+        .story-name {
+            font-family: 'Baloo 2', cursive;
+            font-size: 17px;
+            font-weight: 800;
+            color: #FFF;
+            line-height: 1.25;
+        }
+        .story-subtitle {
+            font-size: 12px;
+            color: var(--sub);
+            margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
         .story-play-icon {
             width: 38px;
             height: 38px;
             border-radius: 50%;
-            background: rgba(236, 72, 153, 0.2);
-            color: #F472B6;
+            background: rgba(255, 107, 53, 0.2);
+            color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
             flex-shrink: 0;
-            border: 1px solid rgba(236, 72, 153, 0.3);
             transition: all 0.2s;
+            border: 1px solid rgba(255, 107, 53, 0.3);
         }
-        .story-card-native:hover .story-play-icon { background: #EC4899; color: #FFF; transform: scale(1.1); }
+        .story-card-native:hover .story-play-icon {
+            background: var(--primary);
+            color: #FFF;
+            transform: scale(1.1);
+        }
 
         footer {
             background: #080C16;
@@ -223,40 +229,43 @@
             padding: 20px 16px;
             text-align: center;
             font-size: 12px;
-            color: var(--text-sub);
+            color: var(--sub);
             margin-top: auto;
         }
-        footer a { color: #EC4899; }
+        footer a { color: var(--primary); font-weight: 700; }
     </style>
 </head>
 <body>
 
-    <header class="app-header">
-        <a href="index.html" class="app-brand">
-            <span>🧒</span> GINDiA Stories <span class="app-brand-badge">AUDIO</span>
+    <!-- APP HEADER -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <span>GINDiA</span> Stories Hub
         </a>
-        <div class="header-actions">
-            <a href="index.html" class="header-btn">🏠 Kids Home</a>
-            <a href="https://social.gindiahr.com/stories.html" class="header-btn">📱 Social</a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-btn">🧒 Kids Hub</a>
+            <a href="https://social.gindiahr.com/stories.html" class="nav-btn">📱 Social Stories</a>
+            <a href="https://game.gindiahr.com" class="nav-btn">🎮 Games</a>
         </div>
-    </header>
+    </nav>
 
     <!-- HORIZONTAL CATEGORY SCROLLER -->
     <div class="category-scroll-wrap">
         <div class="category-scroll">
-            <a href="stories.html" class="cat-chip" style="background: linear-gradient(135deg,#EC4899,#8B5CF6); color:#fff;">✨ All (सभी)</a>
+            <a href="stories.html" class="cat-chip" style="background: var(--primary-gradient); color:#fff;">✨ All (सभी)</a>
             <a href="category-panchatantra.html" class="cat-chip">🦁 पंचतंत्र (Panchatantra)</a>
             <a href="category-suspense.html" class="cat-chip">🕵️ सस्पेंस व थ्रिलर (Mystery)</a>
             <a href="category-akbar-birbal.html" class="cat-chip">👑 अकबर-बीरबल (Wit)</a>
-            <a href="category-moral.html" class="cat-chip">⭐ शिक्षाप्रद (Moral & Life)</a>
+            <a href="category-moral.html" class="cat-chip">⭐ शिक्षाप्रद (Moral)</a>
             <a href="category-bedtime.html" class="cat-chip">🌙 लोरी व जादुई (Bedtime)</a>
         </div>
     </div>
 
+    <!-- MAIN CONTENT -->
     <main class="content-wrap">
-        <!-- BROWSE BY CATEGORY SECTION -->
+        <!-- BROWSE BY CATEGORY -->
         <div class="section-header-row">
-            <div class="section-title">📂 Browse by Category (अलग-अलग कैटेगरी पेजेस)</div>
+            <div class="section-title">📂 Browse by Category (कैटेगरी चुनें)</div>
         </div>
 
         <div class="cat-cards-grid">
@@ -268,12 +277,12 @@
             <a href="category-suspense.html" class="cat-card-item">
                 <div class="emoji">🕵️</div>
                 <div class="title">सस्पेंस व थ्रिलर</div>
-                <div class="sub">Mystery Stories</div>
+                <div class="sub">Mystery & Suspense</div>
             </a>
             <a href="category-akbar-birbal.html" class="cat-card-item">
                 <div class="emoji">👑</div>
                 <div class="title">अकबर-बीरबल</div>
-                <div class="sub">Wit & Wisdom</div>
+                <div class="sub">Royal Wit & Humour</div>
             </a>
             <a href="category-moral.html" class="cat-card-item">
                 <div class="emoji">⭐</div>
@@ -283,68 +292,79 @@
             <a href="category-bedtime.html" class="cat-card-item">
                 <div class="emoji">🌙</div>
                 <div class="title">लोरी व जादुई</div>
-                <div class="sub">Bedtime Stories</div>
+                <div class="sub">Bedtime & Magic</div>
             </a>
         </div>
 
-        <!-- ALL STORIES SECTION -->
+        <!-- ALL STORIES -->
         <div class="section-header-row">
             <div class="section-title">📚 All Stories (हर कहानी का अलग पेज)</div>
-            <span style="font-size:12px; color:#F472B6; font-weight:800; background:rgba(236,72,153,0.2); padding:2px 8px; border-radius:20px;">5 Stories</span>
+            <span style="font-size:12px; color:var(--primary); font-weight:800; background:rgba(255,107,53,0.2); padding:2px 8px; border-radius:20px;">6 Stories</span>
         </div>
 
         <div class="story-grid">
             <!-- STORY 1 -->
-            <a href="story-rabbit-lion.html" class="story-card-native">
-                <div class="story-thumb">🐰</div>
+            <a href="story-berth-13a.html" class="story-card-native">
+                <div class="story-thumb">🚆</div>
                 <div class="story-info">
-                    <div class="story-tag-pill">पंचतंत्र सस्पेंस • Moral</div>
-                    <div class="story-name">चालाक खरगोश और खूंखार शेर</div>
-                    <div class="story-subtitle">The Clever Rabbit & The Lion</div>
+                    <div class="story-tag-pill">सस्पेंस • Train Mystery</div>
+                    <div class="story-name">हावड़ा-पटना एक्सप्रेस का 13A बर्थ</div>
+                    <div class="story-subtitle">रात के 2:40 बजे चलती ट्रेन में बंद कूपे का राज़</div>
                 </div>
                 <div class="story-play-icon">▶</div>
             </a>
 
             <!-- STORY 2 -->
-            <a href="story-magic-pot.html" class="story-card-native">
-                <div class="story-thumb">🏺</div>
-                <div class="story-info">
-                    <div class="story-tag-pill">जादुई रहस्य • Moral</div>
-                    <div class="story-name">जादुई मटका और लालची जमींदार</div>
-                    <div class="story-subtitle">The Magical Pot & The Landlord</div>
-                </div>
-                <div class="story-play-icon">▶</div>
-            </a>
-
-            <!-- STORY 3 -->
             <a href="story-whispering-tree.html" class="story-card-native">
                 <div class="story-thumb">🌳</div>
                 <div class="story-info">
-                    <div class="story-tag-pill">साहस और सस्पेंस • Adventure</div>
+                    <div class="story-tag-pill">सस्पेंस व थ्रिलर • Mystery</div>
                     <div class="story-name">भूतिया पेड़ का अनसुलझा रहस्य</div>
                     <div class="story-subtitle">The Mystery of the Whispering Tree</div>
                 </div>
                 <div class="story-play-icon">▶</div>
             </a>
 
-            <!-- STORY 4 -->
-            <a href="story-birbal-ring.html" class="story-card-native">
-                <div class="story-thumb">👑</div>
+            <!-- STORY 3 -->
+            <a href="story-rabbit-lion.html" class="story-card-native">
+                <div class="story-thumb">🦁</div>
                 <div class="story-info">
-                    <div class="story-tag-pill">अकबर-बीरबल • Wit & Justice</div>
-                    <div class="story-name">बीरबल और चोर की जादुई दाढ़ी</div>
-                    <div class="story-subtitle">Birbal and the Stolen Diamond Ring</div>
+                    <div class="story-tag-pill">पंचतंत्र • Panchatantra</div>
+                    <div class="story-name">चालाक खरगोश और खूंखार शेर</div>
+                    <div class="story-subtitle">The Clever Rabbit and the Lion</div>
+                </div>
+                <div class="story-play-icon">▶</div>
+            </a>
+
+            <!-- STORY 4 -->
+            <a href="story-magic-pot.html" class="story-card-native">
+                <div class="story-thumb">🏺</div>
+                <div class="story-info">
+                    <div class="story-tag-pill">जादुई लोककथा • Folklore</div>
+                    <div class="story-name">जादुई मटका और लालची जमींदार</div>
+                    <div class="story-subtitle">The Magic Pot and Greedy Landlord</div>
                 </div>
                 <div class="story-play-icon">▶</div>
             </a>
 
             <!-- STORY 5 -->
+            <a href="story-birbal-ring.html" class="story-card-native">
+                <div class="story-thumb">👑</div>
+                <div class="story-info">
+                    <div class="story-tag-pill">अकबर-बीरबल • Wit & Humor</div>
+                    <div class="story-name">बीरबल और चोर की जादुई दाढ़ी</div>
+                    <div class="story-subtitle">Birbal and the Emperor's Stolen Ring</div>
+                </div>
+                <div class="story-play-icon">▶</div>
+            </a>
+
+            <!-- STORY 6 -->
             <a href="story-firefly-cave.html" class="story-card-native">
                 <div class="story-thumb">✨</div>
                 <div class="story-info">
-                    <div class="story-tag-pill">प्यारी कहानी • Kindness</div>
+                    <div class="story-tag-pill">लोरी व जादुई • Bedtime</div>
                     <div class="story-name">नन्ही जुगनू और अंधेरी गुफा</div>
-                    <div class="story-subtitle">The Brave Little Firefly & The Cavern</div>
+                    <div class="story-subtitle">The Little Firefly and the Dark Cave</div>
                 </div>
                 <div class="story-play-icon">▶</div>
             </a>
@@ -352,8 +372,8 @@
     </main>
 
     <footer>
-        <p>© 2025 GINDiA Stories | <a href="index.html">GIndia Kids Learning Platform</a> • <a href="https://gindiahr.com">GIndiaHR Group</a><br>
-        100% Free Interactive Audio Stories with Real Voices & Live Karaoke</p>
+        <p>© 2025 GINDiA Stories | Part of <a href="https://gindiahr.com">GIndiaHR Group</a> • Patna, Bihar<br>
+        100% Free Engaging Audio Stories with Real Voices & Live Karaoke</p>
     </footer>
 
 </body>
