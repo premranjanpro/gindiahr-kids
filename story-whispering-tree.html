@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>भूतिया पेड़ का अनसुलझा रहस्य | GINDiA Audio Story | GIndia Kids</title>
+    <meta name="description" content="Listen to The Mystery of the Whispering Tree suspense audio story with real Indian voice narration and live word-by-word karaoke highlight on GINDiA Kids."/>
+    <link rel="icon" type="image/png" href="favicon-76x76.png">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800;900&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #EC4899; --secondary: #8B5CF6; --dark: #0B0F19; --surface: #161F36; --accent: #FDE047; --highlight-word: #FF2E93; --highlight-bg: rgba(255, 46, 147, 0.28); --text-sub: #94A3B8; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Nunito', sans-serif; background: var(--dark); color: #FFF; height: 100vh; height: 100dvh; width: 100vw; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+        a { text-decoration: none; color: inherit; }
+        .player-appbar { height: 54px; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid rgba(255, 255, 255, 0.08); flex-shrink: 0; }
+        .player-back-btn { background: rgba(255, 255, 255, 0.1); border: none; color: #FFF; padding: 6px 12px; border-radius: 50px; font-size: 13px; font-weight: 700; display: flex; align-items: center; gap: 6px; cursor: pointer; }
+        .player-header-title { text-align: center; font-family: 'Baloo 2', cursive; font-size: 14px; font-weight: 800; }
+        .player-header-badge { font-size: 10px; color: var(--primary); display: block; text-transform: uppercase; letter-spacing: 0.5px; }
+        .player-body { flex: 1; display: flex; flex-direction: column; padding: 10px 16px; overflow: hidden; justify-content: space-evenly; align-items: center; text-align: center; max-width: 640px; margin: 0 auto; width: 100%; }
+        .player-art-wrap { position: relative; display: flex; align-items: center; justify-content: center; }
+        .player-art-glow { position: absolute; width: 120px; height: 120px; border-radius: 50%; background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, transparent 70%); animation: pulseGlow 3s ease-in-out infinite alternate; }
+        @keyframes pulseGlow { 0% { transform: scale(0.9); opacity: 0.5; } 100% { transform: scale(1.3); opacity: 0.9; } }
+        .player-art-circle { width: 76px; height: 76px; border-radius: 22px; background: linear-gradient(135deg, #EC4899, #8B5CF6); display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45); position: relative; z-index: 1; animation: artBob 3s ease-in-out infinite; }
+        @keyframes artBob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+        .wave-visualizer { display: flex; align-items: center; gap: 4px; height: 18px; margin: 4px 0; }
+        .wave-bar { width: 3px; height: 6px; background: var(--primary); border-radius: 2px; transition: height 0.15s ease; }
+        .wave-bar.playing { animation: waveBounce 0.8s ease-in-out infinite alternate; }
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; height: 12px; background: #F472B6; }
+        .wave-bar:nth-child(3) { animation-delay: 0.25s; height: 18px; background: #FDE047; }
+        .wave-bar:nth-child(4) { animation-delay: 0.15s; height: 10px; background: #A78BFA; }
+        .wave-bar:nth-child(5) { animation-delay: 0.3s; height: 14px; background: var(--primary); }
+        @keyframes waveBounce { 0% { height: 4px; } 100% { height: 18px; } }
+        .player-story-name { font-family: 'Baloo 2', cursive; font-size: 20px; font-weight: 800; color: #FDE047; line-height: 1.2; }
+        .player-story-theme { font-size: 12px; color: #CBD5E1; }
+        .karaoke-word-box { background: rgba(15, 23, 42, 0.85); border: 1.5px solid rgba(236, 72, 153, 0.35); border-radius: 16px; padding: 12px 14px; width: 100%; min-height: 90px; max-height: 130px; overflow-y: auto; font-size: 16px; line-height: 1.7; color: #94A3B8; text-align: left; box-shadow: inset 0 2px 10px rgba(0,0,0,0.4); }
+        .karaoke-word { display: inline-block; padding: 1px 3px; border-radius: 4px; transition: all 0.12s ease; }
+        .karaoke-word.word-active { color: #FFFFFF !important; background: var(--highlight-bg) !important; border-bottom: 2px solid var(--highlight-word) !important; font-weight: 800 !important; transform: scale(1.06); text-shadow: 0 0 10px rgba(255, 46, 147, 0.7); }
+        .player-voice-row { display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; width: 100%; margin-top: 4px; }
+        .voice-pill { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.16); color: #E2E8F0; padding: 5px 10px; border-radius: 50px; font-size: 11px; font-weight: 700; cursor: pointer; transition: all 0.2s; }
+        .voice-pill.active { background: #7C3AED; color: #FFF; border-color: #A78BFA; box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4); }
+        .player-bottom-sheet { background: #111827; border-top: 1px solid rgba(255, 255, 255, 0.12); padding: 10px 16px 14px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px; }
+        .player-main-controls { display: flex; align-items: center; justify-content: space-around; max-width: 480px; margin: 0 auto; width: 100%; }
+        .btn-ctrl-sec { background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); color: #E2E8F0; width: 40px; height: 40px; border-radius: 50%; font-size: 16px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+        .btn-ctrl-play { background: linear-gradient(135deg, #EC4899, #8B5CF6); border: none; color: #FFF; width: 54px; height: 54px; border-radius: 50%; font-size: 22px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5); }
+        .player-sub-controls { display: flex; justify-content: space-between; align-items: center; max-width: 480px; margin: 0 auto; width: 100%; }
+        .btn-pill-sub { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.15); color: #CBD5E1; padding: 5px 12px; border-radius: 50px; font-size: 11px; font-weight: 700; cursor: pointer; }
+        #confetti-box { position: fixed; inset: 0; pointer-events: none; z-index: 100000; }
+        .confetti-dot { position: absolute; top: -10px; animation: confettiDrop ease-in forwards; }
+        @keyframes confettiDrop { to { transform: translateY(105vh) rotate(720deg); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div id="confetti-box"></div>
+
+    <header class="player-appbar">
+        <a href="category-suspense.html" class="player-back-btn">← Suspense</a>
+        <div class="player-header-title">
+            <span class="player-header-badge">GINDiA AUDIO STORY</span>
+            <span>भूतिया पेड़ का रहस्य</span>
+        </div>
+        <a href="stories.html" class="player-back-btn">📚 Stories</a>
+    </header>
+
+    <main class="player-body">
+        <div class="player-art-wrap">
+            <div class="player-art-glow"></div>
+            <div class="player-art-circle">🌳</div>
+        </div>
+
+        <div class="wave-visualizer" id="wave-visualizer">
+            <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+        </div>
+
+        <div>
+            <div class="player-story-name" id="player-title">भूतिया पेड़ का अनसुलझा रहस्य</div>
+            <div class="player-story-theme" id="player-sub">The Mystery of the Whispering Tree</div>
+        </div>
+
+        <div class="karaoke-word-box" id="karaoke-word-container"></div>
+
+        <div class="player-voice-row">
+            <span style="font-size:11px; color:#CBD5E1; font-weight:700;">आवाज़ (Voice):</span>
+            <button class="voice-pill active" id="voice-btn-female" onclick="setVoiceGender('female')">👩 Female (महिला)</button>
+            <button class="voice-pill" id="voice-btn-male" onclick="setVoiceGender('male')">👨 Male (पुरुष)</button>
+            <button class="voice-pill" id="voice-btn-child" onclick="setVoiceGender('child')">🧒 Child (बच्चा)</button>
+        </div>
+    </main>
+
+    <div class="player-bottom-sheet">
+        <div class="player-main-controls">
+            <button class="btn-ctrl-sec" onclick="prevSentence()">⏮️</button>
+            <button class="btn-ctrl-play" id="btn-play-pause" onclick="togglePlayPause()">⏸</button>
+            <button class="btn-ctrl-sec" onclick="nextSentence()">⏭️</button>
+        </div>
+        <div class="player-sub-controls">
+            <button class="btn-pill-sub" id="btn-lang" onclick="toggleLanguage()">🌐 🇮🇳 Hindi</button>
+            <button class="btn-pill-sub" id="btn-speed" onclick="cycleSpeed()">⚡ 0.9x</button>
+            <button class="btn-pill-sub" id="btn-music" onclick="toggleMusic()">🎵 Bg Music: ON</button>
+        </div>
+    </div>
+
+    <script>
+        const storyData = {
+            titleHi: 'भूतिया पेड़ का अनसुलझा रहस्य',
+            titleEn: 'The Mystery of the Whispering Tree',
+            subHi: 'डर के आगे जीत है, अफवाहों पर यकीन न करें',
+            subEn: 'Bravery and truth dissolve superstition and fear',
+            theme: 'suspense',
+            sentencesHi: [
+                'गांव के पुराने टीले पर एक बहुत पुराना और विशाल बरगद का पेड़ खड़ा था।',
+                'गांव के लोग कहते थे कि रात के अंधेरे में उस पेड़ से अजीब फुसफुसाहट और डरावनी आवाजें आती हैं।',
+                'इसी डर की वजह से सूरज ढलते ही कोई भी उस रास्ते से नहीं गुजरता था।',
+                'लेकिन सातवीं कक्षा में पढ़ने वाले दो होशियार बच्चे, आरव और उसकी बहन मीरा, इस रहस्य को सुलझाना चाहते थे।',
+                'एक पूर्णिमा की रात, वे दोनों हाथ में तेज टॉर्च और नोटबुक लेकर चुपके से बरगद के पेड़ के पास पहुंचे।',
+                'हवा चली और अचानक वही रहस्यमयी सीटी जैसी आवाज गूंज उठी — "शू... वू...!"',
+                'आरव ने अपनी टॉर्च की तेज रोशनी पेड़ के ऊंचे तने पर डाली।',
+                'वहां कोई भूत नहीं था, बल्कि पेड़ के खोखले तने में बांसुरी की तरह हवा गुजरने से सुरीली सीटी बज रही थी!',
+                'और खोखले तने के अंदर एक नन्हीं घायल उल्लू की बच्ची बैठी थी, जो मदद के लिए रो रही थी।',
+                'आरव और मीरा ने उस नन्हीं चिड़िया को सुरक्षित निकाला, उसकी मरहम-पट्टी की और पूरे गांव का अंधविश्वास हमेशा के लिए दूर कर दिया!',
+                'सीख: बिना जांचे किसी भी अफवाह या डर पर विश्वास नहीं करना चाहिए। साहस से हर रहस्य सुलझ जाता है।'
+            ],
+            sentencesEn: [
+                'At the edge of the quiet village stood a colossal banyan tree with hanging vines.',
+                'The villagers whispered spooky tales that the ancient tree whispered eerie words in the midnight breeze.',
+                'Out of sheer superstition, nobody dared to walk past the banyan hill after twilight.',
+                'However, two fearless young detectives, Aarav and Meera, decided to uncover the truth.',
+                'Armed with powerful LED flashlights and curiosity, they quietly walked up the hill under the starry sky.',
+                'Suddenly, the wind howled and a chilling whistle echoed from the branches — "Whooo... Shuuu...!"',
+                'Meera bravely aimed her bright beam high up into the massive hollow trunk.',
+                'There was no ghost at all! Natural hollow wind tunnels in the bark were creating a flute-like sound!',
+                'Inside the cozy hollow nestled a tiny injured baby owl, crying softly for gentle help.',
+                'Aarav and Meera rescued the baby bird, proving that fear is just lack of understanding!',
+                'Moral: Never let fear and superstition cloud your reason. Courage always reveals the truth.'
+            ]
+        };
+
+        let currentSentenceIndex = 0;
+        let currentLang = 'hi';
+        let currentVoiceGender = 'female';
+        let playbackSpeed = 0.92;
+        let isPlaying = false;
+        let speechTimer = null;
+        let wordTimer = null;
+        let audioCtx = null;
+        let gainNode = null;
+        let isMusicEnabled = true;
+
+        function startThemeMusic() {
+            try {
+                if (!isMusicEnabled) return;
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (!AudioContext) return;
+                if (!audioCtx) audioCtx = new AudioContext();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                if (gainNode) return;
+
+                gainNode = audioCtx.createGain();
+                gainNode.gain.setValueAtTime(0.032, audioCtx.currentTime);
+                gainNode.connect(audioCtx.destination);
+
+                const freqs = [73.42, 110.00, 146.83, 220.00]; // Suspense D-minor drone
+                freqs.forEach(f => {
+                    const osc = audioCtx.createOscillator();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+                    const filter = audioCtx.createBiquadFilter();
+                    filter.type = 'lowpass';
+                    filter.frequency.setValueAtTime(320, audioCtx.currentTime);
+                    osc.connect(filter);
+                    filter.connect(gainNode);
+                    osc.start();
+                });
+            } catch(e) {}
+        }
+
+        function stopThemeMusic() {
+            try {
+                if (gainNode && audioCtx) {
+                    gainNode.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35);
+                    setTimeout(() => { gainNode = null; }, 400);
+                }
+            } catch(e) {}
+        }
+
+        function toggleMusic() {
+            isMusicEnabled = !isMusicEnabled;
+            document.getElementById('btn-music').textContent = isMusicEnabled ? '🎵 Bg Music: ON' : '🔇 Bg Music: OFF';
+            if (isMusicEnabled && isPlaying) startThemeMusic();
+            else stopThemeMusic();
+        }
+
+        function getVoiceForGender(lang, gender) {
+            const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+            if (!voices || voices.length === 0) return null;
+            if (lang === 'hi') {
+                const hi = voices.filter(v => v.lang.startsWith('hi') || v.name.includes('Hindi') || v.name.includes('हिन्दी'));
+                if (hi.length > 0) {
+                    if (gender === 'female') {
+                        const f = hi.find(v => v.name.includes('Kalpana') || v.name.includes('Female') || v.name.includes('Google हिन्दी'));
+                        if (f) return f;
+                    } else if (gender === 'male') {
+                        const m = hi.find(v => v.name.includes('Hemant') || v.name.includes('Male'));
+                        if (m) return m;
+                    }
+                    return hi[0];
+                }
+            }
+            const en = voices.filter(v => v.lang === 'en-IN' || v.name.includes('India'));
+            if (en.length > 0) {
+                if (gender === 'female') {
+                    const f = en.find(v => v.name.includes('Female') || v.name.includes('Heera') || v.name.includes('Zira'));
+                    if (f) return f;
+                } else if (gender === 'male') {
+                    const m = en.find(v => v.name.includes('Male') || v.name.includes('Ravi') || v.name.includes('David'));
+                    if (m) return m;
+                }
+                return en[0];
+            }
+            return voices.find(v => v.lang.startsWith('en')) || voices[0];
+        }
+
+        function setVoiceGender(g) {
+            currentVoiceGender = g;
+            ['female', 'male', 'child'].forEach(id => {
+                const btn = document.getElementById(`voice-btn-${id}`);
+                if (btn) btn.classList.toggle('active', id === g);
+            });
+            if (isPlaying) speakCurrentSentence();
+        }
+
+        function togglePlayPause() {
+            if (isPlaying) stopPlayback();
+            else startPlayback();
+        }
+
+        function startPlayback() {
+            isPlaying = true;
+            document.getElementById('btn-play-pause').textContent = '⏸';
+            document.querySelectorAll('.wave-bar').forEach(b => b.classList.add('playing'));
+            startThemeMusic();
+            speakCurrentSentence();
+        }
+
+        function stopPlayback() {
+            isPlaying = false;
+            document.getElementById('btn-play-pause').textContent = '▶';
+            document.querySelectorAll('.wave-bar').forEach(b => b.classList.remove('playing'));
+            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+            if (speechTimer) clearTimeout(speechTimer);
+            if (wordTimer) clearInterval(wordTimer);
+            stopThemeMusic();
+        }
+
+        function renderSentenceWords(text) {
+            const container = document.getElementById('karaoke-word-container');
+            container.innerHTML = '';
+            const words = text.trim().split(/\s+/);
+            words.forEach((w, idx) => {
+                const span = document.createElement('span');
+                span.className = 'karaoke-word';
+                span.id = `w-${idx}`;
+                span.textContent = w + ' ';
+                container.appendChild(span);
+            });
+        }
+
+        function highlightWord(idx) {
+            document.querySelectorAll('.karaoke-word').forEach(s => s.classList.remove('word-active'));
+            const active = document.getElementById(`w-${idx}`);
+            if (active) active.classList.add('word-active');
+        }
+
+        function speakCurrentSentence() {
+            if (!isPlaying) return;
+            const sentences = currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn;
+            if (currentSentenceIndex >= sentences.length) {
+                stopPlayback();
+                launchConfetti();
+                currentSentenceIndex = 0;
+                return;
+            }
+
+            const rawText = sentences[currentSentenceIndex];
+            renderSentenceWords(rawText);
+
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            if (wordTimer) clearInterval(wordTimer);
+
+            const utt = new SpeechSynthesisUtterance(rawText);
+            utt.lang = currentLang === 'hi' ? 'hi-IN' : 'en-IN';
+            utt.rate = playbackSpeed;
+
+            if (currentVoiceGender === 'female') utt.pitch = 1.08;
+            else if (currentVoiceGender === 'male') utt.pitch = 0.85;
+            else if (currentVoiceGender === 'child') { utt.pitch = 1.45; utt.rate = playbackSpeed * 1.05; }
+
+            const voice = getVoiceForGender(currentLang, currentVoiceGender);
+            if (voice) utt.voice = voice;
+
+            const words = rawText.trim().split(/\s+/);
+            let boundaryFired = false;
+
+            utt.onboundary = (e) => {
+                if (e.name === 'word') {
+                    boundaryFired = true;
+                    let count = 0;
+                    for (let i = 0; i < words.length; i++) {
+                        count += words[i].length + 1;
+                        if (e.charIndex < count) {
+                            highlightWord(i);
+                            break;
+                        }
+                    }
+                }
+            };
+
+            let wIdx = 0;
+            const wordDur = Math.max(160, Math.floor(60000 / (135 * playbackSpeed)));
+            wordTimer = setInterval(() => {
+                if (!boundaryFired && isPlaying && wIdx < words.length) {
+                    highlightWord(wIdx);
+                    wIdx++;
+                }
+            }, wordDur);
+
+            utt.onend = () => {
+                if (wordTimer) clearInterval(wordTimer);
+                highlightWord(words.length - 1);
+                if (!isPlaying) return;
+                speechTimer = setTimeout(() => {
+                    currentSentenceIndex++;
+                    speakCurrentSentence();
+                }, 220);
+            };
+
+            utt.onerror = () => {
+                if (wordTimer) clearInterval(wordTimer);
+                if (!isPlaying) return;
+                currentSentenceIndex++;
+                speakCurrentSentence();
+            };
+
+            window.speechSynthesis.speak(utt);
+        }
+
+        function prevSentence() {
+            if (currentSentenceIndex > 0) {
+                currentSentenceIndex--;
+                if (isPlaying) speakCurrentSentence();
+                else renderSentenceWords((currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn)[currentSentenceIndex]);
+            }
+        }
+
+        function nextSentence() {
+            const total = (currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn).length;
+            if (currentSentenceIndex < total - 1) {
+                currentSentenceIndex++;
+                if (isPlaying) speakCurrentSentence();
+                else renderSentenceWords((currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn)[currentSentenceIndex]);
+            }
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'hi' ? 'en' : 'hi';
+            document.getElementById('btn-lang').textContent = currentLang === 'hi' ? '🌐 🇮🇳 Hindi' : '🌐 🇬🇧 English';
+            document.getElementById('player-title').textContent = currentLang === 'hi' ? storyData.titleHi : storyData.titleEn;
+            document.getElementById('player-sub').textContent = currentLang === 'hi' ? storyData.subHi : storyData.subEn;
+            if (isPlaying) speakCurrentSentence();
+            else renderSentenceWords((currentLang === 'hi' ? storyData.sentencesHi : storyData.sentencesEn)[currentSentenceIndex]);
+        }
+
+        function cycleSpeed() {
+            if (playbackSpeed === 0.92) playbackSpeed = 1.1;
+            else if (playbackSpeed === 1.1) playbackSpeed = 0.8;
+            else playbackSpeed = 0.92;
+            document.getElementById('btn-speed').textContent = `⚡ ${playbackSpeed}x`;
+            if (isPlaying) speakCurrentSentence();
+        }
+
+        function launchConfetti() {
+            const box = document.getElementById('confetti-box');
+            const colors = ['#EC4899', '#8B5CF6', '#FDE047', '#10B981', '#3B82F6', '#F97316'];
+            for (let i = 0; i < 35; i++) {
+                const el = document.createElement('div');
+                el.className = 'confetti-dot';
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.background = colors[Math.floor(Math.random() * colors.length)];
+                el.style.width = el.style.height = (6 + Math.random() * 8) + 'px';
+                el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                el.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+                box.appendChild(el);
+                setTimeout(() => el.remove(), 3500);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderSentenceWords(storyData.sentencesHi[0]);
+            setTimeout(() => { startPlayback(); }, 300);
+        });
+        document.body.addEventListener('click', () => {
+            if (!isPlaying && currentSentenceIndex === 0) startPlayback();
+        }, { once: true });
+    </script>
+</body>
+</html>

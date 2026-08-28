@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-    <title>GINDiA Audio Stories | जादुई, सस्पेंस व शिक्षाप्रद कहानियाँ | GIndia Kids</title>
-    <meta name="description" content="Listen to GINDiA Audio Stories for kids in Hindi and English with word-by-word highlighting, real Indian voices (Female, Male, Child), dynamic background music and mobile app experience."/>
-    <meta name="keywords" content="gindia audio stories kids, kids moral stories hindi english, panchatantra audio stories, bedtime story player, real voice kids story"/>
+    <title>GINDiA Audio Stories | बाल कहानियों का संसार | GIndia Kids</title>
+    <meta name="description" content="Listen to GINDiA Audio Stories for kids in Hindi and English with dedicated pages for categories and every story with live word-by-word karaoke highlight."/>
     <link rel="icon" type="image/png" href="favicon-76x76.png">
-    <link rel="apple-touch-icon" href="favicon-76x76.png">
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -18,11 +16,8 @@
             --surface: #161F36;
             --surface-card: #1E294B;
             --accent: #FDE047;
-            --highlight-word: #FF2E93;
-            --highlight-bg: rgba(255, 46, 147, 0.28);
             --text-main: #FFFFFF;
             --text-sub: #94A3B8;
-            --border-glow: rgba(236, 72, 153, 0.4);
         }
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
@@ -30,13 +25,13 @@
             background: #0B0F19;
             color: var(--text-main);
             min-height: 100vh;
-            min-height: 100dvh;
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
         }
+        a { text-decoration: none; color: inherit; }
 
-        /* ──── ANDROID NATIVE APP HEADER ──── */
+        /* ANDROID APPBAR */
         .app-header {
             background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(16px);
@@ -54,7 +49,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            text-decoration: none;
             color: #FFF;
             font-family: 'Baloo 2', cursive;
             font-size: 20px;
@@ -67,9 +61,8 @@
             border-radius: 6px;
             font-size: 11px;
             font-weight: 900;
-            letter-spacing: 0.5px;
         }
-        .header-actions { display: flex; gap: 8px; align-items: center; }
+        .header-actions { display: flex; gap: 8px; }
         .header-btn {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.15);
@@ -78,15 +71,11 @@
             border-radius: 50px;
             font-size: 12px;
             font-weight: 700;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
             transition: all 0.2s;
         }
         .header-btn:hover { background: rgba(236, 72, 153, 0.3); border-color: var(--primary); }
 
-        /* ──── CATEGORY APP TABS (HORIZONTAL SCROLL) ──── */
+        /* CATEGORIES HORIZONTAL SCROLL */
         .category-scroll-wrap {
             padding: 12px 16px 8px;
             background: #0F172A;
@@ -112,21 +101,18 @@
             font-size: 13px;
             font-weight: 700;
             white-space: nowrap;
-            cursor: pointer;
-            transition: all 0.25s;
             display: flex;
             align-items: center;
             gap: 6px;
+            transition: all 0.2s;
         }
-        .cat-chip:hover, .cat-chip.active {
+        .cat-chip:hover {
             background: linear-gradient(135deg, #EC4899, #8B5CF6);
             color: #FFF;
-            border-color: transparent;
-            box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);
             transform: scale(1.03);
         }
 
-        /* ──── MAIN CONTENT LIST ──── */
+        /* MAIN CONTENT */
         .content-wrap {
             max-width: 1080px;
             margin: 0 auto;
@@ -149,16 +135,33 @@
             align-items: center;
             gap: 8px;
         }
-        .story-count-badge {
-            background: rgba(236, 72, 153, 0.2);
-            color: #F472B6;
-            font-size: 12px;
-            font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 20px;
-        }
 
-        /* ──── STORY CARDS GRID ──── */
+        /* BIG CATEGORY CARDS GRID */
+        .cat-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .cat-card-item {
+            background: linear-gradient(135deg, #1E1B4B, #161F36);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            border-radius: 16px;
+            padding: 14px;
+            text-align: center;
+            transition: all 0.25s;
+            cursor: pointer;
+        }
+        .cat-card-item:hover {
+            transform: translateY(-3px);
+            border-color: #EC4899;
+            box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+        }
+        .cat-card-item .emoji { font-size: 32px; margin-bottom: 4px; }
+        .cat-card-item .title { font-family: 'Baloo 2', cursive; font-size: 15px; font-weight: 800; color: #FDE047; }
+        .cat-card-item .sub { font-size: 11px; color: var(--text-sub); }
+
+        /* STORY CARDS GRID */
         .story-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -169,13 +172,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 18px;
             padding: 16px;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
             display: flex;
             gap: 14px;
             align-items: center;
+            transition: all 0.25s;
+            position: relative;
+            overflow: hidden;
         }
         .story-card-native:hover {
             transform: translateY(-3px);
@@ -183,56 +185,22 @@
             border-color: #F472B6;
             box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
         }
-        .story-card-native::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, #EC4899, #8B5CF6);
-            opacity: 0;
-            transition: opacity 0.2s;
-        }
-        .story-card-native:hover::after { opacity: 1; }
-
         .story-thumb {
-            width: 72px;
-            height: 72px;
+            width: 68px;
+            height: 68px;
             border-radius: 16px;
             background: linear-gradient(135deg, #EC4899, #8B5CF6);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 36px;
+            font-size: 34px;
             flex-shrink: 0;
             box-shadow: 0 6px 16px rgba(236, 72, 153, 0.35);
         }
         .story-info { flex: 1; min-width: 0; }
-        .story-tag-pill {
-            font-size: 10px;
-            font-weight: 800;
-            color: #FDE047;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 2px;
-        }
-        .story-name {
-            font-family: 'Baloo 2', cursive;
-            font-size: 17px;
-            font-weight: 800;
-            color: #FFF;
-            line-height: 1.2;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-        .story-subtitle {
-            font-size: 12px;
-            color: var(--text-sub);
-            margin-top: 2px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .story-tag-pill { font-size: 10px; font-weight: 800; color: #FDE047; text-transform: uppercase; margin-bottom: 2px; }
+        .story-name { font-family: 'Baloo 2', cursive; font-size: 17px; font-weight: 800; color: #FFF; line-height: 1.2; }
+        .story-subtitle { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
         .story-play-icon {
             width: 38px;
             height: 38px;
@@ -244,303 +212,11 @@
             justify-content: center;
             font-size: 16px;
             flex-shrink: 0;
-            transition: all 0.2s;
             border: 1px solid rgba(236, 72, 153, 0.3);
-        }
-        .story-card-native:hover .story-play-icon {
-            background: #EC4899;
-            color: #FFF;
-            transform: scale(1.1);
-        }
-
-        /* ──── ANDROID FULLSCREEN ZERO-SCROLL PLAYER MODAL ──── */
-        .player-modal {
-            display: none;
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            background: #0B0F19;
-            flex-direction: column;
-            justify-content: space-between;
-            overflow: hidden;
-            width: 100vw;
-            height: 100vh;
-            height: 100dvh;
-            animation: slideUp 0.28s ease-out;
-        }
-        .player-modal.open { display: flex; }
-        @keyframes slideUp {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        /* TOP PLAYER APPBAR */
-        .player-appbar {
-            height: 54px;
-            padding: 0 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: rgba(15, 23, 42, 0.85);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            flex-shrink: 0;
-        }
-        .player-back-btn {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #FFF;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            font-size: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        .player-header-title {
-            text-align: center;
-            font-family: 'Baloo 2', cursive;
-            font-size: 15px;
-            font-weight: 800;
-            color: #E2E8F0;
-        }
-        .player-header-badge {
-            font-size: 10px;
-            color: #F472B6;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        /* MIDDLE PLAYER BODY: ARTWORK & WORD KARAOKE */
-        .player-body {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            padding: 12px 16px;
-            overflow: hidden;
-            justify-content: space-evenly;
-            align-items: center;
-            text-align: center;
-            max-width: 640px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .player-art-wrap {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 6px;
-        }
-        .player-art-glow {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, transparent 70%);
-            animation: pulseGlow 3s ease-in-out infinite alternate;
-        }
-        @keyframes pulseGlow {
-            0% { transform: scale(0.9); opacity: 0.5; }
-            100% { transform: scale(1.3); opacity: 0.9; }
-        }
-        .player-art-circle {
-            width: 76px;
-            height: 76px;
-            border-radius: 22px;
-            background: linear-gradient(135deg, #EC4899, #8B5CF6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45);
-            position: relative;
-            z-index: 1;
-            animation: artBob 3s ease-in-out infinite;
-        }
-        @keyframes artBob {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-4px); }
-        }
-
-        /* SOUND WAVE VISUALIZER */
-        .wave-visualizer {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            height: 20px;
-            margin: 4px 0 8px;
-        }
-        .wave-bar {
-            width: 3px;
-            height: 6px;
-            background: #EC4899;
-            border-radius: 2px;
-            transition: height 0.15s ease;
-        }
-        .wave-bar.playing {
-            animation: waveBounce 0.8s ease-in-out infinite alternate;
-        }
-        .wave-bar:nth-child(2) { animation-delay: 0.1s; height: 12px; background: #F472B6; }
-        .wave-bar:nth-child(3) { animation-delay: 0.25s; height: 18px; background: #FDE047; }
-        .wave-bar:nth-child(4) { animation-delay: 0.15s; height: 10px; background: #A78BFA; }
-        .wave-bar:nth-child(5) { animation-delay: 0.3s; height: 14px; background: #EC4899; }
-        @keyframes waveBounce {
-            0% { height: 4px; }
-            100% { height: 18px; }
-        }
-
-        /* STORY TITLE & PROGRESS */
-        .player-story-name {
-            font-family: 'Baloo 2', cursive;
-            font-size: 20px;
-            font-weight: 800;
-            color: #FDE047;
-            line-height: 1.2;
-            margin-bottom: 2px;
-        }
-        .player-story-theme {
-            font-size: 12px;
-            color: #CBD5E1;
-            margin-bottom: 8px;
-        }
-
-        /* ──── WORD-BY-WORD KARAOKE HIGHLIGHT BOX ──── */
-        .karaoke-word-box {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1.5px solid rgba(236, 72, 153, 0.35);
-            border-radius: 16px;
-            padding: 12px 14px;
-            width: 100%;
-            min-height: 90px;
-            max-height: 130px;
-            overflow-y: auto;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #94A3B8;
-            text-align: left;
-            box-shadow: inset 0 2px 10px rgba(0,0,0,0.4);
-        }
-        .karaoke-word {
-            display: inline-block;
-            padding: 1px 3px;
-            border-radius: 4px;
-            transition: all 0.12s ease;
-        }
-        .karaoke-word.word-active {
-            color: #FFFFFF !important;
-            background: var(--highlight-bg) !important;
-            border-bottom: 2px solid var(--highlight-word) !important;
-            font-weight: 800 !important;
-            transform: scale(1.06);
-            text-shadow: 0 0 10px rgba(255, 46, 147, 0.7);
-        }
-
-        /* VOICE & SETTINGS CONTROLS (PILL BUTTONS) */
-        .player-voice-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            margin-top: 8px;
-            flex-wrap: wrap;
-            width: 100%;
-        }
-        .voice-pill {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            color: #E2E8F0;
-            padding: 5px 10px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
             transition: all 0.2s;
         }
-        .voice-pill.active {
-            background: #7C3AED;
-            color: #FFF;
-            border-color: #A78BFA;
-            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
-        }
+        .story-card-native:hover .story-play-icon { background: #EC4899; color: #FFF; transform: scale(1.1); }
 
-        /* ──── BOTTOM FIXED PLAYBACK CONTROLS SHEET ──── */
-        .player-bottom-sheet {
-            background: #111827;
-            border-top: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 10px 16px 14px;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .player-main-controls {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            max-width: 480px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .btn-ctrl-sec {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #E2E8F0;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .btn-ctrl-sec:hover { background: rgba(255, 255, 255, 0.2); }
-        .btn-ctrl-play {
-            background: linear-gradient(135deg, #EC4899, #8B5CF6);
-            border: none;
-            color: #FFF;
-            width: 54px;
-            height: 54px;
-            border-radius: 50%;
-            font-size: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
-            transition: all 0.2s;
-        }
-        .btn-ctrl-play:hover { transform: scale(1.08); }
-        .player-sub-controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 480px;
-            margin: 0 auto;
-            width: 100%;
-        }
-        .btn-pill-sub {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            color: #CBD5E1;
-            padding: 5px 12px;
-            border-radius: 50px;
-            font-size: 11px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        /* CONFETTI */
-        #confetti-box { position: fixed; inset: 0; pointer-events: none; z-index: 100000; }
-        .confetti-dot { position: absolute; top: -10px; animation: confettiDrop ease-in forwards; }
-        @keyframes confettiDrop { to { transform: translateY(105vh) rotate(720deg); opacity: 0; } }
-
-        /* FOOTER */
         footer {
             background: #080C16;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -550,14 +226,11 @@
             color: var(--text-sub);
             margin-top: auto;
         }
-        footer a { color: #EC4899; text-decoration: none; font-weight: 700; }
+        footer a { color: #EC4899; }
     </style>
 </head>
 <body>
 
-    <div id="confetti-box"></div>
-
-    <!-- NATIVE APP HEADER -->
     <header class="app-header">
         <a href="index.html" class="app-brand">
             <span>🧒</span> GINDiA Stories <span class="app-brand-badge">AUDIO</span>
@@ -568,682 +241,120 @@
         </div>
     </header>
 
-    <!-- HORIZONTAL CATEGORY CHIPS SCROLLER -->
+    <!-- HORIZONTAL CATEGORY SCROLLER -->
     <div class="category-scroll-wrap">
         <div class="category-scroll">
-            <div class="cat-chip active" onclick="selectCategory('all', this)">✨ All (सभी)</div>
-            <div class="cat-chip" onclick="selectCategory('panchatantra', this)">🦁 पंचतंत्र (Panchatantra)</div>
-            <div class="cat-chip" onclick="selectCategory('suspense', this)">🕵️ सस्पेंस व थ्रिलर (Mystery)</div>
-            <div class="cat-chip" onclick="selectCategory('akbar_birbal', this)">👑 अकबर-बीरबल (Wit)</div>
-            <div class="cat-chip" onclick="selectCategory('moral', this)">⭐ शिक्षाप्रद (Moral & Life)</div>
-            <div class="cat-chip" onclick="selectCategory('bedtime', this)">🌙 लोरी व जादुई (Bedtime)</div>
+            <a href="stories.html" class="cat-chip" style="background: linear-gradient(135deg,#EC4899,#8B5CF6); color:#fff;">✨ All (सभी)</a>
+            <a href="category-panchatantra.html" class="cat-chip">🦁 पंचतंत्र (Panchatantra)</a>
+            <a href="category-suspense.html" class="cat-chip">🕵️ सस्पेंस व थ्रिलर (Mystery)</a>
+            <a href="category-akbar-birbal.html" class="cat-chip">👑 अकबर-बीरबल (Wit)</a>
+            <a href="category-moral.html" class="cat-chip">⭐ शिक्षाप्रद (Moral & Life)</a>
+            <a href="category-bedtime.html" class="cat-chip">🌙 लोरी व जादुई (Bedtime)</a>
         </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <main class="content-wrap">
+        <!-- BROWSE BY CATEGORY SECTION -->
         <div class="section-header-row">
-            <div class="section-title">
-                <span id="category-heading-text">📚 All GINDiA Stories</span>
-                <span class="story-count-badge" id="story-count-display">5 Stories</span>
-            </div>
+            <div class="section-title">📂 Browse by Category (अलग-अलग कैटेगरी पेजेस)</div>
         </div>
 
-        <!-- STORIES GRID -->
-        <div class="story-grid" id="story-list-grid"></div>
+        <div class="cat-cards-grid">
+            <a href="category-panchatantra.html" class="cat-card-item">
+                <div class="emoji">🦁</div>
+                <div class="title">पंचतंत्र</div>
+                <div class="sub">Panchatantra Tales</div>
+            </a>
+            <a href="category-suspense.html" class="cat-card-item">
+                <div class="emoji">🕵️</div>
+                <div class="title">सस्पेंस व थ्रिलर</div>
+                <div class="sub">Mystery Stories</div>
+            </a>
+            <a href="category-akbar-birbal.html" class="cat-card-item">
+                <div class="emoji">👑</div>
+                <div class="title">अकबर-बीरबल</div>
+                <div class="sub">Wit & Wisdom</div>
+            </a>
+            <a href="category-moral.html" class="cat-card-item">
+                <div class="emoji">⭐</div>
+                <div class="title">शिक्षाप्रद</div>
+                <div class="sub">Moral & Life Lessons</div>
+            </a>
+            <a href="category-bedtime.html" class="cat-card-item">
+                <div class="emoji">🌙</div>
+                <div class="title">लोरी व जादुई</div>
+                <div class="sub">Bedtime Stories</div>
+            </a>
+        </div>
+
+        <!-- ALL STORIES SECTION -->
+        <div class="section-header-row">
+            <div class="section-title">📚 All Stories (हर कहानी का अलग पेज)</div>
+            <span style="font-size:12px; color:#F472B6; font-weight:800; background:rgba(236,72,153,0.2); padding:2px 8px; border-radius:20px;">5 Stories</span>
+        </div>
+
+        <div class="story-grid">
+            <!-- STORY 1 -->
+            <a href="story-rabbit-lion.html" class="story-card-native">
+                <div class="story-thumb">🐰</div>
+                <div class="story-info">
+                    <div class="story-tag-pill">पंचतंत्र सस्पेंस • Moral</div>
+                    <div class="story-name">चालाक खरगोश और खूंखार शेर</div>
+                    <div class="story-subtitle">The Clever Rabbit & The Lion</div>
+                </div>
+                <div class="story-play-icon">▶</div>
+            </a>
+
+            <!-- STORY 2 -->
+            <a href="story-magic-pot.html" class="story-card-native">
+                <div class="story-thumb">🏺</div>
+                <div class="story-info">
+                    <div class="story-tag-pill">जादुई रहस्य • Moral</div>
+                    <div class="story-name">जादुई मटका और लालची जमींदार</div>
+                    <div class="story-subtitle">The Magical Pot & The Landlord</div>
+                </div>
+                <div class="story-play-icon">▶</div>
+            </a>
+
+            <!-- STORY 3 -->
+            <a href="story-whispering-tree.html" class="story-card-native">
+                <div class="story-thumb">🌳</div>
+                <div class="story-info">
+                    <div class="story-tag-pill">साहस और सस्पेंस • Adventure</div>
+                    <div class="story-name">भूतिया पेड़ का अनसुलझा रहस्य</div>
+                    <div class="story-subtitle">The Mystery of the Whispering Tree</div>
+                </div>
+                <div class="story-play-icon">▶</div>
+            </a>
+
+            <!-- STORY 4 -->
+            <a href="story-birbal-ring.html" class="story-card-native">
+                <div class="story-thumb">👑</div>
+                <div class="story-info">
+                    <div class="story-tag-pill">अकबर-बीरबल • Wit & Justice</div>
+                    <div class="story-name">बीरबल और चोर की जादुई दाढ़ी</div>
+                    <div class="story-subtitle">Birbal and the Stolen Diamond Ring</div>
+                </div>
+                <div class="story-play-icon">▶</div>
+            </a>
+
+            <!-- STORY 5 -->
+            <a href="story-firefly-cave.html" class="story-card-native">
+                <div class="story-thumb">✨</div>
+                <div class="story-info">
+                    <div class="story-tag-pill">प्यारी कहानी • Kindness</div>
+                    <div class="story-name">नन्ही जुगनू और अंधेरी गुफा</div>
+                    <div class="story-subtitle">The Brave Little Firefly & The Cavern</div>
+                </div>
+                <div class="story-play-icon">▶</div>
+            </a>
+        </div>
     </main>
-
-    <!-- ANDROID FULLSCREEN ZERO-SCROLL PLAYER MODAL -->
-    <div class="player-modal" id="player-modal">
-        <!-- TOP APPBAR -->
-        <div class="player-appbar">
-            <button class="player-back-btn" onclick="closePlayerModal()">←</button>
-            <div class="player-header-title">
-                <span class="player-header-badge" id="player-badge">GINDiA AUDIO STORY</span>
-                <span id="player-theme-tag">Panchatantra</span>
-            </div>
-            <button class="player-back-btn" onclick="closePlayerModal()">✕</button>
-        </div>
-
-        <!-- MIDDLE BODY (ARTWORK & WORD-BY-WORD KARAOKE) -->
-        <div class="player-body">
-            <div class="player-art-wrap">
-                <div class="player-art-glow"></div>
-                <div class="player-art-circle" id="player-emoji">🐰</div>
-            </div>
-
-            <div class="wave-visualizer" id="wave-visualizer">
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-                <div class="wave-bar"></div>
-            </div>
-
-            <div>
-                <div class="player-story-name" id="player-title">चालाक खरगोश और शेर</div>
-                <div class="player-story-theme" id="player-sub">The Clever Rabbit & The Lion</div>
-            </div>
-
-            <!-- REAL-TIME WORD-BY-WORD KARAOKE TEXT BOX -->
-            <div class="karaoke-word-box" id="karaoke-word-container">
-                <!-- Spans injected dynamically with word boundary highlight -->
-            </div>
-
-            <!-- VOICE SELECTOR ROW (FEMALE, MALE, CHILD) -->
-            <div class="player-voice-row">
-                <span style="font-size:11px; color:#CBD5E1; font-weight:700;">आवाज़ (Voice):</span>
-                <button class="voice-pill active" id="voice-btn-female" onclick="setVoiceGender('female')">👩 Female (महिला)</button>
-                <button class="voice-pill" id="voice-btn-male" onclick="setVoiceGender('male')">👨 Male (पुरुष)</button>
-                <button class="voice-pill" id="voice-btn-child" onclick="setVoiceGender('child')">🧒 Child (बच्चा)</button>
-            </div>
-        </div>
-
-        <!-- BOTTOM FIXED PLAYBACK CONTROLS SHEET (ZERO SCROLL) -->
-        <div class="player-bottom-sheet">
-            <div class="player-main-controls">
-                <button class="btn-ctrl-sec" onclick="prevSentence()" title="Previous line">⏮️</button>
-                <button class="btn-ctrl-play" id="btn-play-pause" onclick="togglePlayPause()">▶</button>
-                <button class="btn-ctrl-sec" onclick="nextSentence()" title="Next line">⏭️</button>
-            </div>
-
-            <div class="player-sub-controls">
-                <button class="btn-pill-sub" id="btn-lang" onclick="toggleLanguage()">🌐 🇮🇳 Hindi (हिन्दी)</button>
-                <button class="btn-pill-sub" id="btn-speed" onclick="cycleSpeed()">⚡ 0.9x</button>
-                <button class="btn-pill-sub" id="btn-music" onclick="toggleMusic()">🎵 Bg Music: ON</button>
-            </div>
-        </div>
-    </div>
 
     <footer>
         <p>© 2025 GINDiA Stories | <a href="index.html">GIndia Kids Learning Platform</a> • <a href="https://gindiahr.com">GIndiaHR Group</a><br>
-        100% Free Interactive Audio Stories for Children | Native Voice & Live Word Karaoke</p>
+        100% Free Interactive Audio Stories with Real Voices & Live Karaoke</p>
     </footer>
 
-    <script>
-        // ──── COMPREHENSIVE STORY REPOSITORY ────
-        const storiesData = [
-            {
-                id: 'rabbit_lion',
-                cat: 'panchatantra',
-                musicTheme: 'moral',
-                emoji: '🐰',
-                tag: 'पंचतंत्र सस्पेंस • Moral',
-                titleHi: 'चालाक खरगोश और खूंखार शेर',
-                titleEn: 'The Clever Rabbit & The Fierce Lion',
-                subHi: 'बुद्धि और सूझबूझ से बड़े से बड़ा संकट भी टल जाता है',
-                subEn: 'Wit and intelligence can conquer sheer brute force',
-                preview: 'जब जंगल के राजा भासुरक शेर ने रोज एक जानवर खाने की जिद की, तो नन्हे चालाक खरगोश ने एक पुराने कुएं की मदद से रची सस्पेंस भरी योजना...',
-                sentencesHi: [
-                    'सुंदरवन के घने जंगल में भासुरक नाम का एक बहुत ही खूंखार और घमंडी शेर रहता था।',
-                    'वह हर दिन अपनी भूख मिटाने के लिए कई बेकसूर मासूम जानवरों का शिकार कर देता था।',
-                    'सभी जानवरों ने एक दिन मिलकर शेर से प्रार्थना की कि वह रोज एक ही जानवर को अपनी गुफा में बुलाए।',
-                    'एक दिन नन्हे चालाक खरगोश चिंटू की बारी आई। वह जंगल में धीरे-धीरे जानबूझकर देर से पहुंचा।',
-                    'शेर भूख से तड़पकर गुस्से में दहाड़ने लगा, "तुम इतनी देर से क्यों आए?"',
-                    'चिंटू ने हाथ जोड़कर कहा, "महाराज, रास्ते में मुझे एक दूसरा महाबली शेर मिल गया था, जो आपको ललकार रहा था!"',
-                    'घमंडी शेर गुस्से में आगबबूला हो गया और बोला, "मुझे तुरंत उस दूसरे शेर के पास ले चलो!"',
-                    'चालाक चिंटू शेर को एक बहुत गहरे और पुराने कुएं के पास ले गया और बोला, "महाराज, वह इसी पाताल महल में छिपा है!"',
-                    'शेर ने जब कुएं में झांका, तो उसे पानी में अपनी ही परछाई दिखाई दी और गूंजती हुई दहाड़ सुनाई दी।',
-                    'उसने उसे दूसरा शेर समझकर कुएं में जोरदार छलांग लगा दी और पानी में डूबकर मारा गया!',
-                    'इस तरह नन्हे खरगोश की तेज अक्ल ने पूरे जंगल के जानवरों की जान बचा ली।',
-                    'सीख: शारीरिक बल से बुद्धि का बल हमेशा लाख गुना बड़ा होता है।'
-                ],
-                sentencesEn: [
-                    'In the dense jungle of Sunderban, there lived a fierce and arrogant lion named Bhasuraka.',
-                    'Every single day, he hunted down many innocent jungle creatures without any mercy.',
-                    'The terrified animals held a secret meeting and agreed to send him one animal each day.',
-                    'One fateful afternoon, it was the turn of Chintu, a tiny but extremely clever rabbit.',
-                    'Chintu walked very slowly on purpose, creating suspense as the sun began to set.',
-                    'The hungry lion roared in furious anger, "Why are you so late, little creature?"',
-                    'Chintu bowed politely and whispered, "My King, another mighty lion stopped me on the way and challenged your throne!"',
-                    'Furious with pride, the lion demanded, "Take me to this impostor immediately!"',
-                    'Clever Chintu led the roaring beast to an ancient, deep brick well in the ruined palace.',
-                    'When the lion looked inside, he saw his own fierce reflection in the calm water.',
-                    'He roared, and the deep echo roared right back! Thinking it was his enemy, he leaped into the deep well and was gone forever!',
-                    'Moral: Intelligence and wit are far greater than physical strength!'
-                ]
-            },
-            {
-                id: 'magic_pot',
-                cat: 'moral',
-                musicTheme: 'moral',
-                emoji: '🏺',
-                tag: 'जादुई रहस्य • Moral',
-                titleHi: 'जादुई मटका और लालची जमींदार',
-                titleEn: 'The Magical Pot & The Greedy Landlord',
-                subHi: 'लालच का फल हमेशा विनाशकारी होता है',
-                subEn: 'Greed blinds the heart and leads to total ruin',
-                preview: 'एक गरीब ईमानदार किसान को खेत में मिला एक तांबे का जादुई मटका, जो हर चीज को दोगुना कर देता था...',
-                sentencesHi: [
-                    'गंगा किनारे बसे एक छोटे से गांव में सुखिया नाम का एक बहुत ही ईमानदार किसान रहता था।',
-                    'एक दिन अपने खेत की जुताई करते समय उसका हल एक भारी तांबे के पुराने मटके से टकराया।',
-                    'सुखिया ने थककर अपनी कुदाल उस मटके में रख दी और शाम को जब उसने देखा, तो मटके में दो कुदालें थीं!',
-                    'उसने मटके में एक चांदी का सिक्का डाला, तो अगले ही पल उसमें से दो चमकदार सिक्के बाहर निकले!',
-                    'सुखिया समझ गया कि यह कोई चमत्कारी जादुई मटका है जो हर चीज को दोगुना कर देता है।',
-                    'उसने इस मटके की मदद से गांव के सभी गरीब भूखे लोगों को अनाज और कंबल बांटे।',
-                    'यह रहस्य गांव के लालची जमींदार को पता चल गया। उसने धोखे से सुखिया से वह जादुई मटका छीन लिया।',
-                    'जमींदार ने सोचा, "अगर मैं इसमें सोना डालूं तो मैं दुनिया का सबसे अमीर आदमी बन जाऊंगा!"',
-                    'वह मटके के अंदर देखने के लिए बहुत ज्यादा झुक गया और अचानक उसका पैर फिसल गया और वह मटके में गिर पड़ा!',
-                    'अगले ही क्षण, मटके से दो हूबहू एक जैसे झगड़ालू जमींदार बाहर निकल आए और अपनी-अपनी हवेली के लिए आपस में ही लड़ने लगे!',
-                    'सीख: जो दूसरों का हक छीनकर लालच करता है, वह सब कुछ गंवा बैठता है।'
-                ],
-                sentencesEn: [
-                    'In a peaceful village near the sacred Ganges, lived an honest farmer named Sukhiya.',
-                    'One morning while tilling his rocky field, his plough struck a heavy, ancient copper pot.',
-                    'Exhausted, Sukhiya placed his wooden spade inside the pot and rested under a banyan tree.',
-                    'To his utter amazement, when he looked back, there were two identical spades inside!',
-                    'He placed a silver coin inside, and instantly, two gleaming coins appeared!',
-                    'Realizing it was a magical pot, kind Sukhiya used it to feed hungry villagers and help the needy.',
-                    'Word of the magical pot soon reached the greedy village landlord, who stole it in the dead of night.',
-                    'The greedy landlord thought, "I will double all my diamonds and become king of the entire country!"',
-                    'In his eager excitement, he leaned too far into the pot, lost his footing, and fell right inside!',
-                    'Pop! Out climbed two identical, screaming landlords who started fighting over the palace wealth!',
-                    'Moral: Greed is a bottomless pit that exhausts the person and destroys happiness.'
-                ]
-            },
-            {
-                id: 'whispering_tree',
-                cat: 'suspense',
-                musicTheme: 'suspense',
-                emoji: '🌳',
-                tag: 'साहस और सस्पेंस • Adventure',
-                titleHi: 'भूतिया पेड़ का अनसुलझा रहस्य',
-                titleEn: 'The Mystery of the Whispering Tree',
-                subHi: 'डर के आगे जीत है, अफवाहों पर यकीन न करें',
-                subEn: 'Bravery and truth dissolve superstition and fear',
-                preview: 'गांव के पुराने बरगद से आधी रात को आने वाली रहस्यमयी आवाजों का सच तलाशने निकले दो बहादुर बच्चे...',
-                sentencesHi: [
-                    'गांव के पुराने टीले पर एक बहुत पुराना और विशाल बरगद का पेड़ खड़ा था।',
-                    'गांव के लोग कहते थे कि रात के अंधेरे में उस पेड़ से अजीब फुसफुसाहट और डरावनी आवाजें आती हैं।',
-                    'इसी डर की वजह से सूरज ढलते ही कोई भी उस रास्ते से नहीं गुजरता था।',
-                    'लेकिन सातवीं कक्षा में पढ़ने वाले दो होशियार बच्चे, आरव और उसकी बहन मीरा, इस रहस्य को सुलझाना चाहते थे।',
-                    'एक पूर्णिमा की रात, वे दोनों हाथ में तेज टॉर्च और नोटबुक लेकर चुपके से बरगद के पेड़ के पास पहुंचे।',
-                    'हवा चली और अचानक वही रहस्यमयी सीटी जैसी आवाज गूंज उठी — "शू... वू...!"',
-                    'आरव ने अपनी टॉर्च की तेज रोशनी पेड़ के ऊंचे तने पर डाली।',
-                    'वहां कोई भूत नहीं था, बल्कि पेड़ के खोखले तने में बांसुरी की तरह हवा गुजरने से सुरीली सीटी बज रही थी!',
-                    'और खोखले तने के अंदर एक नन्हीं घायल उल्लू की बच्ची बैठी थी, जो मदद के लिए रो रही थी।',
-                    'आरव और मीरा ने उस नन्हीं चिड़िया को सुरक्षित निकाला, उसकी मरहम-पट्टी की और पूरे गांव का अंधविश्वास हमेशा के लिए दूर कर दिया!',
-                    'सीख: बिना जांचे किसी भी अफवाह या डर पर विश्वास नहीं करना चाहिए। साहस से हर रहस्य सुलझ जाता है।'
-                ],
-                sentencesEn: [
-                    'At the edge of the quiet village stood a colossal banyan tree with hanging vines.',
-                    'The villagers whispered spooky tales that the ancient tree whispered eerie words in the midnight breeze.',
-                    'Out of sheer superstition, nobody dared to walk past the banyan hill after twilight.',
-                    'However, two fearless young detectives, Aarav and Meera, decided to uncover the truth.',
-                    'Armed with powerful LED flashlights and curiosity, they quietly walked up the hill under the starry sky.',
-                    'Suddenly, the wind howled and a chilling whistle echoed from the branches — "Whooo... Shuuu...!"',
-                    'Meera bravely aimed her bright beam high up into the massive hollow trunk.',
-                    'There was no ghost at all! Natural hollow wind tunnels in the bark were creating a flute-like sound!',
-                    'Inside the cozy hollow nestled a tiny injured baby owl, crying softly for gentle help.',
-                    'Aarav and Meera rescued the baby bird, proving that fear is just lack of understanding!',
-                    'Moral: Never let fear and superstition cloud your reason. Courage always reveals the truth.'
-                ]
-            },
-            {
-                id: 'birbal_ring',
-                cat: 'akbar_birbal',
-                musicTheme: 'inspirational',
-                emoji: '👑',
-                tag: 'अकबर-बीरबल • Wit & Mystery',
-                titleHi: 'बीरबल और चोर की जादुई दाढ़ी',
-                titleEn: 'Birbal and the Stolen Diamond Ring',
-                subHi: 'चोर की दाढ़ी में तिनका, सच कभी छिपता नहीं',
-                subEn: 'A guilty conscience needs no accuser',
-                preview: 'शहंशाह अकबर की अनमोल हीरे की अंगूठी गायब हो गई! बीरबल ने जादुई छड़ियों से कैसे पकड़ा असली चोर?',
-                sentencesHi: [
-                    'शहंशाह अकबर के महल में एक दिन अचानक उनकी सबसे कीमती नौलखा हीरे की अंगूठी गायब हो गई।',
-                    'बादशाह अकबर बहुत परेशान हुए क्योंकि उस कमरे में केवल उनके आठ सबसे खास दरबारी सेवक ही जा सकते थे।',
-                    'अकबर ने न्याय के चतुर उस्ताद बीरबल को शाही दरबार में बुलाया और चोर का पता लगाने को कहा।',
-                    'बीरबल ने मुस्कुराते हुए सभी आठों सेवकों को दरबार में हाजिर किया।',
-                    'बीरबल ने सबको बराबर लंबाई की एक-एक लकड़ी की छड़ी दी और कहा, "ये जादुई छड़ियां हैं!"',
-                    'बीरबल बोले, "जिसने भी अंगूठी चुराई होगी, कल सुबह तक उसकी जादुई छड़ी दो इंच अपने आप लंबी हो जाएगी!"',
-                    'सभी सेवक अपने घर लौट गए। लेकिन असली चोर रात भर डर से कांपने लगा।',
-                    'उसने सोचा कि क्यों न वह अपनी छड़ी को दो इंच काट दे, ताकि सुबह वह बाकी छड़ियों के बराबर हो जाए!',
-                    'अगली सुबह बीरबल ने सबकी छड़ियां नापीं। एक सेवक की छड़ी ठीक दो इंच छोटी निकली!',
-                    'बीरबल ने तुरंत उस चोर को पकड़ लिया और अंगूठी बरामद कर ली।',
-                    'सीख: अपराध करने वाले का अपना डर ही उसे सबसे पहले बेनकाब कर देता है।'
-                ],
-                sentencesEn: [
-                    'One morning in the grand Agra Palace, Emperor Akbar discovered his most precious emerald ring was missing.',
-                    'The emperor was deeply troubled because only his eight trusted personal servants had access to the royal chamber.',
-                    'Akbar summoned his legendary witty minister, Birbal, to solve the royal mystery.',
-                    'Birbal calmly lined up all eight servants and handed each one a wooden stick of identical length.',
-                    'Birbal declared, "These are enchanted royal sticks from the Himalayan sages!"',
-                    '"Whosoever stole the ring, his magical stick will miraculously grow two inches longer by tomorrow morning!"',
-                    'The innocent servants slept peacefully, but the real thief stayed awake trembling with guilt.',
-                    'He secretly took a knife and cut exactly two inches off his stick, thinking it would grow back to normal by sunrise!',
-                    'The next morning, Birbal measured all eight sticks. One servant\'s stick was precisely two inches shorter!',
-                    'Birbal smiled and pointed, "Your Majesty, here is your thief! His own guilty mind gave him away!"',
-                    'Moral: Truth never hides. A guilty conscience always betrays itself.'
-                ]
-            },
-            {
-                id: 'firefly_cave',
-                cat: 'bedtime',
-                musicTheme: 'bedtime',
-                emoji: '✨',
-                tag: 'प्यारी कहानी • Kindness',
-                titleHi: 'नन्ही जुगनू और अंधेरी गुफा',
-                titleEn: 'The Brave Little Firefly & The Dark Cavern',
-                subHi: 'आप कितने भी छोटे क्यों न हों, आपकी रोशनी दुनिया बदल सकती है',
-                subEn: 'No act of kindness or light is ever too small to make a difference',
-                preview: 'तूफान के बीच अंधेरी गुफा में फंसे जानवरों को नन्ही जुगनू ने अपनी चमक से कैसे सुरक्षित बाहर निकाला...',
-                sentencesHi: [
-                    'पहाड़ों की गोद में बसे एक खूबसूरत जंगल में जुगनू नाम की एक नन्ही जुगनू रहती थी।',
-                    'वह अक्सर सोचती थी कि सूरज और चांद कितने बड़े हैं, जबकि उसकी अपनी रोशनी तो बहुत छोटी सी है।',
-                    'एक शाम जंगल में बहुत भयंकर तूफान आया और मूसलाधार बारिश होने लगी।',
-                    'बंदर, खरगोश, हिरण और नन्हे पक्षी जान बचाने के लिए एक बहुत बड़ी अंधेरी गुफा में घुस गए।',
-                    'तूफान के कारण गुफा के मुंह पर एक भारी चट्टान खिसक गई और अंदर बिल्कुल घुप्प अंधेरा छा गया।',
-                    'सभी जानवर डर से कांपने लगे और बाहर निकलने का रास्ता नहीं ढूंढ पा रहे थे।',
-                    'तभी नन्ही जुगनू ने अपने नन्हे पंख फड़फड़ाए और अपनी हरी-पीली चमकती रोशनी जलाई।',
-                    'उसकी टिमटिमाती रोशनी अंधेरे में एक चमकदार सितारे की तरह चमक उठी।',
-                    'जुगनू आगे-आगे उड़ी और सभी जानवरों को गुफा के गुप्त सुरक्षित रास्ते से बाहर ले आई।',
-                    'सभी जानवरों ने जुगनू को अपने कंधों पर बिठाया और कहा, "तुम हमारे जंगल की सबसे चमकती हीरो हो!"',
-                    'सीख: अपनी काबिलियत को कभी कम मत समझो। संकट के समय छोटी सी उम्मीद भी सबसे बड़ा सहारा बनती है।'
-                ],
-                sentencesEn: [
-                    'In a lush green valley beneath the misty mountains lived a sweet little firefly named Jugnu.',
-                    'Jugnu often felt shy because her tiny green glow seemed invisible next to the grand golden sun and silvery moon.',
-                    'One stormy evening, a sudden tempest blew across the valley with thunder and heavy rain.',
-                    'A family of rabbits, baby deer, and little birds rushed into a deep cavern for shelter.',
-                    'A sudden landslide blocked the entrance, plunging the deep cave into pitch-black darkness!',
-                    'The animals were frightened, unable to find the winding path back out.',
-                    'Little Jugnu fluttered her translucent wings and lit up her glowing beacon with all her heart.',
-                    'Her warm, steady spark illuminated the slippery rocks like a beacon of hope in the dark.',
-                    'Flying ahead step by step, Jugnu guided every single creature safely through the hidden mountain exit.',
-                    'The grateful animals cheered, "You proved that true greatness comes from the courage within your heart!"',
-                    'Moral: Never underestimate yourself. Even the smallest light can shatter the deepest darkness.'
-                ]
-            }
-        ];
-
-        // ──── APPLICATION STATE ────
-        let currentCategory = 'all';
-        let currentStoryIndex = 0;
-        let currentSentenceIndex = 0;
-        let currentLang = 'hi';
-        let currentVoiceGender = 'female'; // 'female', 'male', 'child'
-        let playbackSpeed = 0.92;
-        let isPlaying = false;
-        let speechTimer = null;
-        let wordTimer = null;
-
-        // ──── ADAPTIVE THEMED SYNTHESIZER (AMBIENT MUSIC) ────
-        let audioCtx = null;
-        let gainNode = null;
-        let isMusicEnabled = true;
-
-        const musicFrequencies = {
-            suspense: [73.42, 110.00, 146.83, 220.00], // D minor dark ambient
-            moral: [130.81, 164.81, 196.00, 261.63],    // C major warm pad
-            inspirational: [174.61, 220.00, 261.63, 349.23], // F major triumphant
-            bedtime: [110.00, 164.81, 220.00, 277.18]   // A soothing lullaby
-        };
-
-        function startThemeMusic(theme = 'moral') {
-            try {
-                if (!isMusicEnabled) return;
-                const AudioContext = window.AudioContext || window.webkitAudioContext;
-                if (!AudioContext) return;
-                if (!audioCtx) audioCtx = new AudioContext();
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                if (gainNode) return;
-
-                gainNode = audioCtx.createGain();
-                gainNode.gain.setValueAtTime(0.032, audioCtx.currentTime);
-                gainNode.connect(audioCtx.destination);
-
-                const freqs = musicFrequencies[theme] || musicFrequencies.moral;
-                freqs.forEach(f => {
-                    const osc = audioCtx.createOscillator();
-                    osc.type = theme === 'suspense' ? 'triangle' : 'sine';
-                    osc.frequency.setValueAtTime(f, audioCtx.currentTime);
-
-                    const filter = audioCtx.createBiquadFilter();
-                    filter.type = 'lowpass';
-                    filter.frequency.setValueAtTime(theme === 'suspense' ? 320 : 480, audioCtx.currentTime);
-
-                    osc.connect(filter);
-                    filter.connect(gainNode);
-                    osc.start();
-                });
-            } catch(e) {}
-        }
-
-        function stopThemeMusic() {
-            try {
-                if (gainNode && audioCtx) {
-                    gainNode.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35);
-                    setTimeout(() => { gainNode = null; }, 400);
-                }
-            } catch(e) {}
-        }
-
-        function toggleMusic() {
-            isMusicEnabled = !isMusicEnabled;
-            document.getElementById('btn-music').textContent = isMusicEnabled ? '🎵 Bg Music: ON' : '🔇 Bg Music: OFF';
-            if (isMusicEnabled && isPlaying) {
-                const story = storiesData[currentStoryIndex];
-                startThemeMusic(story.musicTheme);
-            } else {
-                stopThemeMusic();
-            }
-        }
-
-        // ──── SMART VOICE SELECTION (FEMALE, MALE, CHILD) ────
-        function getVoiceForGender(lang, gender) {
-            const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
-            if (!voices || voices.length === 0) return null;
-
-            if (lang === 'hi') {
-                const hindiVoices = voices.filter(v => v.lang.startsWith('hi') || v.name.includes('Hindi') || v.name.includes('हिन्दी'));
-                if (hindiVoices.length > 0) {
-                    if (gender === 'female') {
-                        const f = hindiVoices.find(v => v.name.includes('Kalpana') || v.name.includes('Female') || v.name.includes('महिला') || v.name.includes('Google हिन्दी'));
-                        if (f) return f;
-                    } else if (gender === 'male') {
-                        const m = hindiVoices.find(v => v.name.includes('Hemant') || v.name.includes('Male') || v.name.includes('पुरुष'));
-                        if (m) return m;
-                    }
-                    return hindiVoices[0];
-                }
-            }
-
-            // English voices
-            const enIndian = voices.filter(v => v.lang === 'en-IN' || v.name.includes('India'));
-            if (enIndian.length > 0) {
-                if (gender === 'female') {
-                    const f = enIndian.find(v => v.name.includes('Female') || v.name.includes('Heera') || v.name.includes('Zira'));
-                    if (f) return f;
-                } else if (gender === 'male') {
-                    const m = enIndian.find(v => v.name.includes('Male') || v.name.includes('Ravi') || v.name.includes('David'));
-                    if (m) return m;
-                }
-                return enIndian[0];
-            }
-
-            return voices.find(v => v.lang.startsWith('en')) || voices[0];
-        }
-
-        function setVoiceGender(g) {
-            currentVoiceGender = g;
-            ['female', 'male', 'child'].forEach(id => {
-                const btn = document.getElementById(`voice-btn-${id}`);
-                if (btn) btn.classList.toggle('active', id === g);
-            });
-            if (isPlaying) speakCurrentSentence();
-        }
-
-        // ──── CATEGORY FILTERING & RENDERING ────
-        function renderStoryCards(cat = 'all') {
-            const grid = document.getElementById('story-list-grid');
-            grid.innerHTML = '';
-            const filtered = cat === 'all' ? storiesData : storiesData.filter(s => s.cat === cat);
-
-            document.getElementById('story-count-display').textContent = `${filtered.length} Stories`;
-
-            filtered.forEach(story => {
-                const realIdx = storiesData.indexOf(story);
-                const card = document.createElement('div');
-                card.className = 'story-card-native';
-                card.innerHTML = `
-                    <div class="story-thumb">${story.emoji}</div>
-                    <div class="story-info">
-                        <div class="story-tag-pill">${story.tag}</div>
-                        <div class="story-name">${currentLang === 'hi' ? story.titleHi : story.titleEn}</div>
-                        <div class="story-subtitle">${currentLang === 'hi' ? story.subHi : story.subEn}</div>
-                    </div>
-                    <div class="story-play-icon">▶</div>
-                `;
-                // Open and immediately play on click!
-                card.onclick = () => openAndPlayStory(realIdx);
-                grid.appendChild(card);
-            });
-        }
-
-        function selectCategory(cat, chip) {
-            currentCategory = cat;
-            if (chip) {
-                document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
-                chip.classList.add('active');
-            }
-            const catNames = {
-                all: '📚 All GINDiA Stories',
-                panchatantra: '🦁 पंचतंत्र कहानियाँ (Panchatantra)',
-                suspense: '🕵️ सस्पेंस व थ्रिलर (Mystery Stories)',
-                akbar_birbal: '👑 अकबर-बीरबल की चतुराई (Wit Stories)',
-                moral: '⭐ शिक्षाप्रद कहानियाँ (Moral & Life)',
-                bedtime: '🌙 लोरी व जादुई कहानियाँ (Bedtime Tales)'
-            };
-            document.getElementById('category-heading-text').textContent = catNames[cat] || '📚 GINDiA Stories';
-            renderStoryCards(cat);
-        }
-
-        // ──── STORY PLAYER & WORD KARAOKE ────
-        function openAndPlayStory(idx) {
-            currentStoryIndex = idx;
-            currentSentenceIndex = 0;
-            const story = storiesData[idx];
-
-            document.getElementById('player-emoji').textContent = story.emoji;
-            document.getElementById('player-theme-tag').textContent = story.tag;
-            document.getElementById('player-title').textContent = currentLang === 'hi' ? story.titleHi : story.titleEn;
-            document.getElementById('player-sub').textContent = currentLang === 'hi' ? story.subHi : story.subEn;
-
-            document.getElementById('player-modal').classList.add('open');
-            document.body.style.overflow = 'hidden';
-
-            startPlayback();
-        }
-
-        function closePlayerModal() {
-            stopPlayback();
-            document.getElementById('player-modal').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        function togglePlayPause() {
-            if (isPlaying) stopPlayback();
-            else startPlayback();
-        }
-
-        function startPlayback() {
-            isPlaying = true;
-            document.getElementById('btn-play-pause').textContent = '⏸';
-            setWaveVisualizer(true);
-
-            const story = storiesData[currentStoryIndex];
-            startThemeMusic(story.musicTheme);
-            speakCurrentSentence();
-        }
-
-        function stopPlayback() {
-            isPlaying = false;
-            document.getElementById('btn-play-pause').textContent = '▶';
-            setWaveVisualizer(false);
-
-            if ('speechSynthesis' in window) window.speechSynthesis.cancel();
-            if (speechTimer) clearTimeout(speechTimer);
-            if (wordTimer) clearInterval(wordTimer);
-            stopThemeMusic();
-        }
-
-        function setWaveVisualizer(active) {
-            const bars = document.querySelectorAll('.wave-bar');
-            bars.forEach(b => b.classList.toggle('playing', active));
-        }
-
-        function renderSentenceWords(sentenceText) {
-            const container = document.getElementById('karaoke-word-container');
-            container.innerHTML = '';
-            const words = sentenceText.trim().split(/\s+/);
-
-            words.forEach((w, idx) => {
-                const span = document.createElement('span');
-                span.className = 'karaoke-word';
-                span.id = `k-word-${idx}`;
-                span.textContent = w + ' ';
-                container.appendChild(span);
-            });
-        }
-
-        function highlightWordIndex(idx) {
-            document.querySelectorAll('.karaoke-word').forEach(sp => sp.classList.remove('word-active'));
-            const activeSpan = document.getElementById(`k-word-${idx}`);
-            if (activeSpan) {
-                activeSpan.classList.add('word-active');
-            }
-        }
-
-        function speakCurrentSentence() {
-            if (!isPlaying) return;
-            const story = storiesData[currentStoryIndex];
-            const sentences = currentLang === 'hi' ? story.sentencesHi : story.sentencesEn;
-
-            if (currentSentenceIndex >= sentences.length) {
-                // Story completed
-                stopPlayback();
-                launchConfetti();
-                currentSentenceIndex = 0;
-                return;
-            }
-
-            const rawText = sentences[currentSentenceIndex];
-            renderSentenceWords(rawText);
-
-            if (!('speechSynthesis' in window)) return;
-            window.speechSynthesis.cancel();
-            if (wordTimer) clearInterval(wordTimer);
-
-            const utt = new SpeechSynthesisUtterance(rawText);
-            utt.lang = currentLang === 'hi' ? 'hi-IN' : 'en-IN';
-            utt.rate = playbackSpeed;
-
-            // Pitch & voice tuning by gender
-            if (currentVoiceGender === 'female') {
-                utt.pitch = 1.08;
-            } else if (currentVoiceGender === 'male') {
-                utt.pitch = 0.85;
-            } else if (currentVoiceGender === 'child') {
-                utt.pitch = 1.45;
-                utt.rate = playbackSpeed * 1.05;
-            }
-
-            const voice = getVoiceForGender(currentLang, currentVoiceGender);
-            if (voice) utt.voice = voice;
-
-            // Word-by-word boundary tracking
-            const words = rawText.trim().split(/\s+/);
-            let boundaryTriggered = false;
-
-            utt.onboundary = (e) => {
-                if (e.name === 'word') {
-                    boundaryTriggered = true;
-                    // Calculate word index based on character offset
-                    let charCount = 0;
-                    for (let i = 0; i < words.length; i++) {
-                        charCount += words[i].length + 1;
-                        if (e.charIndex < charCount) {
-                            highlightWordIndex(i);
-                            break;
-                        }
-                    }
-                }
-            };
-
-            // High-precision Fallback word-by-word timer if browser boundary is unsupported
-            let wordIdx = 0;
-            const approxWordDuration = Math.max(160, Math.floor(60000 / (135 * playbackSpeed)));
-            wordTimer = setInterval(() => {
-                if (!boundaryTriggered && isPlaying && wordIdx < words.length) {
-                    highlightWordIndex(wordIdx);
-                    wordIdx++;
-                }
-            }, approxWordDuration);
-
-            utt.onend = () => {
-                if (wordTimer) clearInterval(wordTimer);
-                highlightWordIndex(words.length - 1);
-                if (!isPlaying) return;
-
-                speechTimer = setTimeout(() => {
-                    currentSentenceIndex++;
-                    speakCurrentSentence();
-                }, 220); // Natural human sentence pause
-            };
-
-            utt.onerror = () => {
-                if (wordTimer) clearInterval(wordTimer);
-                if (!isPlaying) return;
-                currentSentenceIndex++;
-                speakCurrentSentence();
-            };
-
-            window.speechSynthesis.speak(utt);
-        }
-
-        function prevSentence() {
-            if (currentSentenceIndex > 0) {
-                currentSentenceIndex--;
-                if (isPlaying) speakCurrentSentence();
-                else renderSentenceWords((currentLang === 'hi' ? storiesData[currentStoryIndex].sentencesHi : storiesData[currentStoryIndex].sentencesEn)[currentSentenceIndex]);
-            }
-        }
-
-        function nextSentence() {
-            const total = (currentLang === 'hi' ? storiesData[currentStoryIndex].sentencesHi : storiesData[currentStoryIndex].sentencesEn).length;
-            if (currentSentenceIndex < total - 1) {
-                currentSentenceIndex++;
-                if (isPlaying) speakCurrentSentence();
-                else renderSentenceWords((currentLang === 'hi' ? storiesData[currentStoryIndex].sentencesHi : storiesData[currentStoryIndex].sentencesEn)[currentSentenceIndex]);
-            }
-        }
-
-        function toggleLanguage() {
-            currentLang = currentLang === 'hi' ? 'en' : 'hi';
-            document.getElementById('btn-lang').textContent = currentLang === 'hi' ? '🌐 🇮🇳 Hindi (हिन्दी)' : '🌐 🇬🇧 English';
-            const wasPlaying = isPlaying;
-            stopPlayback();
-
-            const story = storiesData[currentStoryIndex];
-            document.getElementById('player-title').textContent = currentLang === 'hi' ? story.titleHi : story.titleEn;
-            document.getElementById('player-sub').textContent = currentLang === 'hi' ? story.subHi : story.subEn;
-
-            renderStoryCards(currentCategory);
-            if (wasPlaying) startPlayback();
-        }
-
-        function cycleSpeed() {
-            if (playbackSpeed === 0.92) playbackSpeed = 1.1;
-            else if (playbackSpeed === 1.1) playbackSpeed = 0.8;
-            else playbackSpeed = 0.92;
-            document.getElementById('btn-speed').textContent = `⚡ ${playbackSpeed}x`;
-            if (isPlaying) speakCurrentSentence();
-        }
-
-        function launchConfetti() {
-            const box = document.getElementById('confetti-box');
-            const colors = ['#EC4899', '#8B5CF6', '#FDE047', '#10B981', '#3B82F6', '#F97316'];
-            for (let i = 0; i < 35; i++) {
-                const el = document.createElement('div');
-                el.className = 'confetti-dot';
-                el.style.left = Math.random() * 100 + 'vw';
-                el.style.background = colors[Math.floor(Math.random() * colors.length)];
-                el.style.width = el.style.height = (6 + Math.random() * 8) + 'px';
-                el.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-                el.style.animationDuration = (1.5 + Math.random() * 2) + 's';
-                box.appendChild(el);
-                setTimeout(() => el.remove(), 3500);
-            }
-        }
-
-        // Initialize voices when available
-        if ('speechSynthesis' in window) {
-            window.speechSynthesis.onvoiceschanged = () => {};
-        }
-
-        // Initial render
-        renderStoryCards('all');
-    </script>
 </body>
 </html>
