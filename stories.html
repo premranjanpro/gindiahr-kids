@@ -2,47 +2,55 @@
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>Kuku FM Style Audio Stories for Kids | नैतिक व सस्पेंस कहानियाँ | GIndia Kids</title>
-    <meta name="description" content="Listen to Kuku FM style audio bedtime stories for kids in Hindi and English. Panchatantra, suspense, morals, Akbar Birbal, with live karaoke subtitles and real voice narration."/>
-    <meta name="keywords" content="kids audio stories hindi, kuku fm style kids stories, moral bedtime stories hindi english, panchatantra audio stories patna"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>GINDiA Audio Stories | जादुई, सस्पेंस व शिक्षाप्रद कहानियाँ | GIndia Kids</title>
+    <meta name="description" content="Listen to GINDiA Audio Stories for kids in Hindi and English with word-by-word highlighting, real Indian voices (Female, Male, Child), dynamic background music and mobile app experience."/>
+    <meta name="keywords" content="gindia audio stories kids, kids moral stories hindi english, panchatantra audio stories, bedtime story player, real voice kids story"/>
     <link rel="icon" type="image/png" href="favicon-76x76.png">
     <link rel="apple-touch-icon" href="favicon-76x76.png">
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #EC4899;
-            --purple: #8B5CF6;
-            --dark: #0F172A;
-            --card-bg: #FFFFFF;
+            --primary-dark: #BE185D;
+            --secondary: #8B5CF6;
+            --bg-dark: #0B0F19;
+            --surface: #161F36;
+            --surface-card: #1E294B;
             --accent: #FDE047;
-            --gold: #F59E0B;
+            --highlight-word: #FF2E93;
+            --highlight-bg: rgba(255, 46, 147, 0.28);
+            --text-main: #FFFFFF;
+            --text-sub: #94A3B8;
+            --border-glow: rgba(236, 72, 153, 0.4);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
         body {
             font-family: 'Nunito', sans-serif;
-            background: linear-gradient(180deg, #0F172A 0%, #1E1B4B 50%, #0F172A 100%);
-            color: #F8FAFC;
+            background: #0B0F19;
+            color: var(--text-main);
             min-height: 100vh;
+            min-height: 100dvh;
             display: flex;
             flex-direction: column;
+            overflow-x: hidden;
         }
 
-        /* HEADER NAV */
-        nav {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 2px solid rgba(236, 72, 153, 0.3);
-            padding: 0 24px;
-            height: 64px;
+        /* ──── ANDROID NATIVE APP HEADER ──── */
+        .app-header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 10px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             position: sticky;
             top: 0;
             z-index: 100;
+            height: 58px;
         }
-        .nav-logo {
+        .app-brand {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -52,474 +60,620 @@
             font-size: 20px;
             font-weight: 800;
         }
-        .nav-logo span { color: #F472B6; }
-        .nav-links { display: flex; gap: 10px; }
-        .nav-link {
-            font-size: 13px;
-            font-weight: 700;
+        .app-brand-badge {
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            color: #FFF;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+        }
+        .header-actions { display: flex; gap: 8px; align-items: center; }
+        .header-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             color: #E2E8F0;
-            padding: 6px 14px;
+            padding: 6px 12px;
             border-radius: 50px;
-            background: rgba(255, 255, 255, 0.08);
+            font-size: 12px;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .nav-link:hover { background: rgba(236, 72, 153, 0.25); color: #FFF; border-color: #EC4899; }
-
-        /* HERO SECTION */
-        .hero {
-            padding: 36px 20px 24px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: rgba(236, 72, 153, 0.2);
-            color: #F472B6;
-            border: 1px solid rgba(236, 72, 153, 0.4);
-            padding: 6px 16px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 800;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            transition: all 0.2s;
         }
-        .hero h1 {
-            font-family: 'Baloo 2', cursive;
-            font-size: 36px;
-            font-weight: 900;
-            color: #FFF;
-            line-height: 1.2;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #FFF 30%, #FDE047 70%, #F472B6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .hero p {
-            font-size: 15px;
-            color: #94A3B8;
-            max-width: 600px;
-            margin: 0 auto 20px;
-            line-height: 1.5;
-        }
+        .header-btn:hover { background: rgba(236, 72, 153, 0.3); border-color: var(--primary); }
 
-        /* CATEGORY FILTER PILLS */
-        .category-bar {
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 24px;
-            padding: 0 16px;
+        /* ──── CATEGORY APP TABS (HORIZONTAL SCROLL) ──── */
+        .category-scroll-wrap {
+            padding: 12px 16px 8px;
+            background: #0F172A;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 58px;
+            z-index: 90;
         }
-        .cat-btn {
+        .category-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-bottom: 4px;
+        }
+        .category-scroll::-webkit-scrollbar { display: none; }
+        .cat-chip {
             background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             color: #CBD5E1;
-            padding: 8px 18px;
+            padding: 8px 16px;
             border-radius: 50px;
             font-size: 13px;
             font-weight: 700;
+            white-space: nowrap;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: all 0.25s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
-        .cat-btn:hover, .cat-btn.active {
+        .cat-chip:hover, .cat-chip.active {
             background: linear-gradient(135deg, #EC4899, #8B5CF6);
             color: #FFF;
-            border-color: #EC4899;
-            box-shadow: 0 4px 16px rgba(236, 72, 153, 0.35);
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(236, 72, 153, 0.4);
+            transform: scale(1.03);
         }
 
-        /* STORY GRID */
-        .story-container {
-            max-width: 1120px;
+        /* ──── MAIN CONTENT LIST ──── */
+        .content-wrap {
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 0 20px 40px;
+            padding: 16px;
+            width: 100%;
+            flex: 1;
+        }
+        .section-header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+        .section-title {
+            font-family: 'Baloo 2', cursive;
+            font-size: 20px;
+            font-weight: 800;
+            color: #FFF;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .story-count-badge {
+            background: rgba(236, 72, 153, 0.2);
+            color: #F472B6;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 20px;
+        }
+
+        /* ──── STORY CARDS GRID ──── */
+        .story-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            width: 100%;
+            gap: 14px;
         }
-        .story-card {
-            background: rgba(30, 41, 59, 0.7);
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 22px 20px;
+        .story-card-native {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 18px;
+            padding: 16px;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .story-card:hover {
-            transform: translateY(-5px);
-            border-color: #F472B6;
-            background: rgba(49, 46, 129, 0.6);
-            box-shadow: 0 12px 30px rgba(236, 72, 153, 0.25);
-        }
-        .story-card-top {
-            display: flex;
-            align-items: flex-start;
             gap: 14px;
-            margin-bottom: 12px;
+            align-items: center;
         }
-        .story-card-icon {
-            width: 58px;
-            height: 58px;
+        .story-card-native:hover {
+            transform: translateY(-3px);
+            background: var(--surface-card);
+            border-color: #F472B6;
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.25);
+        }
+        .story-card-native::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #EC4899, #8B5CF6);
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .story-card-native:hover::after { opacity: 1; }
+
+        .story-thumb {
+            width: 72px;
+            height: 72px;
             border-radius: 16px;
             background: linear-gradient(135deg, #EC4899, #8B5CF6);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
+            font-size: 36px;
             flex-shrink: 0;
-            box-shadow: 0 6px 16px rgba(236, 72, 153, 0.3);
+            box-shadow: 0 6px 16px rgba(236, 72, 153, 0.35);
         }
-        .story-card-tag {
-            font-size: 11px;
+        .story-info { flex: 1; min-width: 0; }
+        .story-tag-pill {
+            font-size: 10px;
             font-weight: 800;
             color: #FDE047;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 2px;
         }
-        .story-card-title {
+        .story-name {
             font-family: 'Baloo 2', cursive;
-            font-size: 19px;
+            font-size: 17px;
             font-weight: 800;
             color: #FFF;
-            line-height: 1.25;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .story-card-sub {
+        .story-subtitle {
             font-size: 12px;
-            color: #CBD5E1;
+            color: var(--text-sub);
             margin-top: 2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
-        .story-card-preview {
-            font-size: 13px;
-            color: #94A3B8;
-            line-height: 1.6;
-            margin-bottom: 16px;
-            flex: 1;
-        }
-        .story-card-btn {
-            background: linear-gradient(135deg, rgba(236,72,153,0.2), rgba(139,92,246,0.2));
-            border: 1px solid rgba(236,72,153,0.4);
+        .story-play-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(236, 72, 153, 0.2);
             color: #F472B6;
-            font-size: 13px;
-            font-weight: 800;
-            padding: 10px;
-            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            font-size: 16px;
+            flex-shrink: 0;
             transition: all 0.2s;
+            border: 1px solid rgba(236, 72, 153, 0.3);
         }
-        .story-card:hover .story-card-btn {
-            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+        .story-card-native:hover .story-play-icon {
+            background: #EC4899;
             color: #FFF;
-            border-color: transparent;
+            transform: scale(1.1);
         }
 
-        /* MODAL / KUKU FM AUDIO PLAYER */
-        .modal-overlay {
+        /* ──── ANDROID FULLSCREEN ZERO-SCROLL PLAYER MODAL ──── */
+        .player-modal {
             display: none;
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
             z-index: 9999;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            background: #0B0F19;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            animation: slideUp 0.28s ease-out;
         }
-        .modal-overlay.open { display: flex; }
-        .modal-content {
-            background: linear-gradient(135deg, #1E1B4B, #0F172A);
-            border: 2px solid #8B5CF6;
-            border-radius: 28px;
-            padding: 28px 24px;
-            max-width: 650px;
-            width: 100%;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-            animation: modalPop 0.3s ease;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        @keyframes modalPop {
-            from { transform: scale(0.92); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-        .modal-close {
-            position: absolute;
-            top: 18px;
-            right: 18px;
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: #CBD5E1;
-            font-size: 18px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        .modal-close:hover { background: #EF4444; color: #FFF; }
-
-        /* KUKU PLAYER INSIDE MODAL */
-        .kuku-live-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .kuku-live-icon {
-            width: 72px;
-            height: 72px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #EC4899, #8B5CF6);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 38px;
-            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.4);
-            flex-shrink: 0;
-            animation: bobIcon 3s ease-in-out infinite;
-        }
-        @keyframes bobIcon {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-        .kuku-live-title {
-            font-family: 'Baloo 2', cursive;
-            font-size: 24px;
-            font-weight: 800;
-            color: #FDE047;
-            line-height: 1.2;
-        }
-        .kuku-live-tag {
-            font-size: 12px;
-            font-weight: 800;
-            color: #F472B6;
-            text-transform: uppercase;
-        }
-        .kuku-live-sub {
-            font-size: 13px;
-            color: #CBD5E1;
+        .player-modal.open { display: flex; }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
-        /* KARAOKE TEXT BOX */
-        .kuku-karaoke-box {
-            background: rgba(15, 23, 42, 0.85);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 18px;
-            padding: 16px;
-            min-height: 140px;
-            max-height: 220px;
-            overflow-y: auto;
-            margin-bottom: 18px;
-        }
-        .kuku-karaoke-item {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #94A3B8;
-            padding: 6px 10px;
-            border-radius: 8px;
-            margin-bottom: 6px;
-            transition: all 0.25s ease;
-            cursor: pointer;
-        }
-        .kuku-karaoke-item:hover { color: #CBD5E1; background: rgba(255, 255, 255, 0.05); }
-        .kuku-karaoke-item.active {
-            color: #FFF;
-            background: rgba(139, 92, 246, 0.35);
-            border-left: 3px solid #EC4899;
-            font-weight: 700;
-            text-shadow: 0 0 12px rgba(236, 72, 153, 0.5);
-        }
-
-        /* CONTROLS */
-        .kuku-actions-bar {
+        /* TOP PLAYER APPBAR */
+        .player-appbar {
+            height: 54px;
+            padding: 0 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 8px;
-            flex-wrap: wrap;
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
         }
-        .kuku-main-play {
-            background: linear-gradient(135deg, #EC4899, #8B5CF6);
-            color: #FFF;
+        .player-back-btn {
+            background: rgba(255, 255, 255, 0.1);
             border: none;
-            width: 52px;
-            height: 52px;
+            color: #FFF;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
+            font-size: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
             cursor: pointer;
-            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45);
-            transition: all 0.2s;
         }
-        .kuku-main-play:hover { transform: scale(1.08); }
-        .kuku-ctrl-btn {
-            background: rgba(255, 255, 255, 0.1);
+        .player-header-title {
+            text-align: center;
+            font-family: 'Baloo 2', cursive;
+            font-size: 15px;
+            font-weight: 800;
             color: #E2E8F0;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 8px 16px;
+        }
+        .player-header-badge {
+            font-size: 10px;
+            color: #F472B6;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* MIDDLE PLAYER BODY: ARTWORK & WORD KARAOKE */
+        .player-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 12px 16px;
+            overflow: hidden;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .player-art-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 6px;
+        }
+        .player-art-glow {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(236, 72, 153, 0.4) 0%, transparent 70%);
+            animation: pulseGlow 3s ease-in-out infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(0.9); opacity: 0.5; }
+            100% { transform: scale(1.3); opacity: 0.9; }
+        }
+        .player-art-circle {
+            width: 76px;
+            height: 76px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 8px 24px rgba(236, 72, 153, 0.45);
+            position: relative;
+            z-index: 1;
+            animation: artBob 3s ease-in-out infinite;
+        }
+        @keyframes artBob {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        /* SOUND WAVE VISUALIZER */
+        .wave-visualizer {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            height: 20px;
+            margin: 4px 0 8px;
+        }
+        .wave-bar {
+            width: 3px;
+            height: 6px;
+            background: #EC4899;
+            border-radius: 2px;
+            transition: height 0.15s ease;
+        }
+        .wave-bar.playing {
+            animation: waveBounce 0.8s ease-in-out infinite alternate;
+        }
+        .wave-bar:nth-child(2) { animation-delay: 0.1s; height: 12px; background: #F472B6; }
+        .wave-bar:nth-child(3) { animation-delay: 0.25s; height: 18px; background: #FDE047; }
+        .wave-bar:nth-child(4) { animation-delay: 0.15s; height: 10px; background: #A78BFA; }
+        .wave-bar:nth-child(5) { animation-delay: 0.3s; height: 14px; background: #EC4899; }
+        @keyframes waveBounce {
+            0% { height: 4px; }
+            100% { height: 18px; }
+        }
+
+        /* STORY TITLE & PROGRESS */
+        .player-story-name {
+            font-family: 'Baloo 2', cursive;
+            font-size: 20px;
+            font-weight: 800;
+            color: #FDE047;
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+        .player-story-theme {
+            font-size: 12px;
+            color: #CBD5E1;
+            margin-bottom: 8px;
+        }
+
+        /* ──── WORD-BY-WORD KARAOKE HIGHLIGHT BOX ──── */
+        .karaoke-word-box {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1.5px solid rgba(236, 72, 153, 0.35);
+            border-radius: 16px;
+            padding: 12px 14px;
+            width: 100%;
+            min-height: 90px;
+            max-height: 130px;
+            overflow-y: auto;
+            font-size: 16px;
+            line-height: 1.7;
+            color: #94A3B8;
+            text-align: left;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.4);
+        }
+        .karaoke-word {
+            display: inline-block;
+            padding: 1px 3px;
+            border-radius: 4px;
+            transition: all 0.12s ease;
+        }
+        .karaoke-word.word-active {
+            color: #FFFFFF !important;
+            background: var(--highlight-bg) !important;
+            border-bottom: 2px solid var(--highlight-word) !important;
+            font-weight: 800 !important;
+            transform: scale(1.06);
+            text-shadow: 0 0 10px rgba(255, 46, 147, 0.7);
+        }
+
+        /* VOICE & SETTINGS CONTROLS (PILL BUTTONS) */
+        .player-voice-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+        .voice-pill {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: #E2E8F0;
+            padding: 5px 10px;
             border-radius: 50px;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.2s;
         }
-        .kuku-ctrl-btn:hover { background: rgba(255, 255, 255, 0.2); color: #FFF; }
+        .voice-pill.active {
+            background: #7C3AED;
+            color: #FFF;
+            border-color: #A78BFA;
+            box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+        }
+
+        /* ──── BOTTOM FIXED PLAYBACK CONTROLS SHEET ──── */
+        .player-bottom-sheet {
+            background: #111827;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 10px 16px 14px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .player-main-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            max-width: 480px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .btn-ctrl-sec {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #E2E8F0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-ctrl-sec:hover { background: rgba(255, 255, 255, 0.2); }
+        .btn-ctrl-play {
+            background: linear-gradient(135deg, #EC4899, #8B5CF6);
+            border: none;
+            color: #FFF;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.5);
+            transition: all 0.2s;
+        }
+        .btn-ctrl-play:hover { transform: scale(1.08); }
+        .player-sub-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 480px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .btn-pill-sub {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #CBD5E1;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
 
         /* CONFETTI */
-        #confetti-box { position: fixed; inset: 0; pointer-events: none; z-index: 10000; }
+        #confetti-box { position: fixed; inset: 0; pointer-events: none; z-index: 100000; }
         .confetti-dot { position: absolute; top: -10px; animation: confettiDrop ease-in forwards; }
         @keyframes confettiDrop { to { transform: translateY(105vh) rotate(720deg); opacity: 0; } }
 
         /* FOOTER */
         footer {
-            margin-top: auto;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 24px 20px;
+            background: #080C16;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 20px 16px;
             text-align: center;
-            font-size: 13px;
-            color: #64748B;
-            background: #0B1120;
+            font-size: 12px;
+            color: var(--text-sub);
+            margin-top: auto;
         }
-        footer a { color: #F472B6; text-decoration: none; font-weight: 700; }
-
-        /* MOBILE RESPONSIVE ZERO-SCROLL MODAL */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 28px; }
-            .hero p { font-size: 13px; }
-            .story-container { grid-template-columns: 1fr; padding: 0 16px 28px; }
-
-            .modal-overlay {
-                padding: 0 !important;
-                inset: 0 !important;
-                background: #0F172A !important;
-            }
-            .modal-content {
-                width: 100vw !important;
-                height: 100vh !important;
-                height: 100dvh !important;
-                max-width: 100vw !important;
-                max-height: 100vh !important;
-                max-height: 100dvh !important;
-                border-radius: 0 !important;
-                margin: 0 !important;
-                padding: 16px !important;
-                display: flex !important;
-                flex-direction: column !important;
-                justify-content: space-between !important;
-                box-sizing: border-box !important;
-            }
-            .kuku-live-icon { width: 56px !important; height: 56px !important; font-size: 28px !important; }
-            .kuku-live-title { font-size: 20px !important; }
-            .kuku-karaoke-box { min-height: 110px !important; max-height: 160px !important; font-size: 14px !important; }
-            .modal-close { top: 12px !important; right: 12px !important; }
-        }
+        footer a { color: #EC4899; text-decoration: none; font-weight: 700; }
     </style>
 </head>
 <body>
 
     <div id="confetti-box"></div>
 
-    <nav>
-        <a href="index.html" class="nav-logo">
-            <span>🧒</span> GIndia Kids Stories
+    <!-- NATIVE APP HEADER -->
+    <header class="app-header">
+        <a href="index.html" class="app-brand">
+            <span>🧒</span> GINDiA Stories <span class="app-brand-badge">AUDIO</span>
         </a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">🏠 Learning Hub</a>
-            <a href="https://game.gindiahr.com" class="nav-link">🎮 Games</a>
-            <a href="https://social.gindiahr.com/stories.html" class="nav-link">📱 Social Stories</a>
+        <div class="header-actions">
+            <a href="index.html" class="header-btn">🏠 Kids Home</a>
+            <a href="https://social.gindiahr.com/stories.html" class="header-btn">📱 Social</a>
         </div>
-    </nav>
+    </header>
 
-    <div class="hero">
-        <div class="hero-badge">🎧 Kuku FM Style Bedtime Stories</div>
-        <h1>जादुई, सस्पेंस और शिक्षाप्रद कहानियाँ</h1>
-        <p>Listen to suspenseful, witty, and moral audio stories with real human voice narration in Hindi & English, live karaoke subtitles & soothing ambient music!</p>
-        
-        <div class="category-bar">
-            <button class="cat-btn active" onclick="filterStories('all', this)">✨ All Stories (सभी)</button>
-            <button class="cat-btn" onclick="filterStories('panchatantra', this)">🦁 Panchatantra (पंचतंत्र)</button>
-            <button class="cat-btn" onclick="filterStories('suspense', this)">🕵️ Suspense & Mystery (रहस्य)</button>
-            <button class="cat-btn" onclick="filterStories('akbar_birbal', this)">👑 Akbar Birbal (बीरबल)</button>
-            <button class="cat-btn" onclick="filterStories('moral', this)">⭐ Moral & Life (सीख)</button>
+    <!-- HORIZONTAL CATEGORY CHIPS SCROLLER -->
+    <div class="category-scroll-wrap">
+        <div class="category-scroll">
+            <div class="cat-chip active" onclick="selectCategory('all', this)">✨ All (सभी)</div>
+            <div class="cat-chip" onclick="selectCategory('panchatantra', this)">🦁 पंचतंत्र (Panchatantra)</div>
+            <div class="cat-chip" onclick="selectCategory('suspense', this)">🕵️ सस्पेंस व थ्रिलर (Mystery)</div>
+            <div class="cat-chip" onclick="selectCategory('akbar_birbal', this)">👑 अकबर-बीरबल (Wit)</div>
+            <div class="cat-chip" onclick="selectCategory('moral', this)">⭐ शिक्षाप्रद (Moral & Life)</div>
+            <div class="cat-chip" onclick="selectCategory('bedtime', this)">🌙 लोरी व जादुई (Bedtime)</div>
         </div>
     </div>
 
-    <div class="story-container" id="story-grid">
-        <!-- Rendered via JS -->
-    </div>
+    <!-- MAIN CONTENT -->
+    <main class="content-wrap">
+        <div class="section-header-row">
+            <div class="section-title">
+                <span id="category-heading-text">📚 All GINDiA Stories</span>
+                <span class="story-count-badge" id="story-count-display">5 Stories</span>
+            </div>
+        </div>
 
-    <!-- KUKU FM AUDIO STORY MODAL -->
-    <div class="modal-overlay" id="story-modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeStoryModal()">✕</button>
+        <!-- STORIES GRID -->
+        <div class="story-grid" id="story-list-grid"></div>
+    </main>
 
-            <div>
-                <div class="kuku-live-header">
-                    <div class="kuku-live-icon" id="modal-story-icon">🐰</div>
-                    <div>
-                        <div class="kuku-live-tag" id="modal-story-tag">पंचतंत्र सस्पेंस • Moral</div>
-                        <div class="kuku-live-title" id="modal-story-title">चालाक खरगोश और खूंखार शेर</div>
-                        <div class="kuku-live-sub" id="modal-story-sub">The Clever Rabbit & The Lion</div>
-                    </div>
-                </div>
+    <!-- ANDROID FULLSCREEN ZERO-SCROLL PLAYER MODAL -->
+    <div class="player-modal" id="player-modal">
+        <!-- TOP APPBAR -->
+        <div class="player-appbar">
+            <button class="player-back-btn" onclick="closePlayerModal()">←</button>
+            <div class="player-header-title">
+                <span class="player-header-badge" id="player-badge">GINDiA AUDIO STORY</span>
+                <span id="player-theme-tag">Panchatantra</span>
+            </div>
+            <button class="player-back-btn" onclick="closePlayerModal()">✕</button>
+        </div>
 
-                <!-- LIVE KARAOKE AREA -->
-                <div class="kuku-karaoke-box" id="modal-karaoke-area"></div>
+        <!-- MIDDLE BODY (ARTWORK & WORD-BY-WORD KARAOKE) -->
+        <div class="player-body">
+            <div class="player-art-wrap">
+                <div class="player-art-glow"></div>
+                <div class="player-art-circle" id="player-emoji">🐰</div>
             </div>
 
-            <!-- CONTROLS BAR -->
-            <div class="kuku-actions-bar">
-                <button class="kuku-ctrl-btn" onclick="toggleLang()" id="btn-lang-toggle">🌐 🇮🇳 Hindi (हिन्दी)</button>
-                <div style="display:flex; align-items:center; gap:10px;">
-                    <button class="kuku-ctrl-btn" onclick="prevSentence()" title="Previous Sentence">⏮️</button>
-                    <button class="kuku-main-play" id="btn-play-toggle" onclick="togglePlay()">▶</button>
-                    <button class="kuku-ctrl-btn" onclick="nextSentence()" title="Next Sentence">⏭️</button>
-                </div>
-                <button class="kuku-ctrl-btn" onclick="cycleSpeed()" id="btn-speed-toggle">⚡ 0.9x</button>
-                <button class="kuku-ctrl-btn" onclick="toggleMusic()" id="btn-music-toggle">🎵 Music: ON</button>
+            <div class="wave-visualizer" id="wave-visualizer">
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+                <div class="wave-bar"></div>
+            </div>
+
+            <div>
+                <div class="player-story-name" id="player-title">चालाक खरगोश और शेर</div>
+                <div class="player-story-theme" id="player-sub">The Clever Rabbit & The Lion</div>
+            </div>
+
+            <!-- REAL-TIME WORD-BY-WORD KARAOKE TEXT BOX -->
+            <div class="karaoke-word-box" id="karaoke-word-container">
+                <!-- Spans injected dynamically with word boundary highlight -->
+            </div>
+
+            <!-- VOICE SELECTOR ROW (FEMALE, MALE, CHILD) -->
+            <div class="player-voice-row">
+                <span style="font-size:11px; color:#CBD5E1; font-weight:700;">आवाज़ (Voice):</span>
+                <button class="voice-pill active" id="voice-btn-female" onclick="setVoiceGender('female')">👩 Female (महिला)</button>
+                <button class="voice-pill" id="voice-btn-male" onclick="setVoiceGender('male')">👨 Male (पुरुष)</button>
+                <button class="voice-pill" id="voice-btn-child" onclick="setVoiceGender('child')">🧒 Child (बच्चा)</button>
+            </div>
+        </div>
+
+        <!-- BOTTOM FIXED PLAYBACK CONTROLS SHEET (ZERO SCROLL) -->
+        <div class="player-bottom-sheet">
+            <div class="player-main-controls">
+                <button class="btn-ctrl-sec" onclick="prevSentence()" title="Previous line">⏮️</button>
+                <button class="btn-ctrl-play" id="btn-play-pause" onclick="togglePlayPause()">▶</button>
+                <button class="btn-ctrl-sec" onclick="nextSentence()" title="Next line">⏭️</button>
+            </div>
+
+            <div class="player-sub-controls">
+                <button class="btn-pill-sub" id="btn-lang" onclick="toggleLanguage()">🌐 🇮🇳 Hindi (हिन्दी)</button>
+                <button class="btn-pill-sub" id="btn-speed" onclick="cycleSpeed()">⚡ 0.9x</button>
+                <button class="btn-pill-sub" id="btn-music" onclick="toggleMusic()">🎵 Bg Music: ON</button>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>🌟 GIndia Kids Stories | Audio Storytelling Experience | <a href="index.html">GIndia Kids Hub</a> • <a href="https://gindiahr.com">GIndiaHR Group</a><br>
-        Bedtime stories for kids in Hindi • English bedtime tales • Panchatantra moral audio stories • Free learning Patna, India</p>
+        <p>© 2025 GINDiA Stories | <a href="index.html">GIndia Kids Learning Platform</a> • <a href="https://gindiahr.com">GIndiaHR Group</a><br>
+        100% Free Interactive Audio Stories for Children | Native Voice & Live Word Karaoke</p>
     </footer>
 
     <script>
-        const stories = [
+        // ──── COMPREHENSIVE STORY REPOSITORY ────
+        const storiesData = [
             {
                 id: 'rabbit_lion',
                 cat: 'panchatantra',
+                musicTheme: 'moral',
                 emoji: '🐰',
                 tag: 'पंचतंत्र सस्पेंस • Moral',
                 titleHi: 'चालाक खरगोश और खूंखार शेर',
                 titleEn: 'The Clever Rabbit & The Fierce Lion',
                 subHi: 'बुद्धि और सूझबूझ से बड़े से बड़ा संकट भी टल जाता है',
                 subEn: 'Wit and intelligence can conquer sheer brute force',
-                preview: 'जब जंगल के राजा शेर ने रोज एक जानवर खाने की जिद की, तो नन्हे चालाक खरगोश ने एक गहरे कुएं की मदद से रची सस्पेंस भरी योजना...',
+                preview: 'जब जंगल के राजा भासुरक शेर ने रोज एक जानवर खाने की जिद की, तो नन्हे चालाक खरगोश ने एक पुराने कुएं की मदद से रची सस्पेंस भरी योजना...',
                 sentencesHi: [
                     'सुंदरवन के घने जंगल में भासुरक नाम का एक बहुत ही खूंखार और घमंडी शेर रहता था।',
                     'वह हर दिन अपनी भूख मिटाने के लिए कई बेकसूर मासूम जानवरों का शिकार कर देता था।',
@@ -552,6 +706,7 @@
             {
                 id: 'magic_pot',
                 cat: 'moral',
+                musicTheme: 'moral',
                 emoji: '🏺',
                 tag: 'जादुई रहस्य • Moral',
                 titleHi: 'जादुई मटका और लालची जमींदार',
@@ -589,6 +744,7 @@
             {
                 id: 'whispering_tree',
                 cat: 'suspense',
+                musicTheme: 'suspense',
                 emoji: '🌳',
                 tag: 'साहस और सस्पेंस • Adventure',
                 titleHi: 'भूतिया पेड़ का अनसुलझा रहस्य',
@@ -626,6 +782,7 @@
             {
                 id: 'birbal_ring',
                 cat: 'akbar_birbal',
+                musicTheme: 'inspirational',
                 emoji: '👑',
                 tag: 'अकबर-बीरबल • Wit & Mystery',
                 titleHi: 'बीरबल और चोर की जादुई दाढ़ी',
@@ -662,7 +819,8 @@
             },
             {
                 id: 'firefly_cave',
-                cat: 'moral',
+                cat: 'bedtime',
+                musicTheme: 'bedtime',
                 emoji: '✨',
                 tag: 'प्यारी कहानी • Kindness',
                 titleHi: 'नन्ही जुगनू और अंधेरी गुफा',
@@ -699,19 +857,30 @@
             }
         ];
 
-        let activeStoryIndex = 0;
-        let activeSentenceIndex = 0;
-        let activeLang = 'hi';
+        // ──── APPLICATION STATE ────
+        let currentCategory = 'all';
+        let currentStoryIndex = 0;
+        let currentSentenceIndex = 0;
+        let currentLang = 'hi';
+        let currentVoiceGender = 'female'; // 'female', 'male', 'child'
         let playbackSpeed = 0.92;
         let isPlaying = false;
         let speechTimer = null;
+        let wordTimer = null;
 
-        // Ambient Audio
+        // ──── ADAPTIVE THEMED SYNTHESIZER (AMBIENT MUSIC) ────
         let audioCtx = null;
         let gainNode = null;
         let isMusicEnabled = true;
 
-        function startMusic() {
+        const musicFrequencies = {
+            suspense: [73.42, 110.00, 146.83, 220.00], // D minor dark ambient
+            moral: [130.81, 164.81, 196.00, 261.63],    // C major warm pad
+            inspirational: [174.61, 220.00, 261.63, 349.23], // F major triumphant
+            bedtime: [110.00, 164.81, 220.00, 277.18]   // A soothing lullaby
+        };
+
+        function startThemeMusic(theme = 'moral') {
             try {
                 if (!isMusicEnabled) return;
                 const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -721,16 +890,19 @@
                 if (gainNode) return;
 
                 gainNode = audioCtx.createGain();
-                gainNode.gain.setValueAtTime(0.035, audioCtx.currentTime);
+                gainNode.gain.setValueAtTime(0.032, audioCtx.currentTime);
                 gainNode.connect(audioCtx.destination);
 
-                [130.81, 164.81, 196.00, 261.63].forEach(f => {
+                const freqs = musicFrequencies[theme] || musicFrequencies.moral;
+                freqs.forEach(f => {
                     const osc = audioCtx.createOscillator();
-                    osc.type = 'sine';
+                    osc.type = theme === 'suspense' ? 'triangle' : 'sine';
                     osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+
                     const filter = audioCtx.createBiquadFilter();
                     filter.type = 'lowpass';
-                    filter.frequency.setValueAtTime(450, audioCtx.currentTime);
+                    filter.frequency.setValueAtTime(theme === 'suspense' ? 320 : 480, audioCtx.currentTime);
+
                     osc.connect(filter);
                     filter.connect(gainNode);
                     osc.start();
@@ -738,211 +910,321 @@
             } catch(e) {}
         }
 
-        function stopMusic() {
+        function stopThemeMusic() {
             try {
                 if (gainNode && audioCtx) {
-                    gainNode.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.4);
-                    setTimeout(() => { gainNode = null; }, 450);
+                    gainNode.gain.linearRampToValueAtTime(0.0001, audioCtx.currentTime + 0.35);
+                    setTimeout(() => { gainNode = null; }, 400);
                 }
             } catch(e) {}
         }
 
         function toggleMusic() {
             isMusicEnabled = !isMusicEnabled;
-            document.getElementById('btn-music-toggle').textContent = isMusicEnabled ? '🎵 Music: ON' : '🔇 Music: OFF';
-            if (isMusicEnabled && isPlaying) startMusic();
-            else stopMusic();
+            document.getElementById('btn-music').textContent = isMusicEnabled ? '🎵 Bg Music: ON' : '🔇 Bg Music: OFF';
+            if (isMusicEnabled && isPlaying) {
+                const story = storiesData[currentStoryIndex];
+                startThemeMusic(story.musicTheme);
+            } else {
+                stopThemeMusic();
+            }
         }
 
-        function getVoice(lang) {
+        // ──── SMART VOICE SELECTION (FEMALE, MALE, CHILD) ────
+        function getVoiceForGender(lang, gender) {
             const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
             if (!voices || voices.length === 0) return null;
+
             if (lang === 'hi') {
-                return voices.find(v => v.lang.startsWith('hi') || v.name.includes('Hindi') || v.name.includes('हिन्दी') || v.name.includes('Kalpana') || v.name.includes('Hemant') || v.name.includes('Google हिन्दी')) || voices[0];
+                const hindiVoices = voices.filter(v => v.lang.startsWith('hi') || v.name.includes('Hindi') || v.name.includes('हिन्दी'));
+                if (hindiVoices.length > 0) {
+                    if (gender === 'female') {
+                        const f = hindiVoices.find(v => v.name.includes('Kalpana') || v.name.includes('Female') || v.name.includes('महिला') || v.name.includes('Google हिन्दी'));
+                        if (f) return f;
+                    } else if (gender === 'male') {
+                        const m = hindiVoices.find(v => v.name.includes('Hemant') || v.name.includes('Male') || v.name.includes('पुरुष'));
+                        if (m) return m;
+                    }
+                    return hindiVoices[0];
+                }
             }
-            return voices.find(v => v.lang === 'en-IN' || v.name.includes('India') || v.name.includes('Zira') || v.name.includes('Natural') || v.name.includes('Google UK English Female') || v.lang.startsWith('en')) || voices[0];
+
+            // English voices
+            const enIndian = voices.filter(v => v.lang === 'en-IN' || v.name.includes('India'));
+            if (enIndian.length > 0) {
+                if (gender === 'female') {
+                    const f = enIndian.find(v => v.name.includes('Female') || v.name.includes('Heera') || v.name.includes('Zira'));
+                    if (f) return f;
+                } else if (gender === 'male') {
+                    const m = enIndian.find(v => v.name.includes('Male') || v.name.includes('Ravi') || v.name.includes('David'));
+                    if (m) return m;
+                }
+                return enIndian[0];
+            }
+
+            return voices.find(v => v.lang.startsWith('en')) || voices[0];
         }
 
-        function renderStories(filter = 'all') {
-            const grid = document.getElementById('story-grid');
-            grid.innerHTML = '';
-            const list = filter === 'all' ? stories : stories.filter(s => s.cat === filter || filter === 'all');
+        function setVoiceGender(g) {
+            currentVoiceGender = g;
+            ['female', 'male', 'child'].forEach(id => {
+                const btn = document.getElementById(`voice-btn-${id}`);
+                if (btn) btn.classList.toggle('active', id === g);
+            });
+            if (isPlaying) speakCurrentSentence();
+        }
 
-            list.forEach((s, idx) => {
-                const originalIdx = stories.indexOf(s);
+        // ──── CATEGORY FILTERING & RENDERING ────
+        function renderStoryCards(cat = 'all') {
+            const grid = document.getElementById('story-list-grid');
+            grid.innerHTML = '';
+            const filtered = cat === 'all' ? storiesData : storiesData.filter(s => s.cat === cat);
+
+            document.getElementById('story-count-display').textContent = `${filtered.length} Stories`;
+
+            filtered.forEach(story => {
+                const realIdx = storiesData.indexOf(story);
                 const card = document.createElement('div');
-                card.className = 'story-card';
+                card.className = 'story-card-native';
                 card.innerHTML = `
-                    <div>
-                        <div class="story-card-top">
-                            <div class="story-card-icon">${s.emoji}</div>
-                            <div>
-                                <div class="story-card-tag">${s.tag}</div>
-                                <div class="story-card-title">${activeLang === 'hi' ? s.titleHi : s.titleEn}</div>
-                                <div class="story-card-sub">${activeLang === 'hi' ? s.subHi : s.subEn}</div>
-                            </div>
-                        </div>
-                        <div class="story-card-preview">${s.preview}</div>
+                    <div class="story-thumb">${story.emoji}</div>
+                    <div class="story-info">
+                        <div class="story-tag-pill">${story.tag}</div>
+                        <div class="story-name">${currentLang === 'hi' ? story.titleHi : story.titleEn}</div>
+                        <div class="story-subtitle">${currentLang === 'hi' ? story.subHi : story.subEn}</div>
                     </div>
-                    <div class="story-card-btn">🎧 Listen Story (सुनें) ▶</div>
+                    <div class="story-play-icon">▶</div>
                 `;
-                card.onclick = () => openStory(originalIdx);
+                // Open and immediately play on click!
+                card.onclick = () => openAndPlayStory(realIdx);
                 grid.appendChild(card);
             });
         }
 
-        function filterStories(cat, btn) {
-            if (btn) {
-                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+        function selectCategory(cat, chip) {
+            currentCategory = cat;
+            if (chip) {
+                document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
             }
-            renderStories(cat);
+            const catNames = {
+                all: '📚 All GINDiA Stories',
+                panchatantra: '🦁 पंचतंत्र कहानियाँ (Panchatantra)',
+                suspense: '🕵️ सस्पेंस व थ्रिलर (Mystery Stories)',
+                akbar_birbal: '👑 अकबर-बीरबल की चतुराई (Wit Stories)',
+                moral: '⭐ शिक्षाप्रद कहानियाँ (Moral & Life)',
+                bedtime: '🌙 लोरी व जादुई कहानियाँ (Bedtime Tales)'
+            };
+            document.getElementById('category-heading-text').textContent = catNames[cat] || '📚 GINDiA Stories';
+            renderStoryCards(cat);
         }
 
-        function openStory(idx) {
-            activeStoryIndex = idx;
-            activeSentenceIndex = 0;
-            const story = stories[idx];
-            document.getElementById('modal-story-icon').textContent = story.emoji;
-            document.getElementById('modal-story-tag').textContent = story.tag;
-            document.getElementById('modal-story-title').textContent = activeLang === 'hi' ? story.titleHi : story.titleEn;
-            document.getElementById('modal-story-sub').textContent = activeLang === 'hi' ? story.subHi : story.subEn;
+        // ──── STORY PLAYER & WORD KARAOKE ────
+        function openAndPlayStory(idx) {
+            currentStoryIndex = idx;
+            currentSentenceIndex = 0;
+            const story = storiesData[idx];
 
-            renderKaraoke();
-            document.getElementById('story-modal').classList.add('open');
+            document.getElementById('player-emoji').textContent = story.emoji;
+            document.getElementById('player-theme-tag').textContent = story.tag;
+            document.getElementById('player-title').textContent = currentLang === 'hi' ? story.titleHi : story.titleEn;
+            document.getElementById('player-sub').textContent = currentLang === 'hi' ? story.subHi : story.subEn;
+
+            document.getElementById('player-modal').classList.add('open');
             document.body.style.overflow = 'hidden';
-            startPlay();
+
+            startPlayback();
         }
 
-        function closeStoryModal() {
-            stopPlay();
-            document.getElementById('story-modal').classList.remove('open');
+        function closePlayerModal() {
+            stopPlayback();
+            document.getElementById('player-modal').classList.remove('open');
             document.body.style.overflow = '';
         }
 
-        function renderKaraoke() {
-            const area = document.getElementById('modal-karaoke-area');
-            const story = stories[activeStoryIndex];
-            const list = activeLang === 'hi' ? story.sentencesHi : story.sentencesEn;
-            area.innerHTML = '';
-
-            list.forEach((st, idx) => {
-                const p = document.createElement('div');
-                p.className = 'kuku-karaoke-item' + (idx === activeSentenceIndex ? ' active' : '');
-                p.id = `karaoke-line-${idx}`;
-                p.textContent = st;
-                p.onclick = () => {
-                    activeSentenceIndex = idx;
-                    renderKaraoke();
-                    if (isPlaying) speakSentence();
-                };
-                area.appendChild(p);
-            });
-
-            const activeLine = document.getElementById(`karaoke-line-${activeSentenceIndex}`);
-            if (activeLine) activeLine.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        function togglePlayPause() {
+            if (isPlaying) stopPlayback();
+            else startPlayback();
         }
 
-        function togglePlay() {
-            if (isPlaying) stopPlay();
-            else startPlay();
-        }
-
-        function startPlay() {
+        function startPlayback() {
             isPlaying = true;
-            document.getElementById('btn-play-toggle').textContent = '⏸';
-            startMusic();
-            speakSentence();
+            document.getElementById('btn-play-pause').textContent = '⏸';
+            setWaveVisualizer(true);
+
+            const story = storiesData[currentStoryIndex];
+            startThemeMusic(story.musicTheme);
+            speakCurrentSentence();
         }
 
-        function stopPlay() {
+        function stopPlayback() {
             isPlaying = false;
-            document.getElementById('btn-play-toggle').textContent = '▶';
+            document.getElementById('btn-play-pause').textContent = '▶';
+            setWaveVisualizer(false);
+
             if ('speechSynthesis' in window) window.speechSynthesis.cancel();
             if (speechTimer) clearTimeout(speechTimer);
-            stopMusic();
+            if (wordTimer) clearInterval(wordTimer);
+            stopThemeMusic();
         }
 
-        function speakSentence() {
-            if (!isPlaying) return;
-            const story = stories[activeStoryIndex];
-            const list = activeLang === 'hi' ? story.sentencesHi : story.sentencesEn;
+        function setWaveVisualizer(active) {
+            const bars = document.querySelectorAll('.wave-bar');
+            bars.forEach(b => b.classList.toggle('playing', active));
+        }
 
-            if (activeSentenceIndex >= list.length) {
-                stopPlay();
+        function renderSentenceWords(sentenceText) {
+            const container = document.getElementById('karaoke-word-container');
+            container.innerHTML = '';
+            const words = sentenceText.trim().split(/\s+/);
+
+            words.forEach((w, idx) => {
+                const span = document.createElement('span');
+                span.className = 'karaoke-word';
+                span.id = `k-word-${idx}`;
+                span.textContent = w + ' ';
+                container.appendChild(span);
+            });
+        }
+
+        function highlightWordIndex(idx) {
+            document.querySelectorAll('.karaoke-word').forEach(sp => sp.classList.remove('word-active'));
+            const activeSpan = document.getElementById(`k-word-${idx}`);
+            if (activeSpan) {
+                activeSpan.classList.add('word-active');
+            }
+        }
+
+        function speakCurrentSentence() {
+            if (!isPlaying) return;
+            const story = storiesData[currentStoryIndex];
+            const sentences = currentLang === 'hi' ? story.sentencesHi : story.sentencesEn;
+
+            if (currentSentenceIndex >= sentences.length) {
+                // Story completed
+                stopPlayback();
                 launchConfetti();
-                activeSentenceIndex = 0;
-                renderKaraoke();
+                currentSentenceIndex = 0;
                 return;
             }
 
-            renderKaraoke();
-            const text = list[activeSentenceIndex];
+            const rawText = sentences[currentSentenceIndex];
+            renderSentenceWords(rawText);
 
-            if ('speechSynthesis' in window) {
-                window.speechSynthesis.cancel();
-                const utt = new SpeechSynthesisUtterance(text);
-                utt.lang = activeLang === 'hi' ? 'hi-IN' : 'en-IN';
-                utt.rate = playbackSpeed;
-                utt.pitch = activeLang === 'hi' ? 1.02 : 1.05;
-                const voice = getVoice(activeLang);
-                if (voice) utt.voice = voice;
+            if (!('speechSynthesis' in window)) return;
+            window.speechSynthesis.cancel();
+            if (wordTimer) clearInterval(wordTimer);
 
-                utt.onend = () => {
-                    if (!isPlaying) return;
-                    speechTimer = setTimeout(() => {
-                        activeSentenceIndex++;
-                        speakSentence();
-                    }, 220);
-                };
-                utt.onerror = () => {
-                    if (!isPlaying) return;
-                    activeSentenceIndex++;
-                    speakSentence();
-                };
-                window.speechSynthesis.speak(utt);
+            const utt = new SpeechSynthesisUtterance(rawText);
+            utt.lang = currentLang === 'hi' ? 'hi-IN' : 'en-IN';
+            utt.rate = playbackSpeed;
+
+            // Pitch & voice tuning by gender
+            if (currentVoiceGender === 'female') {
+                utt.pitch = 1.08;
+            } else if (currentVoiceGender === 'male') {
+                utt.pitch = 0.85;
+            } else if (currentVoiceGender === 'child') {
+                utt.pitch = 1.45;
+                utt.rate = playbackSpeed * 1.05;
             }
+
+            const voice = getVoiceForGender(currentLang, currentVoiceGender);
+            if (voice) utt.voice = voice;
+
+            // Word-by-word boundary tracking
+            const words = rawText.trim().split(/\s+/);
+            let boundaryTriggered = false;
+
+            utt.onboundary = (e) => {
+                if (e.name === 'word') {
+                    boundaryTriggered = true;
+                    // Calculate word index based on character offset
+                    let charCount = 0;
+                    for (let i = 0; i < words.length; i++) {
+                        charCount += words[i].length + 1;
+                        if (e.charIndex < charCount) {
+                            highlightWordIndex(i);
+                            break;
+                        }
+                    }
+                }
+            };
+
+            // High-precision Fallback word-by-word timer if browser boundary is unsupported
+            let wordIdx = 0;
+            const approxWordDuration = Math.max(160, Math.floor(60000 / (135 * playbackSpeed)));
+            wordTimer = setInterval(() => {
+                if (!boundaryTriggered && isPlaying && wordIdx < words.length) {
+                    highlightWordIndex(wordIdx);
+                    wordIdx++;
+                }
+            }, approxWordDuration);
+
+            utt.onend = () => {
+                if (wordTimer) clearInterval(wordTimer);
+                highlightWordIndex(words.length - 1);
+                if (!isPlaying) return;
+
+                speechTimer = setTimeout(() => {
+                    currentSentenceIndex++;
+                    speakCurrentSentence();
+                }, 220); // Natural human sentence pause
+            };
+
+            utt.onerror = () => {
+                if (wordTimer) clearInterval(wordTimer);
+                if (!isPlaying) return;
+                currentSentenceIndex++;
+                speakCurrentSentence();
+            };
+
+            window.speechSynthesis.speak(utt);
         }
 
         function prevSentence() {
-            if (activeSentenceIndex > 0) {
-                activeSentenceIndex--;
-                renderKaraoke();
-                if (isPlaying) speakSentence();
+            if (currentSentenceIndex > 0) {
+                currentSentenceIndex--;
+                if (isPlaying) speakCurrentSentence();
+                else renderSentenceWords((currentLang === 'hi' ? storiesData[currentStoryIndex].sentencesHi : storiesData[currentStoryIndex].sentencesEn)[currentSentenceIndex]);
             }
         }
 
         function nextSentence() {
-            const story = stories[activeStoryIndex];
-            const list = activeLang === 'hi' ? story.sentencesHi : story.sentencesEn;
-            if (activeSentenceIndex < list.length - 1) {
-                activeSentenceIndex++;
-                renderKaraoke();
-                if (isPlaying) speakSentence();
+            const total = (currentLang === 'hi' ? storiesData[currentStoryIndex].sentencesHi : storiesData[currentStoryIndex].sentencesEn).length;
+            if (currentSentenceIndex < total - 1) {
+                currentSentenceIndex++;
+                if (isPlaying) speakCurrentSentence();
+                else renderSentenceWords((currentLang === 'hi' ? storiesData[currentStoryIndex].sentencesHi : storiesData[currentStoryIndex].sentencesEn)[currentSentenceIndex]);
             }
         }
 
-        function toggleLang() {
-            activeLang = activeLang === 'hi' ? 'en' : 'hi';
-            document.getElementById('btn-lang-toggle').textContent = activeLang === 'hi' ? '🌐 🇮🇳 Hindi (हिन्दी)' : '🌐 🇬🇧 English';
+        function toggleLanguage() {
+            currentLang = currentLang === 'hi' ? 'en' : 'hi';
+            document.getElementById('btn-lang').textContent = currentLang === 'hi' ? '🌐 🇮🇳 Hindi (हिन्दी)' : '🌐 🇬🇧 English';
             const wasPlaying = isPlaying;
-            stopPlay();
-            openStory(activeStoryIndex);
-            if (!wasPlaying) stopPlay();
+            stopPlayback();
+
+            const story = storiesData[currentStoryIndex];
+            document.getElementById('player-title').textContent = currentLang === 'hi' ? story.titleHi : story.titleEn;
+            document.getElementById('player-sub').textContent = currentLang === 'hi' ? story.subHi : story.subEn;
+
+            renderStoryCards(currentCategory);
+            if (wasPlaying) startPlayback();
         }
 
         function cycleSpeed() {
             if (playbackSpeed === 0.92) playbackSpeed = 1.1;
             else if (playbackSpeed === 1.1) playbackSpeed = 0.8;
             else playbackSpeed = 0.92;
-            document.getElementById('btn-speed-toggle').textContent = `⚡ ${playbackSpeed}x`;
-            if (isPlaying) speakSentence();
+            document.getElementById('btn-speed').textContent = `⚡ ${playbackSpeed}x`;
+            if (isPlaying) speakCurrentSentence();
         }
 
         function launchConfetti() {
             const box = document.getElementById('confetti-box');
             const colors = ['#EC4899', '#8B5CF6', '#FDE047', '#10B981', '#3B82F6', '#F97316'];
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 35; i++) {
                 const el = document.createElement('div');
                 el.className = 'confetti-dot';
                 el.style.left = Math.random() * 100 + 'vw';
@@ -955,13 +1237,13 @@
             }
         }
 
-        // Close on background click
-        document.getElementById('story-modal').addEventListener('click', function(e) {
-            if (e.target === this) closeStoryModal();
-        });
+        // Initialize voices when available
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {};
+        }
 
-        // Initialize
-        renderStories('all');
+        // Initial render
+        renderStoryCards('all');
     </script>
 </body>
 </html>

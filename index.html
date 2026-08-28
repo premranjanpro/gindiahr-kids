@@ -986,7 +986,7 @@
                 <span class="hero-badge">🔊 Voice Learning</span>
             </div>
             <div class="hero-btns">
-                <button class="hero-btn kuku" onclick="openModule('kukustories')" style="background: linear-gradient(135deg, #EC4899, #8B5CF6); color:#fff;"><span class="emoji">🎧</span> Audio Stories</button>
+                <button class="hero-btn kuku" onclick="openModule('kukustories')" style="background: linear-gradient(135deg, #EC4899, #8B5CF6); color:#fff;"><span class="emoji">🎧</span> GINDiA Stories</button>
                 <button class="hero-btn tut" onclick="openModule('tutorials')" style="background: linear-gradient(135deg, #7C3AED, #2563EB); color:#fff;"><span class="emoji">🎓</span> Voice Tutorials</button>
                 <button class="hero-btn alpha" onclick="openModule('alpha')"><span class="emoji">🔤</span> Alphabet</button>
                 <button class="hero-btn num" onclick="openModule('numbers')"><span class="emoji">🔢</span> Numbers</button>
@@ -1008,9 +1008,9 @@
             <div class="modules-grid">
                 <div class="mod-card kukustories" onclick="openModule('kukustories')" style="background: linear-gradient(135deg, #FFF1F8, #FCE7F3); border-color: #F472B6;">
                     <span class="mod-icon">🎧</span>
-                    <div class="mod-badge" style="background: linear-gradient(135deg,#EC4899,#8B5CF6); color:#fff;">✨ Kuku FM Style</div>
-                    <h3>Audio Stories (कहानियाँ)</h3>
-                    <p>Listen to suspenseful & moral bedtime tales in human Hindi & English with live subtitles & ambient music!</p>
+                    <div class="mod-badge" style="background: linear-gradient(135deg,#EC4899,#8B5CF6); color:#fff;">✨ GINDiA Audio</div>
+                    <h3>GINDiA Audio Stories (कहानियाँ)</h3>
+                    <p>Listen to thrilling & moral audio stories with real human voices (Female, Male, Child), live word highlighting & background music!</p>
                     <button class="mod-btn" id="open-kukustories" style="background: linear-gradient(135deg,#EC4899,#8B5CF6);">▶ Listen Stories</button>
                 </div>
                 <div class="mod-card tutorials" onclick="openModule('tutorials')" style="background: linear-gradient(135deg, #F5F3FF, #EDE9FE); border-color: #A78BFA;">
@@ -1122,49 +1122,67 @@
         </div>
     </section>
 
-    <!-- KUKU FM AUDIO STORIES MODAL -->
+    <!-- GINDIA AUDIO STORIES MODAL -->
     <div class="modal-overlay" id="modal-kukustories">
-        <div class="modal" style="max-width: 660px;">
-            <button class="modal-close" onclick="closeModule('kukustories')">✕</button>
-            <div class="modal-title" style="color: #EC4899;">🎧 Kuku FM Audio Stories (कहानियाँ)</div>
-            <div class="modal-sub">Realistic voice storytelling in Hindi & English with live subtitles & ambient music!</div>
+        <div class="modal" style="max-width: 680px; padding: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
+            <!-- TOP BAR -->
+            <div style="background: #0F172A; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); flex-shrink: 0;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <span style="font-size: 20px;">🎧</span>
+                    <div>
+                        <div style="font-family:'Baloo 2',cursive; font-size:16px; font-weight:800; color:#FFF; line-height:1.1;">GINDiA Audio Stories</div>
+                        <div style="font-size:10px; color:#F472B6; font-weight:700; text-transform:uppercase;">Real Human Voice • Word Karaoke</div>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeModule('kukustories')" style="position: static; width:32px; height:32px;">✕</button>
+            </div>
 
-            <!-- KUKU FM LIVE PLAYER CARD -->
-            <div class="kuku-player-box">
-                <div class="kuku-bg-glow"></div>
-                <div class="kuku-cover-wrap">
-                    <div class="kuku-cover-icon" id="kuku-active-icon">🐰</div>
-                    <div class="kuku-story-header">
+            <!-- MIDDLE PLAYER BODY -->
+            <div style="padding: 14px 16px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; overflow-y: auto; background: linear-gradient(180deg, #0F172A 0%, #1E1B4B 100%);">
+                <!-- STORY HEADER -->
+                <div style="display:flex; align-items:center; gap:12px; margin-bottom:10px;">
+                    <div class="kuku-cover-icon" id="kuku-active-icon" style="width:56px; height:56px; font-size:28px; border-radius:14px;">🐰</div>
+                    <div style="flex:1; min-width:0;">
                         <span class="kuku-tag" id="kuku-active-tag">पंचतंत्र सस्पेंस • Moral</span>
-                        <div class="kuku-story-title" id="kuku-active-title">चालाक खरगोश और शेर</div>
+                        <div class="kuku-story-title" id="kuku-active-title" style="font-size:18px;">चालाक खरगोश और शेर</div>
                         <div class="kuku-story-sub" id="kuku-active-sub">The Clever Rabbit & The Lion</div>
                     </div>
                 </div>
 
-                <!-- LIVE KARAOKE SUBTITLES -->
-                <div class="kuku-karaoke-area" id="kuku-karaoke-area">
-                    <!-- Sentences rendered dynamically -->
+                <!-- WORD-BY-WORD KARAOKE TEXT BOX -->
+                <div class="karaoke-word-box" id="kuku-karaoke-area" style="background:rgba(15,23,42,0.9); border:1.5px solid rgba(236,72,153,0.35); border-radius:14px; padding:12px; min-height:85px; max-height:130px; overflow-y:auto; font-size:15px; line-height:1.7; color:#94A3B8; margin-bottom:10px;">
+                    <!-- Word spans injected via JS -->
                 </div>
 
-                <!-- AUDIO CONTROLS -->
-                <div class="kuku-controls">
-                    <button class="kuku-sec-btn" onclick="toggleStoryLang()" id="kuku-lang-btn">🌐 🇮🇳 Hindi (हिन्दी)</button>
-                    <div style="display:flex; align-items:center; gap:8px;">
-                        <button class="kuku-sec-btn" onclick="prevStorySentence()" title="Previous Sentence">⏮️</button>
-                        <button class="kuku-play-btn" id="kuku-play-toggle" onclick="toggleStoryPlayback()">▶</button>
-                        <button class="kuku-sec-btn" onclick="nextStorySentence()" title="Next Sentence">⏭️</button>
-                    </div>
-                    <button class="kuku-sec-btn" onclick="cycleStorySpeed()" id="kuku-speed-btn">⚡ 0.9x</button>
-                    <button class="kuku-sec-btn" onclick="toggleAmbientMusic()" id="kuku-music-btn">🎵 Music: ON</button>
+                <!-- VOICE SELECTION ROW (FEMALE, MALE, CHILD) -->
+                <div style="display:flex; align-items:center; justify-content:center; gap:6px; margin-bottom:10px; flex-wrap:wrap;">
+                    <span style="font-size:11px; color:#CBD5E1; font-weight:700;">आवाज़ (Voice):</span>
+                    <button class="voice-pill active" id="kid-voice-female" onclick="setKidStoryVoice('female')" style="background:#7C3AED; border:1px solid #A78BFA; color:#fff; padding:4px 10px; border-radius:50px; font-size:11px; font-weight:700; cursor:pointer;">👩 Female (महिला)</button>
+                    <button class="voice-pill" id="kid-voice-male" onclick="setKidStoryVoice('male')" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#CBD5E1; padding:4px 10px; border-radius:50px; font-size:11px; font-weight:700; cursor:pointer;">👨 Male (पुरुष)</button>
+                    <button class="voice-pill" id="kid-voice-child" onclick="setKidStoryVoice('child')" style="background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.15); color:#CBD5E1; padding:4px 10px; border-radius:50px; font-size:11px; font-weight:700; cursor:pointer;">🧒 Child (बच्चा)</button>
+                </div>
+
+                <!-- STORY CARDS HORIZONTAL/GRID PICKER -->
+                <div style="font-family:'Baloo 2',cursive; font-size:14px; font-weight:800; color:#FDE047; margin-bottom:6px;">
+                    📚 Tap Any Story to Play Instantly:
+                </div>
+                <div class="kuku-story-grid" id="kuku-story-grid" style="max-height:120px; gap:8px;">
+                    <!-- Populated via JS -->
                 </div>
             </div>
 
-            <div style="font-family:'Baloo 2',cursive; font-size:16px; font-weight:800; color:#1E293B; margin-bottom:8px;">
-                📚 Pick a Story to Listen & Read:
-            </div>
-            <!-- STORY LIST GRID -->
-            <div class="kuku-story-grid" id="kuku-story-grid">
-                <!-- Populated via JS -->
+            <!-- BOTTOM PINNED PLAYBACK CONTROLS SHEET (ZERO SCROLL) -->
+            <div style="background: #111827; border-top: 1px solid rgba(255,255,255,0.12); padding: 10px 16px; flex-shrink: 0; display: flex; flex-direction: column; gap: 8px;">
+                <div style="display:flex; align-items:center; justify-content:space-around; max-width:400px; margin:0 auto; width:100%;">
+                    <button class="kuku-sec-btn" onclick="prevStorySentence()" style="width:38px; height:38px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center;">⏮️</button>
+                    <button class="kuku-play-btn" id="kuku-play-toggle" onclick="toggleStoryPlayback()" style="width:50px; height:50px; font-size:20px;">▶</button>
+                    <button class="kuku-sec-btn" onclick="nextStorySentence()" style="width:38px; height:38px; border-radius:50%; padding:0; display:flex; align-items:center; justify-content:center;">⏭️</button>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; max-width:440px; margin:0 auto; width:100%; gap:6px;">
+                    <button class="kuku-sec-btn" onclick="toggleStoryLang()" id="kuku-lang-btn" style="padding:4px 10px; font-size:11px;">🌐 🇮🇳 Hindi</button>
+                    <button class="kuku-sec-btn" onclick="cycleStorySpeed()" id="kuku-speed-btn" style="padding:4px 10px; font-size:11px;">⚡ 0.9x</button>
+                    <button class="kuku-sec-btn" onclick="toggleAmbientMusic()" id="kuku-music-btn" style="padding:4px 10px; font-size:11px;">🎵 Music: ON</button>
+                </div>
             </div>
         </div>
     </div>
@@ -1750,6 +1768,61 @@
             });
         }
 
+        let kidStoryVoiceGender = 'female';
+        let kidWordTimer = null;
+
+        function setKidStoryVoice(g) {
+            kidStoryVoiceGender = g;
+            ['female', 'male', 'child'].forEach(id => {
+                const btn = document.getElementById(`kid-voice-${id}`);
+                if (btn) {
+                    if (id === g) {
+                        btn.style.background = '#7C3AED';
+                        btn.style.borderColor = '#A78BFA';
+                        btn.style.color = '#FFF';
+                    } else {
+                        btn.style.background = 'rgba(255,255,255,0.08)';
+                        btn.style.borderColor = 'rgba(255,255,255,0.15)';
+                        btn.style.color = '#CBD5E1';
+                    }
+                }
+            });
+            if (isStoryPlaying) playActiveSentence();
+        }
+
+        function getKidVoice(lang, gender) {
+            const voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+            if (!voices || voices.length === 0) return null;
+
+            if (lang === 'hi') {
+                const hi = voices.filter(v => v.lang.startsWith('hi') || v.name.includes('Hindi') || v.name.includes('हिन्दी'));
+                if (hi.length > 0) {
+                    if (gender === 'female') {
+                        const f = hi.find(v => v.name.includes('Kalpana') || v.name.includes('Female') || v.name.includes('Google हिन्दी'));
+                        if (f) return f;
+                    } else if (gender === 'male') {
+                        const m = hi.find(v => v.name.includes('Hemant') || v.name.includes('Male'));
+                        if (m) return m;
+                    }
+                    return hi[0];
+                }
+            }
+
+            const en = voices.filter(v => v.lang === 'en-IN' || v.name.includes('India'));
+            if (en.length > 0) {
+                if (gender === 'female') {
+                    const f = en.find(v => v.name.includes('Female') || v.name.includes('Heera') || v.name.includes('Zira'));
+                    if (f) return f;
+                } else if (gender === 'male') {
+                    const m = en.find(v => v.name.includes('Male') || v.name.includes('Ravi') || v.name.includes('David'));
+                    if (m) return m;
+                }
+                return en[0];
+            }
+
+            return voices.find(v => v.lang.startsWith('en')) || voices[0];
+        }
+
         function loadKukuStory(idx) {
             currentStoryIndex = idx;
             currentStorySentenceIdx = 0;
@@ -1758,7 +1831,7 @@
             document.getElementById('kuku-active-tag').textContent = story.tag;
             document.getElementById('kuku-active-title').textContent = currentStoryLang === 'hi' ? story.titleHi : story.titleEn;
             document.getElementById('kuku-active-sub').textContent = currentStoryLang === 'hi' ? story.subHi : story.subEn;
-            renderStoryKaraoke();
+            renderKidSentenceWords((currentStoryLang === 'hi' ? story.sentencesHi : story.sentencesEn)[0]);
             renderKukuStoryList();
         }
 
@@ -1768,32 +1841,39 @@
             toggleStoryPlayback();
         }
 
-        function renderStoryKaraoke() {
+        function renderKidSentenceWords(sentenceText) {
+            const area = document.getElementById('kuku-karaoke-area');
+            if (!area || !sentenceText) return;
+            area.innerHTML = '';
+            const words = sentenceText.trim().split(/\s+/);
+            words.forEach((w, i) => {
+                const sp = document.createElement('span');
+                sp.id = `kid-word-${i}`;
+                sp.textContent = w + ' ';
+                sp.style.padding = '1px 3px';
+                sp.style.borderRadius = '4px';
+                sp.style.transition = 'all 0.12s ease';
+                sp.style.display = 'inline-block';
+                area.appendChild(sp);
+            });
+        }
+
+        function highlightKidWord(idx) {
             const area = document.getElementById('kuku-karaoke-area');
             if (!area) return;
-            const story = kukuStoriesData[currentStoryIndex];
-            const sentences = currentStoryLang === 'hi' ? story.sentencesHi : story.sentencesEn;
-            area.innerHTML = '';
-
-            sentences.forEach((sent, idx) => {
-                const div = document.createElement('div');
-                div.className = 'kuku-karaoke-sentence' + (idx === currentStorySentenceIdx ? ' active' : '');
-                div.id = `kuku-sent-${idx}`;
-                div.textContent = sent;
-                div.onclick = () => {
-                    currentStorySentenceIdx = idx;
-                    renderStoryKaraoke();
-                    if (isStoryPlaying) {
-                        playActiveSentence();
-                    }
-                };
-                area.appendChild(div);
+            area.querySelectorAll('span').forEach(sp => {
+                sp.style.color = '#94A3B8';
+                sp.style.background = 'transparent';
+                sp.style.fontWeight = 'normal';
+                sp.style.borderBottom = 'none';
             });
-
-            // Auto scroll to active sentence
-            const activeEl = document.getElementById(`kuku-sent-${currentStorySentenceIdx}`);
-            if (activeEl) {
-                activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            const active = document.getElementById(`kid-word-${idx}`);
+            if (active) {
+                active.style.color = '#FFFFFF';
+                active.style.background = 'rgba(255, 46, 147, 0.28)';
+                active.style.borderBottom = '2px solid #FF2E93';
+                active.style.fontWeight = '800';
+                active.style.textShadow = '0 0 10px rgba(255,46,147,0.7)';
             }
         }
 
@@ -1820,6 +1900,7 @@
                 window.speechSynthesis.cancel();
             }
             if (storySpeechTimeout) clearTimeout(storySpeechTimeout);
+            if (kidWordTimer) clearInterval(kidWordTimer);
             stopAmbientMusic();
         }
 
@@ -1829,36 +1910,74 @@
             const sentences = currentStoryLang === 'hi' ? story.sentencesHi : story.sentencesEn;
 
             if (currentStorySentenceIdx >= sentences.length) {
-                // Story completed
                 stopStoryPlayback();
                 launchConfetti();
                 currentStorySentenceIdx = 0;
-                renderStoryKaraoke();
                 return;
             }
 
-            renderStoryKaraoke();
-            const textToSpeak = sentences[currentStorySentenceIdx];
+            const rawText = sentences[currentStorySentenceIdx];
+            renderKidSentenceWords(rawText);
 
             if ('speechSynthesis' in window) {
                 window.speechSynthesis.cancel();
-                const utt = new SpeechSynthesisUtterance(textToSpeak);
+                if (kidWordTimer) clearInterval(kidWordTimer);
+
+                const utt = new SpeechSynthesisUtterance(rawText);
                 utt.lang = currentStoryLang === 'hi' ? 'hi-IN' : 'en-IN';
                 utt.rate = storySpeed;
-                utt.pitch = currentStoryLang === 'hi' ? 1.02 : 1.05;
 
-                const voice = getBestVoice(currentStoryLang);
+                if (kidStoryVoiceGender === 'female') {
+                    utt.pitch = 1.08;
+                } else if (kidStoryVoiceGender === 'male') {
+                    utt.pitch = 0.85;
+                } else if (kidStoryVoiceGender === 'child') {
+                    utt.pitch = 1.45;
+                    utt.rate = storySpeed * 1.05;
+                }
+
+                const voice = getKidVoice(currentStoryLang, kidStoryVoiceGender);
                 if (voice) utt.voice = voice;
 
+                const words = rawText.trim().split(/\s+/);
+                let boundaryFired = false;
+
+                utt.onboundary = (e) => {
+                    if (e.name === 'word') {
+                        boundaryFired = true;
+                        let count = 0;
+                        for (let i = 0; i < words.length; i++) {
+                            count += words[i].length + 1;
+                            if (e.charIndex < count) {
+                                highlightKidWord(i);
+                                break;
+                            }
+                        }
+                    }
+                };
+
+                let wIdx = 0;
+                const wordDur = Math.max(160, Math.floor(60000 / (135 * storySpeed)));
+                kidWordTimer = setInterval(() => {
+                    if (!boundaryFired && isStoryPlaying && wIdx < words.length) {
+                        highlightKidWord(wIdx);
+                        wIdx++;
+                    }
+                }, wordDur);
+
                 utt.onend = () => {
+                    if (kidWordTimer) clearInterval(kidWordTimer);
+                    highlightKidWord(words.length - 1);
                     if (!isStoryPlaying) return;
+
                     storySpeechTimeout = setTimeout(() => {
                         currentStorySentenceIdx++;
                         playActiveSentence();
-                    }, 220); // Natural pause between sentences
+                    }, 220);
                 };
 
                 utt.onerror = () => {
+                    if (kidWordTimer) clearInterval(kidWordTimer);
                     if (!isStoryPlaying) return;
                     currentStorySentenceIdx++;
                     playActiveSentence();
@@ -1871,8 +1990,8 @@
         function prevStorySentence() {
             if (currentStorySentenceIdx > 0) {
                 currentStorySentenceIdx--;
-                renderStoryKaraoke();
                 if (isStoryPlaying) playActiveSentence();
+                else renderKidSentenceWords((currentStoryLang === 'hi' ? kukuStoriesData[currentStoryIndex].sentencesHi : kukuStoriesData[currentStoryIndex].sentencesEn)[currentStorySentenceIdx]);
             }
         }
 
@@ -1881,14 +2000,14 @@
             const sentences = currentStoryLang === 'hi' ? story.sentencesHi : story.sentencesEn;
             if (currentStorySentenceIdx < sentences.length - 1) {
                 currentStorySentenceIdx++;
-                renderStoryKaraoke();
                 if (isStoryPlaying) playActiveSentence();
+                else renderKidSentenceWords(sentences[currentStorySentenceIdx]);
             }
         }
 
         function toggleStoryLang() {
             currentStoryLang = currentStoryLang === 'hi' ? 'en' : 'hi';
-            document.getElementById('kuku-lang-btn').textContent = currentStoryLang === 'hi' ? '🌐 🇮🇳 Hindi (हिन्दी)' : '🌐 🇬🇧 English';
+            document.getElementById('kuku-lang-btn').textContent = currentStoryLang === 'hi' ? '🌐 🇮🇳 Hindi' : '🌐 🇬🇧 English';
             const wasPlaying = isStoryPlaying;
             stopStoryPlayback();
             loadKukuStory(currentStoryIndex);
