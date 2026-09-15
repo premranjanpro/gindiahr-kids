@@ -15,24 +15,13 @@ pre, code { max-width:100%; overflow-x:auto; }
 table { max-width:100%; }
 button, a, input, select, textarea { max-width:100%; }
 button, .btn, a { -webkit-tap-highlight-color:transparent; }
-
-/* Never lock the document to a desktop/fixed-height viewport. */
 body, main, .page, .wrap, .container, .content, .app, .shell { max-height:none !important; }
-
-/* Common navigation/header fixes */
 .nav, header nav { width:100%; max-width:100%; }
 .nav { flex-wrap:wrap; }
 .navlinks { max-width:100%; }
-
-/* Long words/URLs must wrap instead of creating horizontal overflow. */
 h1, h2, h3, h4, h5, h6, p, a, span, div, article { overflow-wrap:anywhere; }
-
-/* Grids collapse safely on phones. */
 .grid, .cards, .card-grid, .cats, .learning, .features, .items { width:100%; }
-
-/* Ads: do not create giant blank/fixed areas if an ad provider is slow. */
 .pr-adsense-slot { width:100%; max-width:100%; min-height:0 !important; height:auto !important; margin:12px auto !important; padding:0 8px !important; }
-
 @media (max-width: 768px) {
   .nav { padding:9px 10px !important; gap:8px !important; }
   .navlinks { width:100%; justify-content:center; }
@@ -44,7 +33,6 @@ h1, h2, h3, h4, h5, h6, p, a, span, div, article { overflow-wrap:anywhere; }
   .toolbar, .actions { flex-wrap:wrap !important; }
   .toolbar > *, .actions > * { min-width:0 !important; flex:1 1 130px; }
 }
-
 @media (max-width: 480px) {
   .grid, .cats { grid-template-columns:1fr !important; }
   .hero h1 { font-size:clamp(27px,9vw,38px) !important; }
@@ -54,15 +42,15 @@ h1, h2, h3, h4, h5, h6, p, a, span, div, article { overflow-wrap:anywhere; }
 }
 ''', encoding="utf-8")
 
-# Remove every injected in-page AdSense placement. ads.txt and the AdSense loader
-# are intentionally left untouched so monetization can be re-enabled later without
-# rebuilding the site.
-pattern = re.compile(r'\s*<!--\s*PR-ADSENSE-INJECTED\s*-->\s*<div class="pr-adsense-slot[\s\S]*?</div>', re.I)
+# Remove injected AdSense placements without touching ads.txt or the optional loader.
+slot = re.compile(r'\s*<!--\s*PR-ADSENSE-INJECTED\s*-->\s*<div class="pr-adsense-slot[\s\S]*?</div>\s*', re.I)
+residual = re.compile(r'\s*<ins class="adsbygoogle"[\s\S]*?</ins>\s*<script>\s*\(adsbygoogle\s*=.*?</script>\s*(?:</div>)?\s*', re.I)
 
 for path in ROOT.glob("*.html"):
     text = path.read_text(encoding="utf-8")
     original = text
-    text = pattern.sub("", text)
+    text = slot.sub("\n", text)
+    text = residual.sub("\n", text)
     if "mobile-responsive.css" not in text and "</head>" in text.lower():
         text = re.sub(r'</head>', '  <link rel="stylesheet" href="mobile-responsive.css">\n</head>', text, count=1, flags=re.I)
     if text != original:
