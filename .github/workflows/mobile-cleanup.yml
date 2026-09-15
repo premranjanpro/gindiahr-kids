@@ -1,0 +1,26 @@
+name: Mobile Responsive Cleanup
+
+on:
+  push:
+    paths:
+      - 'tools/mobile_cleanup.py'
+      - '.github/workflows/mobile-cleanup.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply mobile cleanup
+        run: python tools/mobile_cleanup.py
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add '*.html' mobile-responsive.css
+          git diff --cached --quiet || git commit -m "Make all kids pages mobile responsive and remove intrusive ads"
+          git push
