@@ -4,6 +4,9 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5097235456767325" crossorigin="anonymous"></script>
 <style id="pr-adsense-layout">.pr-adsense-slot{width:100%;box-sizing:border-box;clear:both;margin:28px auto;padding:0 12px;text-align:center;min-height:50px}.pr-adsense-horizontal{max-width:1100px}.pr-adsense-square{max-width:430px}.pr-adsense-vertical{max-width:330px}.pr-adsense-label{font-size:10px;line-height:1.2;color:#8a8a8a;text-align:center;margin:0 0 5px}@media(max-width:767px){.pr-adsense-slot{margin:22px auto;padding:0 8px}}</style>
 
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5097235456767325" crossorigin="anonymous"></script>
+<style id="pr-adsense-layout">.pr-adsense-slot{width:100%;box-sizing:border-box;clear:both;margin:28px auto;padding:0 12px;text-align:center;min-height:50px}.pr-adsense-horizontal{max-width:1100px}.pr-adsense-square{max-width:430px}.pr-adsense-vertical{max-width:330px}.pr-adsense-label{font-size:10px;line-height:1.2;color:#8a8a8a;text-align:center;margin:0 0 5px}@media(max-width:767px){.pr-adsense-slot{margin:22px auto;padding:0 8px}}</style>
+
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>My Drawing Board | GIndia Kids</title>
 <meta name="description" content="A fun creative drawing studio for kids with characters, objects, stickers, backgrounds, drawing tools and save support.">
@@ -16,7 +19,11 @@
 </head>
 <body>
 <nav><a href="quest.html" style="background:#7c3aed;color:#fff;padding:7px 13px;border-radius:999px;text-decoration:none;font-weight:900;margin-right:8px">🏆 Quest</a><a class="logo" href="index.html"><img src="images/logo/logo.png" alt="GIndia Kids"></a><div class="navlinks"><a href="index.html">🏠 Home</a><a href="colors.html">🎨 Colors</a><a href="stories.html">📚 Stories</a></div></nav>
+<!-- PR-ADSENSE-INJECTED -->
+<div class="pr-adsense-slot pr-adsense-horizontal"><div class="pr-adsense-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5097235456767325" data-ad-slot="5119886699" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 <section class="hero"><h1>🎨 My Creative Drawing Studio</h1><p>Draw, decorate and create your own little world!</p></section>
+<!-- PR-ADSENSE-INJECTED -->
+<div class="pr-adsense-slot pr-adsense-square"><div class="pr-adsense-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5097235456767325" data-ad-slot="5405248145" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 <main class="studio">
 <aside class="panel"><div class="panel-title">✨ Add to My Drawing</div><div class="categories" id="cats"></div><div class="asset-grid" id="assets"></div></aside>
 <section class="panel"><div class="workspace">
@@ -55,4 +62,6 @@ document.getElementById('clear').onclick=()=>{snapshot();ctx.clearRect(0,0,canva
 document.getElementById('save').onclick=()=>{let out=document.createElement('canvas');out.width=canvas.width;out.height=canvas.height;let c=out.getContext('2d');c.fillStyle='#fff';c.fillRect(0,0,out.width,out.height);c.drawImage(canvas,0,0);let base=wrap.getBoundingClientRect(),scale=out.width/base.width;objects.forEach(o=>{c.save();c.font=o.size*scale+'px serif';c.textAlign='center';c.textBaseline='middle';c.translate(o.x/100*out.width,o.y/100*out.height);c.rotate(o.rot*Math.PI/180);c.fillText(o.emoji,0,0);c.restore()});let a=document.createElement('a');a.download='gindia-kids-my-drawing.png';a.href=out.toDataURL('image/png');a.click();toast('💾 Masterpiece saved!')};
 renderCats();renderAssets();renderColors();renderBG();resize();window.addEventListener('resize',resize);setTimeout(()=>toast('🎨 Pick a character or object to start!'),500);
 </script>
+<!-- PR-ADSENSE-INJECTED -->
+<div class="pr-adsense-slot pr-adsense-vertical"><div class="pr-adsense-label">Advertisement</div><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5097235456767325" data-ad-slot="7088021599" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></div>
 </body></html>
